@@ -35,7 +35,6 @@ Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio i
 ```text
 ├── .antigravitycli/           # Antigravity CLI workspace state (gitignored)
 ├── .github/                   # GitHub Action configurations
-├── .lovable/                  # Project template configurations
 ├── .vscode/                   # Pre-configured workspace settings (extensions.json)
 ├── public/                    # Static public assets (favicons, robots.txt)
 ├── src/                       # Main source code
@@ -47,7 +46,7 @@ Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio i
 │   │   ├── recent-activity/   # GitHub & Medium RSS aggregator feature
 │   │   └── thought-of-day/    # Core widget and dynamic engine files
 │   ├── hooks/                 # Reusable react hooks (e.g. useResumeUrl)
-│   ├── lib/                   # Utility helpers (e.g. lovable-error-reporting)
+│   ├── lib/                   # Utility helpers and global configurations
 │   ├── routes/                # TanStack Router folder
 │   │   ├── api/               # API endpoints (e.g. activity-feed route)
 │   │   ├── __root.tsx         # Global layout wrapper and head metadata
