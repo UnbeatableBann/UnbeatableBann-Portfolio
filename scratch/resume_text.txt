@@ -1,0 +1,86 @@
+Shadab Jamadar
+Thergaon, Pune|+91-7066883930
+shadabjamadar4@gmail.com|github.com/UnbeatableBann|linkedin.com/in/shadab-jamadar
+Education
+Dr. D Y Patil School Of Science And TechnologyPune
+B.Tech in Artificial Intelligence & Data Science 2022 – 2026
+GPA: 9.6/10
+Spicer Higher Secondary SchoolPune
+Senior Secondary (XII), ISC - Science 2020 – 2021
+Score: 81%
+Spicer Higher Secondary SchoolPune
+Secondary (X), ICSE 2018 – 2019
+Score: 85%
+Work Experience
+AI Research InternApr 2025 - Oct 2025
+Planto AI Remote
+• Led competitive analysis of4 key industry players(tech stacks, strategy, financials), uncovering 7
+innovation gaps, improving Planto AI’s strategic planning effectiveness by 4%.
+• Identified and resolved performance bottlenecks in core AI solutions,boosting processing speed
+by 15%andimproving market positioning by 12%.
+• Built research briefs summarising technical and market insights, enabling15+ data-informed
+decisions across product and engineering teams.
+Data Science InternJul 2025 – Dec 2025
+Renu Sharma Healthcare & Educational Foundation Remote
+• Engineered end-to-end backendfor AI Interviewer platform, designing APIs, integrating
+databases, and implementing security protocols, reducing backend errors by25%.
+• Developed role-based authentication(admin, HR, student) with secure OAuth2.0 management,
+supporting100+ concurrent users.
+• Built amulti-containerDocker setup with FastAPI and Redis, cutting startup time by30%and
+enabling scalable infrastructure.
+Software Developer InternJan 2026 – April 2026
+Criql Labs Remote
+• Built a unifiedPython algorithmic trading SDKintegrating3 broker APIs(Zerodha, Angel
+One, FivePaisa) using a modular adapter architecture.
+• Designed a broker-agnosticInstrument Master schemaand ingestion pipeline inSQLite,
+normalizing100% of broker-specific instrument fieldsinto a consistent data model.
+• Implementedtestscovering core trading workflows, added structured logging, and packaged the SDK
+withPoetry, enabling scalable onboarding of new brokers.
+Skills
+Technical Skills:Python, Machine Learning, Deep Learning, Natural Language Processing (NLP),
+FastAPI, Artificial Intelligence, Generative AI, Agentic AI, Vector Database, Retrieval-AugmentedGeneration, Large Language Model (LLM), API Design, Docker, Data Analytics, SQL, Git, GitHub
+Soft Skills:Problem Solving, Time Management, Team Management, Collaboration, Critical
+Thinking, Leadership
+Languages:English, Hindi
+Projects
+Curio - AI Assisted TeachingOct 2025 – Jan 2026
+• Innovated anAgentic AI systemthat autonomously handled5+ core teaching tasks, reducing
+manual workload for teachers byup to 40%.
+• Designedmulti-step task workflowstriggered by natural language, with the agent generating
+100+ educational assets, including quizzes, images, and summaries.
+• Integrated real-time voice interaction using Picovoice + Gemini, enabling the agent to listen,
+reason, and respond during live classes with95 %+ transcription accuracy.
+LLM Evaluation PipelineNov 2025 – Dec 2025
+• Built a deterministic evaluation pipeline measuring4 core metrics(relevance, completeness,
+hallucination, latency), tested on150+ evaluation queries.
+• Designed modular workflows (loader→metrics→aggregator) to process300+ responsesper
+run, reducing manual evaluation effort by approximately35%.
+• Implementedembedding-basedscoring using sentence-transformers, achieving85%alignment
+with manual evaluation on sampled outputs.
+• Optimised performance with embedding caching and local inference, reducing redundant
+computations and improving evaluation latency by25%per batch run.
+GuideAI - Tourist AssistantJan 2025 – Feb 2025
+• Developed amultilingual AI voice assistantto tackle the challenge of enhancing real-time
+travel guidance, resulting in a25%increase in user satisfaction.
+• Addressed the challenge ofmultilingual supportby integrating 10 regional languages, boosting
+user engagement by10%.
+• Integrated3+ third-party APIsto provide personalised, location-aware suggestions.
+• Conducted usability testing with20+ users, incorporating feedback to boost recommendation
+relevance.
+Ishara - ISL Recognition SystemMar 2024 – Jun 2024
+• Engineered areal-time Indian Sign Languagerecognition system, overcoming communication
+challenges for individuals with hearing impairments, and enhancing interaction by64%.
+• Addressed the challenge of labelling large datasets of1,800+video samples( 200GB),
+streamlining data pipelines to boost model training speed by 3
+• Trained an LSTM model to classify20+ hand gestureswith92%accuracy, based on temporal
+movement patterns.
+Certifications
+Google Build & Grow AI Hackathon 2.0Jan 2026
+• Secured Top 25 rank among 1000 teams.
+Winter Consulting ProgramJan 2025
+• Consulting & Analytics Club, IIT GuwahatiWadhwani IgniteXSep 2024
+• By Wadhwani Association for building a startup plan and timeline
+IBM State Level Maharashtra HackathonFeb 2024
+• Issued by IBM for securing top 10 rank in hackathon
+Jio Creative HackathonAug 2023
+• By Reliance Jio for securing top 100 rank among 16,000 teams

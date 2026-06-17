@@ -1,0 +1,48 @@
+{
+  "lastFetched": "2026-06-17T04:54:27.137Z",
+  "activities": [
+    {
+      "id": "medium-post-from-text-to-images-building-a-semantic-search-engine-with-clip-af92d5230062",
+      "source": "medium",
+      "title": "Published: From Text to Images: Building a Semantic Search Engine with CLIP",
+      "description": "Imagine opening your photo gallery and searching for: “A highly detailed, epic battle scene of a person trying to fit a fitted sheet onto a mattress.” And somehow, the correct i...",
+      "url": "https://medium.com/@shadabjamadar/from-text-to-images-building-a-semantic-search-engine-with-clip-af92d5230062?source=rss-3d707b84faa9------2",
+      "timestamp": "2026-06-14T14:21:00.000Z",
+      "type": "article",
+      "score": 115,
+      "metadata": {
+        "originalTitle": "From Text to Images: Building a Semantic Search Engine with CLIP"
+      }
+    },
+    {
+      "id": "medium-post-rag-fails-in-production-0dae7e23b99e",
+      "source": "medium",
+      "title": "Published: The Hidden Reasons Your RAG Pipeline Stops Working at Scale",
+      "description": "Imagine hiring the smartest employee in the world. They can explain quantum physics, write software, summarise legal documents, and answer questions in seconds. Now imagine givi...",
+      "url": "https://medium.com/@shadabjamadar/rag-fails-in-production-0dae7e23b99e?source=rss-3d707b84faa9------2",
+      "timestamp": "2026-06-12T07:05:13.000Z",
+      "type": "article",
+      "score": 110,
+      "metadata": {
+        "originalTitle": "The Hidden Reasons Your RAG Pipeline Stops Working at Scale"
+      }
+    },
+    {
+      "id": "github-repo-UnbeatableBann/UnbeatableBann-12542799652",
+      "source": "github",
+      "title": "Updated UnbeatableBann",
+      "description": "17 commits",
+      "url": "https://github.com/UnbeatableBann/UnbeatableBann",
+      "timestamp": "2026-05-29T13:07:12Z",
+      "type": "commit",
+      "score": 90,
+      "repository": "UnbeatableBann",
+      "metadata": {
+        "repoName": "UnbeatableBann/UnbeatableBann",
+        "commitCount": 17,
+        "aggregationDays": 1,
+        "originalEventCount": 17
+      }
+    }
+  ]
+}
