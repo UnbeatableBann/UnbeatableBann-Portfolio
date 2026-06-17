@@ -1,2 +1,39 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Enforce LF line endings for all text-based source files
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Denote binary files to prevent line-ending modifications
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.svg text eol=lf
+*.webp binary
+
+# Font files
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary
+
+# Lockfiles and configuration
+bun.lock text eol=lf
+package.json text eol=lf
+tsconfig.json text eol=lf
+vercel.json text eol=lf
+components.json text eol=lf
