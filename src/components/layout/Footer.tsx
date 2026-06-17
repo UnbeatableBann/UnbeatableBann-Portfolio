@@ -2,7 +2,7 @@ import { useLocation } from "@tanstack/react-router";
 
 export function Footer() {
   const location = useLocation();
-  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products");
+  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products") || location.pathname.startsWith("/journey");
 
 
   return (
@@ -36,7 +36,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href={isSubPage ? "/#experience" : "#experience"} className="text-body hover:text-heading">
+              <a href="/journey" className="text-body hover:text-heading">
                 Journey
               </a>
             </li>

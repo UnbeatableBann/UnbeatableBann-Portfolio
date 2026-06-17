@@ -47,14 +47,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products");
+  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products") || location.pathname.startsWith("/journey");
   const isBlogPage = location.pathname.startsWith("/blog");
   const isProductsPage = location.pathname.startsWith("/products");
+  const isJourneyPage = location.pathname.startsWith("/journey");
 
   const navLinks = [
     { label: "Home", href: isSubPage ? "/#home" : "#home" },
     { label: "About", href: isSubPage ? "/#about" : "#about" },
-    { label: "Journey", href: isSubPage ? "/#experience" : "#experience" },
+    { label: "Journey", href: "/journey", active: isJourneyPage },
     { label: "Products", href: "/products", active: isProductsPage },
     { label: "Blog", href: "/blog", active: isBlogPage },
   ];

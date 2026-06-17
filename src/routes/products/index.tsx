@@ -414,7 +414,6 @@ export function ProductMockup({ slug }: { slug: string }) {
 export function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const [activeSlug, setActiveSlug] = useState("curio");
 
   // Filters mapping helper
   const filtersList = ["All", "AI Products", "Research", "Open Source", "Educational AI", "Trading Systems"];
@@ -453,6 +452,8 @@ export function ProductsPage() {
       return true;
     });
   }, [searchQuery, selectedFilter]);
+
+  const [activeSlug, setActiveSlug] = useState(() => filteredProducts[0]?.slug || "curio");
 
   // Reset active slug to first matching product if the current active slug gets filtered out
   useEffect(() => {

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as JourneyIndexRouteImport } from './routes/journey/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 import { Route as ApiBlogRouteImport } from './routes/api/blog'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneyIndexRoute = JourneyIndexRouteImport.update({
+  id: '/journey/',
+  path: '/journey/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/journey/': typeof JourneyIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/journey': typeof JourneyIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/journey/': typeof JourneyIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/api/blog'
     | '/products/$slug'
     | '/blog/'
+    | '/journey/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/api/blog'
     | '/products/$slug'
     | '/blog'
+    | '/journey'
     | '/products'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/api/blog'
     | '/products/$slug'
     | '/blog/'
+    | '/journey/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   ApiBlogRoute: typeof ApiBlogRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  JourneyIndexRoute: typeof JourneyIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products/'
       preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journey/': {
+      id: '/journey/'
+      path: '/journey'
+      fullPath: '/journey/'
+      preLoaderRoute: typeof JourneyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiBlogRoute: ApiBlogRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  JourneyIndexRoute: JourneyIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
