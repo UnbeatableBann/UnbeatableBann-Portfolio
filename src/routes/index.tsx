@@ -12,6 +12,10 @@ import {
   ChevronUp,
 } from "lucide-react";
 
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { useResumeUrl } from "@/hooks/useResumeUrl";
+
 import portraitHero from "@/assets/shadab-portrait-hero-transparent.png";
 import curio from "@/assets/product-curio.jpg";
 import interviewer from "@/assets/product-interviewer.jpg";
@@ -87,105 +91,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-let cachedBlobUrlPromise: Promise<string> | null = null;
-
-const getBlobUrl = (): Promise<string> => {
-  if (cachedBlobUrlPromise) return cachedBlobUrlPromise;
-  cachedBlobUrlPromise = fetch(resumePdf)
-    .then((res) => res.blob())
-    .then((blob) => URL.createObjectURL(blob))
-    .catch((err) => {
-      console.error("Error creating resume blob URL:", err);
-      return resumePdf; // Fallback to raw URL on failure
-    });
-  return cachedBlobUrlPromise;
-};
-
-const useResumeUrl = () => {
-  const [url, setUrl] = useState<string>("");
-
-  useEffect(() => {
-    getBlobUrl().then(setUrl);
-  }, []);
-
-  return url;
-};
-
-function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const resumeUrl = useResumeUrl();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Journey", href: "#experience" },
-    { label: "Blog", href: "https://medium.com", external: true },
-    { label: "Product", href: "#projects" },
-  ];
-
-  return (
-    <div
-      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "top-4 px-4 md:px-8" : "top-0 px-0"
-      }`}
-    >
-      <header
-        className={`mx-auto flex items-center justify-between transition-all duration-300 ${
-          isScrolled
-            ? "max-w-[850px] h-14 rounded-full bg-white/80 backdrop-blur-md border border-[#E8E8E8] shadow-soft px-6"
-            : "max-w-[1280px] h-20 bg-transparent px-6 lg:px-10"
-        }`}
-      >
-        <a href="#home" className="flex items-center gap-2">
-          <span className="grid place-items-center w-7 h-7 rounded-lg bg-primary text-white font-bold text-xs">
-            SJ
-          </span>
-          <span className="font-semibold tracking-tight text-heading text-sm md:text-base">
-            Shadab Jamadar
-          </span>
-        </a>
-
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.external ? "_blank" : undefined}
-              rel={l.external ? "noopener noreferrer" : undefined}
-              className="text-sm font-medium text-body hover:text-heading transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <a
-          href={resumeUrl || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
-            isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
-          }`}
-        >
-          Resume
-        </a>
-      </header>
-    </div>
-  );
-}
 
 function Hero() {
   const [dayOfWeek, setDayOfWeek] = useState("");
@@ -860,112 +765,7 @@ function ContactCTA() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-white">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16 grid md:grid-cols-4 gap-10">
-        <div className="space-y-4">
-          <div className="flex items-center gap-2.5">
-            <span className="grid place-items-center w-8 h-8 rounded-lg bg-primary text-white font-bold text-xs">
-              SJ
-            </span>
-            <span className="font-bold text-heading">Shadab Jamadar</span>
-          </div>
-          <p className="text-sm text-body max-w-xs leading-relaxed">
-            AI Engineer building systems that teach, reason and automate real work.
-          </p>
-        </div>
 
-        <div>
-          <div className="text-xs uppercase tracking-widest text-muted font-semibold mb-4">
-            Sitemap
-          </div>
-          <ul className="space-y-2 text-sm font-semibold">
-            <li>
-              <a href="#home" className="text-body hover:text-heading">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="text-body hover:text-heading">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#experience" className="text-body hover:text-heading">
-                Journey
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="text-body hover:text-heading">
-                Product
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <div className="text-xs uppercase tracking-widest text-muted font-semibold mb-4">
-            Connect
-          </div>
-          <ul className="space-y-2 text-sm font-semibold">
-            <li>
-              <a
-                href="https://github.com/UnbeatableBann"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-body hover:text-heading"
-              >
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/in/shadab-jamadar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-body hover:text-heading"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://medium.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-body hover:text-heading"
-              >
-                Medium
-              </a>
-            </li>
-            <li>
-              <a href="mailto:shadabjamadar4@gmail.com" className="text-body hover:text-heading">
-                Email
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <div className="text-xs uppercase tracking-widest text-muted font-semibold mb-4">
-            Philosophy
-          </div>
-          <p className="text-sm text-body leading-relaxed">
-            Restraint over noise. Whitespace over content. Better typography over gradients.
-          </p>
-        </div>
-      </div>
-
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted font-semibold">
-          <div>© {new Date().getFullYear()} Shadab Jamadar. All rights reserved.</div>
-          <div>Crafted with restraint · Built for products.</div>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 function SkillsGraphFallback() {
   return (

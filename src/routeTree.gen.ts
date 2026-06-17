@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ApiBlogRouteImport } from './routes/api/blog'
 import { Route as ApiActivityFeedRouteImport } from './routes/api/activity-feed'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBlogRoute = ApiBlogRouteImport.update({
+  id: '/api/blog',
+  path: '/api/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiActivityFeedRoute = ApiActivityFeedRouteImport.update({
@@ -26,27 +38,35 @@ const ApiActivityFeedRoute = ApiActivityFeedRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
+  '/api/blog': typeof ApiBlogRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
+  '/api/blog': typeof ApiBlogRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
+  '/api/blog': typeof ApiBlogRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/activity-feed'
+  fullPaths: '/' | '/api/activity-feed' | '/api/blog' | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/activity-feed'
-  id: '__root__' | '/' | '/api/activity-feed'
+  to: '/' | '/api/activity-feed' | '/api/blog' | '/blog'
+  id: '__root__' | '/' | '/api/activity-feed' | '/api/blog' | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiActivityFeedRoute: typeof ApiActivityFeedRoute
+  ApiBlogRoute: typeof ApiBlogRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/blog': {
+      id: '/api/blog'
+      path: '/api/blog'
+      fullPath: '/api/blog'
+      preLoaderRoute: typeof ApiBlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/activity-feed': {
@@ -71,6 +105,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiActivityFeedRoute: ApiActivityFeedRoute,
+  ApiBlogRoute: ApiBlogRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
