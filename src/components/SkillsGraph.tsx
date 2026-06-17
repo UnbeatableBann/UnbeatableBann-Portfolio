@@ -1038,8 +1038,8 @@ const getDeterministicTargetCoords = (nodeId: string, allNodes: SkillNode[]): { 
   if (nodeId in categoryAngles) {
     const angle = categoryAngles[nodeId];
     return {
-      x: center.x + 320 * Math.cos(angle),
-      y: center.y + 320 * Math.sin(angle),
+      x: center.x + 400 * Math.cos(angle),
+      y: center.y + 400 * Math.sin(angle),
     };
   }
 
@@ -1074,36 +1074,36 @@ const getDeterministicTargetCoords = (nodeId: string, allNodes: SkillNode[]): { 
   const parentAngle = Math.atan2(parentTarget.y - center.y, parentTarget.x - center.x);
 
   // Determine spacing and arc spread based on size/level
-  let dist = 110; // Default distance for tools
-  let arc = (45 * Math.PI) / 180; // 45 degrees default for tools
+  let dist = 160; // Default distance for tools
+  let arc = (65 * Math.PI) / 180; // 65 degrees default for tools
 
   if (parentId === "ai") {
-    arc = (48 * Math.PI) / 180;
-    dist = 195;
+    arc = (75 * Math.PI) / 180;
+    dist = 260;
   } else if (parentId === "infrastructure") {
-    arc = (48 * Math.PI) / 180;
-    dist = 180;
+    arc = (70 * Math.PI) / 180;
+    dist = 250;
   } else if (parentId === "ml" || parentId === "backend") {
-    arc = (30 * Math.PI) / 180;
-    dist = 180;
-  } else if (parentId === "programming" || parentId === "languages") {
-    arc = (30 * Math.PI) / 180;
-    dist = 160;
-  } else if (parentId === "llm-applications") {
-    arc = (40 * Math.PI) / 180;
-    dist = 130;
-  } else if (parentId === "rag-systems") {
-    arc = (45 * Math.PI) / 180;
-    dist = 130;
-  } else if (parentId === "agentic-ai") {
-    arc = (50 * Math.PI) / 180;
-    dist = 120;
-  } else if (parentId === "core-areas-ml") {
-    arc = (50 * Math.PI) / 180;
-    dist = 120;
-  } else if (parentId === "core-areas-backend") {
     arc = (55 * Math.PI) / 180;
-    dist = 120;
+    dist = 250;
+  } else if (parentId === "programming" || parentId === "languages") {
+    arc = (60 * Math.PI) / 180;
+    dist = 220;
+  } else if (parentId === "llm-applications") {
+    arc = (65 * Math.PI) / 180;
+    dist = 190;
+  } else if (parentId === "rag-systems") {
+    arc = (70 * Math.PI) / 180;
+    dist = 190;
+  } else if (parentId === "agentic-ai") {
+    arc = (75 * Math.PI) / 180;
+    dist = 180;
+  } else if (parentId === "core-areas-ml") {
+    arc = (75 * Math.PI) / 180;
+    dist = 180;
+  } else if (parentId === "core-areas-backend") {
+    arc = (80 * Math.PI) / 180;
+    dist = 180;
   }
 
   const startAngle = parentAngle - arc / 2;
@@ -1338,6 +1338,45 @@ export function SkillsGraph() {
           node.x += node.vx;
           node.y += node.vy;
         });
+
+        // 3. Collision resolution (anti-collision force)
+        // Displace overlapping nodes to guarantee they do not overlap
+        for (let iter = 0; iter < 4; iter++) {
+          for (let u = 0; u < nextNodes.length; u++) {
+            const nodeA = nextNodes[u];
+            if (!isNodeVisible(nodeA.id, activeCollapsed)) continue;
+            
+            for (let v = u + 1; v < nextNodes.length; v++) {
+              const nodeB = nextNodes[v];
+              if (!isNodeVisible(nodeB.id, activeCollapsed)) continue;
+              
+              const dx = nodeB.x - nodeA.x;
+              const dy = nodeB.y - nodeA.y;
+              const distance = Math.sqrt(dx * dx + dy * dy) || 1;
+              
+              const radiusA = getNodeRadius(nodeA.size, nodeA.id);
+              const radiusB = getNodeRadius(nodeB.size, nodeB.id);
+              
+              // Spacing boundary: nodes radius sum + 28px buffer
+              const minDistance = radiusA + radiusB + 28;
+              
+              if (distance < minDistance) {
+                const overlap = minDistance - distance;
+                const pushX = (dx / distance) * overlap * 0.5;
+                const pushY = (dy / distance) * overlap * 0.5;
+                
+                if (nodeA.id !== currentDragged && !nodeA.pinned) {
+                  nodeA.x -= pushX;
+                  nodeA.y -= pushY;
+                }
+                if (nodeB.id !== currentDragged && !nodeB.pinned) {
+                  nodeB.x += pushX;
+                  nodeB.y += pushY;
+                }
+              }
+            }
+          }
+        }
 
         return nextNodes;
       });
