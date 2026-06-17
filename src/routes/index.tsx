@@ -998,11 +998,11 @@ function Home() {
       <Navbar />
       <Hero />
       <CurrentlyBuilding />
+      <ExperienceSnapshot />
+      <Products />
       <Suspense fallback={<SkillsGraphFallback />}>
         <SkillsGraph />
       </Suspense>
-      <ExperienceSnapshot />
-      <Products />
       <ContactCTA />
       <Footer />
     </main>
