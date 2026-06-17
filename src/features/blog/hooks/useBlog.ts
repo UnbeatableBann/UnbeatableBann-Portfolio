@@ -84,7 +84,7 @@ export function useBlog() {
     return {
       All: total,
       ...counts,
-    };
+    } as Record<string, number>;
   }, [articles]);
 
   // Compute source counts for the sidebar (based on ALL articles)
@@ -100,7 +100,7 @@ export function useBlog() {
       if (art.source === "linkedin") counts.linkedin++;
     });
 
-    return counts;
+    return counts as Record<string, number>;
   }, [articles]);
 
   // Filtered & Sorted Articles
