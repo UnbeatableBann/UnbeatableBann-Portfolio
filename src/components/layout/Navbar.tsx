@@ -47,15 +47,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products");
   const isBlogPage = location.pathname.startsWith("/blog");
+  const isProductsPage = location.pathname.startsWith("/products");
 
   const navLinks = [
-    { label: "Home", href: isBlogPage ? "/#home" : "#home" },
-    { label: "About", href: isBlogPage ? "/#about" : "#about" },
-    { label: "Journey", href: isBlogPage ? "/#experience" : "#experience" },
+    { label: "Home", href: isSubPage ? "/#home" : "#home" },
+    { label: "About", href: isSubPage ? "/#about" : "#about" },
+    { label: "Journey", href: isSubPage ? "/#experience" : "#experience" },
+    { label: "Products", href: "/products", active: isProductsPage },
     { label: "Blog", href: "/blog", active: isBlogPage },
-    { label: "Product", href: isBlogPage ? "/#projects" : "#projects" },
   ];
+
 
   return (
     <div

@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 import { Route as ApiBlogRouteImport } from './routes/api/blog'
 import { Route as ApiActivityFeedRouteImport } from './routes/api/activity-feed'
 
@@ -19,9 +21,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products/$slug',
+  path: '/products/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiBlogRoute = ApiBlogRouteImport.update({
@@ -39,34 +51,61 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/activity-feed' | '/api/blog' | '/blog/'
+  fullPaths:
+    | '/'
+    | '/api/activity-feed'
+    | '/api/blog'
+    | '/products/$slug'
+    | '/blog/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/activity-feed' | '/api/blog' | '/blog'
-  id: '__root__' | '/' | '/api/activity-feed' | '/api/blog' | '/blog/'
+  to:
+    | '/'
+    | '/api/activity-feed'
+    | '/api/blog'
+    | '/products/$slug'
+    | '/blog'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/activity-feed'
+    | '/api/blog'
+    | '/products/$slug'
+    | '/blog/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiActivityFeedRoute: typeof ApiActivityFeedRoute
   ApiBlogRoute: typeof ApiBlogRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -78,11 +117,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$slug': {
+      id: '/products/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/blog': {
@@ -106,7 +159,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiActivityFeedRoute: ApiActivityFeedRoute,
   ApiBlogRoute: ApiBlogRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

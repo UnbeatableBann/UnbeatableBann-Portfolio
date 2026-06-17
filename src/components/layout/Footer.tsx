@@ -2,7 +2,8 @@ import { useLocation } from "@tanstack/react-router";
 
 export function Footer() {
   const location = useLocation();
-  const isBlogPage = location.pathname.startsWith("/blog");
+  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products");
+
 
   return (
     <footer className="border-t border-border bg-white">
@@ -25,23 +26,23 @@ export function Footer() {
           </div>
           <ul className="space-y-2 text-sm font-semibold">
             <li>
-              <a href={isBlogPage ? "/#home" : "#home"} className="text-body hover:text-heading">
+              <a href={isSubPage ? "/#home" : "#home"} className="text-body hover:text-heading">
                 Home
               </a>
             </li>
             <li>
-              <a href={isBlogPage ? "/#about" : "#about"} className="text-body hover:text-heading">
+              <a href={isSubPage ? "/#about" : "#about"} className="text-body hover:text-heading">
                 About
               </a>
             </li>
             <li>
-              <a href={isBlogPage ? "/#experience" : "#experience"} className="text-body hover:text-heading">
+              <a href={isSubPage ? "/#experience" : "#experience"} className="text-body hover:text-heading">
                 Journey
               </a>
             </li>
             <li>
-              <a href={isBlogPage ? "/#projects" : "#projects"} className="text-body hover:text-heading">
-                Product
+              <a href="/products" className="text-body hover:text-heading">
+                Products
               </a>
             </li>
           </ul>
