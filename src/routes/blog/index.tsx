@@ -240,7 +240,7 @@ function BlogPage() {
           {/* Topic Pills */}
           <div className="flex flex-wrap gap-2">
             {topicsList.map((topic) => {
-              const count = topicCounts[topic] !== undefined ? topicCounts[topic] : 0;
+              const count = topicCounts[topic] ?? 0;
               const isSelected = selectedTopic === topic;
               return (
                 <button
@@ -488,7 +488,7 @@ function BlogPage() {
               </h4>
               <ul className="space-y-2.5">
                 {topicsList.map((topic) => {
-                  const count = topicCounts[topic] !== undefined ? topicCounts[topic] : 0;
+                  const count = topicCounts[topic] ?? 0;
                   const isSelected = selectedTopic === topic;
                   return (
                     <li key={topic}>
@@ -517,7 +517,7 @@ function BlogPage() {
               </h4>
               <ul className="space-y-2.5">
                 {sourcesList.map((src) => {
-                  const count = sourceCounts[src.value as any] !== undefined ? sourceCounts[src.value as any] : 0;
+                  const count = sourceCounts[src.value] ?? 0;
                   const isSelected = selectedSource === src.value;
                   return (
                     <li key={src.value}>
