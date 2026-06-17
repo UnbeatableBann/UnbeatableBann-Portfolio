@@ -32,7 +32,11 @@ import inProgress5 from "@/assets/in-progress-5.jpg";
 
 import { ThoughtOfDayCard } from "@/features/thought-of-day";
 import { ActivityFeed } from "@/features/recent-activity/components/ActivityFeed";
-import { SkillsGraph } from "@/components/SkillsGraph";
+
+import { lazy, Suspense } from "react";
+const SkillsGraph = lazy(() =>
+  import("@/components/SkillsGraph").then((module) => ({ default: module.SkillsGraph }))
+);
 
 function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -76,6 +80,9 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Building AI systems that teach, reason and automate real work.",
       },
+    ],
+    links: [
+      { rel: "preload", href: portraitHero, as: "image", type: "image/png" },
     ],
   }),
   component: Home,
@@ -329,6 +336,8 @@ function Hero() {
                 src={portraitHero}
                 alt="Portrait of Shadab Jamadar"
                 className="w-full h-full object-contain object-bottom"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -391,6 +400,7 @@ function CurrentlyBuilding() {
                     src={img}
                     alt=""
                     className="h-[210px] w-[320px] object-cover rounded-xl flex-shrink-0 border border-border/40 shadow-sm mr-4"
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -405,6 +415,7 @@ function CurrentlyBuilding() {
                     src={img}
                     alt=""
                     className="h-[210px] w-[320px] object-cover rounded-xl flex-shrink-0 border border-border/40 shadow-sm mr-4"
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -588,6 +599,7 @@ function ExperienceSnapshot() {
                           src={job.logo}
                           alt={job.company}
                           className="w-full h-full object-contain"
+                          loading="lazy"
                         />
                       </span>
                       <div>
@@ -737,6 +749,7 @@ function Products() {
                 src={proj.image}
                 alt={proj.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -954,13 +967,40 @@ function Footer() {
   );
 }
 
+function SkillsGraphFallback() {
+  return (
+    <section id="skills" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none">
+      <div className="max-w-2xl mb-9">
+        <div className="text-label-custom text-muted font-semibold mb-3">
+          Skills Knowledge Graph
+        </div>
+        <h2 className="text-section-title font-bold tracking-tight text-heading">
+          My Technology Ecosystem
+        </h2>
+        <p className="mt-4 text-body-custom text-body">
+          A collection of abilities I’ve honed to create, design, and solve problems.
+        </p>
+      </div>
+
+      <div className="w-full relative bg-white rounded-2xl border border-border overflow-hidden h-[580px] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 rounded-full border-4 border-zinc-200 border-t-primary animate-spin" />
+          <p className="text-sm font-semibold text-muted-foreground">Loading interactive skills graph...</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   return (
     <main className="min-h-screen bg-[#FAFAF8] text-[#111111]">
       <Navbar />
       <Hero />
       <CurrentlyBuilding />
-      <SkillsGraph />
+      <Suspense fallback={<SkillsGraphFallback />}>
+        <SkillsGraph />
+      </Suspense>
       <ExperienceSnapshot />
       <Products />
       <ContactCTA />

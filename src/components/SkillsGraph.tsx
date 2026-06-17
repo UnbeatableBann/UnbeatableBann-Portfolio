@@ -1204,6 +1204,25 @@ export function SkillsGraph() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const dragStartRef = useRef({ x: 0, y: 0 });
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  // Set up intersection observer to only simulate when graph is visible
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(container);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   const panStartRef = useRef({ x: 0, y: 0 });
   const touchStartDistRef = useRef<number>(0);
   const touchStartZoomRef = useRef<number>(1.0);
@@ -1280,6 +1299,8 @@ export function SkillsGraph() {
 
   // Run force simulation loop
   useEffect(() => {
+    if (!isIntersecting) return;
+
     let animationFrameId: number;
 
     const updatePhysics = () => {
@@ -1326,7 +1347,7 @@ export function SkillsGraph() {
 
     animationFrameId = requestAnimationFrame(updatePhysics);
     return () => cancelAnimationFrame(animationFrameId);
-  }, []);
+  }, [isIntersecting]);
 
   // Handle Drag Start
   const handleNodeMouseDown = (e: React.MouseEvent, node: SkillNode) => {
