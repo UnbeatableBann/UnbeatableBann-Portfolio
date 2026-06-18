@@ -19,7 +19,7 @@ import {
   MessageSquare,
   Play,
   Terminal,
-  BarChart4
+  BarChart4,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -32,7 +32,8 @@ export const Route = createFileRoute("/products/")({
       { title: "Products — Shadab Jamadar | AI Engineer & Product Builder" },
       {
         name: "description",
-        content: "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
+        content:
+          "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
       },
     ],
   }),
@@ -49,7 +50,9 @@ export function ProductMockup({ slug }: { slug: string }) {
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-            <span className="text-slate-500 font-mono text-[9px] ml-1">curio-co-teacher.ai/dashboard</span>
+            <span className="text-slate-500 font-mono text-[9px] ml-1">
+              curio-co-teacher.ai/dashboard
+            </span>
           </div>
           <div className="flex items-center gap-1 bg-slate-800/60 rounded px-2 py-0.5 text-slate-400">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#6E9C53] animate-pulse" />
@@ -62,21 +65,36 @@ export function ProductMockup({ slug }: { slug: string }) {
           {/* Sidebar */}
           <div className="w-28 border-r border-slate-800/60 pr-2 flex flex-col gap-1.5 text-slate-400 font-sans">
             <div className="font-bold text-slate-200 mb-1 flex items-center gap-1">
-              <span className="bg-[#6E9C53]/20 text-[#6E9C53] p-0.5 rounded text-[8px]">SJ</span> Curio AI
+              <span className="bg-[#6E9C53]/20 text-[#6E9C53] p-0.5 rounded text-[8px]">SJ</span>{" "}
+              Curio AI
             </div>
-            <div className="bg-slate-850 text-white px-2 py-1 rounded font-medium cursor-pointer">Live Session</div>
-            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">Class History</div>
-            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">Curriculum Context</div>
-            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">System Config</div>
+            <div className="bg-slate-850 text-white px-2 py-1 rounded font-medium cursor-pointer">
+              Live Session
+            </div>
+            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">
+              Class History
+            </div>
+            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">
+              Curriculum Context
+            </div>
+            <div className="hover:bg-slate-800/40 px-2 py-1 rounded cursor-pointer transition">
+              System Config
+            </div>
           </div>
 
           {/* Main Panel */}
           <div className="flex-1 flex flex-col gap-3 min-h-0">
             {/* Main banner */}
             <div className="bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800 border border-slate-800 rounded-lg p-3 text-center flex flex-col items-center justify-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 text-[32px] text-slate-800/20 font-serif font-bold italic select-none">AI</div>
-              <h4 className="text-[13px] font-bold text-white mb-0.5">Your AI Co-Teacher, in Every Lesson.</h4>
-              <p className="text-slate-400 text-[9px] max-w-xs font-normal">Listening to: "Machine Learning Basics - Decision Trees and Entropy..."</p>
+              <div className="absolute top-0 right-0 text-[32px] text-slate-800/20 font-serif font-bold italic select-none">
+                AI
+              </div>
+              <h4 className="text-[13px] font-bold text-white mb-0.5">
+                Your AI Co-Teacher, in Every Lesson.
+              </h4>
+              <p className="text-slate-400 text-[9px] max-w-xs font-normal">
+                Listening to: "Machine Learning Basics - Decision Trees and Entropy..."
+              </p>
             </div>
 
             {/* Generated Cards Grid */}
@@ -87,14 +105,22 @@ export function ProductMockup({ slug }: { slug: string }) {
                     <Network className="w-3 h-3" />
                     <span>Mind Map</span>
                   </div>
-                  <p className="text-slate-400 text-[8px] leading-snug font-normal">Visual concept map linking Entropy with Information Gain.</p>
+                  <p className="text-slate-400 text-[8px] leading-snug font-normal">
+                    Visual concept map linking Entropy with Information Gain.
+                  </p>
                 </div>
                 <div className="flex justify-center py-1.5 relative">
-                  <div className="w-4 h-4 rounded-full bg-[#6E9C53]/30 border border-[#6E9C53] flex items-center justify-center text-[7px] font-bold text-white z-10">H</div>
+                  <div className="w-4 h-4 rounded-full bg-[#6E9C53]/30 border border-[#6E9C53] flex items-center justify-center text-[7px] font-bold text-white z-10">
+                    H
+                  </div>
                   <div className="w-3 h-[1px] bg-slate-700 absolute top-1/2 left-[25%] -translate-y-1/2" />
                   <div className="w-3 h-[1px] bg-slate-700 absolute top-1/2 right-[25%] -translate-y-1/2" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[6px] text-slate-300 absolute left-[15%] top-1/2 -translate-y-1/2">E</div>
-                  <div className="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[6px] text-slate-300 absolute right-[15%] top-1/2 -translate-y-1/2">IG</div>
+                  <div className="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[6px] text-slate-300 absolute left-[15%] top-1/2 -translate-y-1/2">
+                    E
+                  </div>
+                  <div className="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[6px] text-slate-300 absolute right-[15%] top-1/2 -translate-y-1/2">
+                    IG
+                  </div>
                 </div>
               </div>
 
@@ -104,10 +130,14 @@ export function ProductMockup({ slug }: { slug: string }) {
                     <Brain className="w-3 h-3" />
                     <span>Quiz</span>
                   </div>
-                  <p className="text-slate-400 text-[8px] leading-snug font-normal">1. What is entropy used to measure in decision trees?</p>
+                  <p className="text-slate-400 text-[8px] leading-snug font-normal">
+                    1. What is entropy used to measure in decision trees?
+                  </p>
                 </div>
                 <div className="space-y-1 text-[7px] text-slate-300">
-                  <div className="bg-slate-800/80 px-1 rounded border border-slate-700/60 py-0.5">A. Calculation speed</div>
+                  <div className="bg-slate-800/80 px-1 rounded border border-slate-700/60 py-0.5">
+                    A. Calculation speed
+                  </div>
                   <div className="bg-[#6E9C53]/10 text-[#6E9C53] border border-[#6E9C53]/30 px-1 rounded py-0.5 flex items-center justify-between">
                     <span>B. Impurity of data</span>
                     <Check className="w-2 h-2" />
@@ -145,7 +175,9 @@ export function ProductMockup({ slug }: { slug: string }) {
             <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
             <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
             <div className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-            <span className="text-slate-400 font-mono text-[9px] ml-1">interviewer.io/session/39f0a2</span>
+            <span className="text-slate-400 font-mono text-[9px] ml-1">
+              interviewer.io/session/39f0a2
+            </span>
           </div>
           <div className="flex items-center gap-1 bg-red-50 text-red-600 px-2 py-0.5 rounded text-[9px] font-semibold">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
@@ -159,31 +191,52 @@ export function ProductMockup({ slug }: { slug: string }) {
           <div className="flex-1 flex flex-col gap-3 min-h-0 bg-white rounded-lg border border-slate-200 p-2.5 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-100 pb-1.5 mb-1">
               <span className="font-bold text-slate-700">Question 3 of 5</span>
-              <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-normal">DSA / Data Structures</span>
+              <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-normal">
+                DSA / Data Structures
+              </span>
             </div>
-            
+
             <p className="font-medium text-slate-800 text-[10px] leading-snug">
               Explain how a binary search tree works? Implement a node struct and search algorithm.
             </p>
 
             <div className="bg-[#1E293B] text-slate-300 font-mono text-[8px] p-2 rounded-md overflow-x-auto flex-1 leading-normal select-none">
               <div className="text-slate-500">// TypeScript Binary Search Tree</div>
-              <div><span className="text-blue-400">class</span> <span className="text-yellow-300">BSTNode</span> &#123;</div>
-              <div>&nbsp;&nbsp;value: <span className="text-emerald-400">number</span>;</div>
-              <div>&nbsp;&nbsp;left: <span className="text-yellow-300">BSTNode</span> | <span className="text-blue-400">null</span> = <span className="text-blue-400">null</span>;</div>
-              <div>&nbsp;&nbsp;right: <span className="text-yellow-300">BSTNode</span> | <span className="text-blue-400">null</span> = <span className="text-blue-400">null</span>;</div>
+              <div>
+                <span className="text-blue-400">class</span>{" "}
+                <span className="text-yellow-300">BSTNode</span> &#123;
+              </div>
+              <div>
+                &nbsp;&nbsp;value: <span className="text-emerald-400">number</span>;
+              </div>
+              <div>
+                &nbsp;&nbsp;left: <span className="text-yellow-300">BSTNode</span> |{" "}
+                <span className="text-blue-400">null</span> ={" "}
+                <span className="text-blue-400">null</span>;
+              </div>
+              <div>
+                &nbsp;&nbsp;right: <span className="text-yellow-300">BSTNode</span> |{" "}
+                <span className="text-blue-400">null</span> ={" "}
+                <span className="text-blue-400">null</span>;
+              </div>
               <div>&#125;</div>
             </div>
 
-            <div className="text-slate-400 text-[8px] italic font-normal">Type your explanation here and explain edge cases...</div>
+            <div className="text-slate-400 text-[8px] italic font-normal">
+              Type your explanation here and explain edge cases...
+            </div>
           </div>
 
           {/* HR Rubric Performance Panel */}
           <div className="w-36 bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col justify-between shadow-sm">
             <div>
-              <h5 className="font-bold text-slate-800 text-[10px] border-b border-slate-100 pb-1.5 mb-2">Candidate Grading</h5>
+              <h5 className="font-bold text-slate-800 text-[10px] border-b border-slate-100 pb-1.5 mb-2">
+                Candidate Grading
+              </h5>
               <div className="text-center py-2 bg-emerald-50 rounded-lg border border-emerald-100 mb-3">
-                <div className="text-slate-400 text-[8px] uppercase tracking-wider font-semibold">Overall Score</div>
+                <div className="text-slate-400 text-[8px] uppercase tracking-wider font-semibold">
+                  Overall Score
+                </div>
                 <div className="text-lg font-bold text-emerald-600">82%</div>
               </div>
 
@@ -230,34 +283,50 @@ export function ProductMockup({ slug }: { slug: string }) {
         {/* Top bar */}
         <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
           <div className="flex items-center gap-1.5">
-            <span className="grid place-items-center w-5 h-5 rounded bg-emerald-500 text-white font-bold text-[9px]">H</span>
-            <span className="font-semibold text-slate-800 text-[10px]">Healthcare RAG Dashboard</span>
+            <span className="grid place-items-center w-5 h-5 rounded bg-emerald-500 text-white font-bold text-[9px]">
+              H
+            </span>
+            <span className="font-semibold text-slate-800 text-[10px]">
+              Healthcare RAG Dashboard
+            </span>
           </div>
-          <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-50 text-[#6E9C53] font-semibold border border-emerald-100">HIPAA Compliant</span>
+          <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-50 text-[#6E9C53] font-semibold border border-emerald-100">
+            HIPAA Compliant
+          </span>
         </div>
 
         <div className="flex flex-1 gap-3 min-h-0">
           {/* Left Panel */}
           <div className="w-24 border-r border-slate-100 pr-2 flex flex-col gap-1 text-slate-400 text-[9px] font-normal">
-            <div className="bg-emerald-50 text-emerald-700 font-semibold px-2 py-1 rounded">New Diagnostic</div>
+            <div className="bg-emerald-50 text-emerald-700 font-semibold px-2 py-1 rounded">
+              New Diagnostic
+            </div>
             <div className="px-2 py-0.5 hover:bg-slate-50 rounded cursor-pointer">Patient EHRs</div>
-            <div className="px-2 py-0.5 hover:bg-slate-50 rounded cursor-pointer">Drug Reference</div>
-            <div className="px-2 py-0.5 hover:bg-slate-50 rounded cursor-pointer">Citations Index</div>
+            <div className="px-2 py-0.5 hover:bg-slate-50 rounded cursor-pointer">
+              Drug Reference
+            </div>
+            <div className="px-2 py-0.5 hover:bg-slate-50 rounded cursor-pointer">
+              Citations Index
+            </div>
           </div>
 
           {/* Chat Workspace */}
           <div className="flex-1 flex flex-col gap-2 min-h-0">
             {/* Center question */}
             <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-2 border border-dashed border-slate-200 rounded-lg bg-slate-50/50">
-              <h4 className="text-[12px] font-bold text-slate-800 mb-1">How can I help you today?</h4>
-              <p className="text-slate-400 text-[8px] mb-2 max-w-[180px] font-normal">Ask about diagnosis metrics, clinical guidelines or paper references.</p>
-              
+              <h4 className="text-[12px] font-bold text-slate-800 mb-1">
+                How can I help you today?
+              </h4>
+              <p className="text-slate-400 text-[8px] mb-2 max-w-[180px] font-normal">
+                Ask about diagnosis metrics, clinical guidelines or paper references.
+              </p>
+
               {/* Search bar */}
               <div className="w-full max-w-[220px] relative">
-                <input 
-                  type="text" 
-                  readOnly 
-                  placeholder="Ask a medical question..." 
+                <input
+                  type="text"
+                  readOnly
+                  placeholder="Ask a medical question..."
                   className="w-full pl-3 pr-8 py-1 text-[8px] rounded border border-slate-200 bg-white focus:outline-none"
                 />
                 <Search className="w-2.5 h-2.5 absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -321,10 +390,18 @@ export function ProductMockup({ slug }: { slug: string }) {
         <div className="flex-1 bg-black/60 border border-slate-900 rounded p-2 overflow-y-auto leading-normal text-slate-400 select-none text-[8px]">
           <div className="text-slate-600 font-sans">// Execution Logs - Tick Buffer Stream</div>
           <div>[08:00:00.001] [IPC] Shared memory connected.</div>
-          <div className="text-emerald-400">[08:00:00.800] [MT5] EURUSD tick: Buy 1.08450 (Latency 800μs)</div>
-          <div className="text-emerald-400">[08:00:01.200] [MT5] GBPUSD tick: Sell 1.26840 (Latency 780μs)</div>
-          <div className="text-cyan-400">[08:00:02.110] [EXEC] Order filled: 0.1 lots Buy EURUSD</div>
-          <div className="text-amber-400">[08:00:02.112] [EXEC] Slippage calculation: 0.00001 (0.01%)</div>
+          <div className="text-emerald-400">
+            [08:00:00.800] [MT5] EURUSD tick: Buy 1.08450 (Latency 800μs)
+          </div>
+          <div className="text-emerald-400">
+            [08:00:01.200] [MT5] GBPUSD tick: Sell 1.26840 (Latency 780μs)
+          </div>
+          <div className="text-cyan-400">
+            [08:00:02.110] [EXEC] Order filled: 0.1 lots Buy EURUSD
+          </div>
+          <div className="text-amber-400">
+            [08:00:02.112] [EXEC] Slippage calculation: 0.00001 (0.01%)
+          </div>
         </div>
       </div>
     );
@@ -337,15 +414,21 @@ export function ProductMockup({ slug }: { slug: string }) {
         <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
           <div className="flex items-center gap-1.5">
             <BarChart4 className="w-4 h-4 text-amber-500" />
-            <span className="font-bold text-slate-200 text-[11px]">Quantix Portfolio Optimizer</span>
+            <span className="font-bold text-slate-200 text-[11px]">
+              Quantix Portfolio Optimizer
+            </span>
           </div>
-          <span className="bg-amber-500/10 text-amber-500 border border-amber-500/25 px-1.5 py-0.5 rounded text-[8px] font-semibold">Mean-Variance Active</span>
+          <span className="bg-amber-500/10 text-amber-500 border border-amber-500/25 px-1.5 py-0.5 rounded text-[8px] font-semibold">
+            Mean-Variance Active
+          </span>
         </div>
 
         <div className="grid grid-cols-5 gap-3 flex-1 min-h-0">
           {/* Table Cointegration */}
           <div className="col-span-3 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col">
-            <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">Cointegration Scanner</h5>
+            <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
+              Cointegration Scanner
+            </h5>
             <div className="space-y-1.5 flex-1 overflow-y-auto">
               <div className="flex items-center justify-between border-b border-slate-800 pb-1">
                 <span className="text-white font-medium">EURUSD / GBPUSD</span>
@@ -365,7 +448,9 @@ export function ProductMockup({ slug }: { slug: string }) {
           {/* Allocation Weights */}
           <div className="col-span-2 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col justify-between">
             <div>
-              <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">Weights Allocation</h5>
+              <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
+                Weights Allocation
+              </h5>
               <div className="space-y-2">
                 <div>
                   <div className="flex justify-between text-[8px] mb-0.5 text-slate-400">
@@ -416,7 +501,14 @@ export function ProductsPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   // Filters mapping helper
-  const filtersList = ["All", "AI Products", "Research", "Open Source", "Educational AI", "Trading Systems"];
+  const filtersList = [
+    "All",
+    "AI Products",
+    "Research",
+    "Open Source",
+    "Educational AI",
+    "Trading Systems",
+  ];
 
   // Filtered products list
   const filteredProducts = useMemo(() => {
@@ -434,7 +526,10 @@ export function ProductsPage() {
       // 2. Tab Filter
       if (selectedFilter === "All") return true;
       if (selectedFilter === "AI Products") {
-        return product.domain.includes("AI") || ["curio", "ai-interviewer", "healthcare-rag"].includes(product.slug);
+        return (
+          product.domain.includes("AI") ||
+          ["curio", "ai-interviewer", "healthcare-rag"].includes(product.slug)
+        );
       }
       if (selectedFilter === "Research") {
         return product.status === "Research";
@@ -446,7 +541,10 @@ export function ProductsPage() {
         return product.domain === "EDUCATIONAL AI" || product.slug === "curio";
       }
       if (selectedFilter === "Trading Systems") {
-        return product.domain === "TRADING SYSTEMS" || ["mt5-infrastructure", "quantix"].includes(product.slug);
+        return (
+          product.domain === "TRADING SYSTEMS" ||
+          ["mt5-infrastructure", "quantix"].includes(product.slug)
+        );
       }
 
       return true;
@@ -497,7 +595,6 @@ export function ProductsPage() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSlug, filteredProducts]);
-
 
   return (
     <main className="min-h-screen bg-[#FAFAF8] text-[#111111]">
@@ -550,7 +647,6 @@ export function ProductsPage() {
       {/* Directory Section */}
       <section id="products-directory" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16">
         <div className="grid lg:grid-cols-12 gap-10 items-start">
-          
           {/* Left Sidebar - Sticky Navigation */}
           <aside className="lg:col-span-3 lg:sticky lg:top-[100px] space-y-6 hidden lg:block">
             <div className="bg-white rounded-2xl border border-border shadow-soft p-5 space-y-5">
@@ -608,7 +704,6 @@ export function ProductsPage() {
 
           {/* Right Panel - Product Content & Filters */}
           <div className="lg:col-span-9 space-y-10 w-full">
-            
             {/* Filter Bar & Search */}
             <div className="bg-white rounded-2xl border border-border p-4 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Horizontal scrollable tags */}
@@ -682,15 +777,19 @@ export function ProductsPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#6E9C53] bg-[#E8F0D2] px-2 py-0.5 rounded">
                           {prod.domain}
                         </span>
-                        <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                          prod.status === "Live" || prod.status === "Production"
-                            ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                            : "bg-amber-50 text-amber-700 border border-amber-100"
-                        }`}>
+                        <span
+                          className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                            prod.status === "Live" || prod.status === "Production"
+                              ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                              : "bg-amber-50 text-amber-700 border border-amber-100"
+                          }`}
+                        >
                           {prod.status}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-heading tracking-tight">{prod.name}</h3>
+                      <h3 className="text-2xl font-bold text-heading tracking-tight">
+                        {prod.name}
+                      </h3>
                       <div className="text-sm font-semibold text-[#6E9C53] italic">
                         {prod.tagline}
                       </div>
@@ -751,7 +850,9 @@ export function ProductsPage() {
                 ))
               ) : (
                 <div className="bg-white rounded-2xl border border-border p-12 text-center text-body space-y-2">
-                  <div className="text-lg font-semibold text-heading">No products match your search</div>
+                  <div className="text-lg font-semibold text-heading">
+                    No products match your search
+                  </div>
                   <p className="text-xs text-muted font-normal max-w-sm mx-auto">
                     Try clearing filters or search terms to browse Shadab's other projects.
                   </p>
@@ -767,7 +868,7 @@ export function ProductsPage() {
                 </div>
               )}
             </div>
-            
+
             {/* Banner block at bottom */}
             <div className="bg-white rounded-3xl border border-border p-6 md:p-8 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden mt-12">
               <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none -z-10" />
@@ -776,9 +877,12 @@ export function ProductsPage() {
                   <Sparkles className="w-5 h-5" />
                 </span>
                 <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-heading">Every product is built with a focus on solving real problems.</h4>
+                  <h4 className="text-sm font-bold text-heading">
+                    Every product is built with a focus on solving real problems.
+                  </h4>
                   <p className="text-xs text-body leading-relaxed max-w-xl font-normal">
-                    Interested in engineering collaboration, specialized quantitative models, or custom educational AI solutions? Let's connect.
+                    Interested in engineering collaboration, specialized quantitative models, or
+                    custom educational AI solutions? Let's connect.
                   </p>
                 </div>
               </div>
@@ -789,7 +893,6 @@ export function ProductsPage() {
                 Let's Connect <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
-
           </div>
         </div>
       </section>

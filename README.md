@@ -1,6 +1,6 @@
 # Shadab Jamadar — AI Engineer & Product Builder Portfolio
 
-Welcome to the official repository for my professional developer portfolio. This application is a premium, highly interactive web application designed to highlight my work in AI engineering, agentic systems, data science, and backend development. 
+Welcome to the official repository for my professional developer portfolio. This application is a premium, highly interactive web application designed to highlight my work in AI engineering, agentic systems, data science, and backend development.
 
 Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio is optimized for speed, SEO, and visual excellence, featuring smooth CSS transitions, dynamic widgets, and an interactive skills graph.
 
@@ -8,25 +8,25 @@ Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio i
 
 ## Key Features
 
-*   **Interactive Skills Graph:** A custom-built SVG/Canvas-based [SkillsGraph](file:///src/components/SkillsGraph.tsx) component showcasing my expertise across machine learning, software engineering, and database systems.
-*   **Dual-Row Screenshot Marquee:** An aesthetic, scrolling showcase of flagship projects (Curio, Quantix, Interviewer, etc.) with progressive loading indicators.
-*   **Dynamic Activity Feed:** A provider-based activity aggregator that fetches, formats, and displays real-time updates from GitHub commits/repositories and Medium articles.
-*   **Thought of the Day Widget:** A calendar-linked dynamic component that reads and serves curated software engineering and AI quotes based on the current calendar date.
-*   **Professional Journey Timeline:** A interactive, collapsible work experience timeline detailing my accomplishments at Planto AI, Renu Sharma Foundation, and Criql Labs.
-*   **SEO Optimized:** Handcrafted semantic tags, specific metadata, and OpenGraph definitions configured globally via TanStack Router hooks.
-*   **Asset Ingestion:** Directly links and serves assets like resume PDFs and images with fallback support.
+- **Interactive Skills Graph:** A custom-built SVG/Canvas-based [SkillsGraph](file:///src/components/SkillsGraph.tsx) component showcasing my expertise across machine learning, software engineering, and database systems.
+- **Dual-Row Screenshot Marquee:** An aesthetic, scrolling showcase of flagship projects (Curio, Quantix, Interviewer, etc.) with progressive loading indicators.
+- **Dynamic Activity Feed:** A provider-based activity aggregator that fetches, formats, and displays real-time updates from GitHub commits/repositories and Medium articles.
+- **Thought of the Day Widget:** A calendar-linked dynamic component that reads and serves curated software engineering and AI quotes based on the current calendar date.
+- **Professional Journey Timeline:** A interactive, collapsible work experience timeline detailing my accomplishments at Planto AI, Renu Sharma Foundation, and Criql Labs.
+- **SEO Optimized:** Handcrafted semantic tags, specific metadata, and OpenGraph definitions configured globally via TanStack Router hooks.
+- **Asset Ingestion:** Directly links and serves assets like resume PDFs and images with fallback support.
 
 ---
 
 ## Technology Stack
 
-*   **Runtime & Package Manager:** [Bun](https://bun.sh) (fast lockfile parsing, speedier installations, and native dev commands)
-*   **Frontend Library:** React 19 (concurrent features, improved rendering)
-*   **Meta-Framework:** **TanStack Start** (combines Vite for bundling, TanStack Router for route generation/metadata, and Nitro as the backend engine)
-*   **Styling:** Tailwind CSS v4 (built-in `@tailwindcss/vite` plugin config, custom variables, and keyframe animations in `src/styles.css`)
-*   **UI Components:** Radix UI primitives & Lucide React for consistent iconography
-*   **Backend & APIs:** Server handlers built into routing via TanStack Start, featuring an SQLite/filesystem caching layer
-*   **Deployment:** Configured for Vercel with integrated cron schedules
+- **Runtime & Package Manager:** [Bun](https://bun.sh) (fast lockfile parsing, speedier installations, and native dev commands)
+- **Frontend Library:** React 19 (concurrent features, improved rendering)
+- **Meta-Framework:** **TanStack Start** (combines Vite for bundling, TanStack Router for route generation/metadata, and Nitro as the backend engine)
+- **Styling:** Tailwind CSS v4 (built-in `@tailwindcss/vite` plugin config, custom variables, and keyframe animations in `src/styles.css`)
+- **UI Components:** Radix UI primitives & Lucide React for consistent iconography
+- **Backend & APIs:** Server handlers built into routing via TanStack Start, featuring an SQLite/filesystem caching layer
+- **Deployment:** Configured for Vercel with integrated cron schedules
 
 ---
 
@@ -73,6 +73,7 @@ Follow these steps to set up and run the project locally on your machine.
 ### Prerequisites
 
 Make sure you have [Bun](https://bun.sh) installed. If you don't have Bun, you can install it using npm or curl:
+
 ```bash
 # Using npm
 npm install -g bun
@@ -98,22 +99,26 @@ cp .env.example .env
 ```
 
 Open `.env` and fill in the required parameters:
-*   `GITHUB_USERNAME`: Your GitHub username (used to fetch commits).
-*   `GITHUB_TOKEN`: *(Optional)* A GitHub Personal Access Token to avoid hitting rate limits for public fetches.
-*   `MEDIUM_USERNAME`: Your Medium username (without the `@` prefix, used to parse your Medium RSS feed).
-*   `CRON_SECRET`: A secure random token string used to authorize cron trigger requests in production.
+
+- `GITHUB_USERNAME`: Your GitHub username (used to fetch commits).
+- `GITHUB_TOKEN`: _(Optional)_ A GitHub Personal Access Token to avoid hitting rate limits for public fetches.
+- `MEDIUM_USERNAME`: Your Medium username (without the `@` prefix, used to parse your Medium RSS feed).
+- `CRON_SECRET`: A secure random token string used to authorize cron trigger requests in production.
 
 ### 3. Run the Development Server
 
 Start the development server via:
+
 ```bash
 bun run dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
 ### 4. Code Quality & Formatting
 
 To maintain code standards, run the linter and formatter:
+
 ```bash
 # Run ESLint check
 bun run lint
@@ -129,10 +134,13 @@ bun run format
 ### Production Build
 
 Create a production build locally or in CI using:
+
 ```bash
 bun run build
 ```
+
 The application will be compiled into the `.output/` and `.tanstack/` folders. You can preview the production bundle locally with:
+
 ```bash
 bun run preview
 ```

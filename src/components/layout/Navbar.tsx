@@ -47,7 +47,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products") || location.pathname.startsWith("/journey") || location.pathname.startsWith("/about");
+  const isSubPage =
+    location.pathname.startsWith("/blog") ||
+    location.pathname.startsWith("/products") ||
+    location.pathname.startsWith("/journey") ||
+    location.pathname.startsWith("/about");
   const isBlogPage = location.pathname.startsWith("/blog");
   const isProductsPage = location.pathname.startsWith("/products");
   const isJourneyPage = location.pathname.startsWith("/journey");
@@ -60,7 +64,6 @@ export function Navbar() {
     { label: "Products", href: "/products", active: isProductsPage },
     { label: "Blog", href: "/blog", active: isBlogPage },
   ];
-
 
   return (
     <div
@@ -90,9 +93,7 @@ export function Navbar() {
               key={l.label}
               href={l.href}
               className={`text-sm font-medium transition-colors ${
-                l.active
-                  ? "text-primary font-semibold"
-                  : "text-body hover:text-heading"
+                l.active ? "text-primary font-semibold" : "text-body hover:text-heading"
               }`}
             >
               {l.label}

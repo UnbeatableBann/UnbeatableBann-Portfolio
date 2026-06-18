@@ -39,7 +39,7 @@ import { ActivityFeed } from "@/features/recent-activity/components/ActivityFeed
 
 import { lazy, Suspense } from "react";
 const SkillsGraph = lazy(() =>
-  import("@/components/SkillsGraph").then((module) => ({ default: module.SkillsGraph }))
+  import("@/components/SkillsGraph").then((module) => ({ default: module.SkillsGraph })),
 );
 
 function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -85,9 +85,7 @@ export const Route = createFileRoute("/")({
         content: "Building AI systems that teach, reason and automate real work.",
       },
     ],
-    links: [
-      { rel: "preload", href: portraitHero, as: "image", type: "image/png" },
-    ],
+    links: [{ rel: "preload", href: portraitHero, as: "image", type: "image/png" }],
   }),
   component: Home,
 });
@@ -96,15 +94,7 @@ function Hero() {
   const [dayOfWeek, setDayOfWeek] = useState("");
 
   useEffect(() => {
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const today = new Date().getDay();
     setDayOfWeek(days[today]);
   }, []);
@@ -134,7 +124,7 @@ function Hero() {
             <span>
               Hey! there, How's your{" "}
               {dayOfWeek ? (
-                <span 
+                <span
                   className="bg-clip-text text-transparent font-bold tracking-tight"
                   style={{ backgroundImage: "linear-gradient(120deg, #2d8a6b 10%, #99ab18 90%)" }}
                 >
@@ -162,12 +152,10 @@ function Hero() {
             <div className="relative group inline-flex">
               {/* Soft, light ambient blur glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#6e9c53] via-[#3b82f6] to-[#8b5cf6] rounded-full blur-xl opacity-40 group-hover:opacity-65 transition-all duration-300 pointer-events-none" />
-              
+
               {/* Thicker border wrapper containing the rotating gradient */}
               <div className="relative p-[2.8px] rounded-full overflow-hidden bg-zinc-900/10 inline-flex">
-                <div 
-                  className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_10%,#6e9c53_35%,#3b82f6_50%,#8b5cf6_65%,transparent_90%)] animate-border-beam pointer-events-none"
-                />
+                <div className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_10%,#6e9c53_35%,#3b82f6_50%,#8b5cf6_65%,transparent_90%)] animate-border-beam pointer-events-none" />
                 <a
                   href="#projects"
                   target="_blank"
@@ -190,29 +178,33 @@ function Hero() {
 
           <div className="flex items-center gap-4 pt-6">
             {[
-              { 
-                Icon: Github, 
-                label: "GitHub", 
+              {
+                Icon: Github,
+                label: "GitHub",
                 href: "https://github.com/UnbeatableBann",
-                brandClass: "text-[#24292f] border-[#24292f]/20 hover:bg-[#24292f]/5 hover:border-[#24292f]"
+                brandClass:
+                  "text-[#24292f] border-[#24292f]/20 hover:bg-[#24292f]/5 hover:border-[#24292f]",
               },
               {
                 Icon: LinkedinIcon,
                 label: "LinkedIn",
                 href: "https://linkedin.com/in/shadab-jamadar",
-                brandClass: "text-[#0A66C2] border-[#0A66C2]/20 hover:bg-[#0A66C2]/5 hover:border-[#0A66C2]"
+                brandClass:
+                  "text-[#0A66C2] border-[#0A66C2]/20 hover:bg-[#0A66C2]/5 hover:border-[#0A66C2]",
               },
-              { 
-                Icon: MediumIcon, 
-                label: "Medium", 
+              {
+                Icon: MediumIcon,
+                label: "Medium",
                 href: "https://medium.com/@shadabjamadar",
-                brandClass: "text-[#090909] border-[#090909]/20 hover:bg-[#090909]/5 hover:border-[#090909]"
+                brandClass:
+                  "text-[#090909] border-[#090909]/20 hover:bg-[#090909]/5 hover:border-[#090909]",
               },
-              { 
-                Icon: Mail, 
-                label: "Email", 
+              {
+                Icon: Mail,
+                label: "Email",
                 href: "mailto:shadabjamadar4@gmail.com?subject=Collaboration%20Inquiry%20%2F%20Let's%20Connect&body=Hi%20Shadab%2C%0A%0AI%20hope%20you%20are%20doing%20well.%20I%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20and%20software%20engineering.%20I%20would%20love%20to%20connect%20to%20discuss%20potential%20opportunities%20or%20collaborations.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D",
-                brandClass: "text-[#EA4335] border-[#EA4335]/20 hover:bg-[#EA4335]/5 hover:border-[#EA4335]"
+                brandClass:
+                  "text-[#EA4335] border-[#EA4335]/20 hover:bg-[#EA4335]/5 hover:border-[#EA4335]",
               },
             ].map(({ Icon, label, href, brandClass }) => (
               <a
@@ -233,7 +225,10 @@ function Hero() {
         <div className="lg:col-span-5 relative flex items-center justify-center">
           <div className="relative w-[360px] h-[360px] md:w-[460px] md:h-[460px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] aspect-square flex items-center justify-center overflow-visible">
             {/* Soft-Green Circle representing sketches' Colored Transparent Circle */}
-            <div className="absolute bg-accent-soft/70 rounded-full scale-105 z-0" style={{ width: "82%", height: "82%" }} />
+            <div
+              className="absolute bg-accent-soft/70 rounded-full scale-105 z-0"
+              style={{ width: "82%", height: "82%" }}
+            />
 
             {/* The Portrait Image (overflowing the circle border) */}
             <div className="absolute inset-0 flex items-end justify-center overflow-visible z-10">
@@ -369,7 +364,10 @@ function CurrentlyBuilding() {
               </div>
               <div className="relative h-2 rounded-full bg-[#FAFAF8] border border-border overflow-hidden">
                 {/* Progress Fill with nested Bullet Fire Spark */}
-                <div className="relative h-full bg-accent rounded-full overflow-hidden" style={{ width: "85%" }}>
+                <div
+                  className="relative h-full bg-accent rounded-full overflow-hidden"
+                  style={{ width: "85%" }}
+                >
                   {/* Bullet Fire Spark moving from 0% to 100% of the done progress */}
                   <div className="absolute inset-y-0 w-16 animate-bullet-fire flex items-center pointer-events-none">
                     {/* Fire/comet tail */}
@@ -419,9 +417,27 @@ function ExperienceSnapshot() {
       duration: "Jan 2026 – April 2026",
       location: "Remote",
       bullets: [
-        <>Built a unified <strong className="font-semibold text-heading">Python algorithmic trading SDK</strong> integrating 3 broker APIs (Zerodha, Angel One, FivePaisa) using a <strong className="font-semibold text-heading">modular adapter architecture</strong>.</>,
-        <>Designed a broker-agnostic <strong className="font-semibold text-heading">Instrument Master schema</strong> and ingestion pipeline in SQLite, normalizing <strong className="font-semibold text-heading">100% of broker-specific instrument fields</strong> into a consistent data model.</>,
-        <>Implemented tests covering core trading workflows, added <strong className="font-semibold text-heading">structured logging</strong>, and packaged the SDK with <strong className="font-semibold text-heading">Poetry</strong>, enabling scalable onboarding of new brokers.</>,
+        <>
+          Built a unified{" "}
+          <strong className="font-semibold text-heading">Python algorithmic trading SDK</strong>{" "}
+          integrating 3 broker APIs (Zerodha, Angel One, FivePaisa) using a{" "}
+          <strong className="font-semibold text-heading">modular adapter architecture</strong>.
+        </>,
+        <>
+          Designed a broker-agnostic{" "}
+          <strong className="font-semibold text-heading">Instrument Master schema</strong> and
+          ingestion pipeline in SQLite, normalizing{" "}
+          <strong className="font-semibold text-heading">
+            100% of broker-specific instrument fields
+          </strong>{" "}
+          into a consistent data model.
+        </>,
+        <>
+          Implemented tests covering core trading workflows, added{" "}
+          <strong className="font-semibold text-heading">structured logging</strong>, and packaged
+          the SDK with <strong className="font-semibold text-heading">Poetry</strong>, enabling
+          scalable onboarding of new brokers.
+        </>,
       ],
     },
     {
@@ -431,9 +447,27 @@ function ExperienceSnapshot() {
       duration: "Jul 2025 – Dec 2025",
       location: "Remote",
       bullets: [
-        <>Engineered end-to-end backend for <strong className="font-semibold text-heading">AI Interviewer platform</strong>, designing APIs, integrating databases, and implementing security protocols, reducing backend errors by <strong className="font-semibold text-heading">25%</strong>.</>,
-        <>Developed <strong className="font-semibold text-heading">role-based authentication</strong> (admin, HR, student) with secure <strong className="font-semibold text-heading">OAuth2.0 management</strong>, supporting <strong className="font-semibold text-heading">100+ concurrent users</strong>.</>,
-        <>Built a multi-container <strong className="font-semibold text-heading">Docker setup with FastAPI and Redis</strong>, cutting startup time by <strong className="font-semibold text-heading">30%</strong> and enabling scalable infrastructure.</>,
+        <>
+          Engineered end-to-end backend for{" "}
+          <strong className="font-semibold text-heading">AI Interviewer platform</strong>, designing
+          APIs, integrating databases, and implementing security protocols, reducing backend errors
+          by <strong className="font-semibold text-heading">25%</strong>.
+        </>,
+        <>
+          Developed{" "}
+          <strong className="font-semibold text-heading">role-based authentication</strong> (admin,
+          HR, student) with secure{" "}
+          <strong className="font-semibold text-heading">OAuth2.0 management</strong>, supporting{" "}
+          <strong className="font-semibold text-heading">100+ concurrent users</strong>.
+        </>,
+        <>
+          Built a multi-container{" "}
+          <strong className="font-semibold text-heading">
+            Docker setup with FastAPI and Redis
+          </strong>
+          , cutting startup time by <strong className="font-semibold text-heading">30%</strong> and
+          enabling scalable infrastructure.
+        </>,
       ],
     },
     {
@@ -443,9 +477,26 @@ function ExperienceSnapshot() {
       duration: "Apr 2025 - Oct 2025",
       location: "Remote",
       bullets: [
-        <>Led <strong className="font-semibold text-heading">competitive analysis</strong> of 4 key industry players (tech stacks, strategy, financials), uncovering <strong className="font-semibold text-heading">7 innovation gaps</strong>, improving Planto AI’s strategic planning effectiveness by <strong className="font-semibold text-heading">4%</strong>.</>,
-        <>Identified and resolved <strong className="font-semibold text-heading">performance bottlenecks</strong> in core AI solutions, boosting processing speed by <strong className="font-semibold text-heading">15%</strong> and improving market positioning by <strong className="font-semibold text-heading">12%</strong>.</>,
-        <>Built <strong className="font-semibold text-heading">research briefs</strong> summarising technical and market insights, enabling <strong className="font-semibold text-heading">15+ data-informed decisions</strong> across product and engineering teams.</>,
+        <>
+          Led <strong className="font-semibold text-heading">competitive analysis</strong> of 4 key
+          industry players (tech stacks, strategy, financials), uncovering{" "}
+          <strong className="font-semibold text-heading">7 innovation gaps</strong>, improving
+          Planto AI’s strategic planning effectiveness by{" "}
+          <strong className="font-semibold text-heading">4%</strong>.
+        </>,
+        <>
+          Identified and resolved{" "}
+          <strong className="font-semibold text-heading">performance bottlenecks</strong> in core AI
+          solutions, boosting processing speed by{" "}
+          <strong className="font-semibold text-heading">15%</strong> and improving market
+          positioning by <strong className="font-semibold text-heading">12%</strong>.
+        </>,
+        <>
+          Built <strong className="font-semibold text-heading">research briefs</strong> summarising
+          technical and market insights, enabling{" "}
+          <strong className="font-semibold text-heading">15+ data-informed decisions</strong> across
+          product and engineering teams.
+        </>,
       ],
     },
   ];
@@ -483,9 +534,13 @@ function ExperienceSnapshot() {
             return (
               <div key={idx} className="relative group">
                 {/* Timeline Dot */}
-                <div className={`absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border flex items-center justify-center shadow-sm transition-all duration-300 ${
-                  isExpanded ? "border-accent scale-110" : "border-border group-hover:border-zinc-400"
-                }`}>
+                <div
+                  className={`absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border flex items-center justify-center shadow-sm transition-all duration-300 ${
+                    isExpanded
+                      ? "border-accent scale-110"
+                      : "border-border group-hover:border-zinc-400"
+                  }`}
+                >
                   {isExpanded ? (
                     <div className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-accent opacity-85"></span>
@@ -508,7 +563,7 @@ function ExperienceSnapshot() {
                         />
                       </span>
                       <div>
-                        <h3 
+                        <h3
                           className="font-semibold text-lg text-heading cursor-pointer hover:text-accent transition-colors select-none"
                           onClick={() => setExpandedIndex(isExpanded ? null : idx)}
                         >
@@ -549,8 +604,8 @@ function ExperienceSnapshot() {
                         <li
                           key={bulletIdx}
                           className={`text-sm text-body leading-[1.7] list-disc marker:text-accent transition-all duration-500 transform ${
-                            isExpanded 
-                              ? "opacity-100 translate-x-0" 
+                            isExpanded
+                              ? "opacity-100 translate-x-0"
                               : "opacity-0 -translate-x-2 pointer-events-none"
                           }`}
                           style={{ transitionDelay: isExpanded ? `${bulletIdx * 80}ms` : "0ms" }}
@@ -765,11 +820,12 @@ function ContactCTA() {
   );
 }
 
-
-
 function SkillsGraphFallback() {
   return (
-    <section id="skills" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none">
+    <section
+      id="skills"
+      className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
+    >
       <div className="max-w-2xl mb-9">
         <div className="text-label-custom text-muted font-semibold mb-3">
           Skills Knowledge Graph
@@ -785,7 +841,9 @@ function SkillsGraphFallback() {
       <div className="w-full relative bg-white rounded-2xl border border-border overflow-hidden h-[580px] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 rounded-full border-4 border-zinc-200 border-t-primary animate-spin" />
-          <p className="text-sm font-semibold text-muted-foreground">Loading interactive skills graph...</p>
+          <p className="text-sm font-semibold text-muted-foreground">
+            Loading interactive skills graph...
+          </p>
         </div>
       </div>
     </section>

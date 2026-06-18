@@ -17,14 +17,12 @@ export function useBlog() {
     setError(null);
     const startTime = Date.now();
     try {
-      const url = force ? `/api/blog?refresh=true&t=${Date.now()}` : "/api/blog";
+      const url = force ? `/api/blog?t=${Date.now()}` : "/api/blog";
       const response = await fetch(url);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.error || `Failed to fetch articles (status ${response.status})`
-        );
+        throw new Error(errorData.error || `Failed to fetch articles (status ${response.status})`);
       }
 
       const data = await response.json();
@@ -39,9 +37,9 @@ export function useBlog() {
       }
 
       setArticles(data.articles || []);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("[useBlog] Fetch error:", err);
-      setError(err instanceof Error ? err : new Error(err.message || "Failed to fetch articles"));
+      setError(err instanceof Error ? err : new Error(String(err)));
     } finally {
       setIsLoading(false);
     }
@@ -125,7 +123,7 @@ export function useBlog() {
         (a) =>
           a.title.toLowerCase().includes(query) ||
           a.excerpt.toLowerCase().includes(query) ||
-          a.topics?.some((t) => t.toLowerCase().includes(query))
+          a.topics?.some((t) => t.toLowerCase().includes(query)),
       );
     }
 
@@ -161,7 +159,7 @@ export function useBlog() {
     isLoading,
     error,
     refresh: useCallback(() => fetchArticles(true), [fetchArticles]),
-    
+
     // Filters & Search
     searchQuery,
     setSearchQuery,

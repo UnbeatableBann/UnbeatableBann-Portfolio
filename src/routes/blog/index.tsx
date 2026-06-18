@@ -23,7 +23,8 @@ export const Route = createFileRoute("/blog/")({
       { title: "Blog — Shadab Jamadar | AI Engineer & Product Builder" },
       {
         name: "description",
-        content: "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
+        content:
+          "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
       },
     ],
   }),
@@ -37,7 +38,7 @@ function BlogPage() {
     isLoading,
     error,
     refresh,
-    
+
     // Filters & Search
     searchQuery,
     setSearchQuery,
@@ -62,7 +63,16 @@ function BlogPage() {
     setIsRefreshing(false);
   };
 
-  const topicsList = ["All", "RAG", "Agentic AI", "LLMs", "AI Products", "Engineering", "Career", "Research"];
+  const topicsList = [
+    "All",
+    "RAG",
+    "Agentic AI",
+    "LLMs",
+    "AI Products",
+    "Engineering",
+    "Career",
+    "Research",
+  ];
   const sourcesList = [
     { label: "All Sources", value: "All" },
     { label: "Medium", value: "Medium" },
@@ -98,12 +108,8 @@ function BlogPage() {
 
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-6">
           <div className="space-y-4 max-w-3xl">
-            <div className="text-label-custom text-muted font-semibold tracking-wider">
-              BLOG
-            </div>
-            <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
-              Writing.
-            </h1>
+            <div className="text-label-custom text-muted font-semibold tracking-wider">BLOG</div>
+            <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">Writing.</h1>
             <p className="text-hero-desc text-body max-w-2xl font-normal leading-[1.7]">
               Experiments, lessons, research, and ideas from building AI products.
             </p>
@@ -152,9 +158,7 @@ function BlogPage() {
               </div>
             </div>
             <div className="space-y-1 md:border-r border-border/60 md:px-4">
-              <div className="text-2xl font-bold text-heading font-serif italic">
-                2
-              </div>
+              <div className="text-2xl font-bold text-heading font-serif italic">2</div>
               <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">
                 Platforms (Medium + LI)
               </div>
@@ -173,11 +177,9 @@ function BlogPage() {
 
       {/* Main Content Feed Area */}
       <section id="articles-feed" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16">
-        
         {/* Filters and Search Header */}
         <div className="flex flex-col gap-6 mb-12 border-b border-border/60 pb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            
             {/* Search input */}
             <div className="relative max-w-md w-full">
               <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-muted-foreground">
@@ -232,7 +234,9 @@ function BlogPage() {
                 className="p-2.5 rounded-full border border-border bg-white text-body hover:text-heading hover:bg-[#FAFAF8] shadow-sm transition-all disabled:opacity-50"
                 title="Force refresh feed"
               >
-                <RefreshCw className={`w-3.5 h-3.5 ${isLoading || isRefreshing ? "animate-spin" : ""}`} />
+                <RefreshCw
+                  className={`w-3.5 h-3.5 ${isLoading || isRefreshing ? "animate-spin" : ""}`}
+                />
               </button>
             </div>
           </div>
@@ -254,7 +258,9 @@ function BlogPage() {
                   }`}
                 >
                   {topic}
-                  <span className={`ml-1.5 text-[10px] ${isSelected ? "text-white/80" : "text-muted-foreground"}`}>
+                  <span
+                    className={`ml-1.5 text-[10px] ${isSelected ? "text-white/80" : "text-muted-foreground"}`}
+                  >
                     ({count})
                   </span>
                 </button>
@@ -265,7 +271,6 @@ function BlogPage() {
 
         {/* Dynamic content rendering grid */}
         <div className="grid lg:grid-cols-12 gap-10 items-start">
-          
           {/* Main Feed Column */}
           <div className="lg:col-span-8 space-y-12">
             {isLoading && filteredArticles.length === 0 ? (
@@ -284,7 +289,10 @@ function BlogPage() {
                 {/* Card Skeletons */}
                 <div className="grid md:grid-cols-2 gap-6">
                   {[1, 2].map((n) => (
-                    <div key={n} className="bg-white border border-border rounded-2xl p-6 space-y-4 animate-pulse">
+                    <div
+                      key={n}
+                      className="bg-white border border-border rounded-2xl p-6 space-y-4 animate-pulse"
+                    >
                       <div className="h-4 bg-zinc-200 rounded w-16" />
                       <div className="h-6 bg-zinc-200 rounded w-5/6" />
                       <div className="h-16 bg-zinc-200 rounded w-full" />
@@ -311,7 +319,9 @@ function BlogPage() {
               // Empty State
               <div className="py-16 text-center border border-dashed border-border rounded-3xl bg-white p-8 space-y-4">
                 <BookOpen className="w-12 h-12 text-muted mx-auto opacity-50" />
-                <h3 className="text-lg font-semibold text-heading">No articles match your criteria</h3>
+                <h3 className="text-lg font-semibold text-heading">
+                  No articles match your criteria
+                </h3>
                 <p className="text-sm text-body max-w-sm mx-auto">
                   Try clearing your search query or adjusting your source and topic filters.
                 </p>
@@ -329,14 +339,12 @@ function BlogPage() {
             ) : (
               // Content loaded state
               <div className="space-y-12">
-                
                 {/* 1. Featured Article (Dynamic) */}
                 {featuredArticle && (
                   <div className="group relative bg-white border border-border rounded-3xl shadow-soft overflow-hidden transition-all duration-300 hover:shadow-card hover:border-[#D0D0D0]">
                     <div className="grid md:grid-cols-12">
                       <div className="md:col-span-7 p-8 md:p-10 flex flex-col justify-between space-y-6">
                         <div className="space-y-4">
-                          
                           {/* Badges and metadata */}
                           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
                             {featuredArticle.source === "medium" ? (
@@ -349,7 +357,8 @@ function BlogPage() {
                               </span>
                             )}
                             <span className="text-muted flex items-center gap-1">
-                              <Calendar className="w-3.5 h-3.5" /> {formatDate(featuredArticle.publishedAt)}
+                              <Calendar className="w-3.5 h-3.5" />{" "}
+                              {formatDate(featuredArticle.publishedAt)}
                             </span>
                             {featuredArticle.readTime && (
                               <span className="text-muted flex items-center gap-1">
@@ -480,7 +489,6 @@ function BlogPage() {
 
           {/* Right Sidebar Column */}
           <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-[90px]">
-            
             {/* Topic Filter Widget */}
             <div className="bg-white border border-border rounded-2xl p-6 shadow-soft space-y-4">
               <h4 className="text-xs uppercase tracking-widest text-heading font-semibold border-b border-border/60 pb-3 flex items-center gap-2">
@@ -538,9 +546,7 @@ function BlogPage() {
                 })}
               </ul>
             </div>
-            
           </aside>
-
         </div>
       </section>
 

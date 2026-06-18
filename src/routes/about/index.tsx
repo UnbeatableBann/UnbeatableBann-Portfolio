@@ -8,7 +8,7 @@ import {
   Github,
   Compass,
   Sparkles,
-  ArrowUpRight
+  ArrowUpRight,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -23,7 +23,8 @@ export const Route = createFileRoute("/about/")({
       { title: "About Me — Shadab Jamadar | AI Engineer & Product Builder" },
       {
         name: "description",
-        content: "Who is Shadab Jamadar? Learn about my focus on AI products, agentic systems, contact details, and current research.",
+        content:
+          "Who is Shadab Jamadar? Learn about my focus on AI products, agentic systems, contact details, and current research.",
       },
     ],
   }),
@@ -65,24 +66,24 @@ function AboutPage() {
   const faqs = [
     {
       q: "What are you currently working on?",
-      a: "Building AI products focused on education, automation, and agentic systems."
+      a: "Building AI products focused on education, automation, and agentic systems.",
     },
     {
       q: "What technologies do you use?",
-      a: "Python, FastAPI, LangGraph, RAG systems, LLMs, and modern backend infrastructure."
+      a: "Python, FastAPI, LangGraph, RAG systems, LLMs, and modern backend infrastructure.",
     },
     {
       q: "Are you open to opportunities?",
-      a: "Yes, especially AI Engineering, Backend Engineering, and Product Engineering opportunities."
+      a: "Yes, especially AI Engineering, Backend Engineering, and Product Engineering opportunities.",
     },
     {
       q: "Why AI?",
-      a: "Because it enables software to evolve from static tools into intelligent systems."
+      a: "Because it enables software to evolve from static tools into intelligent systems.",
     },
     {
       q: "How can we work together?",
-      a: "Through freelance work, collaborations, internships, research, or full-time opportunities."
-    }
+      a: "Through freelance work, collaborations, internships, research, or full-time opportunities.",
+    },
   ];
 
   return (
@@ -110,15 +111,14 @@ function AboutPage() {
             </div>
 
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
-              Hello, I'm<br />
-              <span className="font-serif italic text-accent/80 font-normal">
-                Shadab Jamadar
-              </span>
-              .
+              Hello, I'm
+              <br />
+              <span className="font-serif italic text-accent/80 font-normal">Shadab Jamadar</span>.
             </h1>
 
             <p className="text-hero-desc text-body max-w-xl font-normal leading-[1.7]">
-              AI Engineer focused on building intelligent products, agentic systems, and educational technology.
+              AI Engineer focused on building intelligent products, agentic systems, and educational
+              technology.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -159,7 +159,9 @@ function AboutPage() {
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center gap-2">
               <Compass className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">Introduction</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                Introduction
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading">
               Who I Am & What I Do<span className="text-accent">.</span>
@@ -169,12 +171,16 @@ function AboutPage() {
           {/* Content Details Column */}
           <div className="lg:col-span-8 space-y-8 text-body text-base leading-[1.8] font-normal">
             <p className="text-lg text-heading font-medium leading-relaxed">
-              I am an AI Engineer passionate about building systems that bridge the gap between complex research models and production-ready software.
+              I am an AI Engineer passionate about building systems that bridge the gap between
+              complex research models and production-ready software.
             </p>
             <p>
-              Rather than simply wrapping commercial LLM APIs, I focus on engineering modular backend architectures, structural knowledge databases, and custom evaluators. My development philosophy is rooted in stability, testability, and clean microservices design.
+              Rather than simply wrapping commercial LLM APIs, I focus on engineering modular
+              backend architectures, structural knowledge databases, and custom evaluators. My
+              development philosophy is rooted in stability, testability, and clean microservices
+              design.
             </p>
-            
+
             {/* Quick highlight pillars */}
             <div className="grid sm:grid-cols-2 gap-6 pt-6 border-t border-border/60">
               <div className="space-y-2">
@@ -182,7 +188,8 @@ function AboutPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Product Engineering
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  Translating client problems and system bottlenecks into clean interfaces, normalized schemas, and responsive user layouts.
+                  Translating client problems and system bottlenecks into clean interfaces,
+                  normalized schemas, and responsive user layouts.
                 </p>
               </div>
               <div className="space-y-2">
@@ -190,7 +197,8 @@ function AboutPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Complex Reasoning
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  Structuring systems that reason autonomously using tools, semantic graphs, and context-dependent search.
+                  Structuring systems that reason autonomously using tools, semantic graphs, and
+                  context-dependent search.
                 </p>
               </div>
             </div>
@@ -198,28 +206,28 @@ function AboutPage() {
         </div>
       </section>
 
-
       {/* Contact Section */}
       <section id="contact" className="py-24 border-t border-border bg-[#FAFAF8]">
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-12">
-          
           {/* Header */}
           <div className="text-center space-y-4 max-w-2xl mx-auto animate-fade-up">
             <div className="inline-flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">CONTACT</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                CONTACT
+              </span>
             </div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-heading">
               Get in touch today<span className="text-accent">.</span>
             </h2>
             <p className="text-sm md:text-base text-body leading-relaxed font-normal">
-              Feel free to contact me if you have any questions. I'm available for new projects, collaborations, or just for a quick chat.
+              Feel free to contact me if you have any questions. I'm available for new projects,
+              collaborations, or just for a quick chat.
             </p>
           </div>
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start animate-fade-up [animation-delay:0.2s]">
-            
             {/* Card 1: Email */}
             <div className="bg-[#EFEFEA] p-2 rounded-[24px] shadow-soft hover:shadow-card transition-all duration-300 group">
               <div className="bg-white rounded-[16px] border border-[#e8e8e8] p-6 flex flex-col items-center text-center gap-5 min-h-[260px] justify-between">
@@ -227,13 +235,19 @@ function AboutPage() {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div className="space-y-2 flex-grow flex flex-col justify-center">
-                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">Email Address</h3>
-                  <a href="mailto:shadabjamadar4@gmail.com?subject=Inquiry" className="text-base font-bold text-heading hover:text-accent transition-colors break-all block">
+                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">
+                    Email Address
+                  </h3>
+                  <a
+                    href="mailto:shadabjamadar4@gmail.com?subject=Inquiry"
+                    className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
+                  >
                     shadabjamadar4@gmail.com
                   </a>
                 </div>
                 <p className="text-xs text-muted leading-relaxed font-normal max-w-[240px]">
-                  For collaborations or recruiter inquiries, drop me an email and I’ll respond within 24 hours.
+                  For collaborations or recruiter inquiries, drop me an email and I’ll respond
+                  within 24 hours.
                 </p>
               </div>
             </div>
@@ -245,23 +259,41 @@ function AboutPage() {
                   <LinkedinIcon className="w-6 h-6" />
                 </div>
                 <div className="space-y-2 flex-grow flex flex-col justify-center items-center">
-                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">Professional Networks</h3>
-                  <a href="https://linkedin.com/in/shadab-jamadar" target="_blank" rel="noopener noreferrer" className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1">
+                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">
+                    Professional Networks
+                  </h3>
+                  <a
+                    href="https://linkedin.com/in/shadab-jamadar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1"
+                  >
                     linkedin.com/in/shadab-jamadar
                   </a>
-                  
+
                   {/* Secondary Socials */}
                   <div className="flex gap-4 pt-1 justify-center">
-                    <a href="https://github.com/UnbeatableBann" target="_blank" rel="noopener noreferrer" className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1">
+                    <a
+                      href="https://github.com/UnbeatableBann"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
+                    >
                       <Github className="w-3.5 h-3.5" /> GitHub
                     </a>
-                    <a href="https://medium.com/@shadabjamadar" target="_blank" rel="noopener noreferrer" className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1">
+                    <a
+                      href="https://medium.com/@shadabjamadar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
+                    >
                       <MediumIcon className="w-3.5 h-3.5" /> Medium
                     </a>
                   </div>
                 </div>
                 <p className="text-xs text-muted leading-relaxed font-normal max-w-[240px]">
-                  Prefer a professional network? Connect or message me for direct consultations and articles.
+                  Prefer a professional network? Connect or message me for direct consultations and
+                  articles.
                 </p>
               </div>
             </div>
@@ -273,13 +305,25 @@ function AboutPage() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div className="space-y-2 flex-grow flex flex-col justify-center">
-                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">Current Location</h3>
-                  <a href="https://maps.google.com/?q=18.611487,73.773248" target="_blank" rel="noopener noreferrer" className="text-base font-bold text-heading hover:text-accent transition-colors block">
+                  <h3 className="text-[13px] font-bold text-muted uppercase tracking-wider">
+                    Current Location
+                  </h3>
+                  <a
+                    href="https://maps.google.com/?q=18.611487,73.773248"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-bold text-heading hover:text-accent transition-colors block"
+                  >
                     Ayesha Manzil, Pune
                   </a>
                 </div>
                 <p className="text-xs text-muted leading-relaxed font-normal max-w-[240px]">
-                  <a href="https://maps.google.com/?q=18.611487,73.773248" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors hover:underline block">
+                  <a
+                    href="https://maps.google.com/?q=18.611487,73.773248"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent transition-colors hover:underline block"
+                  >
                     Kanihaya Park, Belthika Nagar, Thergaon, Pune, Maharashtra
                   </a>
                 </p>
@@ -289,7 +333,6 @@ function AboutPage() {
             {/* Row 2 - Card 4: Google Map (Spans 3 Columns) */}
             <div className="md:col-span-3 bg-[#EFEFEA] p-2 rounded-[24px] shadow-soft hover:shadow-card transition-all duration-300 group/map">
               <div className="bg-white rounded-[16px] border border-[#e8e8e8] overflow-hidden flex flex-col md:relative md:h-[500px]">
-                
                 {/* Floating Location Card */}
                 <div className="place-details-compact-container w-full bg-white p-6 border-b md:border border-border md:absolute md:top-6 md:left-6 md:z-10 md:max-w-[340px] md:rounded-[20px] md:shadow-card transition-all duration-300 hover:md:-translate-y-1 hover:md:shadow-card/90 flex flex-col gap-4 animate-fade-up">
                   <div className="space-y-1 text-left">
@@ -298,7 +341,7 @@ function AboutPage() {
                       Residential location in Thergaon, Pune.
                     </p>
                   </div>
-                  
+
                   <div className="flex items-start gap-3 text-left">
                     <div className="p-2 rounded-lg bg-accent-soft text-accent flex-shrink-0 mt-0.5">
                       <MapPin className="w-4 h-4" />
@@ -335,7 +378,7 @@ function AboutPage() {
                 <div className="w-full h-[450px] md:h-full relative flex-grow">
                   {/* Subtle overlay gradient to improve card readability */}
                   <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-background/45 via-background/15 to-transparent pointer-events-none z-0" />
-                  
+
                   <iframe
                     style={{ border: 0 }}
                     className="w-full h-full relative z-0"
@@ -346,10 +389,8 @@ function AboutPage() {
                     title="Ayesha Manzil Map Location"
                   />
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -357,18 +398,20 @@ function AboutPage() {
       {/* FAQ Section */}
       <section className="py-24 border-t border-border bg-white">
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          
           {/* Header */}
           <div className="lg:col-span-4 space-y-4">
             <div className="inline-flex items-center gap-2">
               <Globe className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">Inquiries</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                Inquiries
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading">
               Frequently Asked Questions<span className="text-accent">.</span>
             </h2>
             <p className="text-sm text-body leading-relaxed max-w-sm font-normal">
-              Quick answers to common questions about my technical background, projects, and work philosophy.
+              Quick answers to common questions about my technical background, projects, and work
+              philosophy.
             </p>
           </div>
 
@@ -383,16 +426,22 @@ function AboutPage() {
                     className="w-full flex items-center justify-between text-left gap-4 font-bold text-heading hover:text-accent transition-colors py-2 bg-transparent border-0 cursor-pointer text-base md:text-lg tracking-tight"
                   >
                     <span>{faq.q}</span>
-                    <span className={`p-1.5 rounded-full border border-border bg-[#FAFAF8] text-body group-hover:text-accent transition-transform duration-300 flex-shrink-0 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}>
+                    <span
+                      className={`p-1.5 rounded-full border border-border bg-[#FAFAF8] text-body group-hover:text-accent transition-transform duration-300 flex-shrink-0 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    >
                       <ChevronDown className="w-4 h-4" />
                     </span>
                   </button>
 
-                  <div className={`transition-all duration-300 overflow-hidden ${
-                    isOpen ? "max-h-[250px] opacity-100 mt-3" : "max-h-0 opacity-0 pointer-events-none"
-                  }`}>
+                  <div
+                    className={`transition-all duration-300 overflow-hidden ${
+                      isOpen
+                        ? "max-h-[250px] opacity-100 mt-3"
+                        : "max-h-0 opacity-0 pointer-events-none"
+                    }`}
+                  >
                     <p className="text-body text-sm leading-[1.7] font-normal pl-1 border-l-2 border-accent-soft">
                       {faq.a}
                     </p>
@@ -401,7 +450,6 @@ function AboutPage() {
               );
             })}
           </div>
-
         </div>
       </section>
 

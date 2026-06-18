@@ -11,7 +11,7 @@ export function useActivityFeed() {
     setError(null);
     const startTime = Date.now();
     try {
-      const url = force ? `/api/activity-feed?refresh=true&t=${Date.now()}` : "/api/activity-feed";
+      const url = force ? `/api/activity-feed?t=${Date.now()}` : "/api/activity-feed";
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -33,9 +33,9 @@ export function useActivityFeed() {
       }
 
       setActivities(data.activities || []);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("[useActivityFeed] Fetch error:", err);
-      setError(err instanceof Error ? err : new Error(err.message || "Failed to fetch activities"));
+      setError(err instanceof Error ? err : new Error(String(err)));
     } finally {
       setIsLoading(false);
     }

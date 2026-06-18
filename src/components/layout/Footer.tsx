@@ -2,8 +2,10 @@ import { useLocation } from "@tanstack/react-router";
 
 export function Footer() {
   const location = useLocation();
-  const isSubPage = location.pathname.startsWith("/blog") || location.pathname.startsWith("/products") || location.pathname.startsWith("/journey");
-
+  const isSubPage =
+    location.pathname.startsWith("/blog") ||
+    location.pathname.startsWith("/products") ||
+    location.pathname.startsWith("/journey");
 
   return (
     <footer className="border-t border-border bg-white">

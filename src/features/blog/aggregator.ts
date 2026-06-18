@@ -18,13 +18,13 @@ export class BlogAggregator {
       const cached = await this.cache.get(true);
       if (cached) {
         console.log(`[BlogAggregator] Returning ${cached.length} cached articles.`);
-        
+
         // Background refresh if cache is stale (older than 24 hours)
         this.cache.get(false).then((fresh) => {
           if (!fresh) {
             console.log(`[BlogAggregator] Cache is stale, triggering background rebuild...`);
             this.refresh().catch((err) =>
-              console.error("[BlogAggregator] Background refresh failed:", err)
+              console.error("[BlogAggregator] Background refresh failed:", err),
             );
           }
         });
@@ -55,7 +55,9 @@ export class BlogAggregator {
     const allArticles = results.flat();
 
     // Sort by publication date descending (newest first)
-    allArticles.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+    allArticles.sort(
+      (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    );
 
     // Update cache
     await this.cache.set(allArticles);

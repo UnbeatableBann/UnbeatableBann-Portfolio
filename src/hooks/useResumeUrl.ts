@@ -5,7 +5,7 @@ let cachedBlobUrlPromise: Promise<string> | null = null;
 
 const getBlobUrl = (): Promise<string> => {
   if (cachedBlobUrlPromise) return cachedBlobUrlPromise;
-  
+
   // Guard against server-side rendering execution
   if (typeof window === "undefined") {
     return Promise.resolve(resumePdf);

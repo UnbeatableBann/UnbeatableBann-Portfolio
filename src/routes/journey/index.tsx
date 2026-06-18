@@ -15,7 +15,7 @@ import {
   ChevronDown,
   ChevronUp,
   Download,
-  Globe
+  Globe,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -58,7 +58,8 @@ export const Route = createFileRoute("/journey/")({
       { title: "My Journey — Shadab Jamadar | AI Engineer & Product Builder" },
       {
         name: "description",
-        content: "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
+        content:
+          "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
       },
     ],
   }),
@@ -105,39 +106,45 @@ const TIMELINE_DATA: TimelineItem[] = [
   {
     year: "2019",
     title: "Discovered Programming",
-    description: "Built my first small scripts at Spicer High School, Pune, and fell in love with applying logic to solve real problems.",
-    lesson: "Small projects matter more than tutorials."
+    description:
+      "Built my first small scripts at Spicer High School, Pune, and fell in love with applying logic to solve real problems.",
+    lesson: "Small projects matter more than tutorials.",
   },
   {
     year: "2022",
     title: "Entered B.Tech Program",
-    description: "Enrolled in Artificial Intelligence & Data Science at Dr. D Y Patil, Pune. Began exploring algorithms, linear algebra, and data structures.",
-    lesson: "Fundamentals build strong foundations."
+    description:
+      "Enrolled in Artificial Intelligence & Data Science at Dr. D Y Patil, Pune. Began exploring algorithms, linear algebra, and data structures.",
+    lesson: "Fundamentals build strong foundations.",
   },
   {
     year: "2023",
     title: "Competitive Prototyping",
-    description: "Participated in the Jio Creative Hackathon, placing in the top 100 teams out of 16,000. Understood the thrill of fast-paced collaborative building.",
-    lesson: "Constraints force creative solutions."
+    description:
+      "Participated in the Jio Creative Hackathon, placing in the top 100 teams out of 16,000. Understood the thrill of fast-paced collaborative building.",
+    lesson: "Constraints force creative solutions.",
   },
   {
     year: "2024",
     title: "Real-world Data Systems",
-    description: "Built the Ishara Indian Sign Language recognition tool processing 200GB of video. Placed Top 10 in the IBM Maharashtra Hackathon.",
-    lesson: "Real-world data is messy but rewarding."
+    description:
+      "Built the Ishara Indian Sign Language recognition tool processing 200GB of video. Placed Top 10 in the IBM Maharashtra Hackathon.",
+    lesson: "Real-world data is messy but rewarding.",
   },
   {
     year: "2025",
     title: "AI & Data Science Internships",
-    description: "Joined Planto AI and Renu Sharma Foundation. Engineered scalable FastAPI/Redis backends and launched the Curio Agentic system.",
-    lesson: "The future belongs to agentic builders."
+    description:
+      "Joined Planto AI and Renu Sharma Foundation. Engineered scalable FastAPI/Redis backends and launched the Curio Agentic system.",
+    lesson: "The future belongs to agentic builders.",
   },
   {
     year: "2026",
     title: "Trading Architecture & Google Hackathon",
-    description: "Built trading SDKs at Criql Labs and placed Top 25 in the Google Build & Grow AI Hackathon.",
-    lesson: "Scale requires modular, testable designs."
-  }
+    description:
+      "Built trading SDKs at Criql Labs and placed Top 25 in the Google Build & Grow AI Hackathon.",
+    lesson: "Scale requires modular, testable designs.",
+  },
 ];
 
 const CERTIFICATES: Certificate[] = [
@@ -157,8 +164,8 @@ const CERTIFICATES: Certificate[] = [
       bg: "bg-gradient-to-br from-white to-blue-50/10",
       text: "text-blue-800",
       accent: "bg-blue-600",
-      badgeBg: "bg-blue-50 text-blue-700 border-blue-100"
-    }
+      badgeBg: "bg-blue-50 text-blue-700 border-blue-100",
+    },
   },
   {
     id: "wadhwani-ignitex",
@@ -174,8 +181,8 @@ const CERTIFICATES: Certificate[] = [
       bg: "bg-gradient-to-br from-white to-purple-50/10",
       text: "text-purple-800",
       accent: "bg-purple-600",
-      badgeBg: "bg-purple-50 text-purple-700 border-purple-100"
-    }
+      badgeBg: "bg-purple-50 text-purple-700 border-purple-100",
+    },
   },
   {
     id: "ibm-maharashtra",
@@ -186,14 +193,20 @@ const CERTIFICATES: Certificate[] = [
     images: [ibmCeremonyImg, ibmCertificateImg, ibmCeremonyImg2, ibmCeremonyImg3],
     date: "February 2024",
     certId: "IBM-MH-HACK-10",
-    skills: ["Rapid Prototyping", "Cloud Deployments", "API Development", "Top 10 Team Recognition", "State Finals Representation"],
+    skills: [
+      "Rapid Prototyping",
+      "Cloud Deployments",
+      "API Development",
+      "Top 10 Team Recognition",
+      "State Finals Representation",
+    ],
     colorTheme: {
       border: "border-cyan-200 hover:border-cyan-300",
       bg: "bg-gradient-to-br from-white to-cyan-50/10",
       text: "text-cyan-800",
       accent: "bg-cyan-600",
-      badgeBg: "bg-cyan-50 text-cyan-700 border-cyan-100"
-    }
+      badgeBg: "bg-cyan-50 text-cyan-700 border-cyan-100",
+    },
   },
   {
     id: "iitg-consulting",
@@ -209,8 +222,8 @@ const CERTIFICATES: Certificate[] = [
       bg: "bg-gradient-to-br from-white to-emerald-50/10",
       text: "text-emerald-800",
       accent: "bg-emerald-600",
-      badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-100"
-    }
+      badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-100",
+    },
   },
   {
     id: "jio-creative",
@@ -226,33 +239,42 @@ const CERTIFICATES: Certificate[] = [
       bg: "bg-gradient-to-br from-white to-orange-50/10",
       text: "text-orange-850",
       accent: "bg-orange-600",
-      badgeBg: "bg-orange-50 text-orange-700 border-orange-100"
-    }
-  }
+      badgeBg: "bg-orange-50 text-orange-700 border-orange-100",
+    },
+  },
 ];
 
 const FAILURES: FailureItem[] = [
   {
     type: "Failed Product",
     year: "2023",
-    happened: "Spent 3 months building a curriculum planning tool that got zero active users upon launch.",
-    wrong: "Build-first approach without doing user research or checking if there was actual demand.",
-    lesson: "Talk to users early and validate fast. Code is the most expensive way to test an assumption."
+    happened:
+      "Spent 3 months building a curriculum planning tool that got zero active users upon launch.",
+    wrong:
+      "Build-first approach without doing user research or checking if there was actual demand.",
+    lesson:
+      "Talk to users early and validate fast. Code is the most expensive way to test an assumption.",
   },
   {
     type: "Rejection Streak",
     year: "2022",
-    happened: "Applied to dozens of internships and junior roles over six months, resulting in absolute silence.",
-    wrong: "Relying on generic applications, certificates, and tutorials rather than unique personal proof-of-work.",
-    lesson: "Projects matter more than certificates. Documenting and building in public creates real opportunities."
+    happened:
+      "Applied to dozens of internships and junior roles over six months, resulting in absolute silence.",
+    wrong:
+      "Relying on generic applications, certificates, and tutorials rather than unique personal proof-of-work.",
+    lesson:
+      "Projects matter more than certificates. Documenting and building in public creates real opportunities.",
   },
   {
     type: "Lost Data",
     year: "2022",
-    happened: "Lost weeks of code for an interactive NLP tool because of a local drive failure and untracked changes.",
-    wrong: "Lack of backup hygiene, improper git discipline, and running modifications directly on bare metal.",
-    lesson: "Backups and strict git workflows aren't options; they are basic survival processes for engineers."
-  }
+    happened:
+      "Lost weeks of code for an interactive NLP tool because of a local drive failure and untracked changes.",
+    wrong:
+      "Lack of backup hygiene, improper git discipline, and running modifications directly on bare metal.",
+    lesson:
+      "Backups and strict git workflows aren't options; they are basic survival processes for engineers.",
+  },
 ];
 
 function JourneyPage() {
@@ -284,9 +306,27 @@ function JourneyPage() {
       duration: "Jan 2026 – April 2026",
       location: "Remote",
       bullets: [
-        <>Built a unified <strong className="font-semibold text-heading">Python algorithmic trading SDK</strong> integrating 3 broker APIs (Zerodha, Angel One, FivePaisa) using a <strong className="font-semibold text-heading">modular adapter architecture</strong>.</>,
-        <>Designed a broker-agnostic <strong className="font-semibold text-heading">Instrument Master schema</strong> and ingestion pipeline in SQLite, normalizing <strong className="font-semibold text-heading">100% of broker-specific instrument fields</strong> into a consistent data model.</>,
-        <>Implemented tests covering core trading workflows, added <strong className="font-semibold text-heading">structured logging</strong>, and packaged the SDK with <strong className="font-semibold text-heading">Poetry</strong>, enabling scalable onboarding of new brokers.</>,
+        <>
+          Built a unified{" "}
+          <strong className="font-semibold text-heading">Python algorithmic trading SDK</strong>{" "}
+          integrating 3 broker APIs (Zerodha, Angel One, FivePaisa) using a{" "}
+          <strong className="font-semibold text-heading">modular adapter architecture</strong>.
+        </>,
+        <>
+          Designed a broker-agnostic{" "}
+          <strong className="font-semibold text-heading">Instrument Master schema</strong> and
+          ingestion pipeline in SQLite, normalizing{" "}
+          <strong className="font-semibold text-heading">
+            100% of broker-specific instrument fields
+          </strong>{" "}
+          into a consistent data model.
+        </>,
+        <>
+          Implemented tests covering core trading workflows, added{" "}
+          <strong className="font-semibold text-heading">structured logging</strong>, and packaged
+          the SDK with <strong className="font-semibold text-heading">Poetry</strong>, enabling
+          scalable onboarding of new brokers.
+        </>,
       ],
     },
     {
@@ -296,9 +336,27 @@ function JourneyPage() {
       duration: "Jul 2025 – Dec 2025",
       location: "Remote",
       bullets: [
-        <>Engineered end-to-end backend for <strong className="font-semibold text-heading">AI Interviewer platform</strong>, designing APIs, integrating databases, and implementing security protocols, reducing backend errors by <strong className="font-semibold text-heading">25%</strong>.</>,
-        <>Developed <strong className="font-semibold text-heading">role-based authentication</strong> (admin, HR, student) with secure <strong className="font-semibold text-heading">OAuth2.0 management</strong>, supporting <strong className="font-semibold text-heading">100+ concurrent users</strong>.</>,
-        <>Built a multi-container <strong className="font-semibold text-heading">Docker setup with FastAPI and Redis</strong>, cutting startup time by <strong className="font-semibold text-heading">30%</strong> and enabling scalable infrastructure.</>,
+        <>
+          Engineered end-to-end backend for{" "}
+          <strong className="font-semibold text-heading">AI Interviewer platform</strong>, designing
+          APIs, integrating databases, and implementing security protocols, reducing backend errors
+          by <strong className="font-semibold text-heading">25%</strong>.
+        </>,
+        <>
+          Developed{" "}
+          <strong className="font-semibold text-heading">role-based authentication</strong> (admin,
+          HR, student) with secure{" "}
+          <strong className="font-semibold text-heading">OAuth2.0 management</strong>, supporting{" "}
+          <strong className="font-semibold text-heading">100+ concurrent users</strong>.
+        </>,
+        <>
+          Built a multi-container{" "}
+          <strong className="font-semibold text-heading">
+            Docker setup with FastAPI and Redis
+          </strong>
+          , cutting startup time by <strong className="font-semibold text-heading">30%</strong> and
+          enabling scalable infrastructure.
+        </>,
       ],
     },
     {
@@ -308,9 +366,26 @@ function JourneyPage() {
       duration: "Apr 2025 - Oct 2025",
       location: "Remote",
       bullets: [
-        <>Led <strong className="font-semibold text-heading">competitive analysis</strong> of 4 key industry players (tech stacks, strategy, financials), uncovering <strong className="font-semibold text-heading">7 innovation gaps</strong>, improving Planto AI’s strategic planning effectiveness by <strong className="font-semibold text-heading">4%</strong>.</>,
-        <>Identified and resolved <strong className="font-semibold text-heading">performance bottlenecks</strong> in core AI solutions, boosting processing speed by <strong className="font-semibold text-heading">15%</strong> and improving market positioning by <strong className="font-semibold text-heading">12%</strong>.</>,
-        <>Built <strong className="font-semibold text-heading">research briefs</strong> summarising technical and market insights, enabling <strong className="font-semibold text-heading">15+ data-informed decisions</strong> across product and engineering teams.</>,
+        <>
+          Led <strong className="font-semibold text-heading">competitive analysis</strong> of 4 key
+          industry players (tech stacks, strategy, financials), uncovering{" "}
+          <strong className="font-semibold text-heading">7 innovation gaps</strong>, improving
+          Planto AI’s strategic planning effectiveness by{" "}
+          <strong className="font-semibold text-heading">4%</strong>.
+        </>,
+        <>
+          Identified and resolved{" "}
+          <strong className="font-semibold text-heading">performance bottlenecks</strong> in core AI
+          solutions, boosting processing speed by{" "}
+          <strong className="font-semibold text-heading">15%</strong> and improving market
+          positioning by <strong className="font-semibold text-heading">12%</strong>.
+        </>,
+        <>
+          Built <strong className="font-semibold text-heading">research briefs</strong> summarising
+          technical and market insights, enabling{" "}
+          <strong className="font-semibold text-heading">15+ data-informed decisions</strong> across
+          product and engineering teams.
+        </>,
       ],
     },
   ];
@@ -341,10 +416,8 @@ function JourneyPage() {
 
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
               A journey of{" "}
-              <span className="font-serif italic text-accent/75 font-normal">
-                curiosity
-              </span>
-              , failures, learning, and building.
+              <span className="font-serif italic text-accent/75 font-normal">curiosity</span>,
+              failures, learning, and building.
             </h1>
 
             <p className="text-hero-desc text-body max-w-xl font-normal leading-[1.7]">
@@ -374,20 +447,28 @@ function JourneyPage() {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2">
               <Compass className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">The Origin</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                The Origin
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading">
               The Beginning<span className="text-accent">.</span>
             </h2>
             <div className="space-y-4 text-body text-base leading-[1.8] font-normal">
               <p>
-                I was that kid who was always curious about how things worked. From taking apart toys to building random websites, I enjoyed creating things.
+                I was that kid who was always curious about how things worked. From taking apart
+                toys to building random websites, I enjoyed creating things.
               </p>
               <p>
-                My first real interaction with code was in school, and I instantly knew I wanted to build things that could make an impact. Writing those first lines of code and seeing something appear on the screen felt like magic. It wasn't about the technology yet, it was about the power of translating an idea into reality.
+                My first real interaction with code was in school, and I instantly knew I wanted to
+                build things that could make an impact. Writing those first lines of code and seeing
+                something appear on the screen felt like magic. It wasn't about the technology yet,
+                it was about the power of translating an idea into reality.
               </p>
               <p>
-                That early interest sparked a lifelong obsession with engineering. I spent hours reading docs, breaking systems, and building simple tools just to understand how it all fit together.
+                That early interest sparked a lifelong obsession with engineering. I spent hours
+                reading docs, breaking systems, and building simple tools just to understand how it
+                all fit together.
               </p>
             </div>
           </div>
@@ -403,8 +484,12 @@ function JourneyPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
               <div className="relative z-10 p-6 text-white space-y-1">
-                <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">Circa 2017</span>
-                <p className="font-serif italic text-lg text-zinc-200">"Writing my first lines of code..."</p>
+                <span className="text-[10px] font-mono tracking-widest text-accent uppercase font-bold">
+                  Circa 2017
+                </span>
+                <p className="font-serif italic text-lg text-zinc-200">
+                  "Writing my first lines of code..."
+                </p>
               </div>
             </div>
           </div>
@@ -415,7 +500,9 @@ function JourneyPage() {
       <section className="py-24 border-t border-border bg-[#FAFAF8]">
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-16">
           <div className="max-w-xl">
-            <div className="text-label-custom text-muted font-semibold mb-2">Milestones & Growth</div>
+            <div className="text-label-custom text-muted font-semibold mb-2">
+              Milestones & Growth
+            </div>
             <h2 className="text-section-title font-bold tracking-tight text-heading">
               My Journey<span className="text-accent">.</span>
             </h2>
@@ -444,9 +531,7 @@ function JourneyPage() {
                     <h3 className="text-lg font-semibold text-heading tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-body text-sm leading-[1.6]">
-                      {item.description}
-                    </p>
+                    <p className="text-body text-sm leading-[1.6]">{item.description}</p>
                   </div>
 
                   {/* Lesson highlight block */}
@@ -468,13 +553,18 @@ function JourneyPage() {
       </section>
 
       {/* Work Experience Timeline - Homepage Layout */}
-      <section id="experience" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 border-t border-border bg-[#FAFAF8]">
+      <section
+        id="experience"
+        className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 border-t border-border bg-[#FAFAF8]"
+      >
         <div className="grid lg:grid-cols-12 gap-6 items-start relative">
           {/* Left Column (Sticky Title) */}
           <div className="lg:col-span-4 lg:sticky lg:top-[120px] self-start space-y-4">
             <div className="inline-flex items-center gap-2 mb-2">
               <Briefcase className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">Professional Path</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                Professional Path
+              </span>
             </div>
             <h2 className="text-section-title font-bold tracking-tight text-heading">
               Work Experience
@@ -500,11 +590,19 @@ function JourneyPage() {
             {jobs.map((job, idx) => {
               const isExpanded = expandedIndex === idx;
               return (
-                <div key={idx} className="relative group animate-fade-up" style={{ animationDelay: `${idx * 0.1}s` }}>
+                <div
+                  key={idx}
+                  className="relative group animate-fade-up"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
                   {/* Timeline Dot */}
-                  <div className={`absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border flex items-center justify-center shadow-sm transition-all duration-300 ${
-                    isExpanded ? "border-accent scale-110" : "border-border group-hover:border-zinc-400"
-                  }`}>
+                  <div
+                    className={`absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border flex items-center justify-center shadow-sm transition-all duration-300 ${
+                      isExpanded
+                        ? "border-accent scale-110"
+                        : "border-border group-hover:border-zinc-400"
+                    }`}
+                  >
                     {isExpanded ? (
                       <div className="relative flex h-2.5 w-2.5">
                         <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-accent opacity-85"></span>
@@ -595,7 +693,9 @@ function JourneyPage() {
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2">
                 <GraduationCap className="w-4 h-4 text-accent" />
-                <span className="text-xs uppercase tracking-widest text-muted font-bold">Academics</span>
+                <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                  Academics
+                </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading">
                 Education<span className="text-accent">.</span>
@@ -606,29 +706,40 @@ function JourneyPage() {
                 <div className="relative p-[1.2px] rounded-2xl overflow-hidden group/edu border border-border bg-[#FAFAF8] hover:border-transparent hover:-translate-y-1 hover:scale-[1.02] shadow-sm hover:shadow-soft transition-all duration-300 ease-out">
                   {/* Light revolving border beam */}
                   <div className="absolute inset-[-250%] bg-[conic-gradient(from_0deg,transparent_30%,#6e9c53_50%,#e8f0d2_70%,transparent_90%)] animate-border-beam opacity-0 group-hover/edu:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  
+
                   {/* Inner Card */}
                   <div className="relative z-10 p-6 rounded-[15px] bg-gradient-to-br from-white via-white to-[#e8f0d2]/45 group-hover/edu:to-[#e8f0d2]/65 space-y-4 transition-all duration-300 h-full cursor-default">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-mono font-semibold text-accent bg-accent-soft px-2.5 py-1 rounded-full group-hover/edu:bg-accent group-hover/edu:text-white transition-colors duration-300">
                         2022 - 2026
                       </span>
-                      <span className="text-xs font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">GPA: 9.6/10</span>
+                      <span className="text-xs font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                        GPA: 9.6/10
+                      </span>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <span className="w-11 h-11 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 flex-shrink-0 shadow-sm transition-all duration-300 group-hover/edu:scale-110 group-hover/edu:shadow-md">
-                        <img src={dypatilLogo} alt="Dr. D Y Patil Logo" className="w-full h-full object-contain" />
+                        <img
+                          src={dypatilLogo}
+                          alt="Dr. D Y Patil Logo"
+                          className="w-full h-full object-contain"
+                        />
                       </span>
                       <div>
-                        <h3 className="text-base font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">B.Tech in Artificial Intelligence & Data Science</h3>
-                        <p className="text-[11px] text-muted font-semibold leading-tight">Dr. D Y Patil School Of Science And Technology, Pune</p>
+                        <h3 className="text-base font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                          B.Tech in Artificial Intelligence & Data Science
+                        </h3>
+                        <p className="text-[11px] text-muted font-semibold leading-tight">
+                          Dr. D Y Patil School Of Science And Technology, Pune
+                        </p>
                       </div>
                     </div>
-                    
+
                     <div className="h-[1px] bg-border group-hover/edu:bg-accent/25 transition-colors duration-300" />
                     <p className="text-xs text-body leading-relaxed font-normal">
-                      Specialized in artificial intelligence, deep learning models, natural language processing, and distributed microservices architectures.
+                      Specialized in artificial intelligence, deep learning models, natural language
+                      processing, and distributed microservices architectures.
                     </p>
                   </div>
                 </div>
@@ -637,23 +748,33 @@ function JourneyPage() {
                 <div className="relative p-[1.2px] rounded-2xl overflow-hidden group/edu border border-border bg-[#FAFAF8] hover:border-transparent hover:-translate-y-0.5 hover:scale-[1.015] shadow-sm hover:shadow-soft transition-all duration-300 ease-out">
                   {/* Light revolving border beam */}
                   <div className="absolute inset-[-250%] bg-[conic-gradient(from_0deg,transparent_35%,#6e9c53_50%,#e8f0d2_65%,transparent_80%)] animate-border-beam opacity-0 group-hover/edu:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  
+
                   {/* Inner Card */}
                   <div className="relative z-10 p-5 rounded-[15px] bg-[#FAFAF8] group-hover/edu:bg-gradient-to-br group-hover/edu:from-white group-hover/edu:to-accent-soft/25 space-y-3 transition-colors duration-300 h-full cursor-default">
                     <div className="flex items-center justify-between">
                       <span className="text-[13px] font-mono font-semibold text-muted group-hover/edu:text-accent transition-colors duration-300">
                         2020 - 2021
                       </span>
-                      <span className="text-[12px] font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">Score: 81%</span>
+                      <span className="text-[12px] font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                        Score: 81%
+                      </span>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <span className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 flex-shrink-0 shadow-sm transition-all duration-300 group-hover/edu:scale-110 group-hover/edu:shadow-md">
-                        <img src={spicerLogo} alt="Spicer Logo" className="w-full h-full object-contain" />
+                        <img
+                          src={spicerLogo}
+                          alt="Spicer Logo"
+                          className="w-full h-full object-contain"
+                        />
                       </span>
                       <div>
-                        <h3 className="text-sm font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">Senior Secondary (XII), ISC - Science</h3>
-                        <p className="text-[11px] text-muted font-semibold leading-tight">Spicer Higher Secondary School, Pune</p>
+                        <h3 className="text-sm font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                          Senior Secondary (XII), ISC - Science
+                        </h3>
+                        <p className="text-[11px] text-muted font-semibold leading-tight">
+                          Spicer Higher Secondary School, Pune
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -663,23 +784,33 @@ function JourneyPage() {
                 <div className="relative p-[1.2px] rounded-2xl overflow-hidden group/edu border border-border bg-[#FAFAF8] hover:border-transparent hover:-translate-y-0.5 hover:scale-[1.015] shadow-sm hover:shadow-soft transition-all duration-300 ease-out">
                   {/* Light revolving border beam */}
                   <div className="absolute inset-[-250%] bg-[conic-gradient(from_0deg,transparent_35%,#6e9c53_50%,#e8f0d2_65%,transparent_80%)] animate-border-beam opacity-0 group-hover/edu:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  
+
                   {/* Inner Card */}
                   <div className="relative z-10 p-5 rounded-[15px] bg-[#FAFAF8] group-hover/edu:bg-gradient-to-br group-hover/edu:from-white group-hover/edu:to-accent-soft/25 space-y-3 transition-colors duration-300 h-full cursor-default">
                     <div className="flex items-center justify-between">
                       <span className="text-[13px] font-mono font-semibold text-muted group-hover/edu:text-accent transition-colors duration-300">
                         2018 - 2019
                       </span>
-                      <span className="text-[12px] font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">Score: 85%</span>
+                      <span className="text-[12px] font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                        Score: 85%
+                      </span>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <span className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 flex-shrink-0 shadow-sm transition-all duration-300 group-hover/edu:scale-110 group-hover/edu:shadow-md">
-                        <img src={spicerLogo} alt="Spicer Logo" className="w-full h-full object-contain" />
+                        <img
+                          src={spicerLogo}
+                          alt="Spicer Logo"
+                          className="w-full h-full object-contain"
+                        />
                       </span>
                       <div>
-                        <h3 className="text-sm font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">Secondary (X), ICSE</h3>
-                        <p className="text-[11px] text-muted font-semibold leading-tight">Spicer Higher Secondary School, Pune</p>
+                        <h3 className="text-sm font-bold text-heading group-hover/edu:text-accent transition-colors duration-300">
+                          Secondary (X), ICSE
+                        </h3>
+                        <p className="text-[11px] text-muted font-semibold leading-tight">
+                          Spicer Higher Secondary School, Pune
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -690,7 +821,9 @@ function JourneyPage() {
             {/* Certificates & Documents Gallery */}
             <div className="lg:col-span-7 space-y-6 lg:h-[610px] flex flex-col">
               <div className="flex items-center justify-between flex-shrink-0">
-                <span className="text-xs uppercase tracking-widest text-muted font-bold">Certificates & Documents</span>
+                <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                  Certificates & Documents
+                </span>
                 <span className="text-xs text-accent font-semibold flex items-center gap-1">
                   Scroll to view all
                 </span>
@@ -717,7 +850,9 @@ function JourneyPage() {
                         </div>
                       ) : (
                         // Fallback brand-themed digital badge icon
-                        <div className={`w-20 h-14 rounded-lg border border-border/60 flex-shrink-0 bg-gradient-to-br ${cert.colorTheme.bg} flex items-center justify-center shadow-xs`}>
+                        <div
+                          className={`w-20 h-14 rounded-lg border border-border/60 flex-shrink-0 bg-gradient-to-br ${cert.colorTheme.bg} flex items-center justify-center shadow-xs`}
+                        >
                           <Award className={`w-6 h-6 ${cert.colorTheme.text} opacity-80`} />
                         </div>
                       )}
@@ -725,7 +860,11 @@ function JourneyPage() {
                       <div className="space-y-2 lg:space-y-1">
                         <div className="flex items-center gap-2">
                           <div className="w-5 h-5 rounded-full bg-white border border-border shadow-xs flex items-center justify-center p-0.5 overflow-hidden flex-shrink-0">
-                            <img src={cert.logo} alt={cert.issuer} className="w-full h-full object-contain" />
+                            <img
+                              src={cert.logo}
+                              alt={cert.issuer}
+                              className="w-full h-full object-contain"
+                            />
                           </div>
                           <span className="text-[10px] font-bold text-muted uppercase tracking-wider">
                             {cert.issuer}
@@ -765,10 +904,14 @@ function JourneyPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {[
               { label: "Google AI Hackathon Rank", value: "Top 25", sub: "Out of 1000 teams" },
-              { label: "B.Tech Academic GPA", value: "9.6/10", sub: "Dr. D Y Patil Honors" },
+              { label: "B.Tech Academic GPA", value: "9.6/10", sub: "Dr. D Y Patil Academic" },
               { label: "IBM Maharashtra Hackathon", value: "Top 10", sub: "State level finals" },
               { label: "Jio Creative Hackathon", value: "Top 100", sub: "Out of 16,000 teams" },
-              { label: "Trading SDK Broker APIs", value: "3 APIs", sub: "Unified Zerodha, AngelOne, 5Paisa" }
+              {
+                label: "Academic Excellence",
+                value: "Top 5",
+                sub: "Consistently ranked in B.Tech AI & DS, received 2nd-year academic award"
+              },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -803,13 +946,17 @@ function JourneyPage() {
           <div className="max-w-xl space-y-4">
             <div className="inline-flex items-center gap-2">
               <AlertCircle className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">Unveiling the Backstage</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                Unveiling the Backstage
+              </span>
             </div>
             <h2 className="text-section-title font-bold tracking-tight text-heading">
               Failures & Lessons<span className="text-accent">.</span>
             </h2>
             <p className="text-body text-sm leading-relaxed max-w-lg font-normal">
-              Most portfolios only display a curated list of successes. I believe the failures that shaped those wins are just as important. Here is what didn't work, and what it taught me.
+              Most portfolios only display a curated list of successes. I believe the failures that
+              shaped those wins are just as important. Here is what didn't work, and what it taught
+              me.
             </p>
           </div>
 
@@ -897,13 +1044,17 @@ function JourneyPage() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2">
               <Compass className="w-4 h-4 text-accent" />
-              <span className="text-xs uppercase tracking-widest text-muted font-bold">Looking Forward</span>
+              <span className="text-xs uppercase tracking-widest text-muted font-bold">
+                Looking Forward
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading">
               What's Next?<span className="text-accent">.</span>
             </h2>
             <p className="text-body text-base leading-relaxed max-w-lg font-normal">
-              The journey is far from over. I'm excited about what's ahead and determined to build products that create real impact. I am currently deep-diving into production-grade architectures and agent-based design.
+              The journey is far from over. I'm excited about what's ahead and determined to build
+              products that create real impact. I am currently deep-diving into production-grade
+              architectures and agent-based design.
             </p>
           </div>
 
@@ -913,23 +1064,23 @@ function JourneyPage() {
               {
                 title: "Agentic AI",
                 desc: "Autonomous reasoning systems & orchestrators",
-                icon: Brain
+                icon: Brain,
               },
               {
                 title: "Educational AI",
                 desc: "Adaptive tutoring & concept mapping flows",
-                icon: Layers
+                icon: Layers,
               },
               {
                 title: "AI Products",
                 desc: "Full-stack client-facing intelligent apps",
-                icon: Cpu
+                icon: Cpu,
               },
               {
                 title: "Production AI Systems",
                 desc: "Scalable APIs, RAG, and evaluation guards",
-                icon: Globe
-              }
+                icon: Globe,
+              },
             ].map((focus) => {
               const IconComp = focus.icon;
               return (
@@ -984,21 +1135,31 @@ function JourneyPage() {
                 <div className="flex items-center justify-between border-b border-border/60 pb-4 text-left">
                   <div className="flex items-center gap-3">
                     <span className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 shadow-sm">
-                      <img src={activeCert.logo} alt={activeCert.issuer} className="w-full h-full object-contain" />
+                      <img
+                        src={activeCert.logo}
+                        alt={activeCert.issuer}
+                        className="w-full h-full object-contain"
+                      />
                     </span>
                     <div>
-                      <h4 className="text-base font-bold text-heading leading-tight">{activeCert.title}</h4>
-                      <p className="text-xs text-muted font-semibold">{activeCert.issuer} · {activeCert.date}</p>
+                      <h4 className="text-base font-bold text-heading leading-tight">
+                        {activeCert.title}
+                      </h4>
+                      <p className="text-xs text-muted font-semibold">
+                        {activeCert.issuer} · {activeCert.date}
+                      </p>
                     </div>
                   </div>
                   <span className="text-[10px] font-mono font-bold bg-accent-soft text-accent border border-accent-soft px-2.5 py-1 rounded-full uppercase">
                     {activeCert.isPhoto ? "Photo Release" : "Official Credential"}
                   </span>
                 </div>
-                
+
                 <div className="relative rounded-xl border border-border overflow-hidden bg-slate-50 flex flex-col items-center justify-center p-2 md:p-4 shadow-inner min-h-[40vh] max-h-[55vh] md:max-h-[60vh] group/modal-img w-full">
                   <img
-                    src={activeCert.images ? activeCert.images[currentImageIdx] : activeCert.certImg}
+                    src={
+                      activeCert.images ? activeCert.images[currentImageIdx] : activeCert.certImg
+                    }
                     alt={`${activeCert.title} Document ${currentImageIdx + 1}`}
                     className="w-full max-h-[45vh] md:max-h-[50vh] object-contain rounded-lg border border-border/40 shadow-md transition-all duration-300"
                   />
@@ -1009,18 +1170,22 @@ function JourneyPage() {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setCurrentImageIdx((prev) => (prev === 0 ? activeCert.images!.length - 1 : prev - 1));
+                          setCurrentImageIdx((prev) =>
+                            prev === 0 ? activeCert.images!.length - 1 : prev - 1,
+                          );
                         }}
                         className="absolute left-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-heading flex items-center justify-center border border-border shadow-md transition-all cursor-pointer opacity-0 group-hover/modal-img:opacity-100"
                         title="Previous Image"
                       >
                         <ChevronRight className="w-5 h-5 rotate-180" />
                       </button>
-                      
+
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          setCurrentImageIdx((prev) => (prev === activeCert.images!.length - 1 ? 0 : prev + 1));
+                          setCurrentImageIdx((prev) =>
+                            prev === activeCert.images!.length - 1 ? 0 : prev + 1,
+                          );
                         }}
                         className="absolute right-4 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-heading flex items-center justify-center border border-border shadow-md transition-all cursor-pointer opacity-0 group-hover/modal-img:opacity-100"
                         title="Next Image"
@@ -1038,7 +1203,9 @@ function JourneyPage() {
                               setCurrentImageIdx(idx);
                             }}
                             className={`w-2 h-2 rounded-full transition-all border-0 p-0 cursor-pointer ${
-                              idx === currentImageIdx ? "bg-white scale-125" : "bg-white/50 hover:bg-white/80"
+                              idx === currentImageIdx
+                                ? "bg-white scale-125"
+                                : "bg-white/50 hover:bg-white/80"
                             }`}
                           />
                         ))}
@@ -1048,10 +1215,16 @@ function JourneyPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border/60 pt-6 text-left w-full text-xs text-muted font-semibold">
-                  <div>Verification ID: <span className="font-mono text-heading">{activeCert.certId}</span></div>
+                  <div>
+                    Verification ID:{" "}
+                    <span className="font-mono text-heading">{activeCert.certId}</span>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {activeCert.skills.map((skill) => (
-                      <span key={skill} className="bg-[#FAFAF8] border border-border px-2.5 py-1 rounded-lg text-heading">
+                      <span
+                        key={skill}
+                        className="bg-[#FAFAF8] border border-border px-2.5 py-1 rounded-lg text-heading"
+                      >
                         {skill}
                       </span>
                     ))}
@@ -1069,7 +1242,11 @@ function JourneyPage() {
                 <div className="space-y-2 mb-8 mt-4">
                   <div className="flex justify-center gap-1 mb-2">
                     <span className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1.5 shadow-sm">
-                      <img src={activeCert.logo} alt={activeCert.issuer} className="w-full h-full object-contain" />
+                      <img
+                        src={activeCert.logo}
+                        alt={activeCert.issuer}
+                        className="w-full h-full object-contain"
+                      />
                     </span>
                   </div>
                   <h3 className="text-xs uppercase tracking-widest text-muted font-bold">
@@ -1080,12 +1257,15 @@ function JourneyPage() {
 
                 {/* Recipient Details */}
                 <div className="space-y-4 mb-8">
-                  <p className="text-sm font-light text-body font-serif italic">This certifies that</p>
+                  <p className="text-sm font-light text-body font-serif italic">
+                    This certifies that
+                  </p>
                   <h4 className="text-3xl font-serif italic text-heading font-medium tracking-tight text-gradient">
                     Shadab Jamadar
                   </h4>
                   <p className="text-sm text-body max-w-md mx-auto leading-relaxed font-normal">
-                    has successfully met all academic standards and guidelines prescribed by the accrediting body to be recognized as an expert in:
+                    has successfully met all academic standards and guidelines prescribed by the
+                    accrediting body to be recognized as an expert in:
                   </p>
                   <h5 className="text-lg md:text-xl font-bold text-heading tracking-tight max-w-lg mx-auto py-2.5 px-6 bg-[#FAFAF8] rounded-xl border border-border">
                     {activeCert.title}

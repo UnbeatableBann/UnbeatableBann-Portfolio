@@ -8,9 +8,19 @@ export interface BlogCacheData {
 }
 
 export class BlogCache {
-  private async getCachePath(): Promise<string> {
+  private async getCachePaths(): Promise<{ writePath: string; readPaths: string[] }> {
     const path = await import("path");
-    return path.join(process.cwd(), CACHE_FILE_NAME);
+    const os = await import("os");
+
+    const rootPath = path.join(process.cwd(), CACHE_FILE_NAME);
+    const tempPath = path.join(os.tmpdir(), CACHE_FILE_NAME);
+
+    const isDev = process.env.NODE_ENV === "development";
+    const writePath = isDev ? rootPath : tempPath;
+
+    const readPaths = isDev ? [rootPath] : [tempPath, rootPath];
+
+    return { writePath, readPaths };
   }
 
   async get(ignoreExpiration = false): Promise<Article[] | null> {
@@ -20,9 +30,17 @@ export class BlogCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { readPaths } = await this.getCachePaths();
 
-      if (!fs.existsSync(cachePath)) {
+      let cachePath = "";
+      for (const p of readPaths) {
+        if (fs.existsSync(p)) {
+          cachePath = p;
+          break;
+        }
+      }
+
+      if (!cachePath) {
         return null;
       }
 
@@ -61,14 +79,14 @@ export class BlogCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { writePath } = await this.getCachePaths();
 
       const cacheData: BlogCacheData = {
         lastFetched: new Date().toISOString(),
         articles,
       };
 
-      fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2), "utf8");
+      fs.writeFileSync(writePath, JSON.stringify(cacheData, null, 2), "utf8");
       return true;
     } catch (error) {
       console.error("[BlogCache] Error writing blog cache:", error);

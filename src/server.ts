@@ -37,18 +37,58 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
+function addSecurityHeaders(response: Response): Response {
+  const headers = new Headers(response.headers);
+
+  // Standard OWASP / HTTP Security Headers
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
+  headers.set("X-XSS-Protection", "1; mode=block");
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), interest-cohort=()");
+
+  // Strict Content Security Policy (CSP) designed for React/hydration compatibility
+  const cspRules = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+    "style-src 'self' 'unsafe-inline' https: fonts.googleapis.com",
+    "font-src 'self' https: fonts.gstatic.com data:",
+    "img-src 'self' data: https: blob:",
+    "connect-src 'self' https: wss:",
+    "frame-ancestors 'none'",
+  ];
+  headers.set("Content-Security-Policy", cspRules.join("; "));
+
+  const status = response.status;
+  const hasBody =
+    status !== 204 &&
+    status !== 205 &&
+    status !== 304 &&
+    status !== 101 &&
+    !response.headers.get("Location");
+
+  return new Response(hasBody ? response.body : null, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      return addSecurityHeaders(normalized);
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(), {
+      const fallback = new Response(renderErrorPage(), {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" },
       });
+      return addSecurityHeaders(fallback);
     }
   },
 };

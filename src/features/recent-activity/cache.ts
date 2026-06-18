@@ -4,9 +4,22 @@ import { CONFIG } from "./config";
 const CACHE_FILE_NAME = "activity-cache.json";
 
 export class ActivityCache {
-  private async getCachePath(): Promise<string> {
+  private async getCachePaths(): Promise<{ writePath: string; readPaths: string[] }> {
     const path = await import("path");
-    return path.join(process.cwd(), CACHE_FILE_NAME);
+    const os = await import("os");
+
+    const rootPath = path.join(process.cwd(), CACHE_FILE_NAME);
+    const tempPath = path.join(os.tmpdir(), CACHE_FILE_NAME);
+
+    // In production/serverless, process.cwd() is read-only, so we must write to the temp directory.
+    // In development, writing to process.cwd() is preferred so the cache is visible in the workspace.
+    const isDev = process.env.NODE_ENV === "development";
+    const writePath = isDev ? rootPath : tempPath;
+
+    // When reading, check tempPath first (for latest updates), then fallback to rootPath (bundled version).
+    const readPaths = isDev ? [rootPath] : [tempPath, rootPath];
+
+    return { writePath, readPaths };
   }
 
   /**
@@ -20,10 +33,18 @@ export class ActivityCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { readPaths } = await this.getCachePaths();
 
-      if (!fs.existsSync(cachePath)) {
-        console.log("[ActivityCache] No cache file found.");
+      let cachePath = "";
+      for (const p of readPaths) {
+        if (fs.existsSync(p)) {
+          cachePath = p;
+          break;
+        }
+      }
+
+      if (!cachePath) {
+        console.log("[ActivityCache] No cache file found in search paths.");
         return null;
       }
 
@@ -36,7 +57,7 @@ export class ActivityCache {
       }
 
       if (ignoreExpiration) {
-        console.log("[ActivityCache] Serving cached data (ignoring expiration).");
+        console.log(`[ActivityCache] Serving cached data from ${cachePath} (ignoring expiration).`);
         return cache.activities;
       }
 
@@ -48,13 +69,13 @@ export class ActivityCache {
       if (ageMs < cacheDuration && ageMs >= 0) {
         const hoursLeft = ((cacheDuration - ageMs) / (1000 * 60 * 60)).toFixed(1);
         console.log(
-          `[ActivityCache] Serving fresh cache. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs. Fresh for next ${hoursLeft} hrs.`,
+          `[ActivityCache] Serving fresh cache from ${cachePath}. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs. Fresh for next ${hoursLeft} hrs.`,
         );
         return cache.activities;
       }
 
       console.log(
-        `[ActivityCache] Cache is stale. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs.`,
+        `[ActivityCache] Cache in ${cachePath} is stale. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs.`,
       );
       return null;
     } catch (error) {
@@ -73,15 +94,15 @@ export class ActivityCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { writePath } = await this.getCachePaths();
 
       const cacheData: CacheData = {
         lastFetched: new Date().toISOString(),
         activities,
       };
 
-      console.log(`[ActivityCache] Saving ${activities.length} items to cache file: ${cachePath}`);
-      fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2), "utf8");
+      console.log(`[ActivityCache] Saving ${activities.length} items to cache file: ${writePath}`);
+      fs.writeFileSync(writePath, JSON.stringify(cacheData, null, 2), "utf8");
       return true;
     } catch (error) {
       console.error("[ActivityCache] Error writing cache file:", error);
@@ -99,11 +120,11 @@ export class ActivityCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { writePath } = await this.getCachePaths();
 
-      if (fs.existsSync(cachePath)) {
-        fs.unlinkSync(cachePath);
-        console.log("[ActivityCache] Cache cleared successfully.");
+      if (fs.existsSync(writePath)) {
+        fs.unlinkSync(writePath);
+        console.log(`[ActivityCache] Cache at ${writePath} cleared successfully.`);
       }
     } catch (error) {
       console.error("[ActivityCache] Error clearing cache:", error);
@@ -120,9 +141,17 @@ export class ActivityCache {
 
     try {
       const fs = await import("fs");
-      const cachePath = await this.getCachePath();
+      const { readPaths } = await this.getCachePaths();
 
-      if (!fs.existsSync(cachePath)) {
+      let cachePath = "";
+      for (const p of readPaths) {
+        if (fs.existsSync(p)) {
+          cachePath = p;
+          break;
+        }
+      }
+
+      if (!cachePath) {
         return Infinity;
       }
 

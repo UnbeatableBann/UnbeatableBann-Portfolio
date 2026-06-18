@@ -50,9 +50,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Core Role",
     experience: "3+ Years",
     usedIn: ["Curio", "AI Interviewer"],
-    description: "Architecting intelligent systems by combining generative AI, agent workflows, and backend services.",
+    description:
+      "Architecting intelligent systems by combining generative AI, agent workflows, and backend services.",
     icon: Sparkles,
-    x: 1200, y: 700, vx: 0, vy: 0,
+    x: 1200,
+    y: 700,
+    vx: 0,
+    vy: 0,
   },
   // Level 1: Categories
   {
@@ -63,9 +67,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2+ Years",
     usedIn: ["Curio - AI Co-Teacher", "AI Interviewer Platform"],
-    description: "Designing agentic orchestrations, retrieval pipelines, and building GenAI applications.",
+    description:
+      "Designing agentic orchestrations, retrieval pipelines, and building GenAI applications.",
     icon: Bot,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "ml",
@@ -75,9 +83,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Ishara", "Planto AI Solutions"],
-    description: "Training neural architectures, data profiling, and NLP models to capture patterns.",
+    description:
+      "Training neural architectures, data profiling, and NLP models to capture patterns.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "programming",
@@ -87,9 +99,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Core Strength",
     experience: "4 Years",
     usedIn: ["All Projects"],
-    description: "Writing robust code using high-level scripting languages and low-level system design languages.",
+    description:
+      "Writing robust code using high-level scripting languages and low-level system design languages.",
     icon: Code,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "backend",
@@ -99,9 +115,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2+ Years",
     usedIn: ["AI Interviewer Platform", "Algorithmic Trading SDK"],
-    description: "Building scalable API architectures, authentication patterns, and database layers.",
+    description:
+      "Building scalable API architectures, authentication patterns, and database layers.",
     icon: Terminal,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "infrastructure",
@@ -111,9 +131,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["All Projects"],
-    description: "Deploying applications, configuring container runtimes, version control, and CI/CD pipelines.",
+    description:
+      "Deploying applications, configuring container runtimes, version control, and CI/CD pipelines.",
     icon: Layers,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "languages",
@@ -125,7 +149,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["Communication"],
     description: "Professional written and verbal communication languages.",
     icon: Globe,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Level 2: Sub-domains
@@ -138,9 +165,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Curio - AI Co-Teacher"],
-    description: "Integrating LLMs into applications using APIs, prompt templates, and structured outputs.",
+    description:
+      "Integrating LLMs into applications using APIs, prompt templates, and structured outputs.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "closed-llms",
@@ -152,7 +183,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["Curio", "AI Interviewer"],
     description: "Working with commercial frontier models from OpenAI, Google, and Anthropic.",
     icon: Bot,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "open-llms",
@@ -162,9 +196,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Intermediate",
     experience: "Self-Hosting",
     usedIn: ["Local LLM Pipeline"],
-    description: "Self-hosting and prompt-tuning open source weights for custom application domains.",
+    description:
+      "Self-hosting and prompt-tuning open source weights for custom application domains.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "rag-systems",
@@ -174,9 +212,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["LLM Evaluation Pipeline", "Curio"],
-    description: "Building retrieval-augmented generation pipelines to supply external knowledge to LLMs.",
+    description:
+      "Building retrieval-augmented generation pipelines to supply external knowledge to LLMs.",
     icon: Layers,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "vector-databases",
@@ -188,7 +230,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["LLM Evaluation Pipeline"],
     description: "Storing, indexing, and querying semantic embeddings for RAG pipelines.",
     icon: Database,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "agentic-ai",
@@ -198,9 +243,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2 Years",
     usedIn: ["Curio - AI Co-Teacher", "AI Interviewer Platform"],
-    description: "Designing autonomous, cyclical reasoning loops and task executors utilizing LLMs.",
+    description:
+      "Designing autonomous, cyclical reasoning loops and task executors utilizing LLMs.",
     icon: Bot,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under ML
   {
@@ -213,7 +262,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["Ishara", "Planto AI Solutions"],
     description: "Core concepts of supervised models, deep learning, NLP, and features extraction.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "frameworks-ml",
@@ -223,9 +275,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Ishara", "Planto AI"],
-    description: "Proficient in frameworks supporting feature modeling and neural graph computations.",
+    description:
+      "Proficient in frameworks supporting feature modeling and neural graph computations.",
     icon: Layers,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under Backend
   {
@@ -236,9 +292,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2 Years+",
     usedIn: ["AI Interviewer Platform", "Algorithmic Trading SDK"],
-    description: "Developing robust APIs, handling authorization schemes, and concurrent processing.",
+    description:
+      "Developing robust APIs, handling authorization schemes, and concurrent processing.",
     icon: Terminal,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "databases-backend",
@@ -248,9 +308,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Algorithmic Trading SDK", "AI Interviewer Platform"],
-    description: "Proficient in relational databases, lightweight SQL engines, and fast caching stores.",
+    description:
+      "Proficient in relational databases, lightweight SQL engines, and fast caching stores.",
     icon: Database,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Level 3: Tools & Skills
@@ -266,7 +330,10 @@ const SKILL_NODES: SkillNode[] = [
     description: "GPT-4o API integration, tool calls, JSON mode, and assistants framework.",
     icon: Bot,
     logo: "openai",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "gemini",
@@ -279,7 +346,10 @@ const SKILL_NODES: SkillNode[] = [
     description: "Utilizing Gemini Pro, Flash, multimodal tokens, and low-latency voice endpoints.",
     icon: Sparkles,
     logo: "googlegemini",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "claude",
@@ -289,10 +359,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Curio"],
-    description: "Leveraging Claude 3.5 Sonnet for advanced reasoning, code generation, and long-context analysis.",
+    description:
+      "Leveraging Claude 3.5 Sonnet for advanced reasoning, code generation, and long-context analysis.",
     icon: Bot,
     logo: "anthropic",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under Open LLMs
   {
@@ -306,7 +380,10 @@ const SKILL_NODES: SkillNode[] = [
     description: "Deploying Mistral-7B and Mixtral models for cost-efficient local workflows.",
     icon: Cpu,
     logo: "mistral",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "ollama",
@@ -319,7 +396,10 @@ const SKILL_NODES: SkillNode[] = [
     description: "Managing local LLM runtimes, custom Modelfiles, and embedding configurations.",
     icon: Terminal,
     logo: "ollama",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "llama",
@@ -329,10 +409,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["Local Pipeline"],
-    description: "Deploying and prompt-engineering Llama 3 models for specialized local extraction tasks.",
+    description:
+      "Deploying and prompt-engineering Llama 3 models for specialized local extraction tasks.",
     icon: Cpu,
     logo: "meta",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under Vector Databases
   {
@@ -343,10 +427,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["LLM Evaluation Pipeline"],
-    description: "Deploying cloud vector indexes, hybrid search, and managing metadata filtering namespaces.",
+    description:
+      "Deploying cloud vector indexes, hybrid search, and managing metadata filtering namespaces.",
     icon: Database,
     logo: "pinecone",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "faiss",
@@ -356,9 +444,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Intermediate",
     experience: "1+ Year",
     usedIn: ["Local Search Index"],
-    description: "Using Facebook AI Similarity Search for high-performance in-memory vector searches.",
+    description:
+      "Using Facebook AI Similarity Search for high-performance in-memory vector searches.",
     icon: Binary,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "qdrant",
@@ -368,10 +460,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["LLM Evaluation Pipeline"],
-    description: "Implementing Qdrant vector search engine with strict payload filters and high throughput.",
+    description:
+      "Implementing Qdrant vector search engine with strict payload filters and high throughput.",
     icon: Database,
     logo: "qdrant",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under RAG Systems (directly)
   {
@@ -382,9 +478,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1+ Year",
     usedIn: ["Curio"],
-    description: "Coordinating multiple specialised RAG agents that evaluate and retrieve chunks dynamically.",
+    description:
+      "Coordinating multiple specialised RAG agents that evaluate and retrieve chunks dynamically.",
     icon: Workflow,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "rag-eval",
@@ -394,9 +494,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1+ Year",
     usedIn: ["LLM Evaluation Pipeline"],
-    description: "Measuring retrieval relevance, context precision, completeness, and faithfulness.",
+    description:
+      "Measuring retrieval relevance, context precision, completeness, and faithfulness.",
     icon: FileText,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under Agentic AI
   {
@@ -407,10 +511,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "1.5 Years",
     usedIn: ["Curio - AI Co-Teacher"],
-    description: "Stateful, multi-agent orchestrations with robust node transitions and human-in-the-loop triggers.",
+    description:
+      "Stateful, multi-agent orchestrations with robust node transitions and human-in-the-loop triggers.",
     icon: Workflow,
     logo: "langchain",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "langchain",
@@ -420,10 +528,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Curio", "AI Interviewer"],
-    description: "Constructing prompt templates, parser chains, document loaders, and memory providers.",
+    description:
+      "Constructing prompt templates, parser chains, document loaders, and memory providers.",
     icon: Workflow,
     logo: "langchain",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "mcp",
@@ -433,9 +545,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Intermediate",
     experience: "6 Months",
     usedIn: ["Tool Integrations"],
-    description: "Integrating Model Context Protocol to bridge models with database schemas and terminal APIs.",
+    description:
+      "Integrating Model Context Protocol to bridge models with database schemas and terminal APIs.",
     icon: Binary,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "multi-agent-systems",
@@ -445,9 +561,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "1.5 Years",
     usedIn: ["Curio - AI Co-Teacher"],
-    description: "Designing supervisor-worker agent architectures with shared memory and task delegation loops.",
+    description:
+      "Designing supervisor-worker agent architectures with shared memory and task delegation loops.",
     icon: Bot,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under AI Category directly (Other Skills)
   {
@@ -458,9 +578,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2 Years",
     usedIn: ["All AI Projects"],
-    description: "Crafting structured few-shot prompts, chain-of-thought instructions, and guarding against injection.",
+    description:
+      "Crafting structured few-shot prompts, chain-of-thought instructions, and guarding against injection.",
     icon: Activity,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "llm-eval",
@@ -470,9 +594,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["LLM Evaluation Pipeline"],
-    description: "Measuring latency, coherence, hallucinations, and safety boundaries across models.",
+    description:
+      "Measuring latency, coherence, hallucinations, and safety boundaries across models.",
     icon: FileText,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Under Programming Languages
@@ -484,10 +612,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "4 Years",
     usedIn: ["Algorithmic Trading SDK", "LLM Evaluation Pipeline"],
-    description: "Primary backend, data analysis, and AI development language. Proficient in OOP and testing.",
+    description:
+      "Primary backend, data analysis, and AI development language. Proficient in OOP and testing.",
     icon: Code,
     logo: "python",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "c-lang",
@@ -497,10 +629,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Academic Projects"],
-    description: "Writing optimized procedural code, low-level pointer management, and basic hardware calls.",
+    description:
+      "Writing optimized procedural code, low-level pointer management, and basic hardware calls.",
     icon: Binary,
     logo: "c",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Under ML Core Areas
@@ -512,9 +648,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Academic Projects"],
-    description: "Building linear models, regression, tree classifiers, and support vector machines.",
+    description:
+      "Building linear models, regression, tree classifiers, and support vector machines.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "deep-learning",
@@ -524,9 +664,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Ishara - ISL Recognition"],
-    description: "Designing LSTM networks, CNNs, and dense neural maps for multi-class predictions.",
+    description:
+      "Designing LSTM networks, CNNs, and dense neural maps for multi-class predictions.",
     icon: Cpu,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "nlp",
@@ -538,7 +682,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["Ishara", "AI Interviewer"],
     description: "Sequence models, bag-of-words, TF-IDF, tokenization, embeddings, and parsing.",
     icon: Binary,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "model-eval-ml",
@@ -548,9 +695,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Ishara"],
-    description: "Analyzing confusion matrices, precision-recall thresholds, F1-scores, and cross-validation.",
+    description:
+      "Analyzing confusion matrices, precision-recall thresholds, F1-scores, and cross-validation.",
     icon: FileText,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "feature-engineering",
@@ -560,9 +711,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Ishara"],
-    description: "Normalizing data distributions, vectorizing raw features, and applying dimensionality reduction.",
+    description:
+      "Normalizing data distributions, vectorizing raw features, and applying dimensionality reduction.",
     icon: Activity,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under ML Frameworks
   {
@@ -573,10 +728,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Academic Projects"],
-    description: "Implementing pipelines, regression algorithms, ensemble trees, and clustering setups.",
+    description:
+      "Implementing pipelines, regression algorithms, ensemble trees, and clustering setups.",
     icon: Cpu,
     logo: "scikitlearn",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "tensorflow",
@@ -586,10 +745,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["Ishara - ISL Recognition"],
-    description: "Using Keras, training sequential models, saving H5 weights, and managing GPU allocations.",
+    description:
+      "Using Keras, training sequential models, saving H5 weights, and managing GPU allocations.",
     icon: Cpu,
     logo: "tensorflow",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "pytorch",
@@ -602,7 +765,10 @@ const SKILL_NODES: SkillNode[] = [
     description: "Defining custom model subclasses, backward passes, and tensors configurations.",
     icon: Cpu,
     logo: "pytorch",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Under Backend Core Areas
@@ -614,10 +780,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1 Year",
     usedIn: ["E-commerce App"],
-    description: "Designing database models, implementing the admin interface, and setting up class-based views.",
+    description:
+      "Designing database models, implementing the admin interface, and setting up class-based views.",
     icon: Terminal,
     logo: "django",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "fastapi",
@@ -627,10 +797,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "2 Years",
     usedIn: ["AI Interviewer Platform"],
-    description: "High-performance endpoint designs, WebSockets for real-time streaming, and background tasks execution.",
+    description:
+      "High-performance endpoint designs, WebSockets for real-time streaming, and background tasks execution.",
     icon: Terminal,
     logo: "fastapi",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "api-design",
@@ -640,9 +814,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Algorithmic Trading SDK", "AI Interviewer Platform"],
-    description: "Designing REST endpoints, request/response models in Pydantic, and adapter abstractions.",
+    description:
+      "Designing REST endpoints, request/response models in Pydantic, and adapter abstractions.",
     icon: Workflow,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "authentication",
@@ -652,9 +830,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["AI Interviewer Platform"],
-    description: "Implementing role-based access controls (RBAC) and OAuth2 security patterns with JWT tokens.",
+    description:
+      "Implementing role-based access controls (RBAC) and OAuth2 security patterns with JWT tokens.",
     icon: Code,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "async-programming",
@@ -664,9 +846,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["AI Interviewer Platform", "Algorithmic Trading SDK"],
-    description: "Writing non-blocking event loops with asyncio, supporting concurrent network requests.",
+    description:
+      "Writing non-blocking event loops with asyncio, supporting concurrent network requests.",
     icon: Terminal,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "database-design",
@@ -676,9 +862,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Algorithmic Trading SDK"],
-    description: "Defining database schemas, foreign keys, constraints, indexes, and normalization strategies.",
+    description:
+      "Defining database schemas, foreign keys, constraints, indexes, and normalization strategies.",
     icon: Database,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   // Under Backend Databases
   {
@@ -689,10 +879,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["AI Interviewer Platform"],
-    description: "Query writing, using connection pools, and utilizing JSONB columns for semi-structured records.",
+    description:
+      "Query writing, using connection pools, and utilizing JSONB columns for semi-structured records.",
     icon: Database,
     logo: "postgresql",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "sqlite",
@@ -702,10 +896,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["Algorithmic Trading SDK"],
-    description: "Writing custom instrument ingestion tasks, indexing columns, and normalizing payloads in lightweight DBs.",
+    description:
+      "Writing custom instrument ingestion tasks, indexing columns, and normalizing payloads in lightweight DBs.",
     icon: Database,
     logo: "sqlite",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "redis",
@@ -715,10 +913,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["AI Interviewer Platform"],
-    description: "Implementing task queues, pub/sub communication, session caching, and rate limit counters.",
+    description:
+      "Implementing task queues, pub/sub communication, session caching, and rate limit counters.",
     icon: Database,
     logo: "redis",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Under Infrastructure
@@ -730,10 +932,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["AI Interviewer Platform"],
-    description: "Building production Dockerfiles, docker-compose multi-container services, and optimizing images.",
+    description:
+      "Building production Dockerfiles, docker-compose multi-container services, and optimizing images.",
     icon: Layers,
     logo: "docker",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "git",
@@ -743,10 +949,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Expert",
     experience: "4 Years",
     usedIn: ["All Projects"],
-    description: "Advanced branching workflows, resolving conflicts, rebase procedures, and commit sanity checks.",
+    description:
+      "Advanced branching workflows, resolving conflicts, rebase procedures, and commit sanity checks.",
     icon: GitBranch,
     logo: "git",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "github-actions",
@@ -756,10 +966,14 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "1.5 Years",
     usedIn: ["CI/CD setups"],
-    description: "Automating validation tasks, testing workflows, and configuring code analysis steps on pull requests.",
+    description:
+      "Automating validation tasks, testing workflows, and configuring code analysis steps on pull requests.",
     icon: GitBranch,
     logo: "githubactions",
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "cicd",
@@ -769,9 +983,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["All Projects"],
-    description: "Configuring automated test-build-deploy loops to ensure delivery of valid software releases.",
+    description:
+      "Configuring automated test-build-deploy loops to ensure delivery of valid software releases.",
     icon: Workflow,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "deployment",
@@ -781,9 +999,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Advanced",
     experience: "2 Years",
     usedIn: ["All Projects"],
-    description: "Deploying services on cloud platforms, configuring environment parameters and port forwards.",
+    description:
+      "Deploying services on cloud platforms, configuring environment parameters and port forwards.",
     icon: Layers,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 
   // Under Languages
@@ -795,9 +1017,13 @@ const SKILL_NODES: SkillNode[] = [
     level: "Fluent",
     experience: "Native/Bilingual",
     usedIn: ["Documentation", "SDK package"],
-    description: "Primary language for professional writing, technical docs, and international cooperation.",
+    description:
+      "Primary language for professional writing, technical docs, and international cooperation.",
     icon: Globe,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
   {
     id: "hindi",
@@ -809,7 +1035,10 @@ const SKILL_NODES: SkillNode[] = [
     usedIn: ["Communication"],
     description: "Native verbal and written communication proficiency.",
     icon: Globe,
-    x: 0, y: 0, vx: 0, vy: 0,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
   },
 ];
 
@@ -908,12 +1137,12 @@ const SKILL_LINKS: SkillLink[] = [
 
 const PARENT_MAP: Record<string, string> = {
   // Category roots
-  "ai": "ai-engineer",
-  "ml": "ai-engineer",
-  "programming": "ai-engineer",
-  "backend": "ai-engineer",
-  "infrastructure": "ai-engineer",
-  "languages": "ai-engineer",
+  ai: "ai-engineer",
+  ml: "ai-engineer",
+  programming: "ai-engineer",
+  backend: "ai-engineer",
+  infrastructure: "ai-engineer",
+  languages: "ai-engineer",
 
   // AI Sub-domains
   "llm-applications": "ai",
@@ -927,29 +1156,29 @@ const PARENT_MAP: Record<string, string> = {
   "open-llms": "llm-applications",
 
   // Closed/Open LLMs tools
-  "openai": "closed-llms",
-  "gemini": "closed-llms",
-  "claude": "closed-llms",
-  "mistral": "open-llms",
-  "ollama": "open-llms",
-  "llama": "open-llms",
+  openai: "closed-llms",
+  gemini: "closed-llms",
+  claude: "closed-llms",
+  mistral: "open-llms",
+  ollama: "open-llms",
+  llama: "open-llms",
 
   // RAG systems sub-domains & tools
   "vector-databases": "rag-systems",
-  "pinecone": "vector-databases",
-  "faiss": "vector-databases",
-  "qdrant": "vector-databases",
+  pinecone: "vector-databases",
+  faiss: "vector-databases",
+  qdrant: "vector-databases",
   "multi-agent-rag": "rag-systems",
   "rag-eval": "rag-systems",
 
   // Agentic AI tools
-  "langgraph": "agentic-ai",
-  "langchain": "agentic-ai",
-  "mcp": "agentic-ai",
+  langgraph: "agentic-ai",
+  langchain: "agentic-ai",
+  mcp: "agentic-ai",
   "multi-agent-systems": "agentic-ai",
 
   // Programming tools
-  "python": "programming",
+  python: "programming",
   "c-lang": "programming",
 
   // ML Sub-domains
@@ -959,42 +1188,42 @@ const PARENT_MAP: Record<string, string> = {
   // ML Core tools
   "supervised-learning": "core-areas-ml",
   "deep-learning": "core-areas-ml",
-  "nlp": "core-areas-ml",
+  nlp: "core-areas-ml",
   "model-eval-ml": "core-areas-ml",
   "feature-engineering": "core-areas-ml",
 
   // ML Frameworks tools
   "scikit-learn": "frameworks-ml",
-  "tensorflow": "frameworks-ml",
-  "pytorch": "frameworks-ml",
+  tensorflow: "frameworks-ml",
+  pytorch: "frameworks-ml",
 
   // Backend Sub-domains
   "core-areas-backend": "backend",
   "databases-backend": "backend",
 
   // Backend Core tools
-  "django": "core-areas-backend",
-  "fastapi": "core-areas-backend",
+  django: "core-areas-backend",
+  fastapi: "core-areas-backend",
   "api-design": "core-areas-backend",
-  "authentication": "core-areas-backend",
+  authentication: "core-areas-backend",
   "async-programming": "core-areas-backend",
   "database-design": "core-areas-backend",
 
   // Backend Databases tools
-  "postgresql": "databases-backend",
-  "sqlite": "databases-backend",
-  "redis": "databases-backend",
+  postgresql: "databases-backend",
+  sqlite: "databases-backend",
+  redis: "databases-backend",
 
   // Infrastructure tools
-  "docker": "infrastructure",
-  "git": "infrastructure",
+  docker: "infrastructure",
+  git: "infrastructure",
   "github-actions": "infrastructure",
-  "cicd": "infrastructure",
-  "deployment": "infrastructure",
+  cicd: "infrastructure",
+  deployment: "infrastructure",
 
   // Languages tools
-  "english": "languages",
-  "hindi": "languages",
+  english: "languages",
+  hindi: "languages",
 };
 
 const CATEGORY_DISPLAY_NAMES: Record<string, string> = {
@@ -1021,18 +1250,21 @@ const SIBLING_ORDERING: Record<string, string[]> = {
   ai: ["prompt-eng", "agentic-ai", "llm-applications", "rag-systems", "llm-eval"],
 };
 
-const getDeterministicTargetCoords = (nodeId: string, allNodes: SkillNode[]): { x: number; y: number } => {
+const getDeterministicTargetCoords = (
+  nodeId: string,
+  allNodes: SkillNode[],
+): { x: number; y: number } => {
   const center = { x: 1200, y: 700 };
 
   if (nodeId === "ai-engineer") return center;
 
   const categoryAngles: Record<string, number> = {
-    infrastructure: -Math.PI / 2,      // -90 deg
-    ml: -Math.PI / 6,                  // -30 deg
-    languages: Math.PI / 6,            // 30 deg
-    backend: Math.PI / 2,              // 90 deg
-    programming: 5 * Math.PI / 6,      // 150 deg
-    ai: -5 * Math.PI / 6,              // -150 deg
+    infrastructure: -Math.PI / 2, // -90 deg
+    ml: -Math.PI / 6, // -30 deg
+    languages: Math.PI / 6, // 30 deg
+    backend: Math.PI / 2, // 90 deg
+    programming: (5 * Math.PI) / 6, // 150 deg
+    ai: (-5 * Math.PI) / 6, // -150 deg
   };
 
   if (nodeId in categoryAngles) {
@@ -1050,9 +1282,7 @@ const getDeterministicTargetCoords = (nodeId: string, allNodes: SkillNode[]): { 
   const parentTarget = getDeterministicTargetCoords(parentId, allNodes);
 
   // Get siblings sorted stably, respecting custom order if defined
-  const siblings = allNodes
-    .filter((n) => PARENT_MAP[n.id] === parentId)
-    .map((n) => n.id);
+  const siblings = allNodes.filter((n) => PARENT_MAP[n.id] === parentId).map((n) => n.id);
 
   const customOrder = SIBLING_ORDERING[parentId];
   if (customOrder) {
@@ -1133,28 +1363,56 @@ const hasChildren = (nodeId: string) => {
   return SKILL_LINKS.some((link) => link.source === nodeId);
 };
 
-const renderWrappedText = (label: string, fontSizeClass: string, dyStart: number, textColor: string) => {
+const renderWrappedText = (
+  label: string,
+  fontSizeClass: string,
+  dyStart: number,
+  textColor: string,
+) => {
   const words = label.split(" ");
   if (words.length === 1) {
     return (
-      <text y={dyStart + 3} textAnchor="middle" fill={textColor} className={`${fontSizeClass} font-semibold font-sans`}>
+      <text
+        y={dyStart + 3}
+        textAnchor="middle"
+        fill={textColor}
+        className={`${fontSizeClass} font-semibold font-sans`}
+      >
         {words[0]}
       </text>
     );
   }
   if (words.length === 2) {
     return (
-      <text textAnchor="middle" fill={textColor} className={`${fontSizeClass} font-semibold font-sans`}>
-        <tspan x="0" y={dyStart - 2}>{words[0]}</tspan>
-        <tspan x="0" y={dyStart + 9}>{words[1]}</tspan>
+      <text
+        textAnchor="middle"
+        fill={textColor}
+        className={`${fontSizeClass} font-semibold font-sans`}
+      >
+        <tspan x="0" y={dyStart - 2}>
+          {words[0]}
+        </tspan>
+        <tspan x="0" y={dyStart + 9}>
+          {words[1]}
+        </tspan>
       </text>
     );
   }
   return (
-    <text textAnchor="middle" fill={textColor} className={`${fontSizeClass} font-semibold font-sans`}>
-      <tspan x="0" y={dyStart - 7}>{words[0]}</tspan>
-      <tspan x="0" y={dyStart + 5}>{words[1]}</tspan>
-      <tspan x="0" y={dyStart + 17}>{words[2]}</tspan>
+    <text
+      textAnchor="middle"
+      fill={textColor}
+      className={`${fontSizeClass} font-semibold font-sans`}
+    >
+      <tspan x="0" y={dyStart - 7}>
+        {words[0]}
+      </tspan>
+      <tspan x="0" y={dyStart + 5}>
+        {words[1]}
+      </tspan>
+      <tspan x="0" y={dyStart + 17}>
+        {words[2]}
+      </tspan>
     </text>
   );
 };
@@ -1163,7 +1421,7 @@ export function SkillsGraph() {
   const [nodes, setNodes] = useState<SkillNode[]>(() => {
     const getInitialCoords = (nodeId: string): { x: number; y: number } => {
       if (nodeId === "ai-engineer") return { x: 1200, y: 700 };
-      
+
       const parentId = PARENT_MAP[nodeId];
       if (!parentId) {
         // Direct category roots
@@ -1215,7 +1473,7 @@ export function SkillsGraph() {
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
       },
-      { threshold: 0.01 }
+      { threshold: 0.01 },
     );
 
     observer.observe(container);
@@ -1256,11 +1514,11 @@ export function SkillsGraph() {
     const onWheel = (e: WheelEvent) => {
       e.preventDefault(); // Prevents browser page zoom on pinch-to-zoom
       const delta = -e.deltaY;
-      
+
       // Laptop touchpads emit ctrlKey === true for pinch gestures
       // Set appropriate zoom sensitivity: faster for pinch (0.015) and slower for mouse wheel (0.0025)
       const speedFactor = e.ctrlKey ? 0.015 : 0.0025;
-      
+
       setZoom((z) => {
         const nextZoom = z * Math.exp(delta * speedFactor);
         return Math.max(0.4, Math.min(2.5, nextZoom));
@@ -1330,7 +1588,7 @@ export function SkillsGraph() {
           if (node.id === currentDragged || node.pinned) return;
 
           const target = getDeterministicTargetCoords(node.id, nextNodes);
-          
+
           // Spring interpolation
           node.vx = (target.x - node.x) * 0.14;
           node.vy = (target.y - node.y) * 0.14;
@@ -1345,26 +1603,26 @@ export function SkillsGraph() {
           for (let u = 0; u < nextNodes.length; u++) {
             const nodeA = nextNodes[u];
             if (!isNodeVisible(nodeA.id, activeCollapsed)) continue;
-            
+
             for (let v = u + 1; v < nextNodes.length; v++) {
               const nodeB = nextNodes[v];
               if (!isNodeVisible(nodeB.id, activeCollapsed)) continue;
-              
+
               const dx = nodeB.x - nodeA.x;
               const dy = nodeB.y - nodeA.y;
               const distance = Math.sqrt(dx * dx + dy * dy) || 1;
-              
+
               const radiusA = getNodeRadius(nodeA.size, nodeA.id);
               const radiusB = getNodeRadius(nodeB.size, nodeB.id);
-              
+
               // Spacing boundary: nodes radius sum + 28px buffer
               const minDistance = radiusA + radiusB + 28;
-              
+
               if (distance < minDistance) {
                 const overlap = minDistance - distance;
                 const pushX = (dx / distance) * overlap * 0.5;
                 const pushY = (dy / distance) * overlap * 0.5;
-                
+
                 if (nodeA.id !== currentDragged && !nodeA.pinned) {
                   nodeA.x -= pushX;
                   nodeA.y -= pushY;
@@ -1403,7 +1661,7 @@ export function SkillsGraph() {
           return { ...n, pinned: true };
         }
         return n;
-      })
+      }),
     );
 
     dragStartRef.current = { x: e.clientX, y: e.clientY };
@@ -1452,7 +1710,7 @@ export function SkillsGraph() {
             return { ...n, pinned: false };
           }
           return n;
-        })
+        }),
       );
     }
     setDraggedNodeId(null);
@@ -1507,7 +1765,7 @@ export function SkillsGraph() {
           prev.map((n) => {
             if (n.id === hitNode.id) return { ...n, pinned: true };
             return n;
-          })
+          }),
         );
         dragStartRef.current = { x: touch.clientX, y: touch.clientY };
       } else {
@@ -1571,7 +1829,7 @@ export function SkillsGraph() {
         prev.map((n) => {
           if (n.id === draggedNodeId) return { ...n, pinned: false };
           return n;
-        })
+        }),
       );
     }
     setDraggedNodeId(null);
@@ -1647,11 +1905,14 @@ export function SkillsGraph() {
   const visibleNodes = nodes.filter((n) => isNodeVisible(n.id, collapsedNodeIds));
   const visibleNodeIds = new Set(visibleNodes.map((n) => n.id));
   const visibleLinks = SKILL_LINKS.filter(
-    (l) => visibleNodeIds.has(l.source) && visibleNodeIds.has(l.target)
+    (l) => visibleNodeIds.has(l.source) && visibleNodeIds.has(l.target),
   );
 
   return (
-    <section id="skills" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none">
+    <section
+      id="skills"
+      className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
+    >
       <div className="max-w-2xl mb-9">
         <div className="text-label-custom text-muted font-semibold mb-3">
           Skills Knowledge Graph
@@ -1702,15 +1963,21 @@ export function SkillsGraph() {
             className="absolute z-20 bg-white/95 backdrop-blur-md border border-border/80 shadow-2xl rounded-2xl p-4 w-56 pointer-events-none select-none text-left animate-in fade-in zoom-in-95 duration-150 ease-out"
             style={{
               left: hoveredNode.x * zoom + pan.x,
-              top: (hoveredNode.y - getNodeRadius(hoveredNode.size, hoveredNode.id)) * zoom + pan.y - 12,
+              top:
+                (hoveredNode.y - getNodeRadius(hoveredNode.size, hoveredNode.id)) * zoom +
+                pan.y -
+                12,
               transform: "translate(-50%, -100%)",
             }}
           >
             {/* Node Category indicator dot */}
             <div className="flex items-center gap-1.5 mb-1.5">
-              <span className={`w-2 h-2 rounded-full ${getCategoryStyles(hoveredNode.category, false).bulletColor}`} />
+              <span
+                className={`w-2 h-2 rounded-full ${getCategoryStyles(hoveredNode.category, false).bulletColor}`}
+              />
               <span className="text-[10px] uppercase font-bold tracking-widest text-muted/80">
-                {CATEGORY_DISPLAY_NAMES[hoveredNode.category] || (hoveredNode.category === "center" ? "Core" : hoveredNode.category)}
+                {CATEGORY_DISPLAY_NAMES[hoveredNode.category] ||
+                  (hoveredNode.category === "center" ? "Core" : hoveredNode.category)}
               </span>
             </div>
 
@@ -1722,7 +1989,9 @@ export function SkillsGraph() {
             {/* Used In List */}
             {hoveredNode.usedIn && hoveredNode.usedIn.length > 0 && (
               <div className="mb-3">
-                <div className="text-[10px] uppercase tracking-wider text-muted font-bold mb-1">Used In:</div>
+                <div className="text-[10px] uppercase tracking-wider text-muted font-bold mb-1">
+                  Used In:
+                </div>
                 <ul className="text-xs text-body space-y-1 pl-1">
                   {hoveredNode.usedIn.map((item, i) => (
                     <li key={i} className="flex items-start gap-1.5">
@@ -1737,13 +2006,17 @@ export function SkillsGraph() {
             {/* Status & Experience Grid */}
             <div className="grid grid-cols-2 gap-3 pt-2 border-t border-border/40">
               <div>
-                <div className="text-[9px] uppercase tracking-wider text-muted font-bold leading-normal">Learning Status</div>
+                <div className="text-[9px] uppercase tracking-wider text-muted font-bold leading-normal">
+                  Learning Status
+                </div>
                 <div className="text-xs font-semibold text-[#111111] mt-0.5">
                   {hoveredNode.level}
                 </div>
               </div>
               <div>
-                <div className="text-[9px] uppercase tracking-wider text-muted font-bold leading-normal">Experience</div>
+                <div className="text-[9px] uppercase tracking-wider text-muted font-bold leading-normal">
+                  Experience
+                </div>
                 <div className="text-xs font-semibold text-[#111111] mt-0.5">
                   {hoveredNode.experience}
                 </div>
@@ -1821,7 +2094,9 @@ export function SkillsGraph() {
 
                 // Set node specific font sizing for multi-word tool descriptions
                 const isSmallMultiWord = node.size === "small" && node.label.split(" ").length > 1;
-                const textFontSizeClass = isSmallMultiWord ? "text-[6.5px] leading-tight" : nodeStyles.textClass;
+                const textFontSizeClass = isSmallMultiWord
+                  ? "text-[6.5px] leading-tight"
+                  : nodeStyles.textClass;
 
                 return (
                   <g
@@ -1868,7 +2143,9 @@ export function SkillsGraph() {
                           />
                         ) : (
                           <g transform="translate(-8, -14)">
-                            <node.icon style={{ width: 16, height: 16, color: nodeStyles.customTextColor }} />
+                            <node.icon
+                              style={{ width: 16, height: 16, color: nodeStyles.customTextColor }}
+                            />
                           </g>
                         )}
                         {/* Text at the bottom */}

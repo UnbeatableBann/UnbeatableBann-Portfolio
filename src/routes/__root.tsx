@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">

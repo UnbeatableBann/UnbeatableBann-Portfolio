@@ -10,11 +10,7 @@ export default defineConfig({
     alias: {
       "@": "/src",
     },
-    dedupe: [
-      "react",
-      "react-dom",
-      "@tanstack/react-query",
-    ],
+    dedupe: ["react", "react-dom", "@tanstack/react-query"],
   },
   css: {
     transformer: "lightningcss",

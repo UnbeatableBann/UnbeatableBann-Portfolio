@@ -18,7 +18,7 @@ import {
   Activity,
   Calendar,
   Users,
-  Layers
+  Layers,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -38,7 +38,9 @@ export const Route = createFileRoute("/products/$slug")({
         },
         {
           name: "description",
-          content: matchedProduct?.tagline || "Detailed engineering review of AI product by Shadab Jamadar.",
+          content:
+            matchedProduct?.tagline ||
+            "Detailed engineering review of AI product by Shadab Jamadar.",
         },
       ],
     };
@@ -51,7 +53,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 rounded-full bg-[#6E9C53] animate-pulse" />
-          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">Ingestion & Processing Pipeline</h4>
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Ingestion & Processing Pipeline
+          </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
@@ -72,7 +76,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
 
           <div className="flex flex-col items-center p-3 bg-[#E8F0D2] border border-[#d1ebd9] rounded-xl w-full md:w-36 text-center shadow-xs">
             <span className="text-[10px] font-bold text-emerald-800 mb-0.5">ORCHESTRATOR</span>
-            <span className="text-[11px] font-semibold text-heading font-mono">LangGraph Agent</span>
+            <span className="text-[11px] font-semibold text-heading font-mono">
+              LangGraph Agent
+            </span>
             <span className="text-[9px] text-[#6E9C53] font-semibold mt-0.5">State Management</span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
@@ -107,7 +113,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
-          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">Asynchronous Evaluation Cycle</h4>
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Asynchronous Evaluation Cycle
+          </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
@@ -128,7 +136,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
 
           <div className="flex flex-col items-center p-3 bg-blue-50/50 border border-blue-100 rounded-xl w-full md:w-36 text-center shadow-xs">
             <span className="text-[10px] font-bold text-blue-700 mb-0.5">EVALUATION</span>
-            <span className="text-[11px] font-semibold text-heading font-mono">LangChain Agent</span>
+            <span className="text-[11px] font-semibold text-heading font-mono">
+              LangChain Agent
+            </span>
             <span className="text-[9px] text-blue-600 font-semibold mt-0.5">State Flow Runner</span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
@@ -152,13 +162,17 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">Secure Retrieval & Attributed Answer Ingestion</h4>
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Secure Retrieval & Attributed Answer Ingestion
+          </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
             <span className="text-[10px] font-bold text-emerald-600 mb-0.5">INPUT</span>
             <span className="text-[11px] font-semibold text-heading">Practitioner Query</span>
-            <span className="text-[9px] text-muted font-normal mt-0.5">Clinical Diagnoses Question</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">
+              Clinical Diagnoses Question
+            </span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
@@ -181,8 +195,12 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
 
           <div className="flex flex-col items-center p-3 bg-emerald-50/50 border border-emerald-100 rounded-xl w-full md:w-36 text-center shadow-xs">
             <span className="text-[10px] font-bold text-emerald-700 mb-0.5">COMPLIANCE</span>
-            <span className="text-[11px] font-semibold text-heading font-mono">Llama 3 Clinical</span>
-            <span className="text-[9px] text-[#6E9C53] font-semibold mt-0.5">PII Validation Filters</span>
+            <span className="text-[11px] font-semibold text-heading font-mono">
+              Llama 3 Clinical
+            </span>
+            <span className="text-[9px] text-[#6E9C53] font-semibold mt-0.5">
+              PII Validation Filters
+            </span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
@@ -202,7 +220,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">Memory-Mapped IPC Bridge Path</h4>
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Memory-Mapped IPC Bridge Path
+          </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
@@ -216,7 +236,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
             <span className="text-[10px] font-bold text-red-600 mb-0.5">IPC TRANSFER</span>
             <span className="text-[11px] font-semibold text-heading">Shared Memory</span>
-            <span className="text-[9px] text-muted font-normal mt-0.5">Low-Latency IPC Channel</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">
+              Low-Latency IPC Channel
+            </span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
@@ -244,7 +266,9 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">Arbitrage Scanning & Optimization Pipeline</h4>
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Arbitrage Scanning & Optimization Pipeline
+          </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
@@ -300,7 +324,16 @@ export function ProductDetailPage() {
     }
   }, [matchedProduct, navigate]);
 
-  const tabs = ["Overview", "Problem", "Solution", "Architecture", "Tech Stack", "Screenshots", "Challenges", "Roadmap"];
+  const tabs = [
+    "Overview",
+    "Problem",
+    "Solution",
+    "Architecture",
+    "Tech Stack",
+    "Screenshots",
+    "Challenges",
+    "Roadmap",
+  ];
 
   // Scrollspy logic for horizontal tabs: highlight current tab during detail section scrolls
   useEffect(() => {
@@ -369,7 +402,6 @@ export function ProductDetailPage() {
 
         {/* Layout split: Left Sidebar + Right Details workspace */}
         <div className="grid lg:grid-cols-12 gap-10 items-start">
-          
           {/* Left Sidebar */}
           <aside className="lg:col-span-3 lg:sticky lg:top-[100px] space-y-6 hidden lg:block">
             <div className="bg-white rounded-2xl border border-border shadow-soft p-5 space-y-5">
@@ -397,7 +429,9 @@ export function ProductDetailPage() {
                         {prod.slug === "mt5-infrastructure" && <Network className="w-3.5 h-3.5" />}
                         {prod.slug === "quantix" && <Shield className="w-3.5 h-3.5" />}
                         <span>{prod.name}</span>
-                        {isCurrent && <span className="ml-auto w-1 h-1 rounded-full bg-[#6E9C53]" />}
+                        {isCurrent && (
+                          <span className="ml-auto w-1 h-1 rounded-full bg-[#6E9C53]" />
+                        )}
                       </Link>
                     );
                   })}
@@ -425,14 +459,15 @@ export function ProductDetailPage() {
 
           {/* Right Panel Workspace */}
           <div className="lg:col-span-9 space-y-12 w-full">
-            
             {/* Header Block */}
             <div className="grid md:grid-cols-12 gap-8 items-center border-b border-border/60 pb-10">
               <div className="md:col-span-7 space-y-4">
                 <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#6E9C53] bg-[#E8F0D2] px-2 py-0.5 rounded w-fit inline-block">
                   {matchedProduct.domain}
                 </span>
-                <h1 className="text-4xl font-bold text-heading tracking-tight leading-tight">{matchedProduct.name}</h1>
+                <h1 className="text-4xl font-bold text-heading tracking-tight leading-tight">
+                  {matchedProduct.name}
+                </h1>
                 <div className="text-base font-semibold text-[#6E9C53] italic">
                   {matchedProduct.tagline}
                 </div>
@@ -484,8 +519,12 @@ export function ProductDetailPage() {
                       <Activity className="w-4 h-4" />
                     </span>
                     <div>
-                      <span className="text-[9px] text-muted block uppercase tracking-wider">Status</span>
-                      <span className="text-xs font-semibold text-heading">{matchedProduct.status}</span>
+                      <span className="text-[9px] text-muted block uppercase tracking-wider">
+                        Status
+                      </span>
+                      <span className="text-xs font-semibold text-heading">
+                        {matchedProduct.status}
+                      </span>
                     </div>
                   </div>
 
@@ -494,8 +533,12 @@ export function ProductDetailPage() {
                       <Calendar className="w-4 h-4" />
                     </span>
                     <div>
-                      <span className="text-[9px] text-muted block uppercase tracking-wider">Launched</span>
-                      <span className="text-xs font-semibold text-heading">{matchedProduct.launchDate}</span>
+                      <span className="text-[9px] text-muted block uppercase tracking-wider">
+                        Launched
+                      </span>
+                      <span className="text-xs font-semibold text-heading">
+                        {matchedProduct.launchDate}
+                      </span>
                     </div>
                   </div>
 
@@ -504,8 +547,12 @@ export function ProductDetailPage() {
                       <Users className="w-4 h-4" />
                     </span>
                     <div>
-                      <span className="text-[9px] text-muted block uppercase tracking-wider">Active Users</span>
-                      <span className="text-xs font-semibold text-heading">{matchedProduct.users || "N/A (Research)"}</span>
+                      <span className="text-[9px] text-muted block uppercase tracking-wider">
+                        Active Users
+                      </span>
+                      <span className="text-xs font-semibold text-heading">
+                        {matchedProduct.users || "N/A (Research)"}
+                      </span>
                     </div>
                   </div>
 
@@ -514,8 +561,12 @@ export function ProductDetailPage() {
                       <Layers className="w-4 h-4" />
                     </span>
                     <div>
-                      <span className="text-[9px] text-muted block uppercase tracking-wider">Scale</span>
-                      <span className="text-xs font-semibold text-heading">{matchedProduct.domain.split(" ")[0]}</span>
+                      <span className="text-[9px] text-muted block uppercase tracking-wider">
+                        Scale
+                      </span>
+                      <span className="text-xs font-semibold text-heading">
+                        {matchedProduct.domain.split(" ")[0]}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -532,9 +583,7 @@ export function ProductDetailPage() {
                       key={tab}
                       onClick={() => handleTabClick(tab)}
                       className={`px-4 py-2.5 text-xs font-semibold tracking-tight transition-all relative cursor-pointer ${
-                        isActive
-                          ? "text-[#6E9C53] font-bold"
-                          : "text-body hover:text-heading"
+                        isActive ? "text-[#6E9C53] font-bold" : "text-body hover:text-heading"
                       }`}
                     >
                       <span>{tab}</span>
@@ -549,7 +598,6 @@ export function ProductDetailPage() {
 
             {/* Content Sections */}
             <div className="space-y-16">
-              
               {/* Overview Section */}
               <section id="overview" className="scroll-mt-[130px] space-y-6">
                 <div className="grid md:grid-cols-12 gap-8 items-start">
@@ -560,7 +608,10 @@ export function ProductDetailPage() {
                     </p>
                     <ul className="space-y-2 pt-2">
                       {matchedProduct.overview.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex gap-3 text-xs text-body leading-relaxed font-normal">
+                        <li
+                          key={idx}
+                          className="flex gap-3 text-xs text-body leading-relaxed font-normal"
+                        >
                           <CheckCircle2 className="w-4.5 h-4.5 text-[#6E9C53] flex-shrink-0 mt-0.5" />
                           <span>{bullet}</span>
                         </li>
@@ -575,7 +626,10 @@ export function ProductDetailPage() {
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       {matchedProduct.overview.capabilities.map((cap, idx) => (
-                        <div key={idx} className="p-3 bg-slate-50 border border-border/80 rounded-xl space-y-1">
+                        <div
+                          key={idx}
+                          className="p-3 bg-slate-50 border border-border/80 rounded-xl space-y-1"
+                        >
                           <div className="flex items-center gap-1.5 text-[#6E9C53]">
                             {cap.iconName === "brain" && <Brain className="w-3.5 h-3.5" />}
                             {cap.iconName === "cpu" && <Cpu className="w-3.5 h-3.5" />}
@@ -585,7 +639,9 @@ export function ProductDetailPage() {
                             {cap.iconName === "fileText" && <FileText className="w-3.5 h-3.5" />}
                             {cap.iconName === "sparkles" && <Sparkles className="w-3.5 h-3.5" />}
                             {cap.iconName === "list" && <List className="w-3.5 h-3.5" />}
-                            <span className="text-[10px] font-bold text-heading leading-tight">{cap.name}</span>
+                            <span className="text-[10px] font-bold text-heading leading-tight">
+                              {cap.name}
+                            </span>
                           </div>
                           <p className="text-[9px] text-body font-normal leading-snug">
                             {cap.desc}
@@ -599,7 +655,10 @@ export function ProductDetailPage() {
                 {/* Metrics highlights row */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white border border-border rounded-2xl p-5 shadow-soft text-center md:text-left mt-8">
                   {matchedProduct.metrics.map((metric, idx) => (
-                    <div key={idx} className="space-y-1 border-r border-border/60 last:border-r-0 pr-4 last:pr-0">
+                    <div
+                      key={idx}
+                      className="space-y-1 border-r border-border/60 last:border-r-0 pr-4 last:pr-0"
+                    >
                       <div className="text-2xl font-bold text-heading font-serif italic text-[#6E9C53]">
                         {metric.value}
                       </div>
@@ -637,7 +696,7 @@ export function ProductDetailPage() {
                 <p className="text-small-custom text-body leading-relaxed">
                   {matchedProduct.architecture.text}
                 </p>
-                
+
                 {/* SVG/HTML schematic map */}
                 <ArchitectureFlowchart slug={matchedProduct.slug} />
               </section>
@@ -676,7 +735,10 @@ export function ProductDetailPage() {
                     </h4>
                     <ul className="space-y-3">
                       {matchedProduct.challenges.map((challenge, idx) => (
-                        <li key={idx} className="flex gap-2.5 text-xs text-body font-normal leading-relaxed">
+                        <li
+                          key={idx}
+                          className="flex gap-2.5 text-xs text-body font-normal leading-relaxed"
+                        >
                           <span className="text-red-500 font-bold">•</span>
                           <span>{challenge}</span>
                         </li>
@@ -691,7 +753,10 @@ export function ProductDetailPage() {
                     </h4>
                     <ul className="space-y-3">
                       {matchedProduct.lessons.map((lesson, idx) => (
-                        <li key={idx} className="flex gap-2.5 text-xs text-body font-normal leading-relaxed">
+                        <li
+                          key={idx}
+                          className="flex gap-2.5 text-xs text-body font-normal leading-relaxed"
+                        >
                           <span className="text-[#6E9C53] font-bold">✓</span>
                           <span>{lesson}</span>
                         </li>
@@ -709,9 +774,7 @@ export function ProductDetailPage() {
                     <div
                       key={idx}
                       className={`border rounded-2xl p-5 shadow-soft relative flex flex-col justify-between h-36 ${
-                        step.done
-                          ? "bg-[#E8F0D2]/20 border-[#d1ebd9]"
-                          : "bg-white border-border"
+                        step.done ? "bg-[#E8F0D2]/20 border-[#d1ebd9]" : "bg-white border-border"
                       }`}
                     >
                       <div className="space-y-1.5">
@@ -719,11 +782,13 @@ export function ProductDetailPage() {
                           <span className="text-[10px] font-bold text-muted uppercase tracking-wider">
                             {step.phase}
                           </span>
-                          <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full ${
-                            step.done
-                              ? "bg-emerald-50 text-emerald-700"
-                              : "bg-amber-50 text-amber-700"
-                          }`}>
+                          <span
+                            className={`text-[9px] font-semibold px-2 py-0.5 rounded-full ${
+                              step.done
+                                ? "bg-emerald-50 text-emerald-700"
+                                : "bg-amber-50 text-amber-700"
+                            }`}
+                          >
                             {step.done ? "Completed" : "Planned"}
                           </span>
                         </div>
@@ -736,7 +801,6 @@ export function ProductDetailPage() {
                   ))}
                 </div>
               </section>
-
             </div>
 
             {/* Related Products Widget */}
@@ -755,13 +819,16 @@ export function ProductDetailPage() {
                         <span className="text-[9px] font-bold uppercase tracking-wider text-[#6E9C53] bg-[#E8F0D2] px-2 py-0.5 rounded">
                           {rel.domain}
                         </span>
-                        <h4 className="text-base font-bold text-heading group-hover:text-[#6E9C53] transition-colors">{rel.name}</h4>
+                        <h4 className="text-base font-bold text-heading group-hover:text-[#6E9C53] transition-colors">
+                          {rel.name}
+                        </h4>
                         <p className="text-xs text-body line-clamp-2 leading-relaxed font-normal">
                           {rel.tagline}
                         </p>
                       </div>
                       <span className="inline-flex items-center gap-1 text-xs font-bold text-[#6E9C53] mt-2">
-                        View Product Details <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                        View Product Details{" "}
+                        <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                       </span>
                     </Link>
                   ))}
@@ -777,9 +844,12 @@ export function ProductDetailPage() {
                   <Sparkles className="w-5 h-5" />
                 </span>
                 <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-heading">Every product is built with a focus on solving real problems.</h4>
+                  <h4 className="text-sm font-bold text-heading">
+                    Every product is built with a focus on solving real problems.
+                  </h4>
                   <p className="text-xs text-body leading-relaxed max-w-xl font-normal">
-                    Interested in engineering collaboration, specialized quantitative models, or custom educational AI solutions? Let's connect.
+                    Interested in engineering collaboration, specialized quantitative models, or
+                    custom educational AI solutions? Let's connect.
                   </p>
                 </div>
               </div>
@@ -790,7 +860,6 @@ export function ProductDetailPage() {
                 Let's Connect <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
-
           </div>
         </div>
       </section>
