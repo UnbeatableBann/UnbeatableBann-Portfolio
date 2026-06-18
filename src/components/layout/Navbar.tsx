@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Menu, X } from "lucide-react";
@@ -61,22 +61,22 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isSubPage =
-    location.pathname.startsWith("/blog") ||
-    location.pathname.startsWith("/products") ||
-    location.pathname.startsWith("/journey") ||
-    location.pathname.startsWith("/about");
   const isBlogPage = location.pathname.startsWith("/blog");
   const isProductsPage = location.pathname.startsWith("/products");
   const isJourneyPage = location.pathname.startsWith("/journey");
   const isAboutPage = location.pathname.startsWith("/about");
 
-  const navLinks = [
-    { label: "Home", href: isSubPage ? "/#home" : "#home" },
-    { label: "About", href: "/about", active: isAboutPage },
-    { label: "Journey", href: "/journey", active: isJourneyPage },
-    { label: "Products", href: "/products", active: isProductsPage },
-    { label: "Blog", href: "/blog", active: isBlogPage },
+  const navLinks: Array<{
+    label: string;
+    to: "/" | "/about" | "/journey" | "/products" | "/blog";
+    hash?: string;
+    active?: boolean;
+  }> = [
+    { label: "Home", to: "/", hash: "home" },
+    { label: "About", to: "/about", active: isAboutPage },
+    { label: "Journey", to: "/journey", active: isJourneyPage },
+    { label: "Products", to: "/products", active: isProductsPage },
+    { label: "Blog", to: "/blog", active: isBlogPage },
   ];
 
   return (
@@ -92,8 +92,9 @@ export function Navbar() {
             : "max-w-[1280px] h-20 bg-transparent px-6 lg:px-10"
         }`}
       >
-        <a
-          href={isBlogPage ? "/#home" : "#home"}
+        <Link
+          to="/"
+          hash="home"
           className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.02]"
         >
           <img
@@ -104,19 +105,20 @@ export function Navbar() {
           <span className="font-semibold tracking-tight text-heading text-sm md:text-base hidden sm:inline">
             Shadab Jamadar
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.label}
-              href={l.href}
+              to={l.to}
+              hash={l.hash}
               className={`text-sm font-medium transition-colors ${
                 l.active ? "text-primary font-semibold" : "text-body hover:text-heading"
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -148,16 +150,17 @@ export function Navbar() {
         <div className="fixed inset-0 z-45 bg-white/95 backdrop-blur-md md:hidden flex flex-col pt-24 px-6 gap-6">
           <nav className="flex flex-col gap-4 text-center mt-8">
             {navLinks.map((l) => (
-              <a
+              <Link
                 key={l.label}
-                href={l.href}
+                to={l.to}
+                hash={l.hash}
                 onClick={() => setIsOpen(false)}
                 className={`text-lg font-semibold py-3 border-b border-[#F0F0F0] transition-colors ${
                   l.active ? "text-primary font-bold" : "text-body hover:text-heading"
                 }`}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

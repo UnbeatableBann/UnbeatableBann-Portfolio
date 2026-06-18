@@ -155,20 +155,16 @@ function Hero() {
               {/* Thicker border wrapper containing the rotating gradient */}
               <div className="relative p-[2.8px] rounded-full overflow-hidden bg-zinc-900/10 inline-flex">
                 <div className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_10%,#6e9c53_35%,#3b82f6_50%,#8b5cf6_65%,transparent_90%)] animate-border-beam pointer-events-none" />
-                <a
-                  href="#projects"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/products"
                   className="relative inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-4 text-sm font-semibold hover:bg-primary-hover transition-all duration-200 z-10"
                 >
                   Explore My Work <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
             <a
               href="#contact"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-4 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               Let's Connect
@@ -276,7 +272,7 @@ function CurrentlyBuilding() {
   return (
     <section
       id="about"
-      className="mx-auto max-w-[1340px] px-6 lg:px-20 py-12 lg:h-[95vh] lg:min-h-[1100px] flex flex-col justify-center gap-6 overflow-visible lg:overflow-hidden"
+      className="scroll-mt-[100px] mx-auto max-w-[1340px] px-6 lg:px-20 py-12 lg:h-[95vh] lg:min-h-[1100px] flex flex-col justify-center gap-6 overflow-visible lg:overflow-hidden"
     >
       <div className="max-w-2xl">
         <div className="text-label-custom text-muted font-semibold mb-2">Focus & Stream</div>
@@ -348,7 +344,9 @@ function CurrentlyBuilding() {
               <div className="text-right">
                 <div className="text-label-custom text-muted font-sans">DETAILS</div>
                 <a
-                  href="#projects"
+                  href="https://github.com/UnbeatableBann/AI-Interviewer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 text-xs font-semibold hover:bg-primary-hover transition-all mt-1"
                 >
                   Explore Details
@@ -490,7 +488,7 @@ function ExperienceSnapshot() {
   ];
 
   return (
-    <section id="experience" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]">
+    <section id="experience" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]">
       <div className="grid lg:grid-cols-12 gap-6 items-start relative">
         {/* Left Column (Sticky Title) */}
         <div className="lg:col-span-4 lg:sticky lg:top-[120px] self-start space-y-4">
@@ -642,7 +640,7 @@ function Products() {
   ];
 
   return (
-    <section id="projects" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-[70px] pb-[140px]">
+    <section id="projects" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[70px] pb-[140px]">
       <div className="max-w-2xl mb-16">
         <div className="text-label-custom text-muted font-semibold mb-3">Featured Work</div>
         <h2 className="text-section-title font-bold tracking-tight text-heading">
@@ -720,7 +718,7 @@ function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12">
+    <section id="contact" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12">
       <div className="relative rounded-3xl border border-border bg-white p-6 md:p-16 shadow-card overflow-hidden">
         {/* Subtle moving grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-10" />
@@ -814,7 +812,7 @@ function SkillsGraphFallback() {
   return (
     <section
       id="skills"
-      className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
+      className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
     >
       <div className="max-w-2xl mb-9">
         <div className="text-label-custom text-muted font-semibold mb-3">

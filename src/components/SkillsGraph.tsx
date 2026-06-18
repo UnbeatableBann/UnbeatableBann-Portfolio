@@ -1911,7 +1911,7 @@ export function SkillsGraph() {
   return (
     <section
       id="skills"
-      className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
+      className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-10 md:pt-14 pb-[140px] select-none"
     >
       <div className="max-w-2xl mb-9">
         <div className="text-label-custom text-muted font-semibold mb-3">
