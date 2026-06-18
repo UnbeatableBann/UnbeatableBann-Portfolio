@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2026-06-17T04:54:27.137Z",
+  "lastFetched": "2026-06-18T05:17:39.797Z",
   "activities": [
     {
       "id": "medium-post-from-text-to-images-building-a-semantic-search-engine-with-clip-af92d5230062",
@@ -15,6 +15,23 @@
       }
     },
     {
+      "id": "github-repo-UnbeatableBann/UnbeatableBann-Portfolio-13483290474",
+      "source": "github",
+      "title": "Updated UnbeatableBann-Portfolio",
+      "description": "12 commits",
+      "url": "https://github.com/UnbeatableBann/UnbeatableBann-Portfolio",
+      "timestamp": "2026-06-17T18:28:25Z",
+      "type": "commit",
+      "score": 110,
+      "repository": "UnbeatableBann-Portfolio",
+      "metadata": {
+        "repoName": "UnbeatableBann/UnbeatableBann-Portfolio",
+        "commitCount": 12,
+        "aggregationDays": 1,
+        "originalEventCount": 12
+      }
+    },
+    {
       "id": "medium-post-rag-fails-in-production-0dae7e23b99e",
       "source": "medium",
       "title": "Published: The Hidden Reasons Your RAG Pipeline Stops Working at Scale",
@@ -25,23 +42,6 @@
       "score": 110,
       "metadata": {
         "originalTitle": "The Hidden Reasons Your RAG Pipeline Stops Working at Scale"
-      }
-    },
-    {
-      "id": "github-repo-UnbeatableBann/UnbeatableBann-12542799652",
-      "source": "github",
-      "title": "Updated UnbeatableBann",
-      "description": "17 commits",
-      "url": "https://github.com/UnbeatableBann/UnbeatableBann",
-      "timestamp": "2026-05-29T13:07:12Z",
-      "type": "commit",
-      "score": 90,
-      "repository": "UnbeatableBann",
-      "metadata": {
-        "repoName": "UnbeatableBann/UnbeatableBann",
-        "commitCount": 17,
-        "aggregationDays": 1,
-        "originalEventCount": 17
       }
     }
   ]

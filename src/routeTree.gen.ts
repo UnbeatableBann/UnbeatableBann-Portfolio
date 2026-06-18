@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as JourneyIndexRouteImport } from './routes/journey/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as AboutIndexRouteImport } from './routes/about/index'
 import { Route as ProductsSlugRouteImport } from './routes/products/$slug'
 import { Route as ApiBlogRouteImport } from './routes/api/blog'
 import { Route as ApiActivityFeedRouteImport } from './routes/api/activity-feed'
@@ -37,6 +38,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsSlugRoute = ProductsSlugRouteImport.update({
   id: '/products/$slug',
   path: '/products/$slug',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/about/': typeof AboutIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/journey/': typeof JourneyIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/about': typeof AboutIndexRoute
   '/blog': typeof BlogIndexRoute
   '/journey': typeof JourneyIndexRoute
   '/products': typeof ProductsIndexRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/about/': typeof AboutIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/journey/': typeof JourneyIndexRoute
   '/products/': typeof ProductsIndexRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/api/activity-feed'
     | '/api/blog'
     | '/products/$slug'
+    | '/about/'
     | '/blog/'
     | '/journey/'
     | '/products/'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/api/activity-feed'
     | '/api/blog'
     | '/products/$slug'
+    | '/about'
     | '/blog'
     | '/journey'
     | '/products'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/api/activity-feed'
     | '/api/blog'
     | '/products/$slug'
+    | '/about/'
     | '/blog/'
     | '/journey/'
     | '/products/'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   ApiActivityFeedRoute: typeof ApiActivityFeedRoute
   ApiBlogRoute: typeof ApiBlogRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   JourneyIndexRoute: typeof JourneyIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/$slug': {
       id: '/products/$slug'
       path: '/products/$slug'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiActivityFeedRoute: ApiActivityFeedRoute,
   ApiBlogRoute: ApiBlogRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  AboutIndexRoute: AboutIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   JourneyIndexRoute: JourneyIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
