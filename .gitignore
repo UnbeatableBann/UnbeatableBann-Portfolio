@@ -6,6 +6,9 @@ yarn-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
 activity-cache.json
+blog-cache.json
+linkedin-posts.json
+find_place_classes.js
 
 # Dependencies
 node_modules/
