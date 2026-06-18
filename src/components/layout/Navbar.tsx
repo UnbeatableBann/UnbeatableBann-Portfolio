@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 import shadabLogo from "@/assets/shadab-logo.png";
+import { Menu, X } from "lucide-react";
 
 export function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -33,8 +34,20 @@ export function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const resumeUrl = useResumeUrl();
   const location = useLocation();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,13 +92,16 @@ export function Navbar() {
             : "max-w-[1280px] h-20 bg-transparent px-6 lg:px-10"
         }`}
       >
-        <a href={isBlogPage ? "/#home" : "#home"} className="flex items-center gap-2">
+        <a
+          href={isBlogPage ? "/#home" : "#home"}
+          className="flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.02]"
+        >
           <img
             src={shadabLogo}
             alt="Shadab Jamadar Logo"
-            className="w-8 h-8 rounded-full p-1 bg-black object-cover border border-border"
+            className="w-10 h-10 rounded-full p-2 bg-black object-cover border border-border shadow-sm"
           />
-          <span className="font-semibold tracking-tight text-heading text-sm md:text-base">
+          <span className="font-semibold tracking-tight text-heading text-sm md:text-base hidden sm:inline">
             Shadab Jamadar
           </span>
         </a>
@@ -104,17 +120,48 @@ export function Navbar() {
           ))}
         </nav>
 
-        <a
-          href={resumeUrl || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
-            isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
-          }`}
-        >
-          Resume
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={resumeUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
+              isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
+            }`}
+          >
+            Resume
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 rounded-full hover:bg-black/5 transition-colors text-heading cursor-pointer z-50"
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 z-45 bg-white/95 backdrop-blur-md md:hidden flex flex-col pt-24 px-6 gap-6">
+          <nav className="flex flex-col gap-4 text-center mt-8">
+            {navLinks.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-semibold py-3 border-b border-[#F0F0F0] transition-colors ${
+                  l.active ? "text-primary font-bold" : "text-body hover:text-heading"
+                }`}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
     </div>
   );
 }

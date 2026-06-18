@@ -150,8 +150,8 @@ function ProductsPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none -z-20" />
 
         {/* Ambient Gradients */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-purple/10 blur-[130px] -z-10 pointer-events-none translate-x-[20%] -translate-y-[20%] animate-ambient-flow" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-brand-orange/6 blur-[110px] -z-10 pointer-events-none -translate-x-[20%] translate-y-[20%] animate-ambient-flow [animation-delay:4s]" />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full bg-brand-purple/10 blur-[80px] md:blur-[130px] -z-10 pointer-events-none translate-x-[10%] md:translate-x-[20%] -translate-y-[10%] md:-translate-y-[20%] animate-ambient-flow" />
+        <div className="absolute bottom-0 left-0 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full bg-brand-orange/6 blur-[70px] md:blur-[110px] -z-10 pointer-events-none -translate-x-[10%] md:-translate-x-[20%] translate-y-[10%] md:translate-y-[20%] animate-ambient-flow [animation-delay:4s]" />
 
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-6">
           <div className="space-y-4 max-w-3xl">
@@ -189,7 +189,10 @@ function ProductsPage() {
       </section>
 
       {/* Directory Section */}
-      <section id="products-directory" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-16">
+      <section
+        id="products-directory"
+        className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-16 pb-8 md:pb-16"
+      >
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Left Sidebar - Sticky Navigation */}
           <aside className="lg:col-span-3 lg:sticky lg:top-[100px] space-y-6 hidden lg:block">
@@ -247,7 +250,7 @@ function ProductsPage() {
           </aside>
 
           {/* Right Panel - Product Content & Filters */}
-          <div className="lg:col-span-9 space-y-10 w-full">
+          <div className="lg:col-span-9 space-y-10 w-full min-w-0">
             {/* Filter Bar & Search */}
             <div className="bg-white rounded-2xl border border-border p-4 shadow-soft flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Horizontal scrollable tags */}
@@ -386,7 +389,7 @@ function ProductsPage() {
                     </div>
 
                     {/* Right Mockup column */}
-                    <div className="lg:col-span-7 bg-[#FAFAF8] border border-border shadow-card rounded-2xl overflow-hidden aspect-[4/3] relative flex items-center justify-center p-0.5 group">
+                    <div className="lg:col-span-7 bg-[#FAFAF8] border border-border shadow-card rounded-2xl overflow-hidden aspect-[4/3] relative flex items-center justify-center p-0.5 group w-full min-w-0">
                       <ProductMockup slug={prod.slug} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none animate-fade-in" />
                     </div>

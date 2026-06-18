@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Award,
   Check,
@@ -287,6 +287,61 @@ function JourneyPage() {
     setCurrentImageIdx(0);
   };
   const resumeUrl = useResumeUrl();
+
+  // Swipe gesture detection state
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance in px
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (activeCert && activeCert.images && activeCert.images.length > 1) {
+      if (isLeftSwipe) {
+        // Swipe left -> Next image
+        setCurrentImageIdx((prev) => (prev === activeCert.images!.length - 1 ? 0 : prev + 1));
+      }
+      if (isRightSwipe) {
+        // Swipe right -> Previous image
+        setCurrentImageIdx((prev) => (prev === 0 ? activeCert.images!.length - 1 : prev - 1));
+      }
+    }
+  };
+
+  // Keyboard navigation listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!activeCert) return;
+      if (e.key === "Escape") {
+        setActiveCert(null);
+      } else if (activeCert.images && activeCert.images.length > 1) {
+        if (e.key === "ArrowRight") {
+          setCurrentImageIdx((prev) => (prev === activeCert.images!.length - 1 ? 0 : prev + 1));
+        } else if (e.key === "ArrowLeft") {
+          setCurrentImageIdx((prev) => (prev === 0 ? activeCert.images!.length - 1 : prev - 1));
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeCert]);
 
   const handleDownload = () => {
     if (!resumeUrl) return;
@@ -1155,7 +1210,14 @@ function JourneyPage() {
                   </span>
                 </div>
 
-                <div className="relative rounded-xl border border-border overflow-hidden bg-slate-50 flex flex-col items-center justify-center p-2 md:p-4 shadow-inner min-h-[40vh] max-h-[55vh] md:max-h-[60vh] group/modal-img w-full">
+                <div
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  className={`relative rounded-xl border border-border overflow-hidden bg-slate-50 flex flex-col items-center justify-center p-2 md:p-4 shadow-inner min-h-[40vh] max-h-[55vh] md:max-h-[60vh] group/modal-img w-full select-none ${
+                    activeCert.images && activeCert.images.length > 1 ? "cursor-grab active:cursor-grabbing" : ""
+                  }`}
+                >
                   <img
                     src={
                       activeCert.images ? activeCert.images[currentImageIdx] : activeCert.certImg

@@ -196,15 +196,15 @@ function BlogPage() {
             </div>
 
             {/* Source and Sort filters */}
-            <div className="flex items-center gap-3 self-end md:self-auto">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
               {/* Source tabs */}
-              <div className="inline-flex rounded-full bg-zinc-100 p-1 border border-border">
+              <div className="inline-flex rounded-full bg-zinc-100 p-1 border border-border flex-shrink-0">
                 {["All", "Medium", "LinkedIn"].map((src) => (
                   <button
                     id={`source-filter-${src.toLowerCase().replace(/\s+/g, "-")}`}
                     key={src}
                     onClick={() => setSelectedSource(src)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                    className={`px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
                       selectedSource === src
                         ? "bg-white text-heading shadow-sm"
                         : "text-muted-foreground hover:text-heading"
@@ -220,7 +220,7 @@ function BlogPage() {
                 id="sort-select"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-4 py-2 bg-white border border-border rounded-full text-xs font-semibold text-heading focus:outline-none focus:ring-1 focus:ring-accent shadow-sm"
+                className="px-3 sm:px-4 py-2 bg-white border border-border rounded-full text-xs font-semibold text-heading focus:outline-none focus:ring-1 focus:ring-accent shadow-sm flex-shrink-0"
               >
                 <option value="newest">Newest First</option>
                 <option value="oldest">Oldest First</option>
@@ -231,7 +231,7 @@ function BlogPage() {
                 id="refresh-button"
                 onClick={handleManualRefresh}
                 disabled={isLoading || isRefreshing}
-                className="p-2.5 rounded-full border border-border bg-white text-body hover:text-heading hover:bg-[#FAFAF8] shadow-sm transition-all disabled:opacity-50"
+                className="p-2.5 rounded-full border border-border bg-white text-body hover:text-heading hover:bg-[#FAFAF8] shadow-sm transition-all disabled:opacity-50 flex-shrink-0"
                 title="Force refresh feed"
               >
                 <RefreshCw

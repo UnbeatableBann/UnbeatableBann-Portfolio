@@ -24,7 +24,7 @@ export function ProductMockup({ slug }: { slug: string }) {
         {/* Inner workspace */}
         <div className="flex flex-1 gap-3 min-h-0">
           {/* Sidebar */}
-          <div className="w-28 border-r border-slate-800/60 pr-2 flex flex-col gap-1.5 text-slate-400 font-sans">
+          <div className="w-28 border-r border-slate-800/60 pr-2 flex flex-col gap-1.5 text-slate-400 font-sans hidden sm:flex">
             <div className="font-bold text-slate-200 mb-1 flex items-center gap-1">
               <span className="bg-[#6E9C53]/20 text-[#6E9C53] p-0.5 rounded text-[8px]">SJ</span>{" "}
               Curio AI
@@ -189,7 +189,7 @@ export function ProductMockup({ slug }: { slug: string }) {
           </div>
 
           {/* HR Rubric Performance Panel */}
-          <div className="w-36 bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col justify-between shadow-sm">
+          <div className="w-36 bg-white border border-slate-200 rounded-lg p-2.5 flex flex-col justify-between shadow-sm hidden sm:flex">
             <div>
               <h5 className="font-bold text-slate-800 text-[10px] border-b border-slate-100 pb-1.5 mb-2">
                 Candidate Grading
@@ -258,7 +258,7 @@ export function ProductMockup({ slug }: { slug: string }) {
 
         <div className="flex flex-1 gap-3 min-h-0">
           {/* Left Panel */}
-          <div className="w-24 border-r border-slate-100 pr-2 flex flex-col gap-1 text-slate-400 text-[9px] font-normal">
+          <div className="w-24 border-r border-slate-100 pr-2 flex flex-col gap-1 text-slate-400 text-[9px] font-normal hidden sm:flex">
             <div className="bg-emerald-50 text-emerald-700 font-semibold px-2 py-1 rounded">
               New Diagnostic
             </div>
@@ -328,7 +328,7 @@ export function ProductMockup({ slug }: { slug: string }) {
         </div>
 
         {/* Grid split */}
-        <div className="grid grid-cols-4 gap-2 border-b border-slate-800 pb-2 mb-2 font-sans">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 border-b border-slate-800 pb-2 mb-2 font-sans">
           <div className="bg-slate-900 border border-slate-800 rounded p-1 text-center">
             <span className="text-slate-500 text-[7px] block">LATENCY</span>
             <span className="text-emerald-400 text-[10px] font-bold">800μs</span>
@@ -384,9 +384,9 @@ export function ProductMockup({ slug }: { slug: string }) {
           </span>
         </div>
 
-        <div className="grid grid-cols-5 gap-3 flex-1 min-h-0">
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 flex-1 min-h-0">
           {/* Table Cointegration */}
-          <div className="col-span-3 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col">
+          <div className="col-span-1 sm:col-span-3 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col">
             <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
               Cointegration Scanner
             </h5>
@@ -407,7 +407,7 @@ export function ProductMockup({ slug }: { slug: string }) {
           </div>
 
           {/* Allocation Weights */}
-          <div className="col-span-2 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col justify-between">
+          <div className="col-span-1 sm:col-span-2 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col justify-between hidden sm:flex">
             <div>
               <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
                 Weights Allocation

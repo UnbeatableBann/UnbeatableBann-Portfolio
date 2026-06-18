@@ -276,7 +276,7 @@ function CurrentlyBuilding() {
   return (
     <section
       id="about"
-      className="mx-auto max-w-[1340px] px-6 lg:px-20 py-12 lg:h-[95vh] lg:min-h-[1100px] flex flex-col justify-center gap-6 overflow-hidden"
+      className="mx-auto max-w-[1340px] px-6 lg:px-20 py-12 lg:h-[95vh] lg:min-h-[1100px] flex flex-col justify-center gap-6 overflow-visible lg:overflow-hidden"
     >
       <div className="max-w-2xl">
         <div className="text-label-custom text-muted font-semibold mb-2">Focus & Stream</div>
@@ -721,7 +721,7 @@ function ContactCTA() {
 
   return (
     <section id="contact" className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12">
-      <div className="relative rounded-3xl border border-border bg-white p-10 md:p-16 shadow-card overflow-hidden">
+      <div className="relative rounded-3xl border border-border bg-white p-6 md:p-16 shadow-card overflow-hidden">
         {/* Subtle moving grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-10" />
         <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-accent-soft/40 blur-3xl -z-10 animate-ambient-flow" />
@@ -754,7 +754,7 @@ function ContactCTA() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {[
               {
                 Icon: Mail,
@@ -786,16 +786,21 @@ function ContactCTA() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-4 rounded-xl border border-border p-4 bg-[#FAFAF8] hover:bg-white hover:border-[#8A8A8A] transition duration-200"
+                className="flex items-center gap-3 sm:gap-4 rounded-xl border border-border p-3 sm:p-4 bg-[#FAFAF8] hover:bg-white hover:border-[#8A8A8A] transition duration-200 min-w-0"
               >
-                <span className="grid place-items-center w-10 h-10 rounded-lg bg-white border border-border text-heading">
+                <span className="grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white border border-border text-heading flex-shrink-0">
                   <Icon className="w-4 h-4" />
                 </span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <div className="text-xs text-muted font-semibold">{label}</div>
-                  <div className="text-sm font-semibold text-heading">{value}</div>
+                  <div
+                    className="text-xs sm:text-sm font-semibold text-heading truncate break-all"
+                    title={value}
+                  >
+                    {value}
+                  </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 ml-auto text-muted" />
+                <ArrowUpRight className="w-4 h-4 ml-auto text-muted flex-shrink-0" />
               </a>
             ))}
           </div>

@@ -391,7 +391,7 @@ function ProductDetailPage() {
     <main className="min-h-screen bg-[#FAFAF8] text-[#111111]">
       <Navbar />
 
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-32 pb-16">
+      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-32 pb-8 md:pb-16">
         {/* Back Link */}
         <Link
           to="/products"
@@ -458,7 +458,7 @@ function ProductDetailPage() {
           </aside>
 
           {/* Right Panel Workspace */}
-          <div className="lg:col-span-9 space-y-12 w-full">
+          <div className="lg:col-span-9 space-y-12 w-full min-w-0">
             {/* Header Block */}
             <div className="grid md:grid-cols-12 gap-8 items-center border-b border-border/60 pb-10">
               <div className="md:col-span-7 space-y-4">
@@ -720,7 +720,7 @@ function ProductDetailPage() {
               {/* Screenshots Mockup Section */}
               <section id="screenshots" className="scroll-mt-[130px] space-y-4">
                 <h3 className="text-xl font-bold text-heading">Dashboard View Simulation</h3>
-                <div className="bg-[#FAFAF8] border border-border shadow-card rounded-2xl overflow-hidden aspect-[16/10] relative flex items-center justify-center p-2">
+                <div className="bg-[#FAFAF8] border border-border shadow-card rounded-2xl overflow-hidden aspect-[16/10] relative flex items-center justify-center p-2 w-full min-w-0 max-w-full">
                   <ProductMockup slug={matchedProduct.slug} />
                 </div>
               </section>

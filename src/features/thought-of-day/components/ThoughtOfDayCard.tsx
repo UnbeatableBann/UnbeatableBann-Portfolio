@@ -5,7 +5,7 @@ export function ThoughtOfDayCard() {
   const { thought, author } = useThoughtOfTheDay();
 
   return (
-    <div className="rounded-3xl p-8 bg-soft-gradient border border-border shadow-soft relative overflow-hidden flex flex-col justify-between h-full">
+    <div className="rounded-3xl p-6 md:p-8 bg-soft-gradient border border-border shadow-soft relative overflow-hidden flex flex-col justify-between h-full">
       <div>
         <Sparkles className="w-6 h-6 text-brand-orange mb-6" />
         <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-semibold">

@@ -61,7 +61,7 @@ export function ActivityFeed() {
   }
 
   return (
-    <div className="rounded-3xl p-8 bg-surface border border-border shadow-soft h-full flex flex-col justify-between relative overflow-hidden">
+    <div className="rounded-3xl p-6 md:p-8 bg-surface border border-border shadow-soft h-full flex flex-col justify-between relative overflow-hidden">
       {/* Background glow spanning the entire top area */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-full bg-warm-gradient opacity-35 blur-2xl pointer-events-none" />
 
@@ -152,10 +152,10 @@ export function ActivityFeed() {
                       href={act.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-bold text-foreground hover:text-brand-orange transition-colors duration-150 flex items-center gap-1.5 group/link inline-block max-w-full truncate"
+                      className="text-sm font-bold text-foreground hover:text-brand-orange transition-colors duration-150 flex items-start gap-1.5 group/link max-w-full break-words"
                     >
-                      <span className="truncate">{act.title}</span>
-                      <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-60 transition-opacity duration-150 flex-shrink-0 inline" />
+                      <span>{act.title}</span>
+                      <ExternalLink className="w-3 h-3 opacity-0 group-hover/link:opacity-60 transition-opacity duration-150 flex-shrink-0 mt-1" />
                     </a>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-xs text-muted-foreground font-normal">
