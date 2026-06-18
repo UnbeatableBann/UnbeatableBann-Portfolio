@@ -20,6 +20,7 @@ import {
   Play,
   Terminal,
   BarChart4,
+  Activity,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -219,6 +220,7 @@ function ProductsPage() {
                       >
                         {prod.slug === "curio" && <Brain className="w-3.5 h-3.5" />}
                         {prod.slug === "ai-interviewer" && <Cpu className="w-3.5 h-3.5" />}
+                        {prod.slug === "llm-evaluation-pipeline" && <Activity className="w-3.5 h-3.5" />}
                         {prod.slug === "healthcare-rag" && <Database className="w-3.5 h-3.5" />}
                         {prod.slug === "mt5-infrastructure" && <Network className="w-3.5 h-3.5" />}
                         {prod.slug === "quantix" && <Shield className="w-3.5 h-3.5" />}

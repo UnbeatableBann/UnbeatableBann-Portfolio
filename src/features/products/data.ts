@@ -249,6 +249,105 @@ export const PRODUCTS_DATA: Product[] = [
     ],
   },
   {
+    slug: "llm-evaluation-pipeline",
+    name: "LLM Evaluation Pipeline",
+    domain: "AI Engineering & Observability",
+    tagline: "Deterministic LLM Observability & Evaluation",
+    description:
+      "A deterministic evaluation pipeline measuring relevance, completeness, hallucination, and latency on 150+ queries. Features modular loader-metrics-aggregator workflows, embedding caching, and local inference for 25% faster batch executions.",
+    excerpt:
+      "Testing and observing LLM outputs at scale with deterministic metrics and cached embedding semantic evaluation.",
+    techStack: ["Python", "Sentence Transformers", "Redis", "Docker", "FastAPI"],
+    status: "Production",
+    launchDate: "Feb 2026",
+    links: {
+      github: "https://github.com/UnbeatableBann/LLM-Evaluation-Pipeline",
+    },
+    overview: {
+      text: "The LLM Evaluation Pipeline establishes a rigorous, automated framework for validating language model responses. It runs batch test queries through custom validators to measure criteria like relevance, context completeness, and hallucination rates before deployment.",
+      bullets: [
+        "Automated batch validation on 150+ clinical/technical queries.",
+        "Semantic similarity evaluations using Sentence Transformers.",
+        "Local Redis embedding caching to reduce latency.",
+        "Isolated multi-metric score reports (hallucination, completeness, etc.).",
+      ],
+      capabilities: [
+        {
+          iconName: "brain",
+          name: "Hallucination Check",
+          desc: "Verifies responses against retrieved sources.",
+        },
+        {
+          iconName: "cpu",
+          name: "Local Inference",
+          desc: "Runs evaluations locally to bypass external API costs.",
+        },
+        {
+          iconName: "database",
+          name: "Embedding Cache",
+          desc: "Saves redundant vectors in Redis memory.",
+        },
+        {
+          iconName: "list",
+          name: "Metrics Aggregation",
+          desc: "Generates comprehensive quality score sheets.",
+        },
+      ],
+    },
+    problem:
+      "Evaluating generative AI outputs is traditionally subjective and slow. Unstructured responses can introduce factual errors (hallucinations) and lag behind latency targets, with API costs scaling rapidly during testing.",
+    solution:
+      "A automated numerical optimizer that calculates correlation vectors, sizes positions dynamically based on volatility, and executes trades via the MT5 bridge.",
+    architecture: {
+      text: "An ingestion loader parses prompt templates and context files. Evaluator agents run evaluations via local embeddings and scoring formulas. All results are aggregated and stored, with performance logs visualised in real-time.",
+      mermaidDiagram: `graph TD
+  A[Test Queries Loader] --> B[FastAPI Orchestrator]
+  B --> C[Evaluation Run Engine]
+  C --> D[Sentence Transformers Semantic Eval]
+  C --> E[Redis Vector Cache]
+  C --> F[Latency & Quality Grader]
+  D & E & F --> G[Metrics Aggregator]
+  G --> H[Markdown/JSON Report Output]`,
+    },
+    challenges: [
+      "Calibrating semantic threshold scores to align with human reviewer feedback.",
+      "Optimizing multi-process task batches without overflowing memory.",
+      "Caching overlapping vector query namespaces efficiently.",
+    ],
+    lessons: [
+      "Re-ranking query results before calculating completeness reduces false negatives by 18%.",
+      "Pre-fetching schema definitions inside Redis saves up to 40ms per query run.",
+      "Splitting testing criteria into isolated, narrow tests is more reliable than using a single generic LLM grader.",
+    ],
+    roadmap: [
+      {
+        phase: "Phase 1",
+        title: "Core Metrics Suite",
+        desc: "Ingestion and validation logic.",
+        done: true,
+      },
+      {
+        phase: "Phase 2",
+        title: "Local Embedding Cache",
+        desc: "Redis and Sentence Transformer setup.",
+        done: true,
+      },
+      {
+        phase: "Phase 3",
+        title: "UI Dashboard",
+        desc: "Visual charts for tracking quality score drifts.",
+        done: false,
+      },
+    ],
+    related: ["curio", "ai-interviewer"],
+    metrics: [
+      { value: "25%", label: "Faster batch execution" },
+      { value: "150+", label: "Query scenarios evaluated" },
+      { value: "0ms", label: "Hallucination bypass check" },
+      { value: "100%", label: "Deterministic consistency" },
+    ],
+  },
+  {
     slug: "healthcare-rag",
     name: "Healthcare RAG",
     domain: "HEALTHCARE AI",
