@@ -18,6 +18,20 @@ Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio i
 
 ---
 
+## Product & Section Graphics
+
+Here are some of the primary visual assets and product mockups bundled inside the application:
+
+| Curio - AI Co-Teacher | Quantix - Trading SDK | Interviewer - AI Prep |
+| :---: | :---: | :---: |
+| ![Curio](./src/assets/product-curio.jpg) | ![Quantix](./src/assets/product-trading.jpg) | ![Interviewer](./src/assets/product-interviewer.jpg) |
+
+| Journey Hero | First Lines of Code | Portrait Hero |
+| :---: | :---: | :---: |
+| ![Journey Hero](./src/assets/journey-hero.jpg) | ![First Lines of Code](./src/assets/first-lines-code.jpg) | ![Portrait Hero](./src/assets/shadab-portrait-hero.jpg) |
+
+---
+
 ## Key Features
 
 - **Interactive Skills Graph:** A custom-built SVG/Canvas-based [SkillsGraph](file:///src/components/SkillsGraph.tsx) component showcasing my expertise across machine learning, software engineering, and database systems.
