@@ -156,11 +156,11 @@ function ProductsPage() {
 
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-6">
           <div className="space-y-4 max-w-3xl">
-            <div className="text-label-custom text-[#6E9C53] font-bold tracking-wider">
+            <div className="text-label-custom text-muted font-bold tracking-wider">
               PRODUCTS
             </div>
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
-              Things I've Built.
+              Things I've Built<span className="text-accent">.</span>
             </h1>
             <p className="text-hero-desc text-body max-w-2xl font-normal leading-[1.7]">
               AI products, systems, and experiments designed to solve real-world problems.
@@ -179,12 +179,12 @@ function ProductsPage() {
             >
               Explore Products ↓
             </button>
-            <a
-              href="/#experience"
+            <Link
+              to="/journey"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               View Journey <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

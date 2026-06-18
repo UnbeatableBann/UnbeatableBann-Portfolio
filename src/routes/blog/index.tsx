@@ -108,8 +108,10 @@ function BlogPage() {
 
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-6">
           <div className="space-y-4 max-w-3xl">
-            <div className="text-label-custom text-muted font-semibold tracking-wider">BLOG</div>
-            <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">Writing.</h1>
+            <div className="text-label-custom text-muted font-bold tracking-wider">BLOG</div>
+            <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
+              Writing<span className="text-accent">.</span>
+            </h1>
             <p className="text-hero-desc text-body max-w-2xl font-normal leading-[1.7]">
               Experiments, lessons, research, and ideas from building AI products.
             </p>

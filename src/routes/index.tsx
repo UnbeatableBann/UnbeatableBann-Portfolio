@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
   Github,
@@ -163,12 +163,13 @@ function Hero() {
                 </Link>
               </div>
             </div>
-            <a
-              href="#contact"
+            <Link
+              to="/about"
+              hash="contact"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-4 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               Let's Connect
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center gap-4 pt-6">
@@ -394,6 +395,9 @@ function CurrentlyBuilding() {
 
 function ExperienceSnapshot() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+  const jobRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isManualInteraction = useRef(false);
+  const timeoutRef = useRef<number | null>(null);
 
   const jobs = [
     {
@@ -487,6 +491,49 @@ function ExperienceSnapshot() {
     },
   ];
 
+  const handleManualExpand = (idx: number) => {
+    isManualInteraction.current = true;
+    if (timeoutRef.current) {
+      window.clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = window.setTimeout(() => {
+      isManualInteraction.current = false;
+    }, 1200);
+
+    setExpandedIndex(expandedIndex === idx ? null : idx);
+  };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-35% 0px -40% 0px", // triggers around middle third of viewport
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      if (isManualInteraction.current) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = jobRefs.current.indexOf(entry.target as HTMLDivElement);
+          if (index !== -1) {
+            setExpandedIndex(index);
+          }
+        }
+      });
+    }, observerOptions);
+
+    jobRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section id="experience" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]">
       <div className="grid lg:grid-cols-12 gap-6 items-start relative">
@@ -515,7 +562,13 @@ function ExperienceSnapshot() {
           {jobs.map((job, idx) => {
             const isExpanded = expandedIndex === idx;
             return (
-              <div key={idx} className="relative group">
+              <div
+                key={idx}
+                ref={(el) => {
+                  jobRefs.current[idx] = el;
+                }}
+                className="relative group"
+              >
                 {/* Timeline Dot */}
                 <div
                   className={`absolute -left-[41px] top-1.5 w-6 h-6 rounded-full bg-white border flex items-center justify-center shadow-sm transition-all duration-300 ${
@@ -535,9 +588,12 @@ function ExperienceSnapshot() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div
+                    className="flex flex-wrap items-center justify-between gap-4 cursor-pointer select-none group/header"
+                    onClick={() => handleManualExpand(idx)}
+                  >
                     <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 flex-shrink-0 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                      <span className="w-8 h-8 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden p-1 flex-shrink-0 shadow-sm transition-all duration-300 group-hover/header:scale-110 group-hover/header:shadow-md">
                         <img
                           src={job.logo}
                           alt={job.company}
@@ -546,10 +602,7 @@ function ExperienceSnapshot() {
                         />
                       </span>
                       <div>
-                        <h3
-                          className="font-semibold text-lg text-heading cursor-pointer hover:text-accent transition-colors select-none"
-                          onClick={() => setExpandedIndex(isExpanded ? null : idx)}
-                        >
+                        <h3 className="font-semibold text-lg text-heading group-hover/header:text-accent transition-colors">
                           {job.role}
                         </h3>
                         <p className="text-sm text-body">
@@ -560,9 +613,8 @@ function ExperienceSnapshot() {
 
                     <div className="flex items-center gap-3">
                       <span className="text-xs text-muted font-medium">{job.duration}</span>
-                      <button
-                        onClick={() => setExpandedIndex(isExpanded ? null : idx)}
-                        className="p-1.5 rounded-full hover:bg-[#FAFAF8] border border-border text-body hover:text-heading transition-colors"
+                      <div
+                        className="p-1.5 rounded-full bg-white border border-border text-body hover:text-heading transition-colors group-hover/header:border-accent/40"
                         title={isExpanded ? "Collapse details" : "Expand details"}
                       >
                         {isExpanded ? (
@@ -570,7 +622,7 @@ function ExperienceSnapshot() {
                         ) : (
                           <ChevronDown className="w-4 h-4" />
                         )}
-                      </button>
+                      </div>
                     </div>
                   </div>
 
@@ -611,6 +663,7 @@ function ExperienceSnapshot() {
 function Products() {
   const projects = [
     {
+      slug: "curio",
       domain: "Education AI",
       name: "Curio - AI Co-Teacher",
       description:
@@ -620,15 +673,17 @@ function Products() {
       link: "https://github.com/UnbeatableBann",
     },
     {
+      slug: "llm-evaluation-pipeline",
       domain: "AI Engineering & Observability",
       name: "LLM Evaluation Pipeline",
       description:
         "A deterministic evaluation pipeline measuring relevance, completeness, hallucination, and latency on 150+ queries. Features modular loader-metrics-aggregator workflows, embedding caching, and local inference for 25% faster batch executions.",
       tech: ["Python", "Sentence Transformers", "Redis", "Docker", "FastAPI"],
       image: interviewer,
-      link: "https://github.com/UnbeatableBann",
+      link: "https://github.com/UnbeatableBann/LLM-Evaluation-Pipeline",
     },
     {
+      slug: "quantix",
       domain: "Fintech & Developer Tools",
       name: "Quantix - Algorithmic Trading SDK",
       description:
@@ -675,14 +730,13 @@ function Products() {
               </div>
 
               <div className="pt-4">
-                <a
-                  href={proj.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/products/$slug"
+                  params={{ slug: proj.slug }}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-white px-5 py-3 text-sm font-semibold hover:bg-primary-hover transition duration-200"
                 >
                   View Project <ArrowUpRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
 

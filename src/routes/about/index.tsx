@@ -91,7 +91,7 @@ function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-24 bg-gradient-to-br from-[#f2eefc] via-[#eef4df] to-[#fdf5eb]">
+      <section className="relative overflow-hidden min-h-screen lg:h-screen lg:max-h-[900px] flex items-center pt-20 bg-gradient-to-br from-[#f2eefc] via-[#eef4df] to-[#fdf5eb]">
         {/* Subtle moving grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none -z-20" />
 
@@ -99,21 +99,18 @@ function AboutPage() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-purple/10 blur-[130px] -z-10 pointer-events-none translate-x-[20%] -translate-y-[20%] animate-ambient-flow" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-brand-orange/6 blur-[110px] -z-10 pointer-events-none -translate-x-[20%] translate-y-[20%] animate-ambient-flow [animation-delay:4s]" />
 
-        <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+        <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 py-16 grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
           {/* Left Column (Content) */}
-          <div className="lg:col-span-7 space-y-6 animate-fade-up">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#d1ebd9] bg-[#f2fbf7] px-4 py-1.5 text-xs text-[#205c46] font-semibold shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#309c7d] opacity-85"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#309c7d]"></span>
-              </span>
-              <span>ABOUT</span>
+          <div className="lg:col-span-7 space-y-8 animate-fade-up">
+            <div className="text-label-custom text-muted font-bold tracking-wider">
+              ABOUT
             </div>
 
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
               Hello, I'm
               <br />
-              <span className="font-serif italic text-accent/80 font-normal">Shadab Jamadar</span>.
+              <span className="font-serif italic text-accent/80 font-normal">Shadab Jamadar</span>
+              <span className="text-accent">.</span>
             </h1>
 
             <p className="text-hero-desc text-body max-w-xl font-normal leading-[1.7]">
@@ -207,7 +204,7 @@ function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 border-t border-border bg-[#FAFAF8]">
+      <section id="contact" className="py-24 border-t border-border bg-[#FAFAF8] scroll-mt-[0px]">
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-12">
           {/* Header */}
           <div className="text-center space-y-4 max-w-2xl mx-auto animate-fade-up">
