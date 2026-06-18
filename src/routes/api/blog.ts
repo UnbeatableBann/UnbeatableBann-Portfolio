@@ -49,13 +49,10 @@ export const Route = createFileRoute("/api/blog")({
         } catch (error: unknown) {
           console.error("[API blog] Unhandled error fetching blog articles:", error);
           const message = error instanceof Error ? error.message : "Internal server error.";
-          return new Response(
-            JSON.stringify({ error: message }),
-            {
-              status: 500,
-              headers: { "Content-Type": "application/json" },
-            },
-          );
+          return new Response(JSON.stringify({ error: message }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+          });
         }
       },
     },

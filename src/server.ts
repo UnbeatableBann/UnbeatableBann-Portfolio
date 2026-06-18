@@ -56,6 +56,7 @@ function addSecurityHeaders(response: Response): Response {
     "font-src 'self' https: fonts.gstatic.com data:",
     "img-src 'self' data: https: blob:",
     "connect-src 'self' https: wss:",
+    "frame-src 'self' https://maps.google.com https://www.google.com",
     "frame-ancestors 'none'",
   ];
   headers.set("Content-Security-Policy", cspRules.join("; "));

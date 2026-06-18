@@ -910,7 +910,7 @@ function JourneyPage() {
               {
                 label: "Academic Excellence",
                 value: "Top 5",
-                sub: "Consistently ranked in B.Tech AI & DS, received 2nd-year academic award"
+                sub: "Consistently ranked in B.Tech AI & DS, received 2nd-year academic award",
               },
             ].map((stat, i) => (
               <div

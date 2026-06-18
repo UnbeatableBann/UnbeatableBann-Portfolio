@@ -89,13 +89,13 @@ export function useBlog() {
   const sourceCounts = useMemo(() => {
     const counts = {
       All: articles.length,
-      medium: 0,
-      linkedin: 0,
+      Medium: 0,
+      LinkedIn: 0,
     };
 
     articles.forEach((art) => {
-      if (art.source === "medium") counts.medium++;
-      if (art.source === "linkedin") counts.linkedin++;
+      if (art.source === "medium") counts.Medium++;
+      if (art.source === "linkedin") counts.LinkedIn++;
     });
 
     return counts as Record<string, number>;

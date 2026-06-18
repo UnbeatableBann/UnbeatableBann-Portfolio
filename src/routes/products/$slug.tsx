@@ -23,7 +23,7 @@ import {
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PRODUCTS_DATA, Product } from "@/features/products/data";
-import { ProductMockup } from "./index";
+import { ProductMockup } from "@/features/products/components/ProductMockup";
 
 export const Route = createFileRoute("/products/$slug")({
   component: ProductDetailPage,
@@ -311,7 +311,7 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
   return null;
 }
 
-export function ProductDetailPage() {
+function ProductDetailPage() {
   const { slug } = Route.useParams();
   const navigate = useNavigate();
   const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === slug);

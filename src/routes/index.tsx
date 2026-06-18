@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import React, { useState, useEffect } from "react";
 import {
   ArrowRight,
   Github,
@@ -27,7 +27,6 @@ import criqlLogo from "@/assets/company-logos/criql-labs.png";
 import renuLogo from "@/assets/company-logos/renu-sharma.png";
 import plantoLogo from "@/assets/company-logos/planto-ai.png";
 
-import resumePdf from "@/assets/shadab-resume.pdf";
 import inProgress1 from "@/assets/in-progress-1.jpg";
 import inProgress2 from "@/assets/in-progress-2.jpg";
 import inProgress3 from "@/assets/in-progress-3.jpg";
@@ -397,17 +396,6 @@ function CurrentlyBuilding() {
 
 function ExperienceSnapshot() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
-  const resumeUrl = useResumeUrl();
-
-  const handleDownload = () => {
-    if (!resumeUrl) return;
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Shadab_Jamadar_Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const jobs = [
     {
@@ -502,7 +490,7 @@ function ExperienceSnapshot() {
   ];
 
   return (
-    <section id="experience" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-[140px]">
+    <section id="experience" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]">
       <div className="grid lg:grid-cols-12 gap-6 items-start relative">
         {/* Left Column (Sticky Title) */}
         <div className="lg:col-span-4 lg:sticky lg:top-[120px] self-start space-y-4">
@@ -515,15 +503,12 @@ function ExperienceSnapshot() {
             shaped my technical approach.
           </p>
           <div className="pt-4">
-            <a
-              href={resumeUrl || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleDownload}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-primary hover:underline"
+            <Link
+              to="/journey"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-black hover:underline cursor-pointer"
             >
-              Download Full Resume <Download className="w-3.5 h-3.5" />
-            </a>
+              View Full Journey <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
 
@@ -657,7 +642,7 @@ function Products() {
   ];
 
   return (
-    <section id="projects" className="mx-auto max-w-[1280px] px-6 lg:px-10 py-[140px]">
+    <section id="projects" className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-[70px] pb-[140px]">
       <div className="max-w-2xl mb-16">
         <div className="text-label-custom text-muted font-semibold mb-3">Featured Work</div>
         <h2 className="text-section-title font-bold tracking-tight text-heading">

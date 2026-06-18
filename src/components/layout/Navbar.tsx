@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
+import shadabLogo from "@/assets/shadab-logo.png";
 
 export function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -79,9 +80,11 @@ export function Navbar() {
         }`}
       >
         <a href={isBlogPage ? "/#home" : "#home"} className="flex items-center gap-2">
-          <span className="grid place-items-center w-7 h-7 rounded-lg bg-primary text-white font-bold text-xs">
-            SJ
-          </span>
+          <img
+            src={shadabLogo}
+            alt="Shadab Jamadar Logo"
+            className="w-8 h-8 rounded-full p-1 bg-black object-cover border border-border"
+          />
           <span className="font-semibold tracking-tight text-heading text-sm md:text-base">
             Shadab Jamadar
           </span>
