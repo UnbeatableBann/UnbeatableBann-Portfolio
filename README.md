@@ -6,6 +6,18 @@ Built with **React 19**, **TypeScript**, and **TanStack Start**, the portfolio i
 
 ---
 
+## Live Previews
+
+| Homepage | Products |
+| :---: | :---: |
+| ![Homepage](./src/assets/screenshots/homepage.png) | ![Products](./src/assets/screenshots/products.png) |
+
+| About | Journey |
+| :---: | :---: |
+| ![About](./src/assets/screenshots/about.png) | ![Journey](./src/assets/screenshots/journey.png) |
+
+---
+
 ## Key Features
 
 - **Interactive Skills Graph:** A custom-built SVG/Canvas-based [SkillsGraph](file:///src/components/SkillsGraph.tsx) component showcasing my expertise across machine learning, software engineering, and database systems.
