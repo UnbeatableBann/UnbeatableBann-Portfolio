@@ -234,6 +234,7 @@ function Hero() {
                 className="w-full h-full object-contain object-bottom"
                 loading="eager"
                 fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>

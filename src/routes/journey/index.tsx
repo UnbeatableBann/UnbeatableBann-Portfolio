@@ -485,6 +485,8 @@ function JourneyPage() {
                 alt="Winding path graphic representing the personal journey"
                 className="w-full h-full object-cover rounded-2xl"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -775,6 +777,8 @@ function JourneyPage() {
                           src={dypatilLogo}
                           alt="Dr. D Y Patil Logo"
                           className="w-full h-full object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </span>
                       <div>
@@ -817,6 +821,8 @@ function JourneyPage() {
                           src={spicerLogo}
                           alt="Spicer Logo"
                           className="w-full h-full object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </span>
                       <div>
@@ -853,6 +859,8 @@ function JourneyPage() {
                           src={spicerLogo}
                           alt="Spicer Logo"
                           className="w-full h-full object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </span>
                       <div>
@@ -915,6 +923,8 @@ function JourneyPage() {
                               src={cert.logo}
                               alt={cert.issuer}
                               className="w-full h-full object-contain"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                           <span className="text-[10px] font-bold text-muted uppercase tracking-wider">

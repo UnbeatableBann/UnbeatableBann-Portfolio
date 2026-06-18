@@ -143,6 +143,8 @@ function AboutPage() {
                 alt="Shadab Jamadar professional portrait"
                 className="w-full h-full object-cover rounded-2xl"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
