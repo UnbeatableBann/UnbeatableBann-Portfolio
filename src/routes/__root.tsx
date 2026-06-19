@@ -10,6 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import shadabLogo from "@/assets/shadab-logo.png";
+import { Analytics } from "@/components/Analytics";
+import { GA_ID } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -92,6 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "dns-prefetch",  href: "https://fonts.googleapis.com" },
       { rel: "dns-prefetch",  href: "https://fonts.gstatic.com" },
+      ...(GA_ID ? [{ rel: "dns-prefetch", href: "https://www.googletagmanager.com" }] : []),
       { rel: "preconnect",    href: "https://fonts.googleapis.com" },
       { rel: "preconnect",    href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "preload",       href: appCss, as: "style" },
@@ -110,6 +113,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         onLoad: "this.media='all'",
       },
     ],
+    // Inject the gtag.js loader script only when VITE_GA_ID is set.
+    // Using scripts[] here puts it in <head> as a real <script> tag.
+    scripts: GA_ID
+      ? [
+          {
+            src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
+            async: true,
+          },
+        ]
+      : [],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -136,6 +149,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Tracks GA4 page views on every SPA navigation — renders nothing */}
+      <Analytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
