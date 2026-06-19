@@ -20,12 +20,12 @@ import portraitHero from "@/assets/shadab-portrait-hero-transparent.webp";
 import curio from "@/assets/product-curio.webp";
 import interviewer from "@/assets/product-interviewer.webp";
 import trading from "@/assets/product-trading.webp";
-import floatRag from "@/assets/float-rag.jpg";
-import floatAgent from "@/assets/float-agent.jpg";
+import floatRag from "@/assets/float-rag.webp";
+import floatAgent from "@/assets/float-agent.webp";
 
 import criqlLogo from "@/assets/company-logos/criql-labs.png";
-import renuLogo from "@/assets/company-logos/renu-sharma.png";
-import plantoLogo from "@/assets/company-logos/planto-ai.png";
+import renuLogo from "@/assets/company-logos/renu-sharma.webp";
+import plantoLogo from "@/assets/company-logos/planto-ai.webp";
 
 import inProgress1 from "@/assets/in-progress-1.jpg";
 import inProgress2 from "@/assets/in-progress-2.jpg";

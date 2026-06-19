@@ -25,31 +25,31 @@ import { useResumeUrl } from "@/hooks/useResumeUrl";
 import firstLinesCode from "@/assets/first-lines-code.webp";
 import journeyHero from "@/assets/journey-hero.webp";
 import criqlLogo from "@/assets/company-logos/criql-labs.png";
-import renuLogo from "@/assets/company-logos/renu-sharma.png";
-import plantoLogo from "@/assets/company-logos/planto-ai.png";
+import renuLogo from "@/assets/company-logos/renu-sharma.webp";
+import plantoLogo from "@/assets/company-logos/planto-ai.webp";
 
 // School & College Logos
 import dypatilLogo from "@/assets/education/dypatil-logo.png";
-import spicerLogo from "@/assets/education/spicer-logo.png";
+import spicerLogo from "@/assets/education/spicer-logo.webp";
 
 // Certificate Company Logos
-import gdgLogo from "@/assets/education/gdg-logo.png";
-import caLogo from "@/assets/education/ca-logo.png";
+import gdgLogo from "@/assets/education/gdg-logo.webp";
+import caLogo from "@/assets/education/ca-logo.webp";
 import wadhwaniLogo from "@/assets/education/wadhwani-logo.png";
 import ibmLogo from "@/assets/education/ibm-logo.png";
 import jioLogo from "@/assets/education/jio-logo.png";
 
 // Certificate Documents & Ceremony Photos
-import ibmCertificateImg from "@/assets/education/ibm-certificate.jpg";
-import wadhwaniCertificateImg from "@/assets/education/wadhwani-certificate.png";
-import ibmCeremonyImg from "@/assets/education/ibm-ceremony.jpeg";
-import caCertificateImg from "@/assets/education/ca-certificate.png";
-import jioCertificateImg from "@/assets/education/jio-certificate.jpg";
-import gdgHackathon1 from "@/assets/education/gdg-hackathon-1.jpg";
-import gdgHackathon2 from "@/assets/education/gdg-hackathon-2.jpg";
-import gdgHackathon3 from "@/assets/education/gdg-hackathon-3.jpg";
-import ibmCeremonyImg2 from "@/assets/education/ibm-ceremony-2.jpg";
-import ibmCeremonyImg3 from "@/assets/education/ibm-ceremony-3.jpg";
+import ibmCertificateImg from "@/assets/education/ibm-certificate.webp";
+import wadhwaniCertificateImg from "@/assets/education/wadhwani-certificate.webp";
+import ibmCeremonyImg from "@/assets/education/ibm-ceremony.webp";
+import caCertificateImg from "@/assets/education/ca-certificate.webp";
+import jioCertificateImg from "@/assets/education/jio-certificate.webp";
+import gdgHackathon1 from "@/assets/education/gdg-hackathon-1.webp";
+import gdgHackathon2 from "@/assets/education/gdg-hackathon-2.webp";
+import gdgHackathon3 from "@/assets/education/gdg-hackathon-3.webp";
+import ibmCeremonyImg2 from "@/assets/education/ibm-ceremony-2.webp";
+import ibmCeremonyImg3 from "@/assets/education/ibm-ceremony-3.webp";
 
 export const Route = createFileRoute("/journey/")({
   component: JourneyPage,
