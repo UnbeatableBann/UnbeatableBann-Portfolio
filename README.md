@@ -1,6 +1,6 @@
 # Shadab Jamadar — AI Engineer & Product Builder Portfolio
 
-🌐 **Live Portfolio:** [unbeatablebann-portfolio.onrender.com](https://unbeatablebann-portfolio.onrender.com/)
+🌐 **Live Portfolio:** [Shadab's Portfolio](https://unbeatable-bann-portfolio.vercel.app/)
 
 Welcome to the official repository for my professional developer portfolio. This application is a premium, highly interactive web application designed to highlight my work in AI engineering, agentic systems, data science, and backend development.
 
@@ -177,9 +177,9 @@ bun run preview
 
 The portfolio is fully compatible with Vercel and can be deployed directly:
 
-1.  Connect your repository to **Vercel**.
-2.  Add your production environment variables (`GITHUB_USERNAME`, `MEDIUM_USERNAME`, `CRON_SECRET`, etc.) inside the Vercel Dashboard.
-3.  Deploy! Vercel will auto-detect the configuration and compile the application.
+1. Connect your repository to **Vercel**.
+2. Add your production environment variables (`GITHUB_USERNAME`, `MEDIUM_USERNAME`, `CRON_SECRET`, etc.) inside the Vercel Dashboard.
+3. Deploy! Vercel will auto-detect the configuration and compile the application.
 
 #### Automated Cache Refreshes
 
@@ -192,9 +192,9 @@ The [vercel.json](file:///vercel.json) file schedules a cron execution at midnig
 
 ### Adding New Dynamic Sections
 
-1.  **Add Components:** Place reusable visual layouts inside [src/components](file:///src/components) or create a new folder under [src/features](file:///src/features).
-2.  **Add Routes:** Create a new page under [src/routes](file:///src/routes) (e.g. `blog.tsx`) and rerun `bun run dev`. TanStack Router will automatically generate the typesafe route trees in `src/routeTree.gen.ts`.
-3.  **Add Activity Sources:** Implement the `ActivityProvider` interface and append it in the `ActivityAggregator` inside [aggregator.ts](file:///src/features/recent-activity/aggregator.ts) to pull in items from YouTube, Twitter, or Dev.to.
+1. **Add Components:** Place reusable visual layouts inside [src/components](file:///src/components) or create a new folder under [src/features](file:///src/features).
+2. **Add Routes:** Create a new page under [src/routes](file:///src/routes) (e.g. `blog.tsx`) and rerun `bun run dev`. TanStack Router will automatically generate the typesafe route trees in `src/routeTree.gen.ts`.
+3. **Add Activity Sources:** Implement the `ActivityProvider` interface and append it in the `ActivityAggregator` inside [aggregator.ts](file:///src/features/recent-activity/aggregator.ts) to pull in items from YouTube, Twitter, or Dev.to.
 
 ---
 
