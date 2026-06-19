@@ -30,6 +30,13 @@ export default defineConfig({
     }),
     nitro({
       preset: "vercel",
+      serverAssets: [
+        {
+          baseName: "resume",
+          dir: "./src/assets",
+          pattern: "shadab-resume.pdf",
+        },
+      ],
     }),
     viteReact(),
   ],
