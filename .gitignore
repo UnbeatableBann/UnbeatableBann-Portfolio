@@ -1,43 +1,56 @@
-# Logs and Caches
-logs
+# ─── Logs ────────────────────────────────────────────────────────────────────
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
+bun-debug.log*
+
+# ─── Runtime / API cache files (regenerated automatically) ───────────────────
 activity-cache.json
 blog-cache.json
 linkedin-posts.json
-find_place_classes.js
 
-# Dependencies
+# ─── Dependencies ─────────────────────────────────────────────────────────────
 node_modules/
-/jspm_packages/
+jspm_packages/
 
-# Build outputs
+# Lock files: project uses bun.lock — block npm/yarn/pnpm equivalents
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+shrinkwrap.yaml
+
+# ─── Build outputs ────────────────────────────────────────────────────────────
 dist/
 dist-ssr/
 .output/
+.vercel/
 .vinxi/
 .tanstack/
 .nitro/
 
-# Environment variables
+# ─── Environment variables ────────────────────────────────────────────────────
 .env
 .env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-!.env.example
+!.env.example      # keep the template committed
 
-# Wrangler / Cloudflare
+# ─── Lighthouse / audit scratch files ────────────────────────────────────────
+lh-*.json
+scratch/psi-audit-results.json
+
+# ─── Cloudflare / Wrangler ───────────────────────────────────────────────────
 .wrangler/
 .dev.vars
 
-# Editor and IDE configurations
+# ─── Editor & IDE ─────────────────────────────────────────────────────────────
 .vscode/*
-!.vscode/extensions.json
+!.vscode/extensions.json   # keep shared extension recommendations
 .idea/
 *.suo
 *.ntvs*
@@ -46,16 +59,19 @@ dist-ssr/
 *.sw?
 .eslintcache
 
-# OS-specific files
+# ─── OS-specific ──────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Tooling and CLI temporary folders
+# ─── Tooling / CLI workspace dirs ────────────────────────────────────────────
 .antigravitycli/
 .code-review-graph/
 .lovable/
-sketches
+
+# ─── Project-local scratch / temp ────────────────────────────────────────────
+sketches/
 temp/
 scratch/
+find_place_classes.js
