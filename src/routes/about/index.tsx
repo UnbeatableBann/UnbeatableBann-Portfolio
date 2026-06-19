@@ -14,7 +14,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 // Assets
-import portraitHeroJpg from "@/assets/shadab-portrait-hero.jpg";
+import portraitHeroJpg from "@/assets/shadab-portrait-hero.webp";
 
 export const Route = createFileRoute("/about/")({
   component: AboutPage,

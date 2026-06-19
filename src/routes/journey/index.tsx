@@ -22,8 +22,8 @@ import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 
 // Assets
-import firstLinesCode from "@/assets/first-lines-code.jpg";
-import journeyHero from "@/assets/journey-hero.jpg";
+import firstLinesCode from "@/assets/first-lines-code.webp";
+import journeyHero from "@/assets/journey-hero.webp";
 import criqlLogo from "@/assets/company-logos/criql-labs.png";
 import renuLogo from "@/assets/company-logos/renu-sharma.png";
 import plantoLogo from "@/assets/company-logos/planto-ai.png";

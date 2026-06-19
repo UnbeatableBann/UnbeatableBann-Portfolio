@@ -16,10 +16,10 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 
-import portraitHero from "@/assets/shadab-portrait-hero-transparent.png";
-import curio from "@/assets/product-curio.jpg";
-import interviewer from "@/assets/product-interviewer.jpg";
-import trading from "@/assets/product-trading.jpg";
+import portraitHero from "@/assets/shadab-portrait-hero-transparent.webp";
+import curio from "@/assets/product-curio.webp";
+import interviewer from "@/assets/product-interviewer.webp";
+import trading from "@/assets/product-trading.webp";
 import floatRag from "@/assets/float-rag.jpg";
 import floatAgent from "@/assets/float-agent.jpg";
 
@@ -84,7 +84,7 @@ export const Route = createFileRoute("/")({
         content: "Building AI systems that teach, reason and automate real work.",
       },
     ],
-    links: [{ rel: "preload", href: portraitHero, as: "image", type: "image/png" }],
+    links: [{ rel: "preload", href: portraitHero, as: "image", type: "image/webp" }],
   }),
   component: Home,
 });
