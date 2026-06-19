@@ -100,17 +100,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload",       href: appCss, as: "style" },
       { rel: "stylesheet",    href: appCss },
       { rel: "icon",          type: "image/png", href: shadabLogo },
-      {
-        rel: "preload",
-        as: "style",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap",
-      },
+      // Single stylesheet link — display=swap in the URL prevents render-blocking.
+      // React 19 adds `precedence` to every head() stylesheet, which is incompatible
+      // with the media="print"/onLoad trick, so we use display=swap instead.
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap",
-        // @ts-expect-error - media trick for non-blocking font load
-        media: "print",
-        onLoad: "this.media='all'",
       },
     ],
     // Inject the gtag.js loader script only when VITE_GA_ID is set.
