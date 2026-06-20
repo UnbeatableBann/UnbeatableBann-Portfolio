@@ -26,8 +26,8 @@ export function Analytics() {
     // onResolved fires after the incoming route's loaders have settled and
     // the new page is committed — the document title is correct at this point.
     const unsubscribe = router.subscribe("onResolved", () => {
-      const { pathname, search } = router.state.location;
-      trackPageView(pathname + search, document.title);
+      const { pathname, searchStr } = router.state.location;
+      trackPageView(pathname + searchStr, document.title);
     });
 
     return unsubscribe; // clean up on unmount
