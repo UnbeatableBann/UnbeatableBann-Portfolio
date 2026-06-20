@@ -39,6 +39,8 @@ import caLogo from "@/assets/education/ca-logo.webp";
 import wadhwaniLogo from "@/assets/education/wadhwani-logo.png";
 import ibmLogo from "@/assets/education/ibm-logo.png";
 import jioLogo from "@/assets/education/jio-logo.png";
+import copyrightLogo from "@/assets/education/copyright-logo.svg";
+import iitgLogo from "@/assets/education/IIT-Gandhinagar-Logo.svg";
 
 // Certificate Documents & Ceremony Photos
 import ibmCertificateImg from "@/assets/education/ibm-certificate.webp";
@@ -51,6 +53,10 @@ import gdgHackathon2 from "@/assets/education/gdg-hackathon-2.webp";
 import gdgHackathon3 from "@/assets/education/gdg-hackathon-3.webp";
 import ibmCeremonyImg2 from "@/assets/education/ibm-ceremony-2.webp";
 import ibmCeremonyImg3 from "@/assets/education/ibm-ceremony-3.webp";
+import copyrightCert1 from "@/assets/education/ROC Certificate-1.jpg";
+import copyrightCert2 from "@/assets/education/ROC Certificate-2.jpg";
+import iitgOfferLetter1 from "@/assets/education/IIT Gandhinagar Offer Letter 1.jpg";
+import iitgOfferLetter2 from "@/assets/education/IIT Gandhinagar Offer Letter 2.jpg";
 
 export const Route = createFileRoute("/journey/")({
   component: JourneyPage,
@@ -241,6 +247,44 @@ const CERTIFICATES: Certificate[] = [
       text: "text-orange-850",
       accent: "bg-orange-600",
       badgeBg: "bg-orange-50 text-orange-700 border-orange-100",
+    },
+  },
+  {
+    id: "copyright-roc",
+    title: "Government Copyright Registration (ROC)",
+    issuer: "Registrar of Copyrights, Government of India",
+    logo: copyrightLogo,
+    certImg: copyrightCert1,
+    images: [copyrightCert1, copyrightCert2],
+    isPhoto: false,
+    date: "February 2026",
+    certId: "ROC-REG-2026",
+    skills: ["Intellectual Property", "Software Copyright", "Algorithm Protection"],
+    colorTheme: {
+      border: "border-amber-200 hover:border-amber-300",
+      bg: "bg-gradient-to-br from-white to-amber-50/10",
+      text: "text-amber-800",
+      accent: "bg-amber-600",
+      badgeBg: "bg-amber-50 text-amber-700 border-amber-100",
+    },
+  },
+  {
+    id: "iit-gandhinagar-offer",
+    title: "IIT Gandhinagar Offer Letter",
+    issuer: "IIT Gandhinagar",
+    logo: iitgLogo,
+    certImg: iitgOfferLetter1,
+    images: [iitgOfferLetter1, iitgOfferLetter2],
+    isPhoto: false,
+    date: "May 2024",
+    certId: "IITGN-RES-2024",
+    skills: ["Research Methodologies", "Academic Collaboration", "Technical Writing"],
+    colorTheme: {
+      border: "border-indigo-200 hover:border-indigo-300",
+      bg: "bg-gradient-to-br from-white to-indigo-50/10",
+      text: "text-indigo-800",
+      accent: "bg-indigo-600",
+      badgeBg: "bg-indigo-50 text-indigo-700 border-indigo-100",
     },
   },
 ];
