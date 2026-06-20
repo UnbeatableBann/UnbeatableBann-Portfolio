@@ -12,10 +12,14 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-// ... (rest of the imports unchanged)
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
+import {
+  HeroGreetingOption,
+  HeroThoughtStreamOption,
+  HeroBoatAnimationOption,
+} from "@/components/HeroStatusBadge";
 
 import portraitHero from "@/assets/shadab-portrait-hero-transparent.webp";
 import curio from "@/assets/product-curio.webp";
@@ -95,14 +99,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Hero() {
-  const [dayOfWeek, setDayOfWeek] = useState("");
-
-  useEffect(() => {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const today = new Date().getDay();
-    setDayOfWeek(days[today]);
-  }, []);
-
   return (
     <section
       id="home"
@@ -119,27 +115,10 @@ function Hero() {
       <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 py-16 grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
         {/* Left Side (Content) */}
         <div className="lg:col-span-7 space-y-8 animate-fade-up">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-[#d1ebd9] bg-[#f2fbf7] px-5 py-2 text-xs text-[#205c46] font-semibold shadow-sm">
-            {/* Animated green indicator pulse */}
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#309c7d] opacity-85"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#309c7d]"></span>
-            </span>
-            <span>
-              Hey! there, How's your{" "}
-              {dayOfWeek ? (
-                <span
-                  className="bg-clip-text text-transparent font-bold tracking-tight"
-                  style={{ backgroundImage: "linear-gradient(120deg, #2d8a6b 10%, #99ab18 90%)" }}
-                >
-                  {dayOfWeek}
-                </span>
-              ) : (
-                "day"
-              )}
-              ?
-            </span>
-          </div>
+          {/* TO SWITCH BETWEEN HERO STATUS BADGE OPTIONS, UNCOMMENT THE DESIRED ONE BELOW: */}
+          {/* <HeroGreetingOption /> */}
+          {/* <HeroThoughtStreamOption /> */}
+          <HeroBoatAnimationOption />
 
           <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
             <span className="font-serif italic text-accent/70 font-normal block mb-2 md:mb-3">
