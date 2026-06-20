@@ -8,11 +8,37 @@ export const Route = createFileRoute("/api/resume")({
   server: {
     handlers: {
       GET: async () => {
-        const resumeAssets = useStorage("assets/resume");
-        const [resumePdf, metadata] = await Promise.all([
-          resumeAssets.getItemRaw(RESUME_FILE_NAME),
-          resumeAssets.getMeta(RESUME_FILE_NAME),
-        ]);
+        let resumePdf: any = null;
+        let metadata: any = {};
+
+        try {
+          const resumeAssets = useStorage("assets:resume");
+          [resumePdf, metadata] = await Promise.all([
+            resumeAssets.getItemRaw(RESUME_FILE_NAME),
+            resumeAssets.getMeta(RESUME_FILE_NAME),
+          ]);
+        } catch (e) {
+          // Log error but continue to filesystem fallback
+          console.warn("Storage warning (expected in development):", e);
+        }
+
+        // Fallback to direct filesystem read in development/stubbed environment
+        if (!resumePdf) {
+          try {
+            const fs = await import("node:fs/promises");
+            const path = await import("node:path");
+            const filePath = path.resolve("./src/assets", RESUME_FILE_NAME);
+            resumePdf = await fs.readFile(filePath);
+
+            const stats = await fs.stat(filePath);
+            metadata = {
+              type: "application/pdf",
+              mtime: stats.mtime.toISOString(),
+            };
+          } catch (fsError) {
+            console.error("Filesystem fallback error:", fsError);
+          }
+        }
 
         if (!resumePdf) {
           return new Response("Resume PDF not found", {
