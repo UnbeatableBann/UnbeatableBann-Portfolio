@@ -1420,6 +1420,24 @@ const renderWrappedText = (
   );
 };
 
+const getSeedFromString = (str: string): number => {
+  let hash = 179;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 33) ^ str.charCodeAt(i);
+  }
+  return hash >>> 0;
+};
+
+const mulberry32 = (seed: number) => {
+  let a = seed;
+  return () => {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
 export function SkillsGraph() {
   const [nodes, setNodes] = useState<SkillNode[]>(() => {
     const getInitialCoords = (nodeId: string): { x: number; y: number } => {
@@ -1433,8 +1451,10 @@ export function SkillsGraph() {
 
       // Recursive lookup for parent's coords to initialize children close to their parent
       const parentCoords = getInitialCoords(parentId);
-      const angle = Math.random() * Math.PI * 2;
-      const offset = 45 + Math.random() * 30;
+      const seed = getSeedFromString(nodeId);
+      const rand = mulberry32(seed);
+      const angle = rand() * Math.PI * 2;
+      const offset = 45 + rand() * 30;
       return {
         x: parentCoords.x + Math.cos(angle) * offset,
         y: parentCoords.y + Math.sin(angle) * offset,
