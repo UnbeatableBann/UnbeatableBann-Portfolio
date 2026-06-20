@@ -85,7 +85,7 @@ export default {
 
       if (url.pathname === "/sitemap.xml") {
         const currentDate = new Date().toISOString().split("T")[0];
-        const staticPages = ["", "/about", "/journey", "/products", "/blog"];
+        const staticPages = ["", "/about", "/journey", "/products", "/blog", "/privacy"];
 
         const urls = [
           ...staticPages.map(

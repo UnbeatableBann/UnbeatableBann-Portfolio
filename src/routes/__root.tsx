@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { GA_ID } from "@/lib/analytics";
 import { SITE_URL } from "@/lib/config";
 
@@ -155,6 +156,8 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Tracks GA4 page views on every SPA navigation — renders nothing */}
       <Analytics />
+      {/* Renders dynamic cookie consent popup to manage visitor analytics preference */}
+      <CookieConsent />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

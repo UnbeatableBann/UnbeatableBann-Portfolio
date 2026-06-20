@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WritingRouteImport } from './routes/writing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as JourneyIndexRouteImport } from './routes/journey/index'
@@ -23,6 +24,11 @@ import { Route as ApiActivityFeedRouteImport } from './routes/api/activity-feed'
 const WritingRoute = WritingRouteImport.update({
   id: '/writing',
   path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,6 +79,7 @@ const ApiActivityFeedRoute = ApiActivityFeedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/privacy': typeof PrivacyRoute
   '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/privacy': typeof PrivacyRoute
   '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/privacy': typeof PrivacyRoute
   '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/privacy'
     | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/privacy'
     | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/privacy'
     | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PrivacyRoute: typeof PrivacyRoute
   WritingRoute: typeof WritingRoute
   ApiActivityFeedRoute: typeof ApiActivityFeedRoute
   ApiBlogRoute: typeof ApiBlogRoute
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/writing'
       fullPath: '/writing'
       preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PrivacyRoute: PrivacyRoute,
   WritingRoute: WritingRoute,
   ApiActivityFeedRoute: ApiActivityFeedRoute,
   ApiBlogRoute: ApiBlogRoute,
