@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
+import { SITE_URL } from "@/lib/config";
 import {
   ArrowLeft,
   ArrowRight,
@@ -42,6 +43,12 @@ export const Route = createFileRoute("/products/$slug")({
           content:
             matchedProduct?.tagline ||
             "Detailed engineering review of AI product by Shadab Jamadar.",
+        },
+      ],
+      links: [
+        {
+          rel: "canonical",
+          href: `${SITE_URL}/products/${params.slug}`,
         },
       ],
     };

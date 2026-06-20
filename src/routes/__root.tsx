@@ -12,8 +12,10 @@ import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Analytics } from "@/components/Analytics";
 import { GA_ID } from "@/lib/analytics";
+import { SITE_URL } from "@/lib/config";
 
 function NotFoundComponent() {
+  // ... (rest of NotFoundComponent/ErrorComponent/etc. are unchanged)
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -88,10 +90,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Building AI systems that teach, reason and automate real work.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://unbeatable-bann-portfolio.vercel.app" },
+      { property: "og:url", content: SITE_URL },
       {
         property: "og:image",
-        content: "https://unbeatable-bann-portfolio.vercel.app/og-image.png",
+        content: `${SITE_URL}/og-image.png`,
       },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Shadab Jamadar — AI Engineer & Product Builder" },

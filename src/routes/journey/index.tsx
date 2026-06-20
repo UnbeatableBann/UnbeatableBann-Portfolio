@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
+import { SITE_URL } from "@/lib/config";
 import {
   Award,
   Check,
@@ -17,6 +18,7 @@ import {
   Download,
   Globe,
 } from "lucide-react";
+// ... (rest of the imports unchanged)
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
@@ -69,6 +71,7 @@ export const Route = createFileRoute("/journey/")({
           "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
       },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/journey` }],
   }),
 });
 

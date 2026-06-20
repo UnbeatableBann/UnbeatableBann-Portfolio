@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
+import { SITE_URL } from "@/lib/config";
 import {
   Search,
   ArrowRight,
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/blog/")({
           "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
       },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),
 });
 

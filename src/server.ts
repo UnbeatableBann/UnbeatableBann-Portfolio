@@ -2,6 +2,8 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { SITE_URL } from "./lib/config";
+import { PRODUCTS_DATA } from "./features/products/data";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -79,6 +81,64 @@ function addSecurityHeaders(response: Response): Response {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+
+      if (url.pathname === "/sitemap.xml") {
+        const currentDate = new Date().toISOString().split("T")[0];
+        const staticPages = ["", "/about", "/journey", "/products", "/blog"];
+
+        const urls = [
+          ...staticPages.map(
+            (page) => `  <url>
+    <loc>${SITE_URL}${page}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${page === "/blog" ? "weekly" : "monthly"}</changefreq>
+    <priority>${page === "" ? "1.0" : "0.8"}</priority>
+  </url>`,
+          ),
+          ...PRODUCTS_DATA.map(
+            (product) => `  <url>
+    <loc>${SITE_URL}/products/${product.slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`,
+          ),
+        ];
+
+        const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>`;
+
+        return addSecurityHeaders(
+          new Response(sitemap, {
+            status: 200,
+            headers: {
+              "Content-Type": "application/xml; charset=utf-8",
+              "Cache-Control": "public, max-age=86400",
+            },
+          }),
+        );
+      }
+
+      if (url.pathname === "/robots.txt") {
+        const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+        return addSecurityHeaders(
+          new Response(robots, {
+            status: 200,
+            headers: {
+              "Content-Type": "text/plain; charset=utf-8",
+              "Cache-Control": "public, max-age=86400",
+            },
+          }),
+        );
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       const normalized = await normalizeCatastrophicSsrResponse(response);

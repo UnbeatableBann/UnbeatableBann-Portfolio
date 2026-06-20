@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { SITE_URL } from "@/lib/config";
 import {
   ChevronDown,
   Mail,
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/about/")({
           "Who is Shadab Jamadar? Learn about my focus on AI products, agentic systems, contact details, and current research.",
       },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
 });
 

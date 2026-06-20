@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useState, useEffect, useRef } from "react";
+import { SITE_URL } from "@/lib/config";
 import {
   ArrowRight,
   Github,
@@ -11,7 +12,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-
+// ... (rest of the imports unchanged)
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
@@ -85,7 +86,10 @@ export const Route = createFileRoute("/")({
         content: "Building AI systems that teach, reason and automate real work.",
       },
     ],
-    links: [{ rel: "preload", href: portraitHero, as: "image", type: "image/webp" }],
+    links: [
+      { rel: "preload", href: portraitHero, as: "image", type: "image/webp" },
+      { rel: "canonical", href: `${SITE_URL}/` },
+    ],
   }),
   component: Home,
 });
