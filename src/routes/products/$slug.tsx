@@ -24,6 +24,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PRODUCTS_DATA, Product } from "@/features/products/data";
 import { ProductMockup } from "@/features/products/components/ProductMockup";
+import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/products/$slug")({
   component: ProductDetailPage,
@@ -316,6 +317,16 @@ function ProductDetailPage() {
   const navigate = useNavigate();
   const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === slug);
   const [activeTab, setActiveTab] = useState("Overview");
+
+  // Track product view in Google Analytics
+  useEffect(() => {
+    if (matchedProduct) {
+      trackEvent("product_view", {
+        product_id: matchedProduct.slug,
+        product_name: matchedProduct.name,
+      });
+    }
+  }, [matchedProduct]);
 
   // If the product doesn't exist, redirect safely to products directory
   useEffect(() => {

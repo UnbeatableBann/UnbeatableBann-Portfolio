@@ -20,6 +20,7 @@ import {
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
+import { trackEvent } from "@/lib/analytics";
 
 // Assets
 import firstLinesCode from "@/assets/first-lines-code.webp";
@@ -344,6 +345,7 @@ function JourneyPage() {
   }, [activeCert]);
 
   const handleDownload = () => {
+    trackEvent("resume_download", { method: "button", page: "journey" });
     if (!resumeUrl) return;
     const link = document.createElement("a");
     link.href = resumeUrl;

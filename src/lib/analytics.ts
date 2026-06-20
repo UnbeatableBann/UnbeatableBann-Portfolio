@@ -23,6 +23,16 @@ declare global {
 // ─── Measurement ID ────────────────────────────────────────────────────────────
 export const GA_ID: string | undefined = import.meta.env.VITE_GA_ID;
 
+// ─── Localhost detection ───────────────────────────────────────────────────────
+const isLocalhost = (): boolean => {
+  if (typeof window === "undefined") return false;
+  return (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1" ||
+    window.location.hostname.startsWith("192.168.")
+  );
+};
+
 // ─── Init ──────────────────────────────────────────────────────────────────────
 /**
  * Bootstraps the GA4 data-layer and fires the initial config hit.
@@ -32,6 +42,11 @@ let _initialised = false;
 
 export function initGA(): void {
   if (!GA_ID || typeof window === "undefined" || _initialised) return;
+
+  if (isLocalhost()) {
+    console.log(`[Analytics] [Localhost Excluded] initGA (GA_ID: ${GA_ID})`);
+    return;
+  }
 
   // Initialise the command queue that gtag.js reads from
   window.dataLayer = window.dataLayer ?? [];
@@ -57,11 +72,42 @@ export function initGA(): void {
  * @param title - The document title at the time of navigation
  */
 export function trackPageView(path: string, title?: string): void {
-  if (!GA_ID || typeof window === "undefined" || !window.gtag) return;
+  if (!GA_ID || typeof window === "undefined") return;
+
+  if (isLocalhost()) {
+    console.log(`[Analytics] [Localhost Excluded] page_view:`, {
+      page_path: path,
+      page_title: title ?? document.title,
+      page_location: window.location.href,
+    });
+    return;
+  }
+
+  if (!window.gtag) return;
 
   window.gtag("event", "page_view", {
     page_path: path,
     page_title: title ?? document.title,
     page_location: window.location.href,
   });
+}
+
+// ─── Custom Event Helper ──────────────────────────────────────────────────────
+/**
+ * Sends a custom tracking event to GA4.
+ *
+ * @param eventName - The name of the custom event, e.g. "resume_download"
+ * @param params - Optional parameter payload for the event
+ */
+export function trackEvent(eventName: string, params?: Record<string, unknown>): void {
+  if (!GA_ID || typeof window === "undefined") return;
+
+  if (isLocalhost()) {
+    console.log(`[Analytics] [Localhost Excluded] custom_event "${eventName}":`, params);
+    return;
+  }
+
+  if (!window.gtag) return;
+
+  window.gtag("event", eventName, params);
 }

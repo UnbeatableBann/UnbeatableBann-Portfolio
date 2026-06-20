@@ -15,6 +15,7 @@ import { Navbar, MediumIcon, LinkedinIcon } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useBlog } from "@/features/blog/hooks/useBlog";
 import { Article } from "@/features/blog/types";
+import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/blog/")({
   component: BlogPage,
@@ -371,7 +372,18 @@ function BlogPage() {
 
                           {/* Title */}
                           <h2 className="text-2xl md:text-3xl font-bold text-heading leading-tight tracking-tight group-hover:text-accent transition-colors duration-200">
-                            <a href={featuredArticle.url} target="_blank" rel="noopener noreferrer">
+                            <a
+                              href={featuredArticle.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() =>
+                                trackEvent("article_click", {
+                                  title: featuredArticle.title,
+                                  url: featuredArticle.url,
+                                  type: "featured_title",
+                                })
+                              }
+                            >
                               {featuredArticle.title}
                             </a>
                           </h2>
@@ -399,6 +411,13 @@ function BlogPage() {
                             href={featuredArticle.url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() =>
+                                trackEvent("article_click", {
+                                  title: featuredArticle.title,
+                                  url: featuredArticle.url,
+                                  type: "featured_button",
+                                })
+                              }
                             className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-accent hover:underline group-hover:translate-x-0.5 transition-transform"
                           >
                             Read Full Article <ExternalLink className="w-3.5 h-3.5 ml-1" />
@@ -455,7 +474,18 @@ function BlogPage() {
 
                             {/* Title */}
                             <h4 className="text-lg font-bold text-heading leading-snug group-hover:text-accent transition-colors duration-200">
-                              <a href={art.url} target="_blank" rel="noopener noreferrer">
+                              <a
+                                href={art.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() =>
+                                  trackEvent("article_click", {
+                                    title: art.title,
+                                    url: art.url,
+                                    type: "grid_title",
+                                  })
+                                }
+                              >
                                 {art.title}
                               </a>
                             </h4>
@@ -475,6 +505,13 @@ function BlogPage() {
                               href={art.url}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={() =>
+                                trackEvent("article_click", {
+                                  title: art.title,
+                                  url: art.url,
+                                  type: "grid_button",
+                                })
+                              }
                               className="inline-flex items-center gap-1 text-primary hover:text-accent"
                             >
                               Read <ExternalLink className="w-3 h-3" />
