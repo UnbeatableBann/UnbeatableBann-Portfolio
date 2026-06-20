@@ -81,23 +81,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "AI Engineer building intelligent products, agentic systems and production-ready AI applications that create real-world impact.",
       },
-      { name: "author",          content: "Shadab Jamadar" },
-      { property: "og:title",       content: "Shadab Jamadar — AI Engineer & Product Builder" },
-      { property: "og:description", content: "Building AI systems that teach, reason and automate real work." },
-      { property: "og:type",        content: "website" },
-      { property: "og:url",         content: "https://unbeatable-bann-portfolio.vercel.app" },
-      { property: "og:image",       content: "https://unbeatable-bann-portfolio.vercel.app/og-image.png" },
-      { name: "twitter:card",        content: "summary_large_image" },
-      { name: "twitter:title",       content: "Shadab Jamadar — AI Engineer & Product Builder" },
-      { name: "twitter:description", content: "Building AI systems that teach, reason and automate real work." },
+      { name: "author", content: "Shadab Jamadar" },
+      { property: "og:title", content: "Shadab Jamadar — AI Engineer & Product Builder" },
+      {
+        property: "og:description",
+        content: "Building AI systems that teach, reason and automate real work.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://unbeatable-bann-portfolio.vercel.app" },
+      {
+        property: "og:image",
+        content: "https://unbeatable-bann-portfolio.vercel.app/og-image.png",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Shadab Jamadar — AI Engineer & Product Builder" },
+      {
+        name: "twitter:description",
+        content: "Building AI systems that teach, reason and automate real work.",
+      },
     ],
     links: [
-      { rel: "dns-prefetch",  href: "https://fonts.googleapis.com" },
-      { rel: "dns-prefetch",  href: "https://fonts.gstatic.com" },
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+      { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
       ...(GA_ID ? [{ rel: "dns-prefetch", href: "https://www.googletagmanager.com" }] : []),
-      { rel: "preconnect",    href: "https://fonts.googleapis.com" },
-      { rel: "preconnect",    href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "icon",          type: "image/png", href: shadabLogo },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "icon", type: "image/png", href: shadabLogo },
       // Single stylesheet link — display=swap in the URL prevents render-blocking.
       // React 19 adds `precedence` to every head() stylesheet, which is incompatible
       // with the media="print"/onLoad trick, so we use display=swap instead.

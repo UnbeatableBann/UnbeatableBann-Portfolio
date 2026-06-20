@@ -8,10 +8,13 @@ export const Route = createFileRoute("/api/resume")({
   server: {
     handlers: {
       GET: async () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let resumePdf: any = null;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let metadata: any = {};
 
         try {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
           const resumeAssets = useStorage("assets:resume");
           [resumePdf, metadata] = await Promise.all([
             resumeAssets.getItemRaw(RESUME_FILE_NAME),

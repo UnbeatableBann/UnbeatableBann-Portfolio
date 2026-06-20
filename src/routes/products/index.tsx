@@ -156,9 +156,7 @@ function ProductsPage() {
 
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-6">
           <div className="space-y-4 max-w-3xl">
-            <div className="text-label-custom text-muted font-bold tracking-wider">
-              PRODUCTS
-            </div>
+            <div className="text-label-custom text-muted font-bold tracking-wider">PRODUCTS</div>
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
               Things I've Built<span className="text-accent">.</span>
             </h1>
@@ -220,7 +218,9 @@ function ProductsPage() {
                       >
                         {prod.slug === "curio" && <Brain className="w-3.5 h-3.5" />}
                         {prod.slug === "ai-interviewer" && <Cpu className="w-3.5 h-3.5" />}
-                        {prod.slug === "llm-evaluation-pipeline" && <Activity className="w-3.5 h-3.5" />}
+                        {prod.slug === "llm-evaluation-pipeline" && (
+                          <Activity className="w-3.5 h-3.5" />
+                        )}
                         {prod.slug === "healthcare-rag" && <Database className="w-3.5 h-3.5" />}
                         {prod.slug === "mt5-infrastructure" && <Network className="w-3.5 h-3.5" />}
                         {prod.slug === "quantix" && <Shield className="w-3.5 h-3.5" />}

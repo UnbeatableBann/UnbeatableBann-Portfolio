@@ -102,9 +102,7 @@ function AboutPage() {
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 py-16 grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
           {/* Left Column (Content) */}
           <div className="lg:col-span-7 space-y-8 animate-fade-up">
-            <div className="text-label-custom text-muted font-bold tracking-wider">
-              ABOUT
-            </div>
+            <div className="text-label-custom text-muted font-bold tracking-wider">ABOUT</div>
 
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
               Hello, I'm

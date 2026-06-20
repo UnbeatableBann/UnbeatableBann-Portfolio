@@ -222,7 +222,7 @@ function BlogPage() {
               <select
                 id="sort-select"
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={(e) => setSortBy(e.target.value as "newest" | "oldest")}
                 className="px-3 sm:px-4 py-2 bg-white border border-border rounded-full text-xs font-semibold text-heading focus:outline-none focus:ring-1 focus:ring-accent shadow-sm flex-shrink-0"
               >
                 <option value="newest">Newest First</option>
@@ -412,12 +412,12 @@ function BlogPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() =>
-                                trackEvent("article_click", {
-                                  title: featuredArticle.title,
-                                  url: featuredArticle.url,
-                                  type: "featured_button",
-                                })
-                              }
+                              trackEvent("article_click", {
+                                title: featuredArticle.title,
+                                url: featuredArticle.url,
+                                type: "featured_button",
+                              })
+                            }
                             className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-accent hover:underline group-hover:translate-x-0.5 transition-transform"
                           >
                             Read Full Article <ExternalLink className="w-3.5 h-3.5 ml-1" />

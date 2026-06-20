@@ -21,7 +21,9 @@ export class MediumProvider implements ActivityProvider {
 
     try {
       console.log(`[MediumProvider] Fetching Medium RSS feed from: ${url}`);
-      const response = await fetch(url, { next: { revalidate: 0 } } as any);
+      const response = await fetch(url, {
+        next: { revalidate: 0 },
+      } as RequestInit & { next?: { revalidate: number } });
 
       if (!response.ok) {
         throw new Error(

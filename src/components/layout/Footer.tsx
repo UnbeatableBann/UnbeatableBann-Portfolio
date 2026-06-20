@@ -61,7 +61,9 @@ export function Footer() {
                 href="https://github.com/UnbeatableBann"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("external_click", { destination: "GitHub", page: "footer" })}
+                onClick={() =>
+                  trackEvent("external_click", { destination: "GitHub", page: "footer" })
+                }
                 className="text-body hover:text-heading"
               >
                 GitHub
@@ -72,7 +74,9 @@ export function Footer() {
                 href="https://linkedin.com/in/shadab-jamadar"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("external_click", { destination: "LinkedIn", page: "footer" })}
+                onClick={() =>
+                  trackEvent("external_click", { destination: "LinkedIn", page: "footer" })
+                }
                 className="text-body hover:text-heading"
               >
                 LinkedIn
@@ -83,7 +87,9 @@ export function Footer() {
                 href="https://medium.com/@shadabjamadar"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent("external_click", { destination: "Medium", page: "footer" })}
+                onClick={() =>
+                  trackEvent("external_click", { destination: "Medium", page: "footer" })
+                }
                 className="text-body hover:text-heading"
               >
                 Medium

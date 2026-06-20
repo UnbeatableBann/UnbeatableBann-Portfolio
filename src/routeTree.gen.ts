@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WritingRouteImport } from './routes/writing'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsIndexRouteImport } from './routes/products/index'
 import { Route as JourneyIndexRouteImport } from './routes/journey/index'
@@ -19,6 +20,11 @@ import { Route as ApiResumeRouteImport } from './routes/api/resume'
 import { Route as ApiBlogRouteImport } from './routes/api/blog'
 import { Route as ApiActivityFeedRouteImport } from './routes/api/activity-feed'
 
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -67,6 +73,7 @@ const ApiActivityFeedRoute = ApiActivityFeedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/api/resume': typeof ApiResumeRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/api/resume': typeof ApiResumeRoute
@@ -90,6 +98,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/writing': typeof WritingRoute
   '/api/activity-feed': typeof ApiActivityFeedRoute
   '/api/blog': typeof ApiBlogRoute
   '/api/resume': typeof ApiResumeRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
     | '/api/resume'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
     | '/api/resume'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/writing'
     | '/api/activity-feed'
     | '/api/blog'
     | '/api/resume'
@@ -137,6 +149,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WritingRoute: typeof WritingRoute
   ApiActivityFeedRoute: typeof ApiActivityFeedRoute
   ApiBlogRoute: typeof ApiBlogRoute
   ApiResumeRoute: typeof ApiResumeRoute
@@ -149,6 +162,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -217,6 +237,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WritingRoute: WritingRoute,
   ApiActivityFeedRoute: ApiActivityFeedRoute,
   ApiBlogRoute: ApiBlogRoute,
   ApiResumeRoute: ApiResumeRoute,

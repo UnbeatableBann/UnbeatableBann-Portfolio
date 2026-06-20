@@ -507,9 +507,7 @@ function JourneyPage() {
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 py-16 grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
           {/* Left Column (Content) */}
           <div className="lg:col-span-7 space-y-8 animate-fade-up">
-            <div className="text-label-custom text-muted font-bold tracking-wider">
-              JOURNEY
-            </div>
+            <div className="text-label-custom text-muted font-bold tracking-wider">JOURNEY</div>
 
             <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
               A journey of{" "}
@@ -1267,7 +1265,9 @@ function JourneyPage() {
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                   className={`relative rounded-xl border border-border overflow-hidden bg-slate-50 flex flex-col items-center justify-center p-2 md:p-4 shadow-inner min-h-[40vh] max-h-[55vh] md:max-h-[60vh] group/modal-img w-full select-none ${
-                    activeCert.images && activeCert.images.length > 1 ? "cursor-grab active:cursor-grabbing" : ""
+                    activeCert.images && activeCert.images.length > 1
+                      ? "cursor-grab active:cursor-grabbing"
+                      : ""
                   }`}
                 >
                   <img

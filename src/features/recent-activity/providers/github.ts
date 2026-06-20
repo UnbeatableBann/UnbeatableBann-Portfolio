@@ -1,6 +1,9 @@
 import { ActivityProvider, NormalizedActivity } from "../types";
 import { CONFIG } from "../config";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type GitHubEvent = any;
+
 export class GitHubProvider implements ActivityProvider {
   name = "github";
   private username: string;
@@ -29,7 +32,10 @@ export class GitHubProvider implements ActivityProvider {
 
     try {
       console.log(`[GitHubProvider] Fetching public events for username: ${this.username}`);
-      const response = await fetch(url, { headers, next: { revalidate: 0 } } as any);
+      const response = await fetch(url, {
+        headers,
+        next: { revalidate: 0 },
+      } as RequestInit & { next?: { revalidate: number } });
 
       if (!response.ok) {
         throw new Error(`GitHub API returned status ${response.status}: ${response.statusText}`);
@@ -52,8 +58,8 @@ export class GitHubProvider implements ActivityProvider {
    * Grouping Rules: Repository + Time Window (e.g., 48 hours).
    * Filtering Rules: Min commits threshold (e.g., 3).
    */
-  private aggregateGitHubEvents(events: any[]): NormalizedActivity[] {
-    const groupedByRepo: Record<string, any[]> = {};
+  private aggregateGitHubEvents(events: GitHubEvent[]): NormalizedActivity[] {
+    const groupedByRepo: Record<string, GitHubEvent[]> = {};
 
     // Group only PushEvents by repository
     for (const event of events) {
@@ -76,7 +82,7 @@ export class GitHubProvider implements ActivityProvider {
         (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
       );
 
-      let currentGroup: any[] = [];
+      let currentGroup: GitHubEvent[] = [];
       let groupLatestTime = 0;
 
       for (const event of repoEvents) {
@@ -114,7 +120,10 @@ export class GitHubProvider implements ActivityProvider {
   /**
    * Summarizes a grouped list of push events into a single, clean activity.
    */
-  private createGroupedActivity(repoName: string, events: any[]): NormalizedActivity | null {
+  private createGroupedActivity(
+    repoName: string,
+    events: GitHubEvent[],
+  ): NormalizedActivity | null {
     // Sum total commits in this aggregation group
     let totalCommits = 0;
     for (const event of events) {

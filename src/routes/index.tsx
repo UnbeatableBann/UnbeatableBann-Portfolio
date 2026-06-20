@@ -537,7 +537,10 @@ function ExperienceSnapshot() {
   }, []);
 
   return (
-    <section id="experience" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]">
+    <section
+      id="experience"
+      className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[140px] pb-[90px]"
+    >
       <div className="grid lg:grid-cols-12 gap-6 items-start relative">
         {/* Left Column (Sticky Title) */}
         <div className="lg:col-span-4 lg:sticky lg:top-[120px] self-start space-y-4">
@@ -697,7 +700,10 @@ function Products() {
   ];
 
   return (
-    <section id="projects" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[70px] pb-[140px]">
+    <section
+      id="projects"
+      className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pt-[70px] pb-[140px]"
+    >
       <div className="max-w-2xl mb-16">
         <div className="text-label-custom text-muted font-semibold mb-3">Featured Work</div>
         <h2 className="text-section-title font-bold tracking-tight text-heading">
@@ -775,7 +781,10 @@ function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12">
+    <section
+      id="contact"
+      className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12"
+    >
       <div className="relative rounded-3xl border border-border bg-white p-6 md:p-16 shadow-card overflow-hidden">
         {/* Subtle moving grid background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-10" />
