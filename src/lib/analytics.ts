@@ -35,8 +35,8 @@ const isLocalhost = (): boolean => {
 
 // ─── Init ──────────────────────────────────────────────────────────────────────
 /**
- * Bootstraps the GA4 data-layer and fires the initial config hit.
- * Safe to call multiple times — idempotent via the `_ga4Initialised` flag.
+ * Bootstraps the GA4 data-layer, configures default Consent Mode v2 settings,
+ * and fires the initial config hit.
  */
 let _initialised = false;
 
@@ -54,6 +54,18 @@ export function initGA(): void {
     window.dataLayer.push(args);
   };
 
+  // Determine initial consent state from localStorage
+  const consent = localStorage.getItem("cookie-consent");
+  const isGranted = consent === "accepted";
+
+  // Google Consent Mode v2 default configuration
+  window.gtag("consent", "default", {
+    ad_storage: "denied",
+    analytics_storage: isGranted ? "granted" : "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+
   // Seed the timestamp required by GA4
   window.gtag("js", new Date());
 
@@ -62,6 +74,29 @@ export function initGA(): void {
   window.gtag("config", GA_ID, { send_page_view: false });
 
   _initialised = true;
+}
+
+/**
+ * Updates GA4 consent state dynamically when the user makes a choice.
+ */
+export function setConsent(granted: boolean): void {
+  if (!GA_ID || typeof window === "undefined") return;
+
+  if (isLocalhost()) {
+    console.log(`[Analytics] [Localhost Excluded] setConsent: ${granted ? "granted" : "denied"}`);
+    return;
+  }
+
+  window.dataLayer = window.dataLayer ?? [];
+  window.gtag =
+    window.gtag ??
+    function (...args: Parameters<Window["gtag"]>) {
+      window.dataLayer.push(args);
+    };
+
+  window.gtag("consent", "update", {
+    analytics_storage: granted ? "granted" : "denied",
+  });
 }
 
 // ─── Page-view helper ─────────────────────────────────────────────────────────

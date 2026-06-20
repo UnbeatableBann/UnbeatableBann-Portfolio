@@ -7,34 +7,26 @@
  *     hit on every SPA navigation, including back/forward.
  *  3. Renders nothing to the DOM.
  */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "@tanstack/react-router";
-import { GA_ID, initGA, trackPageView } from "@/lib/analytics";
+import { GA_ID, initGA, trackPageView, setConsent } from "@/lib/analytics";
 
 export function Analytics() {
   const router = useRouter();
-  const [consentAccepted, setConsentAccepted] = useState<boolean | null>(null);
 
+  // 1. Initialise GA4 on mount with default Consent Mode settings based on stored state
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    initGA();
 
-    const checkConsent = () => {
+    // Listen for consent updates and adjust GA4 dynamically
+    const handleConsentUpdate = () => {
+      if (typeof window === "undefined") return;
       const consent = localStorage.getItem("cookie-consent");
       if (consent === "accepted") {
-        setConsentAccepted(true);
-        initGA();
+        setConsent(true);
       } else if (consent === "declined") {
-        setConsentAccepted(false);
-      } else {
-        setConsentAccepted(null);
+        setConsent(false);
       }
-    };
-
-    checkConsent();
-
-    // Listen for consent updates
-    const handleConsentUpdate = () => {
-      checkConsent();
     };
 
     window.addEventListener("cookie-consent-updated", handleConsentUpdate);
@@ -43,9 +35,9 @@ export function Analytics() {
     };
   }, []);
 
-  // ── Step 2: track every completed navigation as a page_view ───────────────
+  // 2. Track every completed navigation as a page_view (sent as cookieless or cookie-based by GA4)
   useEffect(() => {
-    if (!GA_ID || !consentAccepted) return;
+    if (!GA_ID) return;
 
     // onResolved fires after the incoming route's loaders have settled and
     // the new page is committed — the document title is correct at this point.
@@ -54,12 +46,12 @@ export function Analytics() {
       trackPageView(pathname + searchStr, document.title);
     });
 
-    // Fire the initial page view hit immediately upon acceptance for the current route
+    // Fire the initial page view hit immediately for the current route
     const { pathname, searchStr } = router.state.location;
     trackPageView(pathname + searchStr, document.title);
 
     return unsubscribe; // clean up on unmount
-  }, [router, consentAccepted]);
+  }, [router]);
 
   // Renders nothing — purely a side-effect component
   return null;
