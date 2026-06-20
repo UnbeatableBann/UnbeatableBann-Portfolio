@@ -15,6 +15,9 @@ import {
   Activity,
   FileText,
 } from "lucide-react";
+import openaiLogo from "@/assets/logos/openai.svg";
+import mistralLogo from "@/assets/logos/mistral.svg";
+import pineconeLogo from "@/assets/logos/pinecone.svg";
 
 interface SkillNode {
   id: string;
@@ -2134,7 +2137,15 @@ export function SkillsGraph() {
                       <>
                         {node.logo ? (
                           <image
-                            href={`https://cdn.simpleicons.org/${node.logo}`}
+                            href={
+                              node.logo === "openai"
+                                ? openaiLogo
+                                : node.logo === "mistral"
+                                  ? mistralLogo
+                                  : node.logo === "pinecone"
+                                    ? pineconeLogo
+                                    : `https://cdn.simpleicons.org/${node.logo}`
+                            }
                             x="-8"
                             y="-14"
                             width="16"
