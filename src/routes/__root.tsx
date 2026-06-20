@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import appCss from "../styles.css?url";
+import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Analytics } from "@/components/Analytics";
 import { GA_ID } from "@/lib/analytics";
@@ -97,8 +97,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       ...(GA_ID ? [{ rel: "dns-prefetch", href: "https://www.googletagmanager.com" }] : []),
       { rel: "preconnect",    href: "https://fonts.googleapis.com" },
       { rel: "preconnect",    href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "preload",       href: appCss, as: "style" },
-      { rel: "stylesheet",    href: appCss },
       { rel: "icon",          type: "image/png", href: shadabLogo },
       // Single stylesheet link — display=swap in the URL prevents render-blocking.
       // React 19 adds `precedence` to every head() stylesheet, which is incompatible
