@@ -330,7 +330,7 @@ function CurrentlyBuilding() {
               <div className="text-right">
                 <div className="text-label-custom text-muted font-sans">DETAILS</div>
                 <a
-                  href="https://github.com/UnbeatableBann/AI-Interviewer"
+                  href="https://github.com/UnbeatableBann/Susan-AI-Interviewer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 text-xs font-semibold hover:bg-primary-hover transition-all mt-1"

@@ -161,7 +161,7 @@ export const PRODUCTS_DATA: Product[] = [
     launchDate: "Mar 2025",
     links: {
       live: "https://ai-interviewer.io",
-      github: "https://github.com/UnbeatableBann/AI-Interviewer",
+      github: "https://github.com/UnbeatableBann/Susan-AI-Interviewer",
       caseStudy: "/blog/evaluating-interviewer",
     },
     overview: {
@@ -197,7 +197,6 @@ export const PRODUCTS_DATA: Product[] = [
     },
     problem:
       "Technical recruiting teams waste hundreds of hours screening candidates who copy-paste solutions. Conversely, standard linear coding puzzles fail to capture true system engineering and problem-solving skills.",
-    workspaceMode: "branch",
     solution:
       "An adaptive interview agent that doesn't just look for correct syntax, but actively probes code efficiency, testing for edge cases and forcing candidate interaction to verify reasoning depth.",
     architecture: {
