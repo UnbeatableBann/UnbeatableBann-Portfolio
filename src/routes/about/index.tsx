@@ -15,7 +15,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 // Assets
-import portraitHeroJpg from "@/assets/shadab-portrait-hero.webp";
+import portraitHeroWebp from "@/assets/shadab-portrait-hero.webp";
 
 export const Route = createFileRoute("/about/")({
   component: AboutPage,
@@ -139,7 +139,7 @@ function AboutPage() {
             <div className="relative w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden border border-border shadow-soft bg-white p-4">
               <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
               <img
-                src={portraitHeroJpg}
+                src={portraitHeroWebp}
                 alt="Shadab Jamadar professional portrait"
                 className="w-full h-full object-cover rounded-2xl"
                 loading="eager"
