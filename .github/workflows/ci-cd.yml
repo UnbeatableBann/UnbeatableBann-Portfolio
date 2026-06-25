@@ -39,7 +39,7 @@ jobs:
           MEDIUM_USERNAME: ${{ secrets.MEDIUM_USERNAME }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
 
-  deploy:
+  deploy-vercel:
     name: Continuous Deployment (Vercel)
     needs: ci
     runs-on: ubuntu-latest
@@ -74,3 +74,37 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+  deploy-cloudflare:
+    name: Continuous Deployment (Cloudflare Pages)
+    needs: ci
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Environment
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build for Cloudflare
+        run: bun run build
+        env:
+          CF_PAGES: 1
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MEDIUM_USERNAME: ${{ secrets.MEDIUM_USERNAME }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=unbeatablebann-portfolio

@@ -29,7 +29,7 @@ export default defineConfig({
       server: { entry: "server" },
     }),
     nitro({
-      preset: "vercel",
+      preset: process.env.CF_PAGES ? "cloudflare-pages" : "vercel",
       serverAssets: [
         {
           baseName: "resume",
