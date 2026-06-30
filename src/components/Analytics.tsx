@@ -9,7 +9,7 @@
  */
 import { useEffect } from "react";
 import { useRouter } from "@tanstack/react-router";
-import { GA_ID, initGA, trackPageView, setConsent } from "@/lib/analytics";
+import { GA_ID, initGA, trackPageView, setConsent, trackEvent } from "@/lib/analytics";
 
 export function Analytics() {
   const router = useRouter();
@@ -52,6 +52,23 @@ export function Analytics() {
 
     return unsubscribe; // clean up on unmount
   }, [router]);
+
+  // 3. Track when the user changes tabs or leaves the browser (visibility change)
+  useEffect(() => {
+    if (!GA_ID || typeof document === "undefined") return;
+
+    const handleVisibilityChange = () => {
+      trackEvent("tab_visibility_change", {
+        state: document.visibilityState,
+        page_path: window.location.pathname,
+      });
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
   // Renders nothing — purely a side-effect component
   return null;

@@ -120,14 +120,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     // Inject the gtag.js loader script only when VITE_GA_ID is set.
     // Using scripts[] here puts it in <head> as a real <script> tag.
-    scripts: GA_ID
-      ? [
-          {
-            src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
-            async: true,
-          },
-        ]
-      : [],
+    scripts: [
+      ...(GA_ID
+        ? [
+            {
+              src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
+              async: true,
+            },
+          ]
+        : []),
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Shadab Jamadar",
+          url: SITE_URL,
+          image: `${SITE_URL}/og-image.png`,
+          sameAs: [
+            "https://github.com/UnbeatableBann",
+            "https://linkedin.com/in/shadab-jamadar",
+            "https://medium.com/@shadabjamadar",
+          ],
+          jobTitle: "AI Engineer & Product Builder",
+          description:
+            "AI Engineer building intelligent products, agentic systems and production-ready AI applications that create real-world impact.",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
