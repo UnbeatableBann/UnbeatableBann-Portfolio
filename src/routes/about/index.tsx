@@ -27,6 +27,13 @@ export const Route = createFileRoute("/about/")({
         content:
           "Who is Shadab Jamadar? Learn about my focus on AI products, agentic systems, contact details, and current research.",
       },
+      { property: "og:title", content: "About Me — Shadab Jamadar" },
+      {
+        property: "og:description",
+        content:
+          "Learn about my focus on AI products, agentic systems, contact details, and current research.",
+      },
+      { property: "og:type", content: "profile" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),

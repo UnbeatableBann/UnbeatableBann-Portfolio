@@ -44,6 +44,19 @@ export const Route = createFileRoute("/products/$slug")({
             matchedProduct?.tagline ||
             "Detailed engineering review of AI product by Shadab Jamadar.",
         },
+        {
+          property: "og:title",
+          content: matchedProduct
+            ? `${matchedProduct.name} — AI Product Detail | Shadab Jamadar`
+            : "Product Details — Shadab Jamadar",
+        },
+        {
+          property: "og:description",
+          content:
+            matchedProduct?.tagline ||
+            "Detailed engineering review of AI product by Shadab Jamadar.",
+        },
+        { property: "og:type", content: "article" },
       ],
       links: [
         {
@@ -51,6 +64,31 @@ export const Route = createFileRoute("/products/$slug")({
           href: `${SITE_URL}/products/${params.slug}`,
         },
       ],
+      scripts: matchedProduct
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                name: matchedProduct.name,
+                operatingSystem: "Web",
+                applicationCategory: "BusinessApplication",
+                offers: {
+                  "@type": "Offer",
+                  price: "0",
+                  priceCurrency: "USD",
+                },
+                description: matchedProduct.tagline,
+                url: `${SITE_URL}/products/${matchedProduct.slug}`,
+                author: {
+                  "@type": "Person",
+                  name: "Shadab Jamadar",
+                },
+              }),
+            },
+          ]
+        : [],
     };
   },
 });

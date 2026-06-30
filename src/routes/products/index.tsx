@@ -38,6 +38,13 @@ export const Route = createFileRoute("/products/")({
         content:
           "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
       },
+      { property: "og:title", content: "Products — Shadab Jamadar" },
+      {
+        property: "og:description",
+        content:
+          "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
+      },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/products` }],
   }),

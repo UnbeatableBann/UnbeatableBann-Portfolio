@@ -28,6 +28,13 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
       },
+      { property: "og:title", content: "Blog — Shadab Jamadar" },
+      {
+        property: "og:description",
+        content:
+          "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
+      },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),

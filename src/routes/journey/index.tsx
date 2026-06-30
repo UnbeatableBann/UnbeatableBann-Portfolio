@@ -70,6 +70,13 @@ export const Route = createFileRoute("/journey/")({
         content:
           "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
       },
+      { property: "og:title", content: "My Journey — Shadab Jamadar" },
+      {
+        property: "og:description",
+        content:
+          "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
+      },
+      { property: "og:type", content: "article" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/journey` }],
   }),
