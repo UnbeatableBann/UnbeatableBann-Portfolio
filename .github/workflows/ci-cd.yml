@@ -89,7 +89,9 @@ jobs:
     name: Continuous Deployment (Cloudflare Pages)
     needs: ci
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # DISABLED: Set to 'false' to skip Cloudflare deployment while keeping the configuration intact.
+    # To re-enable, use: if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: false
 
     steps:
       - name: Checkout Repository
