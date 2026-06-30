@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 // Assets
 import portraitHeroWebp from "@/assets/shadab-portrait-hero.webp";
@@ -128,16 +129,18 @@ function AboutPage() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#contact"
+                onClick={() => trackEvent("cta_click", { button: "lets_connect", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-3.5 text-sm font-semibold hover:bg-primary-hover transition-all duration-200"
               >
                 Let's Connect
               </a>
-              <a
-                href="/products"
+              <Link
+                to="/products"
+                onClick={() => trackEvent("cta_click", { button: "view_products", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
               >
                 View Products
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -246,6 +249,9 @@ function AboutPage() {
                   </h3>
                   <a
                     href="mailto:shadabjamadar4@gmail.com?subject=Inquiry"
+                    onClick={() =>
+                      trackEvent("contact_form_submission", { method: "email_card", page: "about" })
+                    }
                     className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
                   >
                     shadabjamadar4@gmail.com
@@ -272,6 +278,9 @@ function AboutPage() {
                     href="https://linkedin.com/in/shadab-jamadar"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("external_click", { destination: "LinkedIn", page: "about" })
+                    }
                     className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1"
                   >
                     linkedin.com/in/shadab-jamadar
@@ -283,6 +292,9 @@ function AboutPage() {
                       href="https://github.com/UnbeatableBann"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("external_click", { destination: "GitHub", page: "about" })
+                      }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
                       <Github className="w-3.5 h-3.5" /> GitHub
@@ -291,6 +303,9 @@ function AboutPage() {
                       href="https://medium.com/@shadabjamadar"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("external_click", { destination: "Medium", page: "about" })
+                      }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
                       <MediumIcon className="w-3.5 h-3.5" /> Medium

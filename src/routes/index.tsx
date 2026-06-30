@@ -141,6 +141,9 @@ function Hero() {
                 <div className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_10%,#6e9c53_35%,#3b82f6_50%,#8b5cf6_65%,transparent_90%)] animate-border-beam pointer-events-none" />
                 <Link
                   to="/products"
+                  onClick={() =>
+                    trackEvent("cta_click", { button: "explore_my_work", page: "home" })
+                  }
                   className="relative inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-4 text-sm font-semibold hover:bg-primary-hover transition-all duration-200 z-10"
                 >
                   Explore My Work <ArrowRight className="w-4 h-4" />
@@ -150,6 +153,7 @@ function Hero() {
             <Link
               to="/about"
               hash="contact"
+              onClick={() => trackEvent("cta_click", { button: "lets_connect", page: "home" })}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-4 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               Let's Connect
@@ -333,6 +337,9 @@ function CurrentlyBuilding() {
                   href="https://github.com/UnbeatableBann/Susan-AI-Interviewer"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("project_click", { project: "susan_ai_interviewer", page: "home" })
+                  }
                   className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 text-xs font-semibold hover:bg-primary-hover transition-all mt-1"
                 >
                   Explore Details
@@ -538,6 +545,7 @@ function ExperienceSnapshot() {
           <div className="pt-4">
             <Link
               to="/journey"
+              onClick={() => trackEvent("cta_click", { button: "view_full_journey", page: "home" })}
               className="inline-flex items-center gap-2 text-xs font-semibold text-black hover:underline cursor-pointer"
             >
               View Full Journey <ArrowRight className="w-3.5 h-3.5" />
@@ -724,6 +732,7 @@ function Products() {
                 <Link
                   to="/products/$slug"
                   params={{ slug: proj.slug }}
+                  onClick={() => trackEvent("project_click", { project: proj.slug, page: "home" })}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-white px-5 py-3 text-sm font-semibold hover:bg-primary-hover transition duration-200"
                 >
                   View Project <ArrowUpRight className="w-4 h-4" />

@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { trackEvent } from "@/lib/analytics";
 import { PRODUCTS_DATA, Product } from "@/features/products/data";
 import { ProductMockup } from "@/features/products/components/ProductMockup";
 
@@ -177,6 +178,7 @@ function ProductsPage() {
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <button
               onClick={() => {
+                trackEvent("cta_click", { button: "explore_products_directory", page: "products" });
                 const element = document.getElementById("products-directory");
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -188,6 +190,7 @@ function ProductsPage() {
             </button>
             <Link
               to="/journey"
+              onClick={() => trackEvent("cta_click", { button: "view_journey", page: "products" })}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               View Journey <ArrowRight className="w-4 h-4" />
@@ -252,6 +255,12 @@ function ProductsPage() {
                 </p>
                 <a
                   href="mailto:shadabjamadar4@gmail.com?subject=Product%20Development%20Collaboration"
+                  onClick={() =>
+                    trackEvent("contact_form_submission", {
+                      method: "email_idea",
+                      page: "products",
+                    })
+                  }
                   className="inline-flex items-center gap-1 text-[11px] font-bold text-[#6E9C53] hover:underline"
                 >
                   Let's Talk <ArrowRight className="w-3.5 h-3.5" />
@@ -372,6 +381,9 @@ function ProductsPage() {
                         <Link
                           to="/products/$slug"
                           params={{ slug: prod.slug }}
+                          onClick={() =>
+                            trackEvent("project_click", { project: prod.slug, page: "products" })
+                          }
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6E9C53] hover:underline cursor-pointer"
                         >
                           View Product <ArrowRight className="w-3.5 h-3.5" />
@@ -446,6 +458,12 @@ function ProductsPage() {
               </div>
               <a
                 href="mailto:shadabjamadar4@gmail.com?subject=Project%20Inquiry%20%2F%20Let's%20Connect"
+                onClick={() =>
+                  trackEvent("contact_form_submission", {
+                    method: "email_connect_banner",
+                    page: "products",
+                  })
+                }
                 className="inline-flex items-center gap-2 rounded-full bg-[#6E9C53] hover:bg-[#5C8545] text-white px-6 py-3 text-xs font-semibold transition-all shadow-sm w-fit self-start md:self-auto cursor-pointer"
               >
                 Let's Connect <ArrowRight className="w-3.5 h-3.5" />
