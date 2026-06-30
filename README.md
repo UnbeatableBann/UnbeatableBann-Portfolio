@@ -1,6 +1,6 @@
 # Shadab Jamadar — AI Engineer & Product Builder Portfolio
 
-🌐 **Live Portfolio:** [Shadab's Portfolio](https://unbeatable-bann-portfolio.vercel.app/)
+🌐 **Live Portfolio:** [Shadab's Portfolio](https://shadabjamadar.me)
 
 Welcome to the official repository for my professional developer portfolio. This application is a premium, highly interactive web application designed to highlight my work in AI engineering, agentic systems, data science, and backend development.
 
