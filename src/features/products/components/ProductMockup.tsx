@@ -285,6 +285,8 @@ export function ProductMockup({ slug }: { slug: string }) {
               {/* Search bar */}
               <div className="w-full max-w-[220px] relative">
                 <input
+                  id="mockup-search-input"
+                  name="mockup-search"
                   type="text"
                   readOnly
                   placeholder="Ask a medical question..."
