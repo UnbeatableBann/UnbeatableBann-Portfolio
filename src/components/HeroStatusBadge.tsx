@@ -37,7 +37,7 @@ export function HeroGreetingOption() {
 // Option 2: Thought stream ticker option
 const thoughts = [
   "Shipping fast, learning faster...",
-  "Deploying on a Friday? Let's go! 🚀",
+  "Deploying on a Friday? Let's go!",
   "Agentic workflows are the new hotness.",
   "Coffee in, functional intelligence out.",
   "Refactoring is a love letter to the future.",
