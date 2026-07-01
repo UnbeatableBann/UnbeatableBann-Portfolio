@@ -12,9 +12,7 @@ export default defineConfig({
     },
     dedupe: ["react", "react-dom", "@tanstack/react-query"],
   },
-  css: {
-    transformer: "lightningcss",
-  },
+
   plugins: [
     tsconfigPaths(),
     tailwindcss(),
