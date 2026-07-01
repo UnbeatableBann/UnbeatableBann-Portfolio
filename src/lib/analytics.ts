@@ -61,7 +61,7 @@ export function initGA(): void {
   // Google Consent Mode v2 default configuration
   window.gtag("consent", "default", {
     ad_storage: "denied",
-    analytics_storage: isGranted ? "granted" : "denied",
+    analytics_storage: "granted", // Always grant analytics tracking by default
     ad_user_data: "denied",
     ad_personalization: "denied",
   });

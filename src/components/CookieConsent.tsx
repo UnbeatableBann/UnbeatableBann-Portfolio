@@ -34,7 +34,7 @@ export function CookieConsent() {
   return (
     <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-md z-[100] animate-fade-up">
       {/* Premium Glassmorphic Card */}
-      <div className="bg-[#FAF8F5]/90 backdrop-blur-md border border-[#e5e0d8] rounded-2xl p-5 shadow-xl flex flex-col gap-4 relative">
+      <div className="bg-[#FAF8F5]/90 backdrop-blur-md border border-[#e5e0d8] rounded-2xl p-5 shadow-xl flex flex-col gap-1 relative">
         <button
           onClick={() => setVisible(false)}
           className="absolute top-4 right-4 text-muted hover:text-heading transition-colors"
@@ -49,31 +49,20 @@ export function CookieConsent() {
           </span>
           <div className="space-y-1.5 min-w-0 pr-6">
             <h3 className="text-sm font-bold text-heading flex items-center gap-1.5">
-              Cookie Preferences <Sparkles className="w-3.5 h-3.5 text-accent" />
+              We Use Cookies 
             </h3>
             <p className="text-xs text-body leading-relaxed font-normal">
-              I use analytics cookies to measure how you interact with my projects. You can choose
-              to decline if you prefer not to be tracked. Read the{" "}
-              <Link to="/privacy" className="text-accent hover:underline font-semibold">
-                Privacy Policy
-              </Link>{" "}
-              for details.
+              This website uses essential analytics cookies to ensure you get the best experience on my portfolio. By continuing to use this site, you consent to our use of cookies.
             </p>
           </div>
         </div>
 
         <div className="flex gap-2.5 justify-end">
           <button
-            onClick={() => handleChoice(false)}
-            className="px-3.5 py-2 rounded-lg text-xs font-semibold text-body hover:bg-[#EFECE6]/50 transition duration-200"
-          >
-            Decline
-          </button>
-          <button
             onClick={() => handleChoice(true)}
             className="px-4 py-2 rounded-lg text-xs font-bold text-white bg-primary hover:bg-primary-hover shadow-sm transition duration-200"
           >
-            Accept Cookies
+            Got it!
           </button>
         </div>
       </div>
