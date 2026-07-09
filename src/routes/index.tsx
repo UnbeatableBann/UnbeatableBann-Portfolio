@@ -218,7 +218,7 @@ function Hero() {
 
         {/* Right Side (Portrait with colored background circle) */}
         <div className="lg:col-span-5 relative flex items-center justify-center">
-          <div className="relative w-[360px] h-[360px] md:w-[460px] md:h-[460px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] aspect-square flex items-center justify-center overflow-visible">
+          <div className="relative w-[340px] h-[340px] md:w-[450px] md:h-[450px] lg:w-[570px] lg:h-[570px] xl:w-[670px] xl:h-[670px] aspect-square flex items-center justify-center overflow-visible translate-y-2 lg:translate-y-4 xl:translate-y-6">
             {/* Soft-Green Circle representing sketches' Colored Transparent Circle */}
             <div
               className="absolute bg-accent-soft/70 rounded-full scale-105 z-0"
