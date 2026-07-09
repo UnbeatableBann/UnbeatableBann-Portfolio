@@ -120,12 +120,23 @@ function Hero() {
           {/* <HeroThoughtStreamOption /> */}
           <HeroBoatAnimationOption />
 
-          <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
+          {/* <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
             <span className="font-serif italic text-accent/70 font-normal block mb-2 md:mb-3">
               Hi, I'm
             </span>
             Shadab Jamadar
-          </h1>
+          </h1> */}
+          <div className="space-y-1">
+            <h1 className="text-hero-title leading-[1.05] tracking-tight text-heading">
+              <span className="font-serif italic text-accent/70 font-normal block mb-2 md:mb-3">
+                Hi, I'm
+              </span>
+              Shadab Jamadar
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-medium text-heading/80 tracking-tight">
+              AI Engineer & AI Product Builder
+            </h2>
+          </div>
 
           <p className="text-hero-desc text-body max-w-xl font-normal leading-[1.7]">
             Building AI products so humans can spend more time creating new problems.
