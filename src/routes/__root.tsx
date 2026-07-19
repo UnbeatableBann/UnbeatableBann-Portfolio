@@ -10,9 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
-import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
-import { GA_ID } from "@/lib/analytics";
 import { SITE_URL } from "@/lib/config";
 
 function NotFoundComponent() {
@@ -103,7 +101,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
-      ...(GA_ID ? [{ rel: "dns-prefetch", href: "https://www.googletagmanager.com" }] : []),
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "icon", type: "image/png", href: shadabLogo },
@@ -115,17 +112,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
-    // Inject the gtag.js loader script only when VITE_GA_ID is set.
-    // Using scripts[] here puts it in <head> as a real <script> tag.
+    // We use Google Tag Manager now, so we no longer inject gtag.js manually here.
     scripts: [
-      ...(GA_ID
-        ? [
-            {
-              src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`,
-              async: true,
-            },
-          ]
-        : []),
       {
         type: "application/ld+json",
         children: JSON.stringify({
@@ -171,8 +159,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Tracks GA4 page views on every SPA navigation — renders nothing */}
-      <Analytics />
       {/* Renders dynamic cookie consent popup to manage visitor analytics preference */}
       <CookieConsent />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
