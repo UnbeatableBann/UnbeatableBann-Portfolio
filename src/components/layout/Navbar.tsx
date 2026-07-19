@@ -3,7 +3,6 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Menu, X } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
 
 export function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -128,7 +127,7 @@ export function Navbar() {
             href={resumeUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("resume_download", { method: "nav" })}
+            onClick={() => (function(){})("resume_download", { method: "nav" })}
             className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
               isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
             }`}

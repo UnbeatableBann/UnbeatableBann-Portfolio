@@ -16,7 +16,6 @@ import { Navbar, MediumIcon, LinkedinIcon } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useBlog } from "@/features/blog/hooks/useBlog";
 import { Article } from "@/features/blog/types";
-import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/blog/")({
   component: BlogPage,
@@ -386,7 +385,7 @@ function BlogPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() =>
-                                trackEvent("article_click", {
+                                (function(){})("article_click", {
                                   title: featuredArticle.title,
                                   url: featuredArticle.url,
                                   type: "featured_title",
@@ -421,7 +420,7 @@ function BlogPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() =>
-                              trackEvent("article_click", {
+                              (function(){})("article_click", {
                                 title: featuredArticle.title,
                                 url: featuredArticle.url,
                                 type: "featured_button",
@@ -488,7 +487,7 @@ function BlogPage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() =>
-                                  trackEvent("article_click", {
+                                  (function(){})("article_click", {
                                     title: art.title,
                                     url: art.url,
                                     type: "grid_title",
@@ -515,7 +514,7 @@ function BlogPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() =>
-                                trackEvent("article_click", {
+                                (function(){})("article_click", {
                                   title: art.title,
                                   url: art.url,
                                   type: "grid_button",

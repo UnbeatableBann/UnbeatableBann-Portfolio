@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { trackEvent } from "@/lib/analytics";
 
 // Assets
 import portraitHeroWebp from "@/assets/shadab-portrait-hero.webp";
@@ -129,14 +128,14 @@ function AboutPage() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#contact"
-                onClick={() => trackEvent("cta_click", { button: "lets_connect", page: "about" })}
+                onClick={() => (function(){})("cta_click", { button: "lets_connect", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-3.5 text-sm font-semibold hover:bg-primary-hover transition-all duration-200"
               >
                 Let's Connect
               </a>
               <Link
                 to="/products"
-                onClick={() => trackEvent("cta_click", { button: "view_products", page: "about" })}
+                onClick={() => (function(){})("cta_click", { button: "view_products", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
               >
                 View Products
@@ -250,7 +249,7 @@ function AboutPage() {
                   <a
                     href="mailto:shadabjamadar4@gmail.com?subject=Inquiry"
                     onClick={() =>
-                      trackEvent("contact_form_submission", { method: "email_card", page: "about" })
+                      (function(){})("contact_form_submission", { method: "email_card", page: "about" })
                     }
                     className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
                   >
@@ -279,7 +278,7 @@ function AboutPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() =>
-                      trackEvent("external_click", { destination: "LinkedIn", page: "about" })
+                      (function(){})("external_click", { destination: "LinkedIn", page: "about" })
                     }
                     className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1"
                   >
@@ -293,7 +292,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        trackEvent("external_click", { destination: "GitHub", page: "about" })
+                        (function(){})("external_click", { destination: "GitHub", page: "about" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
@@ -304,7 +303,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        trackEvent("external_click", { destination: "Medium", page: "about" })
+                        (function(){})("external_click", { destination: "Medium", page: "about" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
