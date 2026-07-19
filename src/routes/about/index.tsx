@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 import { useState } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -128,14 +129,14 @@ function AboutPage() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#contact"
-                onClick={() => (function(){})("cta_click", { button: "lets_connect", page: "about" })}
+                onClick={() => trackEvent("cta_click", { button: "lets_connect", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-3.5 text-sm font-semibold hover:bg-primary-hover transition-all duration-200"
               >
                 Let's Connect
               </a>
               <Link
                 to="/products"
-                onClick={() => (function(){})("cta_click", { button: "view_products", page: "about" })}
+                onClick={() => trackEvent("cta_click", { button: "view_products", page: "about" })}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
               >
                 View Products
@@ -249,7 +250,7 @@ function AboutPage() {
                   <a
                     href="mailto:shadabjamadar4@gmail.com?subject=Inquiry"
                     onClick={() =>
-                      (function(){})("contact_form_submission", { method: "email_card", page: "about" })
+                      trackLead("email_card", page: "about", "page")
                     }
                     className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
                   >
@@ -278,7 +279,7 @@ function AboutPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() =>
-                      (function(){})("external_click", { destination: "LinkedIn", page: "about" })
+                      trackEvent("external_click", { destination: "LinkedIn", page: "about" })
                     }
                     className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1"
                   >
@@ -292,7 +293,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        (function(){})("external_click", { destination: "GitHub", page: "about" })
+                        trackEvent("external_click", { destination: "GitHub", page: "about" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
@@ -303,7 +304,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        (function(){})("external_click", { destination: "Medium", page: "about" })
+                        trackEvent("external_click", { destination: "Medium", page: "about" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
@@ -477,3 +478,5 @@ function AboutPage() {
     </main>
   );
 }
+
+

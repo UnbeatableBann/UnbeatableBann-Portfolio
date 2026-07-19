@@ -12,6 +12,7 @@ import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
 
 import { SITE_URL } from "@/lib/config";
+import { AnalyticsEngine } from "@/components/AnalyticsEngine";
 
 function NotFoundComponent() {
   // ... (rest of NotFoundComponent/ErrorComponent/etc. are unchanged)
@@ -177,6 +178,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
 
+      <AnalyticsEngine />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

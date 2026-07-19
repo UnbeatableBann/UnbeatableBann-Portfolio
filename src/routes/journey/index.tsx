@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 import { useState, useEffect } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -398,7 +399,7 @@ function JourneyPage() {
   }, [activeCert]);
 
   const handleDownload = () => {
-    (function(){})("resume_download", { method: "button", page: "journey" });
+    trackEvent("resume_download", { method: "button", page: "journey" });
     if (!resumeUrl) return;
     const link = document.createElement("a");
     link.href = resumeUrl;
@@ -1441,3 +1442,5 @@ function JourneyPage() {
     </main>
   );
 }
+
+

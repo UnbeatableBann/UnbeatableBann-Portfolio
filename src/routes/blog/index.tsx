@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 import { useState, useMemo } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -385,7 +386,7 @@ function BlogPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() =>
-                                (function(){})("article_click", {
+                                trackEvent("article_click", {
                                   title: featuredArticle.title,
                                   url: featuredArticle.url,
                                   type: "featured_title",
@@ -420,7 +421,7 @@ function BlogPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() =>
-                              (function(){})("article_click", {
+                              trackEvent("article_click", {
                                 title: featuredArticle.title,
                                 url: featuredArticle.url,
                                 type: "featured_button",
@@ -487,7 +488,7 @@ function BlogPage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() =>
-                                  (function(){})("article_click", {
+                                  trackEvent("article_click", {
                                     title: art.title,
                                     url: art.url,
                                     type: "grid_title",
@@ -514,7 +515,7 @@ function BlogPage() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() =>
-                                (function(){})("article_click", {
+                                trackEvent("article_click", {
                                   title: art.title,
                                   url: art.url,
                                   type: "grid_button",
@@ -601,3 +602,5 @@ function BlogPage() {
     </main>
   );
 }
+
+

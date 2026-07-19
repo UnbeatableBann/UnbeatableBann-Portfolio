@@ -1,4 +1,5 @@
 import { useLocation } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 
 export function Footer() {
   const location = useLocation();
@@ -61,7 +62,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  (function(){})("external_click", { destination: "GitHub", page: "footer" })
+                  trackEvent("external_click", { destination_url: "GitHub", link_text: "GitHub", source_platform: "Footer" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -74,7 +75,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  (function(){})("external_click", { destination: "LinkedIn", page: "footer" })
+                  trackEvent("external_click", { destination_url: "LinkedIn", link_text: "LinkedIn", source_platform: "Footer" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -87,7 +88,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  (function(){})("external_click", { destination: "Medium", page: "footer" })
+                  trackEvent("external_click", { destination_url: "Medium", link_text: "Medium", source_platform: "Footer" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -97,7 +98,7 @@ export function Footer() {
             <li>
               <a
                 href="mailto:shadabjamadar4@gmail.com"
-                onClick={() => (function(){})("contact_form_submission", { method: "email_footer" })}
+                onClick={() => trackLead("email_footer", "footer")}
                 className="text-body hover:text-heading"
               >
                 Email

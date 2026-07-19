@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 import React, { useState, useEffect, useRef } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -154,7 +155,7 @@ function Hero() {
                 <Link
                   to="/products"
                   onClick={() =>
-                    (function(){})("cta_click", { button: "explore_my_work", page: "home" })
+                    trackEvent("cta_click", { button: "explore_my_work", page: "home" })
                   }
                   className="relative inline-flex items-center gap-2 rounded-full bg-primary text-white px-7 py-4 text-sm font-semibold hover:bg-primary-hover transition-all duration-200 z-10"
                 >
@@ -165,7 +166,7 @@ function Hero() {
             <Link
               to="/about"
               hash="contact"
-              onClick={() => (function(){})("cta_click", { button: "lets_connect", page: "home" })}
+              onClick={() => trackEvent("cta_click", { button: "lets_connect", page: "home" })}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-4 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               Let's Connect
@@ -208,7 +209,7 @@ function Hero() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                aria-label={label}
+                aria-label={label} onClick={() => label === "Email" ? trackLead("email_hero", "home") : trackEvent("external_click", { destination_url: href, link_text: label, source_platform: "Hero" })}
                 className={`grid place-items-center w-11 h-11 rounded-full border bg-white transition-all duration-200 ${brandClass}`}
               >
                 <Icon className="w-4 h-4" />
@@ -350,7 +351,7 @@ function CurrentlyBuilding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
-                    (function(){})("project_click", { project: "susan_ai_interviewer", page: "home" })
+                    trackEvent("project_click", { project: "susan_ai_interviewer", page: "home" })
                   }
                   className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 text-xs font-semibold hover:bg-primary-hover transition-all mt-1"
                 >
@@ -557,7 +558,7 @@ function ExperienceSnapshot() {
           <div className="pt-4">
             <Link
               to="/journey"
-              onClick={() => (function(){})("cta_click", { button: "view_full_journey", page: "home" })}
+              onClick={() => trackEvent("cta_click", { button: "view_full_journey", page: "home" })}
               className="inline-flex items-center gap-2 text-xs font-semibold text-black hover:underline cursor-pointer"
             >
               View Full Journey <ArrowRight className="w-3.5 h-3.5" />
@@ -744,7 +745,7 @@ function Products() {
                 <Link
                   to="/products/$slug"
                   params={{ slug: proj.slug }}
-                  onClick={() => (function(){})("project_click", { project: proj.slug, page: "home" })}
+                  onClick={() => trackEvent("project_click", { project: proj.slug, page: "home" })}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-white px-5 py-3 text-sm font-semibold hover:bg-primary-hover transition duration-200"
                 >
                   View Project <ArrowUpRight className="w-4 h-4" />
@@ -773,7 +774,7 @@ function ContactCTA() {
   const resumeUrl = useResumeUrl();
 
   const handleDownload = () => {
-    (function(){})("resume_download", { method: "button", page: "home" });
+    trackEvent("resume_download", { method: "button", page: "home" });
     if (!resumeUrl) return;
     // Automatically trigger the file download
     const link = document.createElement("a");
@@ -806,7 +807,7 @@ function ContactCTA() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="mailto:shadabjamadar4@gmail.com?subject=Collaboration%20Inquiry%20%2F%20Let's%20Connect&body=Hi%20Shadab%2C%0A%0AI%20hope%20you%20are%20doing%20well.%20I%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20and%20software%20engineering.%20I%20would%20love%20to%20connect%20to%20discuss%20potential%20opportunities%20or%20collaborations.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
-                onClick={() => (function(){})("contact_form_submission", { method: "email_button" })}
+                onClick={() => trackLead("email_button", "home")}
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3.5 text-sm font-semibold hover:bg-primary-hover transition duration-200"
               >
                 Send an Email <ArrowRight className="w-4 h-4" />
@@ -857,9 +858,9 @@ function ContactCTA() {
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 onClick={() => {
                   if (href.startsWith("mailto:")) {
-                    (function(){})("contact_form_submission", { method: "email_card" });
+                    trackLead("email_card", "home");
                   } else {
-                    (function(){})("external_click", { destination: label, page: "home_contact" });
+                    trackEvent("external_click", { destination: label, page: "home_contact" });
                   }
                 }}
                 className="flex items-center gap-3 sm:gap-4 rounded-xl border border-border p-3 sm:p-4 bg-[#FAFAF8] hover:bg-white hover:border-[#8A8A8A] transition duration-200 min-w-0"
@@ -932,3 +933,7 @@ function Home() {
     </main>
   );
 }
+
+
+
+

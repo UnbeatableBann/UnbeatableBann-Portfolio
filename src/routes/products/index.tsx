@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { trackEvent, trackLead } from "@/lib/analytics";
 import { useState, useEffect, useMemo } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -177,7 +178,7 @@ function ProductsPage() {
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <button
               onClick={() => {
-                (function(){})("cta_click", { button: "explore_products_directory", page: "products" });
+                trackEvent("cta_click", { button: "explore_products_directory", page: "products" });
                 const element = document.getElementById("products-directory");
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -189,7 +190,7 @@ function ProductsPage() {
             </button>
             <Link
               to="/journey"
-              onClick={() => (function(){})("cta_click", { button: "view_journey", page: "products" })}
+              onClick={() => trackEvent("cta_click", { button: "view_journey", page: "products" })}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-7 py-3.5 text-sm font-semibold text-heading hover:bg-[#FAFAF8] transition-all duration-200"
             >
               View Journey <ArrowRight className="w-4 h-4" />
@@ -255,7 +256,7 @@ function ProductsPage() {
                 <a
                   href="mailto:shadabjamadar4@gmail.com?subject=Product%20Development%20Collaboration"
                   onClick={() =>
-                    (function(){})("contact_form_submission", {
+                    trackEvent("contact_form_submission", {
                       method: "email_idea",
                       page: "products",
                     })
@@ -381,7 +382,7 @@ function ProductsPage() {
                           to="/products/$slug"
                           params={{ slug: prod.slug }}
                           onClick={() =>
-                            (function(){})("project_click", { project: prod.slug, page: "products" })
+                            trackEvent("project_click", { project: prod.slug, page: "products" })
                           }
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6E9C53] hover:underline cursor-pointer"
                         >
@@ -458,7 +459,7 @@ function ProductsPage() {
               <a
                 href="mailto:shadabjamadar4@gmail.com?subject=Project%20Inquiry%20%2F%20Let's%20Connect"
                 onClick={() =>
-                  (function(){})("contact_form_submission", {
+                  trackEvent("contact_form_submission", {
                     method: "email_connect_banner",
                     page: "products",
                   })
@@ -476,3 +477,6 @@ function ProductsPage() {
     </main>
   );
 }
+
+
+

@@ -3,6 +3,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useResumeUrl } from "@/hooks/useResumeUrl";
 import shadabLogo from "@/assets/shadab-logo.png";
 import { Menu, X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function MediumIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -113,6 +114,7 @@ export function Navbar() {
               key={l.label}
               to={l.to}
               hash={l.hash}
+              onClick={() => trackEvent("nav_click", { destination: l.label, method: "navbar" })}
               className={`text-sm font-medium transition-colors ${
                 l.active ? "text-primary font-semibold" : "text-body hover:text-heading"
               }`}
@@ -127,7 +129,7 @@ export function Navbar() {
             href={resumeUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => (function(){})("resume_download", { method: "nav" })}
+            onClick={() => trackEvent("resume_click", { method: "nav", button_name: "Resume" })}
             className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
               isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
             }`}
@@ -155,7 +157,10 @@ export function Navbar() {
                 key={l.label}
                 to={l.to}
                 hash={l.hash}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  trackEvent("nav_click", { destination: l.label, method: "mobile_menu" });
+                }}
                 className={`text-lg font-semibold py-3 border-b border-[#F0F0F0] transition-colors ${
                   l.active ? "text-primary font-bold" : "text-body hover:text-heading"
                 }`}
