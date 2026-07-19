@@ -55,10 +55,10 @@ import gdgHackathon2 from "@/assets/education/gdg-hackathon-2.webp";
 import gdgHackathon3 from "@/assets/education/gdg-hackathon-3.webp";
 import ibmCeremonyImg2 from "@/assets/education/ibm-ceremony-2.webp";
 import ibmCeremonyImg3 from "@/assets/education/ibm-ceremony-3.webp";
-import copyrightCert1 from "@/assets/education/ROC Certificate-1.jpg";
-import copyrightCert2 from "@/assets/education/ROC Certificate-2.jpg";
-import iitgOfferLetter1 from "@/assets/education/IIT Gandhinagar Offer Letter 1.jpg";
-import iitgOfferLetter2 from "@/assets/education/IIT Gandhinagar Offer Letter 2.jpg";
+import copyrightCert1 from "@/assets/education/roc-certificate-1.jpg";
+import copyrightCert2 from "@/assets/education/roc-certificate-2.jpg";
+import iitgOfferLetter1 from "@/assets/education/iit-gandhinagar-offer-letter-1.jpg";
+import iitgOfferLetter2 from "@/assets/education/iit-gandhinagar-offer-letter-2.jpg";
 
 export const Route = createFileRoute("/journey/")({
   component: JourneyPage,
