@@ -131,7 +131,7 @@ function Hero() {
               <span className="font-serif italic text-accent/70 font-normal block mb-2 md:mb-3">
                 Hi, I'm
               </span>
-              Shadab Jamadar
+              Shadab Jamadar<span className="text-accent">.</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-heading/80 tracking-tight">
               AI Engineer & AI Product Builder
@@ -144,8 +144,10 @@ function Hero() {
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <div className="relative group inline-flex">
-              {/* Soft, light ambient blur glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#6e9c53] via-[#3b82f6] to-[#8b5cf6] rounded-full blur-xl opacity-40 group-hover:opacity-65 transition-all duration-300 pointer-events-none" />
+              {/* Revolving ambient blur glow that matches the border */}
+              <div className="absolute inset-0 rounded-full overflow-hidden blur-xl opacity-40 group-hover:opacity-65 transition-all duration-300 pointer-events-none">
+                <div className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,transparent_10%,#6e9c53_35%,#3b82f6_50%,#8b5cf6_65%,transparent_90%)] animate-border-beam pointer-events-none" />
+              </div>
 
               {/* Thicker border wrapper containing the rotating gradient */}
               <div className="relative p-[2.8px] rounded-full overflow-hidden bg-zinc-900/10 inline-flex">

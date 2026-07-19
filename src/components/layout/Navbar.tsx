@@ -74,10 +74,10 @@ export function Navbar() {
     active?: boolean;
   }> = [
     { label: "Home", to: "/", hash: "home" },
-    { label: "About", to: "/about", active: isAboutPage },
     { label: "Journey", to: "/journey", active: isJourneyPage },
     { label: "Products", to: "/products", active: isProductsPage },
     { label: "Blog", to: "/blog", active: isBlogPage },
+    { label: "About", to: "/about", active: isAboutPage },
   ];
 
   return (
