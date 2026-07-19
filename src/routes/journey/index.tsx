@@ -170,8 +170,8 @@ const CERTIFICATES: Certificate[] = [
     title: "Google Build & Grow AI Hackathon 2.0",
     issuer: "Google",
     logo: gdgLogo,
-    certImg: gdgHackathon1,
-    images: [gdgHackathon1, gdgHackathon2, gdgHackathon3],
+    certImg: gdgHackathon2,
+    images: [gdgHackathon2, gdgHackathon1, gdgHackathon3],
     isPhoto: true,
     date: "January 2026",
     certId: "GG-AI-HACK-2.0",
@@ -192,8 +192,8 @@ const CERTIFICATES: Certificate[] = [
     certImg: iitgOfferLetter1,
     images: [iitgOfferLetter1, iitgOfferLetter2],
     isPhoto: false,
-    date: "May 2024",
-    certId: "IITGN-RES-2024",
+    date: "May 2026",
+    certId: "IITGN-RES-2026",
     skills: ["Research Methodologies", "Academic Collaboration", "Technical Writing"],
     colorTheme: {
       border: "border-indigo-200 hover:border-indigo-300",
@@ -209,8 +209,8 @@ const CERTIFICATES: Certificate[] = [
     issuer: "Wadhwani Association",
     logo: wadhwaniLogo,
     certImg: wadhwaniCertificateImg,
-    date: "September 2024",
-    certId: "WA-IGNITEX-2024",
+    date: "May 2025",
+    certId: "WA-IGNITEX-2025",
     skills: ["Startup Ideation", "Timeline Strategy", "Business Pitching"],
     colorTheme: {
       border: "border-purple-200 hover:border-purple-300",
@@ -227,7 +227,7 @@ const CERTIFICATES: Certificate[] = [
     logo: ibmLogo,
     certImg: ibmCeremonyImg,
     images: [ibmCeremonyImg, ibmCertificateImg, ibmCeremonyImg2, ibmCeremonyImg3],
-    date: "February 2024",
+    date: "January 2025",
     certId: "IBM-MH-HACK-10",
     skills: [
       "Rapid Prototyping",
@@ -252,8 +252,8 @@ const CERTIFICATES: Certificate[] = [
     certImg: copyrightCert1,
     images: [copyrightCert1, copyrightCert2],
     isPhoto: false,
-    date: "February 2026",
-    certId: "ROC-REG-2026",
+    date: "December 2023",
+    certId: "ROC-REG-2023",
     skills: ["Intellectual Property", "Software Copyright", "Algorithm Protection"],
     colorTheme: {
       border: "border-amber-200 hover:border-amber-300",
@@ -991,9 +991,14 @@ function JourneyPage() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-border/40 pt-3 lg:pt-0 lg:border-0 w-full lg:w-auto gap-4">
-                      <span className="text-xs text-muted font-semibold">{cert.date}</span>
-                      <div className="flex items-center gap-1.5 text-xs text-accent font-semibold bg-accent-soft/30 px-3 py-1 rounded-full border border-accent-soft opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="relative flex items-center justify-between lg:justify-end border-t border-border/40 pt-3 lg:pt-0 lg:border-0 w-full lg:w-[130px] shrink-0 gap-4 lg:mr-9">
+                      {/* Date */}
+                      <span className="text-xs text-muted font-semibold lg:transition-opacity lg:duration-300 lg:group-hover:opacity-0 text-left lg:text-right">
+                        {cert.date}
+                      </span>
+                      
+                      {/* Button (Overlay on desktop) */}
+                      <div className="flex lg:absolute lg:right-0 items-center justify-center gap-1.5 text-xs text-accent font-semibold bg-accent-soft/30 lg:bg-[#FAFAF8] px-3 py-1 rounded-full border border-accent-soft opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap lg:shadow-sm">
                         <span>{cert.certImg ? "View Image" : "View Details"}</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </div>
