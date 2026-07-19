@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import "../styles.css";
 import shadabLogo from "@/assets/shadab-logo.png";
-import { CookieConsent } from "@/components/CookieConsent";
+
 import { SITE_URL } from "@/lib/config";
 
 function NotFoundComponent() {
@@ -112,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
-    // We use Google Tag Manager now, so we no longer inject gtag.js manually here.
+
     scripts: [
       {
         type: "application/ld+json",
@@ -159,8 +159,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Renders dynamic cookie consent popup to manage visitor analytics preference */}
-      <CookieConsent />
+
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

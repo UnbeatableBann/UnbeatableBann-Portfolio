@@ -373,15 +373,7 @@ function ProductDetailPage() {
   const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === slug);
   const [activeTab, setActiveTab] = useState("Overview");
 
-  // Track product view in Google Analytics
-  useEffect(() => {
-    if (matchedProduct) {
-      (function(){})("product_view", {
-        product_id: matchedProduct.slug,
-        product_name: matchedProduct.name,
-      });
-    }
-  }, [matchedProduct]);
+
 
   // If the product doesn't exist, redirect safely to products directory
   useEffect(() => {

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/privacy")({
       { title: "Privacy Policy — Shadab Jamadar" },
       {
         name: "description",
-        content: "Privacy Policy and cookie usage disclosure for Shadab Jamadar's portfolio.",
+        content: "Privacy Policy for Shadab Jamadar's portfolio.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/privacy` }],
@@ -63,38 +63,12 @@ function PrivacyPolicyPage() {
               <h2 className="text-xl font-bold text-heading">Information We Collect</h2>
             </div>
             <div className="text-body text-sm md:text-base space-y-3 leading-relaxed">
-              <p>
-                <strong>Google Analytics 4 (GA4):</strong> We use analytics cookies to measure site
-                traffic, popular content, and product engagement. This compiles anonymous, aggregate
-                statistics (such as page views, duration of visits, device types, and geographic
-                region) without personally identifying you.
-              </p>
+
               <p>
                 <strong>Direct Communications:</strong> If you use the email buttons on this
                 website, any information provided (including your name, email address, and message
                 contents) is handled directly by your local email provider and is only used to
                 respond to your inquiry.
-              </p>
-            </div>
-          </div>
-
-          {/* Section 2 */}
-          <div className="bg-white rounded-2xl border border-border p-6 md:p-8 space-y-4 shadow-sm">
-            <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-lg bg-accent-soft/20 flex items-center justify-center text-accent">
-                <Globe className="w-5 h-5" />
-              </span>
-              <h2 className="text-xl font-bold text-heading">Cookies & Tracker Usage</h2>
-            </div>
-            <div className="text-body text-sm md:text-base space-y-3 leading-relaxed">
-              <p>
-                This website uses small text files called cookies to analyze visitor patterns. You
-                can choose to accept or decline cookies via our consent notice. If you select
-                "Decline", analytics scripts are completely blocked from running on your browser.
-              </p>
-              <p>
-                You can also configure your browser to reject cookies automatically or block them
-                via third-party extensions.
               </p>
             </div>
           </div>
@@ -129,7 +103,7 @@ function PrivacyPolicyPage() {
               <h2 className="text-xl font-bold text-heading">Contact Details</h2>
             </div>
             <p className="text-body text-sm md:text-base leading-relaxed">
-              If you have any questions about this Privacy Policy or cookie settings, you can reach
+              If you have any questions about this Privacy Policy, you can reach
               out via email at{" "}
               <a
                 href="mailto:shadabjamadar4@gmail.com"
