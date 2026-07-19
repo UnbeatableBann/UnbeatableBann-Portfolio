@@ -49,11 +49,10 @@ export function CookieConsent() {
           </span>
           <div className="space-y-1.5 min-w-0 pr-6">
             <h3 className="text-sm font-bold text-heading flex items-center gap-1.5">
-              We Use Cookies
+              Analytics & Tracking
             </h3>
             <p className="text-xs text-body leading-relaxed font-normal">
-              This website uses essential analytics cookies to ensure you get the best experience on
-              my portfolio. By continuing to use this site, you consent to our use of cookies.
+              I deploy analytics cookies to determine whether my engineering work is being genuinely evaluated or merely audited via Ctrl+F.
             </p>
           </div>
         </div>
