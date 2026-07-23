@@ -256,7 +256,7 @@ function ProductsPage() {
                 <a
                   href="mailto:shadabjamadar4@gmail.com?subject=Product%20Development%20Collaboration"
                   onClick={() =>
-                    trackEvent("contact_form_submission", {
+                    trackEvent("contact_form_submit", {
                       method: "email_idea",
                       page: "products",
                     })
@@ -297,7 +297,7 @@ function ProductsPage() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search products..."
+                  name="search" aria-label="Search products" placeholder="Search products..."
                   className="w-full pl-3 pr-9 py-2 rounded-full border border-border bg-slate-50 text-xs focus:outline-none focus:ring-1 focus:ring-[#6E9C53] focus:border-[#6E9C53] focus:bg-white transition-all shadow-sm"
                 />
                 <Search className="w-3.5 h-3.5 absolute right-3.5 top-1/2 -translate-y-1/2 text-muted" />
@@ -382,14 +382,14 @@ function ProductsPage() {
                           to="/products/$slug"
                           params={{ slug: prod.slug }}
                           onClick={() =>
-                            trackEvent("project_click", { project: prod.slug, page: "products" })
+                            trackEvent("project_open", { project_name: prod.name, project_category: prod.domain })
                           }
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6E9C53] hover:underline cursor-pointer"
                         >
                           View Product <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                         {prod.links.live && (
-                          <a
+                          <a onClick={() => trackEvent("project_demo_click", { project_name: prod.name, project_category: prod.domain })}
                             href={prod.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -399,7 +399,7 @@ function ProductsPage() {
                           </a>
                         )}
                         {prod.links.github && (
-                          <a
+                          <a onClick={() => trackEvent("project_github_click", { project_name: prod.name, project_category: prod.domain })}
                             href={prod.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -459,7 +459,7 @@ function ProductsPage() {
               <a
                 href="mailto:shadabjamadar4@gmail.com?subject=Project%20Inquiry%20%2F%20Let's%20Connect"
                 onClick={() =>
-                  trackEvent("contact_form_submission", {
+                  trackEvent("contact_form_submit", {
                     method: "email_connect_banner",
                     page: "products",
                   })
@@ -477,6 +477,9 @@ function ProductsPage() {
     </main>
   );
 }
+
+
+
 
 
 

@@ -49,7 +49,7 @@ export class ActivityAggregator {
 
         return cached;
       }
-      console.log("[ActivityAggregator] Cache missing. Rebuilding cache for first time.");
+
     } else {
       // Visitor clicked refresh inside the block: Always fetch fresh data.
       console.log(
@@ -60,7 +60,7 @@ export class ActivityAggregator {
     // If we reach here, we need to fetch fresh data (cache is missing or expired and refreshed)
     const fetchPromises = this.providers.map(async (provider) => {
       try {
-        console.log(`[ActivityAggregator] Executing provider: ${provider.name}`);
+
         const activities = await provider.fetchActivities();
         console.log(
           `[ActivityAggregator] Provider ${provider.name} fetched ${activities.length} items.`,
@@ -98,3 +98,4 @@ export class ActivityAggregator {
     return this.getActivities(true);
   }
 }
+

@@ -25,6 +25,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PRODUCTS_DATA, Product } from "@/features/products/data";
 import { ProductMockup } from "@/features/products/components/ProductMockup";
+import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/products/$slug")({
   component: ProductDetailPage,
@@ -534,6 +535,7 @@ function ProductDetailPage() {
                       href={matchedProduct.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent("project_demo_click", { project_name: matchedProduct.name, project_category: matchedProduct.domain })}
                       className="inline-flex items-center gap-2 rounded-full bg-[#6E9C53] hover:bg-[#5C8545] text-white px-6 py-3 text-xs font-semibold shadow-sm transition-all cursor-pointer"
                     >
                       Visit Product <ExternalLink className="w-3.5 h-3.5" />
@@ -552,6 +554,7 @@ function ProductDetailPage() {
                       href={matchedProduct.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent("project_github_click", { project_name: matchedProduct.name, project_category: matchedProduct.domain })}
                       className="inline-flex items-center gap-2 rounded-full border border-border bg-white text-heading hover:bg-[#FAFAF8] px-6 py-3 text-xs font-semibold transition-all cursor-pointer"
                     >
                       GitHub <Github className="w-3.5 h-3.5" />

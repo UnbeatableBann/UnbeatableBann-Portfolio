@@ -71,7 +71,7 @@ export class LinkedinBlogProvider implements BlogProvider {
       if (!fs.existsSync(filePath)) {
         // Create the file with fallback data as a template
         fs.writeFileSync(filePath, JSON.stringify(FALLBACK_LINKEDIN_POSTS, null, 2), "utf8");
-        console.log(`[LinkedinBlogProvider] Created linkedin-posts.json template file.`);
+
         return FALLBACK_LINKEDIN_POSTS;
       }
 
@@ -93,3 +93,4 @@ export class LinkedinBlogProvider implements BlogProvider {
     }
   }
 }
+

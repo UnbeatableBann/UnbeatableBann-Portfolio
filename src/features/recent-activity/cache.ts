@@ -44,7 +44,7 @@ export class ActivityCache {
       }
 
       if (!cachePath) {
-        console.log("[ActivityCache] No cache file found in search paths.");
+
         return null;
       }
 
@@ -57,7 +57,7 @@ export class ActivityCache {
       }
 
       if (ignoreExpiration) {
-        console.log(`[ActivityCache] Serving cached data from ${cachePath} (ignoring expiration).`);
+
         return cache.activities;
       }
 
@@ -101,7 +101,6 @@ export class ActivityCache {
         activities,
       };
 
-      console.log(`[ActivityCache] Saving ${activities.length} items to cache file: ${writePath}`);
       fs.writeFileSync(writePath, JSON.stringify(cacheData, null, 2), "utf8");
       return true;
     } catch (error) {
@@ -124,7 +123,7 @@ export class ActivityCache {
 
       if (fs.existsSync(writePath)) {
         fs.unlinkSync(writePath);
-        console.log(`[ActivityCache] Cache at ${writePath} cleared successfully.`);
+
       }
     } catch (error) {
       console.error("[ActivityCache] Error clearing cache:", error);
@@ -168,3 +167,4 @@ export class ActivityCache {
     }
   }
 }
+

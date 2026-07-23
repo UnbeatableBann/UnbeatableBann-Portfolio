@@ -1,109 +1,88 @@
-import { useEffect, useRef } from 'react';
-import { useRouterState } from '@tanstack/react-router';
-import { trackEvent } from '@/lib/analytics';
+import { useEffect, useRef } from "react";
+import { useRouterState } from "@tanstack/react-router";
+import { trackEvent, updatePreviousPage, initSessionTracking } from "@/lib/analytics";
 
 export function AnalyticsEngine() {
   const routerState = useRouterState();
   const location = routerState.location;
   
-  const timeOnPageRef = useRef<NodeJS.Timeout[]>([]);
   const scrollMilestones = useRef(new Set<number>());
+  const timeMilestones = useRef(new Set<number>());
 
   useEffect(() => {
-    // 1. Page View Tracking (GA4 does this, but we can do a custom one or just reset state)
-    trackEvent('page_view', { page_name: location.pathname });
+    // 0. Initialize Session
+    initSessionTracking();
 
-    // Reset page-level trackers
+    // 1. Page View Tracking
+    trackEvent("page_view", { navigation_type: "client_side", page_name: location.pathname });
+
+    // Update previous page AFTER firing the event so the current event uses the OLD previous page
+    updatePreviousPage(location.pathname);
+
+    // Reset trackers
     scrollMilestones.current.clear();
-    timeOnPageRef.current.forEach(clearTimeout);
-    timeOnPageRef.current = [];
+    timeMilestones.current.clear();
 
-    // 2. Time on Page milestones
-    const milestones = [30, 60, 120, 300];
-    milestones.forEach(seconds => {
-      const timeout = setTimeout(() => {
-        trackEvent('time_on_page', {
-          duration_seconds: seconds,
-          page_name: location.pathname
-        });
-      }, seconds * 1000);
-      timeOnPageRef.current.push(timeout);
-    });
-
-    // 3. Scroll Tracking
+    // 2. Scroll Tracking (25, 50, 75, 100)
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight <= 0) return;
+      
       const scrollY = window.scrollY;
       const scrollPercent = (scrollY / scrollHeight) * 100;
       
-      const targets = [25, 50, 75, 100];
-      targets.forEach(target => {
-        if (scrollPercent >= target && !scrollMilestones.current.has(target)) {
-          scrollMilestones.current.add(target);
-          trackEvent('scroll_depth', {
-            percent: target,
-            page_name: location.pathname
+      const milestones = [25, 50, 75, 100];
+      for (const m of milestones) {
+        if (scrollPercent >= m && !scrollMilestones.current.has(m)) {
+          scrollMilestones.current.add(m);
+          trackEvent("scroll_depth", {
+            scroll_depth: `${m}%`,
           });
         }
-      });
+      }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // 4. Recruiter Signals - Update session state
-    const currentSessionsStr = sessionStorage.getItem('recruiter_signals') || '{}';
-    const sessionData = JSON.parse(currentSessionsStr);
-    
-    // Check return within 7 days
-    const lastVisit = localStorage.getItem('last_visit_timestamp');
-    const now = Date.now();
-    if (lastVisit) {
-      const daysSince = (now - parseInt(lastVisit)) / (1000 * 60 * 60 * 24);
-      if (daysSince > 0.5 && daysSince <= 7 && !sessionData.returned_7_days) {
-        sessionData.returned_7_days = true;
-        trackEvent('recruiter_signal', { signal_type: 'return_within_7_days' });
-      }
-    }
-    localStorage.setItem('last_visit_timestamp', now.toString());
-
-    // Check referral
-    if (document.referrer && !sessionData.referral_checked) {
-      sessionData.referral_checked = true;
-      if (document.referrer.includes('linkedin.com')) {
-        trackEvent('recruiter_signal', { signal_type: 'linkedin_referral' });
-      } else if (document.referrer.includes('github.com')) {
-        trackEvent('recruiter_signal', { signal_type: 'github_referral' });
-      } else if (document.referrer.includes('google.com')) {
-        trackEvent('recruiter_signal', { signal_type: 'google_search_referral' });
-      }
-    }
-    
-    sessionStorage.setItem('recruiter_signals', JSON.stringify(sessionData));
+    // 3. Time on Page Tracking (30s, 60s, 120s, 300s)
+    const timeIntervals = [30, 60, 120, 300];
+    const timers = timeIntervals.map(seconds => {
+      return setTimeout(() => {
+        if (!timeMilestones.current.has(seconds)) {
+          timeMilestones.current.add(seconds);
+          trackEvent("time_on_page", {
+            duration_seconds: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      timeOnPageRef.current.forEach(clearTimeout);
+      window.removeEventListener("scroll", handleScroll);
+      timers.forEach(clearTimeout);
     };
   }, [location.pathname]);
 
   // Global Error Tracking
   useEffect(() => {
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      trackEvent('unexpected_error', { error_message: event.reason?.message || 'Promise Rejection' });
+      trackEvent("unhandled_promise_rejection", { error_message: event.reason?.message || "Promise Rejection" });
     };
     
     const handleWindowError = (event: ErrorEvent) => {
-      trackEvent('unexpected_error', { error_message: event.message });
+      if (event.target instanceof HTMLImageElement) { trackEvent("image_load_error", { image_src: event.target.src }); } else { trackEvent("javascript_error", { error_message: event.message }); }
     };
 
-    window.addEventListener('unhandledrejection', handleUnhandledRejection);
-    window.addEventListener('error', handleWindowError);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+    window.addEventListener("error", handleWindowError, true);
     
     return () => {
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      window.removeEventListener('error', handleWindowError);
+      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
+      window.removeEventListener("error", handleWindowError, true);
     };
   }, []);
 
   return null;
 }
+
+

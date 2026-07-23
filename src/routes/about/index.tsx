@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { trackEvent, trackLead } from "@/lib/analytics";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
   ChevronDown,
@@ -71,7 +71,28 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 
 function AboutPage() {
   // FAQ Accordion State
-  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
+  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(0);
+  const contactRef = useRef<HTMLElement>(null);
+  const hasTrackedContact = useRef(false);
+
+  useEffect(() => {
+    if (!contactRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasTrackedContact.current) {
+          hasTrackedContact.current = true;
+          trackEvent("contact_section_view");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    observer.observe(contactRef.current);
+    
+    return () => observer.disconnect();
+  }, []);
 
   const faqs = [
     {
@@ -216,7 +237,7 @@ function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 border-t border-border bg-[#FAFAF8] scroll-mt-[0px]">
+      <section ref={contactRef} id="contact" className="py-24 border-t border-border bg-[#FAFAF8] scroll-mt-[0px]">
         <div className="mx-auto max-w-[1280px] w-full px-6 lg:px-10 space-y-12">
           {/* Header */}
           <div className="text-center space-y-4 max-w-2xl mx-auto animate-fade-up">
@@ -248,11 +269,11 @@ function AboutPage() {
                     Email Address
                   </h3>
                   <a
-                    href="mailto:shadabjamadar4@gmail.com?subject=Inquiry"
+                    href="mailto:shadabjamadar4@gmail.com?subject=Collaboration%20Inquiry%20%2F%20Let's%20Connect&body=Hi%20Shadab%2C%0A%0AI%20hope%20you%20are%20doing%20well.%20I%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20and%20software%20engineering.%20I%20would%20love%20to%20connect%20to%20discuss%20potential%20opportunities%20or%20collaborations.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
                     onClick={() =>
-                      trackLead("email_card", page: "about", "page")
+                      trackEvent("email_click", { location: "Contact" })
                     }
-                    className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
+                    onCopy={() => trackEvent("email_copy", { location: "Contact" })} className="text-base font-bold text-heading hover:text-accent transition-colors break-all block"
                   >
                     shadabjamadar4@gmail.com
                   </a>
@@ -279,7 +300,7 @@ function AboutPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() =>
-                      trackEvent("external_click", { destination: "LinkedIn", page: "about" })
+                      trackEvent("social_click", { platform: "LinkedIn", location: "Contact", destination_url: "https://linkedin.com/in/shadab-jamadar" })
                     }
                     className="text-base font-bold text-heading hover:text-accent transition-colors block mb-1"
                   >
@@ -293,7 +314,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        trackEvent("external_click", { destination: "GitHub", page: "about" })
+                        trackEvent("social_click", { platform: "GitHub", location: "Contact", destination_url: "https://github.com/UnbeatableBann" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
@@ -304,7 +325,7 @@ function AboutPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
-                        trackEvent("external_click", { destination: "Medium", page: "about" })
+                        trackEvent("social_click", { platform: "Medium", location: "Contact", destination_url: "https://medium.com/@shadabjamadar" })
                       }
                       className="text-xs text-muted hover:text-accent font-semibold transition-colors flex items-center gap-1"
                     >
@@ -478,5 +499,9 @@ function AboutPage() {
     </main>
   );
 }
+
+
+
+
 
 

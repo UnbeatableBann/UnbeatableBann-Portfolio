@@ -31,7 +31,7 @@ export class GitHubProvider implements ActivityProvider {
     }
 
     try {
-      console.log(`[GitHubProvider] Fetching public events for username: ${this.username}`);
+
       const response = await fetch(url, {
         headers,
         next: { revalidate: 0 },
@@ -176,3 +176,4 @@ export class GitHubProvider implements ActivityProvider {
     };
   }
 }
+

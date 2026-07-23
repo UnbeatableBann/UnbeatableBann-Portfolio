@@ -17,12 +17,11 @@ export class BlogAggregator {
     if (!forceRefresh) {
       const cached = await this.cache.get(true);
       if (cached) {
-        console.log(`[BlogAggregator] Returning ${cached.length} cached articles.`);
 
         // Background refresh if cache is stale (older than 24 hours)
         this.cache.get(false).then((fresh) => {
           if (!fresh) {
-            console.log(`[BlogAggregator] Cache is stale, triggering background rebuild...`);
+
             this.refresh().catch((err) =>
               console.error("[BlogAggregator] Background refresh failed:", err),
             );
@@ -31,19 +30,19 @@ export class BlogAggregator {
 
         return cached;
       }
-      console.log("[BlogAggregator] Cache missing. Rebuilding cache for the first time.");
+
     }
 
     return this.refresh();
   }
 
   async refresh(): Promise<Article[]> {
-    console.log("[BlogAggregator] Rebuilding blog feed from all providers...");
+
     const fetchPromises = this.providers.map(async (provider) => {
       try {
-        console.log(`[BlogAggregator] Executing provider: ${provider.name}`);
+
         const list = await provider.fetchArticles();
-        console.log(`[BlogAggregator] Provider ${provider.name} fetched ${list.length} articles.`);
+
         return list;
       } catch (error) {
         console.error(`[BlogAggregator] Provider ${provider.name} failed:`, error);
@@ -61,8 +60,8 @@ export class BlogAggregator {
 
     // Update cache
     await this.cache.set(allArticles);
-    console.log(`[BlogAggregator] Cache successfully updated with ${allArticles.length} articles.`);
 
     return allArticles;
   }
 }
+

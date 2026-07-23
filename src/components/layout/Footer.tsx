@@ -1,5 +1,5 @@
 import { useLocation } from "@tanstack/react-router";
-import { trackEvent, trackLead } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const location = useLocation();
@@ -62,7 +62,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  trackEvent("external_click", { destination_url: "GitHub", link_text: "GitHub", source_platform: "Footer" })
+                  trackEvent("social_click", { platform: "GitHub", destination_url: "https://GitHub.com" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -75,7 +75,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  trackEvent("external_click", { destination_url: "LinkedIn", link_text: "LinkedIn", source_platform: "Footer" })
+                  trackEvent("social_click", { platform: "LinkedIn", destination_url: "https://LinkedIn.com" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -88,7 +88,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  trackEvent("external_click", { destination_url: "Medium", link_text: "Medium", source_platform: "Footer" })
+                  trackEvent("social_click", { platform: "Medium", destination_url: "https://Medium.com" })
                 }
                 className="text-body hover:text-heading"
               >
@@ -98,7 +98,7 @@ export function Footer() {
             <li>
               <a
                 href="mailto:shadabjamadar4@gmail.com"
-                onClick={() => trackLead("email_footer", "footer")}
+                onClick={() => trackEvent("social_click", { platform: "Email", destination_url: "mailto:shadabjamadar4@gmail.com" })}
                 className="text-body hover:text-heading"
               >
                 Email
@@ -126,3 +126,5 @@ export function Footer() {
     </footer>
   );
 }
+
+

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { trackEvent, trackLead } from "@/lib/analytics";
+import { trackEvent} from "@/lib/analytics";
 import React, { useState, useEffect, useRef } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -209,7 +209,7 @@ function Hero() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                aria-label={label} onClick={() => label === "Email" ? trackLead("email_hero", "home") : trackEvent("external_click", { destination_url: href, link_text: label, source_platform: "Hero" })}
+                aria-label={label} onClick={() => trackEvent(label === "Email" ? "email_click" : "social_click", { platform: label, location: "Contact", destination_url: href })}
                 className={`grid place-items-center w-11 h-11 rounded-full border bg-white transition-all duration-200 ${brandClass}`}
               >
                 <Icon className="w-4 h-4" />
@@ -351,7 +351,7 @@ function CurrentlyBuilding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
-                    trackEvent("project_click", { project: "susan_ai_interviewer", page: "home" })
+                    trackEvent("project_github_click", { project_name: "susan_ai_interviewer", section_name: "home_hero" })
                   }
                   className="inline-flex items-center justify-center rounded-lg bg-primary text-white px-4 py-2 text-xs font-semibold hover:bg-primary-hover transition-all mt-1"
                 >
@@ -745,7 +745,7 @@ function Products() {
                 <Link
                   to="/products/$slug"
                   params={{ slug: proj.slug }}
-                  onClick={() => trackEvent("project_click", { project: proj.slug, page: "home" })}
+                  onClick={() => trackEvent("project_open", { project_name: proj.slug, section_name: "home_projects" })}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-white px-5 py-3 text-sm font-semibold hover:bg-primary-hover transition duration-200"
                 >
                   View Project <ArrowUpRight className="w-4 h-4" />
@@ -772,9 +772,30 @@ function Products() {
 
 function ContactCTA() {
   const resumeUrl = useResumeUrl();
+  const contactRef = useRef<HTMLElement>(null);
+  const hasTrackedContact = useRef(false);
+
+  useEffect(() => {
+    if (!contactRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasTrackedContact.current) {
+          hasTrackedContact.current = true;
+          trackEvent("contact_section_view");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    observer.observe(contactRef.current);
+    
+    return () => observer.disconnect();
+  }, []);
 
   const handleDownload = () => {
-    trackEvent("resume_download", { method: "button", page: "home" });
+    trackEvent("resume_download", { button_name: "Contact CTA Resume", resume_version: "v1" });
     if (!resumeUrl) return;
     // Automatically trigger the file download
     const link = document.createElement("a");
@@ -787,6 +808,7 @@ function ContactCTA() {
 
   return (
     <section
+      ref={contactRef}
       id="contact"
       className="scroll-mt-[100px] mx-auto max-w-[1280px] px-6 lg:px-10 pb-[140px] pt-12"
     >
@@ -807,7 +829,7 @@ function ContactCTA() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="mailto:shadabjamadar4@gmail.com?subject=Collaboration%20Inquiry%20%2F%20Let's%20Connect&body=Hi%20Shadab%2C%0A%0AI%20hope%20you%20are%20doing%20well.%20I%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20work%20in%20AI%20and%20software%20engineering.%20I%20would%20love%20to%20connect%20to%20discuss%20potential%20opportunities%20or%20collaborations.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
-                onClick={() => trackLead("email_button", "home")}
+                onClick={() => trackEvent("email_click", { location: "Contact", destination_url: "mailto:shadabjamadar4@gmail.com" })}
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3.5 text-sm font-semibold hover:bg-primary-hover transition duration-200"
               >
                 Send an Email <ArrowRight className="w-4 h-4" />
@@ -856,13 +878,7 @@ function ContactCTA() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                onClick={() => {
-                  if (href.startsWith("mailto:")) {
-                    trackLead("email_card", "home");
-                  } else {
-                    trackEvent("external_click", { destination: label, page: "home_contact" });
-                  }
-                }}
+                onClick={() => trackEvent(label === "Email" ? "email_click" : "social_click", { platform: label, location: "Contact", destination_url: href })}
                 className="flex items-center gap-3 sm:gap-4 rounded-xl border border-border p-3 sm:p-4 bg-[#FAFAF8] hover:bg-white hover:border-[#8A8A8A] transition duration-200 min-w-0"
               >
                 <span className="grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white border border-border text-heading flex-shrink-0">
@@ -871,8 +887,7 @@ function ContactCTA() {
                 <div className="min-w-0 flex-1">
                   <div className="text-xs text-muted font-semibold">{label}</div>
                   <div
-                    className="text-xs sm:text-sm font-semibold text-heading truncate break-all"
-                    title={value}
+                    className="text-xs sm:text-sm font-semibold text-heading truncate break-all" title={value} onCopy={() => { if (label === "Email") trackEvent("email_copy", { location: "Contact" }); else trackEvent("social_copy", { platform: label, location: "Contact" }); }}
                   >
                     {value}
                   </div>
@@ -933,6 +948,14 @@ function Home() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
 
 
 
