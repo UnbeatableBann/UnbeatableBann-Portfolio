@@ -35,8 +35,34 @@ export const Route = createFileRoute("/blog/")({
           "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Blog — Shadab Jamadar" },
+      {
+        name: "twitter:description",
+        content:
+          "Explore experiments, lessons, research, and ideas from building AI products by Shadab Jamadar.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Blog — Shadab Jamadar | AI Engineer & Product Builder",
+          description:
+            "Explore experiments, lessons, research, and ideas from building AI products.",
+          url: `${SITE_URL}/blog`,
+          author: {
+            "@type": "Person",
+            name: "Shadab Jamadar",
+          },
+        }),
+      },
+    ],
   }),
 });
 

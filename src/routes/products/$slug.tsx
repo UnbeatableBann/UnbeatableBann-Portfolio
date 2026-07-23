@@ -57,6 +57,21 @@ export const Route = createFileRoute("/products/$slug")({
             "Detailed engineering review of AI product by Shadab Jamadar.",
         },
         { property: "og:type", content: "article" },
+        { property: "og:image", content: `${SITE_URL}/og-image.png` },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:title",
+          content: matchedProduct
+            ? `${matchedProduct.name} — AI Product Detail | Shadab Jamadar`
+            : "Product Details — Shadab Jamadar",
+        },
+        {
+          name: "twitter:description",
+          content:
+            matchedProduct?.tagline ||
+            "Detailed engineering review of AI product by Shadab Jamadar.",
+        },
+        { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
       ],
       links: [
         {

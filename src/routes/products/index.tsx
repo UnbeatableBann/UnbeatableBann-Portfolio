@@ -46,8 +46,33 @@ export const Route = createFileRoute("/products/")({
           "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Products — Shadab Jamadar" },
+      {
+        name: "twitter:description",
+        content:
+          "Explore AI products, systems, and experiments built by Shadab Jamadar to solve real-world problems.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/products` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Products — Shadab Jamadar | AI Engineer & Product Builder",
+          description: "Explore AI products, systems, and experiments built by Shadab Jamadar.",
+          url: `${SITE_URL}/products`,
+          author: {
+            "@type": "Person",
+            name: "Shadab Jamadar",
+          },
+        }),
+      },
+    ],
   }),
 });
 

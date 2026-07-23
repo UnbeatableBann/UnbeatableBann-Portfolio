@@ -89,10 +89,30 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Building AI systems that teach, reason and automate real work.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Shadab Jamadar — AI Engineer" },
+      {
+        name: "twitter:description",
+        content: "Building AI systems that teach, reason and automate real work.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [
       { rel: "preload", href: portraitHero, as: "image", type: "image/webp" },
       { rel: "canonical", href: `${SITE_URL}/` },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Shadab Jamadar",
+          url: SITE_URL,
+        }),
+      },
     ],
   }),
   component: Home,

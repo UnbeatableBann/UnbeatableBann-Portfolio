@@ -77,8 +77,36 @@ export const Route = createFileRoute("/journey/")({
           "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
       },
       { property: "og:type", content: "article" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "My Journey — Shadab Jamadar" },
+      {
+        name: "twitter:description",
+        content:
+          "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/journey` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          name: "My Journey — Shadab Jamadar | AI Engineer & Product Builder",
+          description:
+            "The story, education, experience, failures, and turning points that shaped Shadab Jamadar into an AI Engineer.",
+          url: `${SITE_URL}/journey`,
+          mainEntity: {
+            "@type": "Person",
+            name: "Shadab Jamadar",
+            jobTitle: "AI Engineer",
+            url: SITE_URL,
+          },
+        }),
+      },
+    ],
   }),
 });
 

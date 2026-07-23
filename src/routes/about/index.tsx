@@ -35,8 +35,41 @@ export const Route = createFileRoute("/about/")({
           "Learn about my focus on AI products, agentic systems, contact details, and current research.",
       },
       { property: "og:type", content: "profile" },
+      { property: "og:image", content: `${SITE_URL}/og-image.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Me — Shadab Jamadar" },
+      {
+        name: "twitter:description",
+        content:
+          "Learn about my focus on AI products, agentic systems, contact details, and current research.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.png` },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          name: "About Me — Shadab Jamadar | AI Engineer & Product Builder",
+          description:
+            "Who is Shadab Jamadar? Learn about my focus on AI products, agentic systems, and current research.",
+          url: `${SITE_URL}/about`,
+          mainEntity: {
+            "@type": "Person",
+            name: "Shadab Jamadar",
+            jobTitle: "AI Engineer",
+            url: SITE_URL,
+            sameAs: [
+              "https://github.com/UnbeatableBann",
+              "https://linkedin.com/in/shadab-jamadar",
+              "https://medium.com/@shadabjamadar",
+            ],
+          },
+        }),
+      },
+    ],
   }),
 });
 
