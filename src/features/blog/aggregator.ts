@@ -17,11 +17,9 @@ export class BlogAggregator {
     if (!forceRefresh) {
       const cached = await this.cache.get(true);
       if (cached) {
-
         // Background refresh if cache is stale (older than 24 hours)
         this.cache.get(false).then((fresh) => {
           if (!fresh) {
-
             this.refresh().catch((err) =>
               console.error("[BlogAggregator] Background refresh failed:", err),
             );
@@ -30,17 +28,14 @@ export class BlogAggregator {
 
         return cached;
       }
-
     }
 
     return this.refresh();
   }
 
   async refresh(): Promise<Article[]> {
-
     const fetchPromises = this.providers.map(async (provider) => {
       try {
-
         const list = await provider.fetchArticles();
 
         return list;
@@ -64,4 +59,3 @@ export class BlogAggregator {
     return allArticles;
   }
 }
-

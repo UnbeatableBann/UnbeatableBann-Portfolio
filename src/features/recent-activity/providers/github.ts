@@ -31,7 +31,6 @@ export class GitHubProvider implements ActivityProvider {
     }
 
     try {
-
       const response = await fetch(url, {
         headers,
         next: { revalidate: 0 },
@@ -176,4 +175,3 @@ export class GitHubProvider implements ActivityProvider {
     };
   }
 }
-

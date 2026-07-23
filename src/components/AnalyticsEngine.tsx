@@ -5,7 +5,7 @@ import { trackEvent, updatePreviousPage, initSessionTracking } from "@/lib/analy
 export function AnalyticsEngine() {
   const routerState = useRouterState();
   const location = routerState.location;
-  
+
   const scrollMilestones = useRef(new Set<number>());
   const timeMilestones = useRef(new Set<number>());
 
@@ -27,10 +27,10 @@ export function AnalyticsEngine() {
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight <= 0) return;
-      
+
       const scrollY = window.scrollY;
       const scrollPercent = (scrollY / scrollHeight) * 100;
-      
+
       const milestones = [25, 50, 75, 100];
       for (const m of milestones) {
         if (scrollPercent >= m && !scrollMilestones.current.has(m)) {
@@ -46,12 +46,12 @@ export function AnalyticsEngine() {
 
     // 3. Time on Page Tracking (30s, 60s, 120s, 300s)
     const timeIntervals = [30, 60, 120, 300];
-    const timers = timeIntervals.map(seconds => {
+    const timers = timeIntervals.map((seconds) => {
       return setTimeout(() => {
         if (!timeMilestones.current.has(seconds)) {
           timeMilestones.current.add(seconds);
           trackEvent("time_on_page", {
-            duration_seconds: seconds
+            duration_seconds: seconds,
           });
         }
       }, seconds * 1000);
@@ -66,16 +66,22 @@ export function AnalyticsEngine() {
   // Global Error Tracking
   useEffect(() => {
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      trackEvent("unhandled_promise_rejection", { error_message: event.reason?.message || "Promise Rejection" });
+      trackEvent("unhandled_promise_rejection", {
+        error_message: event.reason?.message || "Promise Rejection",
+      });
     };
-    
+
     const handleWindowError = (event: ErrorEvent) => {
-      if (event.target instanceof HTMLImageElement) { trackEvent("image_load_error", { image_src: event.target.src }); } else { trackEvent("javascript_error", { error_message: event.message }); }
+      if (event.target instanceof HTMLImageElement) {
+        trackEvent("image_load_error", { image_src: event.target.src });
+      } else {
+        trackEvent("javascript_error", { error_message: event.message });
+      }
     };
 
     window.addEventListener("unhandledrejection", handleUnhandledRejection);
     window.addEventListener("error", handleWindowError, true);
-    
+
     return () => {
       window.removeEventListener("unhandledrejection", handleUnhandledRejection);
       window.removeEventListener("error", handleWindowError, true);
@@ -84,5 +90,3 @@ export function AnalyticsEngine() {
 
   return null;
 }
-
-

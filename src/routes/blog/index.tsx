@@ -67,7 +67,6 @@ function BlogPage() {
 
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-
   const handleManualRefresh = async () => {
     setIsRefreshing(true);
     await refresh();
@@ -203,7 +202,9 @@ function BlogPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                name="search" aria-label="Search articles" placeholder="Search articles..."
+                name="search"
+                aria-label="Search articles"
+                placeholder="Search articles..."
                 className="w-full pl-11 pr-4 py-3 rounded-full border border-border bg-white text-sm focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all shadow-sm"
               />
             </div>
@@ -229,7 +230,10 @@ function BlogPage() {
               </div>
 
               {/* Sort Toggle */}
-              <select id="sort-select" name="sort" aria-label="Sort articles"
+              <select
+                id="sort-select"
+                name="sort"
+                aria-label="Sort articles"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as "newest" | "oldest")}
                 className="px-3 sm:px-4 py-2 bg-white border border-border rounded-full text-xs font-semibold text-heading focus:outline-none focus:ring-1 focus:ring-accent shadow-sm flex-shrink-0"
@@ -479,9 +483,7 @@ function BlogPage() {
                                 href={art.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() =>
-                                  trackEvent("blog_open", { blog_title: art.title })
-                                }
+                                onClick={() => trackEvent("blog_open", { blog_title: art.title })}
                               >
                                 {art.title}
                               </a>
@@ -502,9 +504,7 @@ function BlogPage() {
                               href={art.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              onClick={() =>
-                                trackEvent("blog_open", { blog_title: art.title })
-                              }
+                              onClick={() => trackEvent("blog_open", { blog_title: art.title })}
                               className="inline-flex items-center gap-1 text-primary hover:text-accent"
                             >
                               Read <ExternalLink className="w-3 h-3" />
@@ -586,8 +586,3 @@ function BlogPage() {
     </main>
   );
 }
-
-
-
-
-

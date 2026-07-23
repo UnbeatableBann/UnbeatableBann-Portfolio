@@ -20,7 +20,6 @@ export class MediumProvider implements ActivityProvider {
     const url = `https://medium.com/feed/${formattedUsername}`;
 
     try {
-
       const response = await fetch(url, {
         next: { revalidate: 0 },
       } as RequestInit & { next?: { revalidate: number } });
@@ -111,4 +110,3 @@ export class MediumProvider implements ActivityProvider {
     return activities;
   }
 }
-

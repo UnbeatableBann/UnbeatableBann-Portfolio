@@ -63,7 +63,6 @@ function PrivacyPolicyPage() {
               <h2 className="text-xl font-bold text-heading">Information We Collect</h2>
             </div>
             <div className="text-body text-sm md:text-base space-y-3 leading-relaxed">
-
               <p>
                 <strong>Direct Communications:</strong> If you use the email buttons on this
                 website, any information provided (including your name, email address, and message
@@ -103,8 +102,7 @@ function PrivacyPolicyPage() {
               <h2 className="text-xl font-bold text-heading">Contact Details</h2>
             </div>
             <p className="text-body text-sm md:text-base leading-relaxed">
-              If you have any questions about this Privacy Policy, you can reach
-              out via email at{" "}
+              If you have any questions about this Privacy Policy, you can reach out via email at{" "}
               <a
                 href="mailto:shadabjamadar4@gmail.com"
                 className="text-accent font-semibold hover:underline"

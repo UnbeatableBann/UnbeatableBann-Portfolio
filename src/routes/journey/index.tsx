@@ -996,7 +996,7 @@ function JourneyPage() {
                       <span className="text-xs text-muted font-semibold lg:transition-opacity lg:duration-300 lg:group-hover:opacity-0 text-left lg:text-right">
                         {cert.date}
                       </span>
-                      
+
                       {/* Button (Overlay on desktop) */}
                       <div className="flex lg:absolute lg:right-0 items-center justify-center gap-1.5 text-xs text-accent font-semibold bg-accent-soft/30 lg:bg-[#FAFAF8] px-3 py-1 rounded-full border border-accent-soft opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap lg:shadow-sm">
                         <span>{cert.certImg ? "View Image" : "View Details"}</span>
@@ -1442,5 +1442,3 @@ function JourneyPage() {
     </main>
   );
 }
-
-

@@ -114,7 +114,6 @@ export function Navbar() {
               key={l.label}
               to={l.to}
               hash={l.hash}
-              
               className={`text-sm font-medium transition-colors ${
                 l.active ? "text-primary font-semibold" : "text-body hover:text-heading"
               }`}
@@ -129,7 +128,12 @@ export function Navbar() {
             href={resumeUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("resume_click", { button_name: "Navbar Resume Button", resume_version: "v1" })}
+            onClick={() =>
+              trackEvent("resume_click", {
+                button_name: "Navbar Resume Button",
+                resume_version: "v1",
+              })
+            }
             className={`inline-flex items-center justify-center rounded-full bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200 ${
               isScrolled ? "text-xs px-4 py-2" : "text-sm px-5 py-2.5"
             }`}
@@ -159,7 +163,6 @@ export function Navbar() {
                 hash={l.hash}
                 onClick={() => {
                   setIsOpen(false);
-                  
                 }}
                 className={`text-lg font-semibold py-3 border-b border-[#F0F0F0] transition-colors ${
                   l.active ? "text-primary font-bold" : "text-body hover:text-heading"
@@ -174,4 +177,3 @@ export function Navbar() {
     </div>
   );
 }
-

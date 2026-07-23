@@ -44,7 +44,6 @@ export class ActivityCache {
       }
 
       if (!cachePath) {
-
         return null;
       }
 
@@ -57,7 +56,6 @@ export class ActivityCache {
       }
 
       if (ignoreExpiration) {
-
         return cache.activities;
       }
 
@@ -123,7 +121,6 @@ export class ActivityCache {
 
       if (fs.existsSync(writePath)) {
         fs.unlinkSync(writePath);
-
       }
     } catch (error) {
       console.error("[ActivityCache] Error clearing cache:", error);
@@ -167,4 +164,3 @@ export class ActivityCache {
     }
   }
 }
-

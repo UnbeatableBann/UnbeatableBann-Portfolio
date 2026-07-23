@@ -93,4 +93,3 @@ export class LinkedinBlogProvider implements BlogProvider {
     }
   }
 }
-

@@ -19,7 +19,6 @@ export class MediumBlogProvider implements BlogProvider {
     const url = `https://medium.com/feed/${formattedUsername}`;
 
     try {
-
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -196,4 +195,3 @@ export class MediumBlogProvider implements BlogProvider {
     return articles;
   }
 }
-
