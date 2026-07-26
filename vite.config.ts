@@ -12,16 +12,7 @@ export default defineConfig({
     },
     dedupe: ["react", "react-dom", "@tanstack/react-query"],
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          icons: ["lucide-react"],
-        },
-      },
-    },
-  },
+
 
   plugins: [
     tsconfigPaths(),
