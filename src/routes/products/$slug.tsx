@@ -169,6 +169,52 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
     );
   }
 
+  if (slug === "ai-crm-hcp-module") {
+    return (
+      <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+          <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
+            Conversational CRM Pipeline
+          </h4>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">FRONTEND</span>
+            <span className="text-[11px] font-semibold text-heading">React SPA</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">Chat Interface</span>
+          </div>
+          <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
+          <div className="w-[1px] h-4 bg-border md:hidden" />
+
+          <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">BACKEND</span>
+            <span className="text-[11px] font-semibold text-heading">FastAPI</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">API & Services</span>
+          </div>
+          <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
+          <div className="w-[1px] h-4 bg-border md:hidden" />
+
+          <div className="flex flex-col items-center p-3 bg-emerald-50 border border-emerald-100 rounded-xl w-full md:w-36 text-center shadow-xs">
+            <span className="text-[10px] font-bold text-emerald-700 mb-0.5">INTELLIGENCE</span>
+            <span className="text-[11px] font-semibold text-heading font-mono">Groq LLaMA 3.3</span>
+            <span className="text-[9px] text-emerald-600 font-semibold mt-0.5">
+              JSON Extraction
+            </span>
+          </div>
+          <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
+          <div className="w-[1px] h-4 bg-border md:hidden" />
+
+          <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">STORAGE</span>
+            <span className="text-[11px] font-semibold text-heading">PostgreSQL</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">Neon Database</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (slug === "ai-interviewer") {
     return (
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">

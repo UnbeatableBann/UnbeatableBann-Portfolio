@@ -147,6 +147,96 @@ export const PRODUCTS_DATA: Product[] = [
     ],
   },
   {
+    slug: "ai-crm-hcp-module",
+    name: "AI-First CRM HCP Module",
+    domain: "HEALTHCARE AI",
+    tagline: "Intelligent CRM for Healthcare Professionals",
+    description:
+      "An intelligent customer relationship management system designed for medical representatives. It leverages Generative AI to streamline logging, summarizing, and tracking HCP interactions.",
+    excerpt:
+      "AI-assisted conversational CRM for medical representatives to automate HCP interaction logging.",
+    techStack: ["FastAPI", "React", "PostgreSQL", "Groq", "Redux"],
+    status: "Live",
+    launchDate: "Aug 2026",
+    links: {
+      live: "https://curis.shadabjamadar.me",
+      github: "https://github.com/UnbeatableBann/AI-First-CRM-HCP-Module/",
+    },
+    overview: {
+      text: "The AI-First CRM HCP Module replaces manual data entry with an intelligent conversational interface. Representatives can simply speak or type to log meeting details, and the AI automatically extracts structured data, updates the CRM, and organizes the interaction history for specific Healthcare Professionals.",
+      bullets: [
+        "Conversational AI logging via Groq LLaMA models.",
+        "Automatic extraction of interaction types, dates, and topics.",
+        "Comprehensive HCP timeline and interaction history.",
+        "Auto-saving draft workflows with review layers.",
+      ],
+      capabilities: [
+        {
+          iconName: "brain",
+          name: "AI Logging",
+          desc: "Conversational interface to log meetings.",
+        },
+        {
+          iconName: "database",
+          name: "Auto-Extract",
+          desc: "Structures data automatically into Postgres.",
+        },
+        { iconName: "fileText", name: "Drafting", desc: "Auto-saves drafts before finalizing." },
+        { iconName: "list", name: "HCP Timeline", desc: "Historical interaction tracking views." },
+      ],
+    },
+    problem:
+      "Medical representatives spend countless hours manually filling out tedious forms to log interactions. This manual data entry process is slow, prone to errors, and distracts from core relationship building.",
+    solution:
+      "A conversational interface powered by Groq's LLaMA models allows users to log meeting details through natural language. The AI extracts key information in real-time and automatically structures the data.",
+    architecture: {
+      text: "The system features a decoupled architecture with a React SPA frontend and a FastAPI backend. A conversational LLM workflow processes messages, parsing hidden structured JSON payloads to automatically update the Postgres database.",
+      mermaidDiagram: `graph TD
+  A[React SPA Frontend] --> B[FastAPI Backend]
+  B --> C[Groq LLaMA 3.3 LLM]
+  C --> D[Structured JSON Parsing]
+  D --> E[PostgreSQL Database]
+  E --> F[Draft & Interaction State]`,
+    },
+    challenges: [
+      "Structuring unpredictable conversational inputs into strict database schemas.",
+      "Maintaining low latency during real-time LLM interactions.",
+      "Managing global state transitions between chat and form views seamlessly.",
+    ],
+    lessons: [
+      "Prompting LLMs to return hidden structured JSON alongside conversational text significantly improves UX.",
+      "Domain-Driven Design (DDD) in FastAPI keeps the service layer exceptionally clean.",
+      "Serverless Postgres scaling prevents connection exhaustion during LLM cold starts.",
+    ],
+    roadmap: [
+      {
+        phase: "Phase 1",
+        title: "Core Architecture",
+        desc: "FastAPI, Postgres, and React setup.",
+        done: true,
+      },
+      {
+        phase: "Phase 2",
+        title: "Conversational AI",
+        desc: "Groq integration and JSON extraction.",
+        done: true,
+      },
+      {
+        phase: "Phase 3",
+        title: "Analytics",
+        desc: "Dashboard reporting and insights.",
+        done: false,
+      },
+    ],
+    related: ["healthcare-rag", "curio"],
+    metrics: [
+      { value: "100%", label: "Automated Data Extraction" },
+      { value: "< 1s", label: "LLM Response Latency" },
+      { value: "3", label: "Database Tables" },
+      { value: "10x", label: "Faster Logging" },
+    ],
+  },
+  {
     slug: "ai-interviewer",
     name: "AI Interviewer",
     domain: "HIRING AI",

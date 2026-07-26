@@ -254,6 +254,7 @@ function ProductsPage() {
                         }`}
                       >
                         {prod.slug === "curio" && <Brain className="w-3.5 h-3.5" />}
+                        {prod.slug === "ai-crm-hcp-module" && <MessageSquare className="w-3.5 h-3.5" />}
                         {prod.slug === "ai-interviewer" && <Cpu className="w-3.5 h-3.5" />}
                         {prod.slug === "llm-evaluation-pipeline" && (
                           <Activity className="w-3.5 h-3.5" />
