@@ -47,14 +47,29 @@ export class ActivityAggregator {
     // If we reach here, we need to fetch fresh data (cache is missing or expired and refreshed)
     const fetchPromises = this.providers.map(async (provider) => {
       try {
-        return await provider.fetchActivities();
+        const activities = await provider.fetchActivities();
+        // If a provider succeeds but returns 0 items, we treat it as success (e.g. no new activities)
+        // If the GitHub API fails due to rate limits, it will throw an error and we catch it below.
+        return { name: provider.name, success: true, activities };
       } catch (error) {
-        return [];
+        return { name: provider.name, success: false, activities: [] };
       }
     });
 
     const results = await Promise.all(fetchPromises);
-    const rawActivities = results.flat();
+
+    const oldCache = (await this.cache.get(true)) || [];
+    const rawActivities: NormalizedActivity[] = [];
+
+    for (const result of results) {
+      if (result.success) {
+        rawActivities.push(...result.activities);
+      } else {
+        // Only use old cache if this specific provider failed to fetch
+        const oldProviderActivities = oldCache.filter((act) => act.source === result.name);
+        rawActivities.push(...oldProviderActivities);
+      }
+    }
 
     // Rank feed using the Scoring & Ranking Engine (which applies diversity rules)
     const rankedActivities = ActivityRankingEngine.rank(rawActivities);
