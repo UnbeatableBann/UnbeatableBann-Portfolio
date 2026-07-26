@@ -13,6 +13,7 @@ export interface Product {
     live?: string;
     github?: string;
     caseStudy?: string;
+    pypi?: string;
   };
   overview: {
     text: string;
@@ -447,7 +448,10 @@ export const PRODUCTS_DATA: Product[] = [
     techStack: ["Python", "SQLite", "Dataclasses", "Type Hints"],
     status: "Production",
     launchDate: "Jan 2026",
-    links: {},
+    links: {
+      pypi: "https://pypi.org/project/india-stocks-api/",
+      github: "https://github.com/Apurv-Salunke/india-stocks-api",
+    },
     overview: {
       text: "Quantix is a standalone, PyPI-installable Python package that provides a single interface to trade across multiple Indian stockbrokers. It eliminates cryptic symbol strings and broker-specific idiosyncrasies by introducing strict Domain Objects and Type-Safe Enums.",
       bullets: [

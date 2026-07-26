@@ -23,6 +23,7 @@ import {
   Terminal,
   BarChart4,
   Activity,
+  Package,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -451,6 +452,22 @@ function ProductsPage() {
                             className="inline-flex items-center gap-1.5 text-xs font-semibold text-body hover:text-heading cursor-pointer"
                           >
                             GitHub <Github className="w-3 h-3" />
+                          </a>
+                        )}
+                        {prod.links.pypi && (
+                          <a
+                            onClick={() =>
+                              trackEvent("project_pypi_click", {
+                                project_name: prod.name,
+                                project_category: prod.domain,
+                              })
+                            }
+                            href={prod.links.pypi}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-body hover:text-heading cursor-pointer"
+                          >
+                            PyPI <Package className="w-3 h-3" />
                           </a>
                         )}
                       </div>
