@@ -13,7 +13,6 @@ export default defineConfig({
     dedupe: ["react", "react-dom", "@tanstack/react-query"],
   },
 
-
   plugins: [
     tsconfigPaths(),
     tailwindcss(),
