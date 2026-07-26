@@ -124,7 +124,7 @@ function ProductsPage() {
       if (selectedFilter === "Trading Systems") {
         return (
           product.domain === "TRADING SYSTEMS" ||
-          ["mt5-infrastructure", "quantix"].includes(product.slug)
+          ["mt5-infrastructure", "filoos"].includes(product.slug)
         );
       }
 
@@ -264,7 +264,7 @@ function ProductsPage() {
                         )}
                         {prod.slug === "healthcare-rag" && <Database className="w-3.5 h-3.5" />}
                         {prod.slug === "mt5-infrastructure" && <Network className="w-3.5 h-3.5" />}
-                        {prod.slug === "quantix" && <Shield className="w-3.5 h-3.5" />}
+                        {prod.slug === "filoos" && <Shield className="w-3.5 h-3.5" />}
                         <span>{prod.name}</span>
                         {isActive && <span className="ml-auto w-1 h-1 rounded-full bg-[#6E9C53]" />}
                       </button>

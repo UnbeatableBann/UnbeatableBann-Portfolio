@@ -438,8 +438,8 @@ export const PRODUCTS_DATA: Product[] = [
     ],
   },
   {
-    slug: "quantix",
-    name: "Quantix - Unified Python SDK",
+    slug: "filoos",
+    name: "Filoos - Unified Python SDK",
     domain: "TRADING SYSTEMS",
     tagline: "Unified Python SDK for Programmatic Trading",
     description:
@@ -453,7 +453,7 @@ export const PRODUCTS_DATA: Product[] = [
       github: "https://github.com/Apurv-Salunke/india-stocks-api",
     },
     overview: {
-      text: "Quantix is a standalone, PyPI-installable Python package that provides a single interface to trade across multiple Indian stockbrokers. It eliminates cryptic symbol strings and broker-specific idiosyncrasies by introducing strict Domain Objects and Type-Safe Enums.",
+      text: "Filoos is a standalone, PyPI-installable Python package that provides a single interface to trade across multiple Indian stockbrokers. It eliminates cryptic symbol strings and broker-specific idiosyncrasies by introducing strict Domain Objects and Type-Safe Enums.",
       bullets: [
         "Broker-agnostic interface across Zerodha and Angel One.",
         "Type-safe Python Enums for transaction and order types.",
@@ -711,7 +711,7 @@ export const PRODUCTS_DATA: Product[] = [
       },
       { phase: "Phase 3", title: "Risk Engine", desc: "Auto-hedge order modules.", done: false },
     ],
-    related: ["quantix"],
+    related: ["filoos"],
     metrics: [
       { value: "800μs", label: "Order Routing Latency" },
       { value: "0.01%", label: "Trade slippage rate" },

@@ -369,7 +369,7 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
     );
   }
 
-  if (slug === "quantix") {
+  if (slug === "filoos") {
     return (
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
@@ -539,7 +539,7 @@ function ProductDetailPage() {
                         )}
                         {prod.slug === "healthcare-rag" && <Database className="w-3.5 h-3.5" />}
                         {prod.slug === "mt5-infrastructure" && <Network className="w-3.5 h-3.5" />}
-                        {prod.slug === "quantix" && <Shield className="w-3.5 h-3.5" />}
+                        {prod.slug === "filoos" && <Shield className="w-3.5 h-3.5" />}
                         <span>{prod.name}</span>
                         {isCurrent && (
                           <span className="ml-auto w-1 h-1 rounded-full bg-[#6E9C53]" />

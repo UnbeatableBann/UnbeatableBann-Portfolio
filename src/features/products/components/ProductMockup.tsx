@@ -383,13 +383,13 @@ export function ProductMockup({ slug }: { slug: string }) {
     );
   }
 
-  if (slug === "quantix") {
+  if (slug === "filoos") {
     return (
       <div className="w-full h-full bg-[#1e1e1e] text-[#d4d4d4] p-4 flex flex-col font-mono text-[10px] leading-relaxed relative overflow-hidden select-none border border-[#333333]">
         {/* IDE Header */}
         <div className="flex items-center gap-2 border-b border-[#333333] pb-2 mb-3">
           <Terminal className="w-4 h-4 text-emerald-500" />
-          <span className="font-semibold text-slate-300 text-[11px]">main.py - quantix</span>
+          <span className="font-semibold text-slate-300 text-[11px]">main.py - filoos</span>
           <span className="ml-auto flex gap-1">
             <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
             <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
@@ -401,19 +401,19 @@ export function ProductMockup({ slug }: { slug: string }) {
         <div className="flex-1 overflow-y-auto space-y-0.5">
           <div>
             <span className="text-[#c586c0]">from</span>{" "}
-            <span className="text-[#9cdcfe]">quantix.brokers</span>{" "}
+            <span className="text-[#9cdcfe]">filoos.brokers</span>{" "}
             <span className="text-[#c586c0]">import</span>{" "}
             <span className="text-[#4ec9b0]">Zerodha</span>
           </div>
           <div>
             <span className="text-[#c586c0]">from</span>{" "}
-            <span className="text-[#9cdcfe]">quantix.instruments</span>{" "}
+            <span className="text-[#9cdcfe]">filoos.instruments</span>{" "}
             <span className="text-[#c586c0]">import</span>{" "}
             <span className="text-[#4ec9b0]">Equity</span>
           </div>
           <div>
             <span className="text-[#c586c0]">from</span>{" "}
-            <span className="text-[#9cdcfe]">quantix.constants</span>{" "}
+            <span className="text-[#9cdcfe]">filoos.constants</span>{" "}
             <span className="text-[#c586c0]">import</span>{" "}
             <span className="text-[#4ec9b0]">TransactionType</span>
           </div>
