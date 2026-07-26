@@ -29,25 +29,21 @@ export class GitHubProvider implements ActivityProvider {
       headers["Authorization"] = `token ${this.token}`;
     }
 
-    try {
-      const response = await fetch(url, {
-        headers,
-        next: { revalidate: 0 },
-      } as RequestInit & { next?: { revalidate: number } });
+    const response = await fetch(url, {
+      headers,
+      next: { revalidate: 0 },
+    } as RequestInit & { next?: { revalidate: number } });
 
-      if (!response.ok) {
-        throw new Error(`GitHub API returned status ${response.status}: ${response.statusText}`);
-      }
-
-      const events = await response.json();
-      if (!Array.isArray(events)) {
-        throw new Error("GitHub API response is not an array");
-      }
-
-      return this.aggregateGitHubEvents(events);
-    } catch (error) {
-      throw error;
+    if (!response.ok) {
+      throw new Error(`GitHub API returned status ${response.status}: ${response.statusText}`);
     }
+
+    const events = await response.json();
+    if (!Array.isArray(events)) {
+      throw new Error("GitHub API response is not an array");
+    }
+
+    return this.aggregateGitHubEvents(events);
   }
 
   /**

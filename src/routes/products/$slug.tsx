@@ -578,7 +578,8 @@ function ProductDetailPage() {
                   {matchedProduct.domain}
                 </span>
                 <h1 className="text-4xl font-bold text-heading tracking-tight leading-tight">
-                  {matchedProduct.name}<span className="text-[#6E9C53]">.</span>
+                  {matchedProduct.name}
+                  <span className="text-[#6E9C53]">.</span>
                 </h1>
                 <div className="text-base font-semibold text-[#6E9C53] italic">
                   {matchedProduct.tagline}
