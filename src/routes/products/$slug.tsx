@@ -20,6 +20,7 @@ import {
   Calendar,
   Users,
   Layers,
+  Package,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -626,6 +627,22 @@ function ProductDetailPage() {
                       className="inline-flex items-center gap-2 rounded-full border border-border bg-white text-heading hover:bg-[#FAFAF8] px-6 py-3 text-xs font-semibold transition-all cursor-pointer"
                     >
                       GitHub <Github className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {matchedProduct.links.pypi && (
+                    <a
+                      href={matchedProduct.links.pypi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("project_pypi_click", {
+                          project_name: matchedProduct.name,
+                          project_category: matchedProduct.domain,
+                        })
+                      }
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-white text-heading hover:bg-[#FAFAF8] px-6 py-3 text-xs font-semibold transition-all cursor-pointer"
+                    >
+                      PyPI <Package className="w-3.5 h-3.5" />
                     </a>
                   )}
                 </div>
