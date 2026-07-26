@@ -18,22 +18,16 @@ export class MediumProvider implements ActivityProvider {
     const formattedUsername = this.username.startsWith("@") ? this.username : `@${this.username}`;
     const url = `https://medium.com/feed/${formattedUsername}`;
 
-    try {
-      const response = await fetch(url, {
-        next: { revalidate: 0 },
-      } as RequestInit & { next?: { revalidate: number } });
+    const response = await fetch(url, {
+      next: { revalidate: 0 },
+    } as RequestInit & { next?: { revalidate: number } });
 
-      if (!response.ok) {
-        throw new Error(
-          `Medium RSS feed returned status ${response.status}: ${response.statusText}`,
-        );
-      }
-
-      const xmlText = await response.text();
-      return this.parseRssFeed(xmlText);
-    } catch (error) {
-      throw error;
+    if (!response.ok) {
+      throw new Error(`Medium RSS feed returned status ${response.status}: ${response.statusText}`);
     }
+
+    const xmlText = await response.text();
+    return this.parseRssFeed(xmlText);
   }
 
   private parseRssFeed(xml: string): NormalizedActivity[] {
