@@ -386,8 +386,7 @@ function ProductsPage() {
                         </span>
                       </div>
                       <h3 className="text-2xl font-bold text-heading tracking-tight">
-                        {prod.name}
-                        <span className="text-[#6E9C53]">.</span>
+                        {prod.name}<span className="text-[#6E9C53]">.</span>
                       </h3>
                       <div className="text-sm font-semibold text-[#6E9C53] italic">
                         {prod.tagline}

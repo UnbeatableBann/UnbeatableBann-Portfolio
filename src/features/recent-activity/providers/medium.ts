@@ -32,7 +32,7 @@ export class MediumProvider implements ActivityProvider {
       const xmlText = await response.text();
       return this.parseRssFeed(xmlText);
     } catch (error) {
-      return [];
+      throw error;
     }
   }
 

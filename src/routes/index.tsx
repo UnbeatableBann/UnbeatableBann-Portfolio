@@ -759,8 +759,7 @@ function Products() {
                 {proj.domain}
               </span>
               <h3 className="text-3xl font-bold text-heading">
-                {proj.name}
-                <span className="text-[#6E9C53]">.</span>
+                {proj.name}<span className="text-[#6E9C53]">.</span>
               </h3>
               <p className="text-body-custom text-body leading-[1.8]">{proj.description}</p>
 

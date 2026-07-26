@@ -46,7 +46,7 @@ export class GitHubProvider implements ActivityProvider {
 
       return this.aggregateGitHubEvents(events);
     } catch (error) {
-      return [];
+      throw error;
     }
   }
 
