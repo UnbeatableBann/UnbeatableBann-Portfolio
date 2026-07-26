@@ -377,9 +377,11 @@ function ProductsPage() {
                         </span>
                         <span
                           className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                            prod.status === "Live" || prod.status === "Production"
-                              ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                              : "bg-amber-50 text-amber-700 border border-amber-100"
+                            prod.status === "Production"
+                              ? "bg-emerald-100 text-emerald-900 border border-emerald-400 shadow-[0_0_12px_3px_rgba(52,211,153,0.4)]"
+                              : prod.status === "Live"
+                                ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
+                                : "bg-amber-50 text-amber-700 border border-amber-100"
                           }`}
                         >
                           {prod.status}
