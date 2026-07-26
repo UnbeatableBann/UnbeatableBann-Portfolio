@@ -1,4 +1,5 @@
 import { Network, Brain, Check, FileText, Search, Terminal, BarChart4 } from "lucide-react";
+import crmMockup from "@/assets/crm-hcp-mockup.webp";
 
 // High-fidelity dynamic mockup engine to display crisp interactive UIs instead of image placeholders
 export function ProductMockup({ slug }: { slug: string }) {
@@ -123,6 +124,18 @@ export function ProductMockup({ slug }: { slug: string }) {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (slug === "ai-crm-hcp-module") {
+    return (
+      <div className="w-full h-full bg-white flex items-center justify-center p-2 rounded-lg overflow-hidden">
+        <img
+          src={crmMockup}
+          alt="AI-First CRM HCP Module Mockup"
+          className="w-full h-full object-cover object-top rounded border border-slate-200 shadow-sm"
+        />
       </div>
     );
   }
