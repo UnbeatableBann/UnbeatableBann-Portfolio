@@ -723,9 +723,9 @@ function Products() {
       link: "https://github.com/UnbeatableBann/LLM-Evaluation-Pipeline",
     },
     {
-      slug: "quantix",
+      slug: "filoos",
       domain: "Fintech & Developer Tools",
-      name: "Quantix - Algorithmic Trading SDK",
+      name: "Filoos - Algorithmic Trading SDK",
       description:
         "A unified Python algorithmic trading SDK integrating Zerodha, Angel One, and FivePaisa broker APIs. Designed a broker-agnostic instrument master schema and sqlite ingestion pipeline that normalizes 100% of broker-specific fields.",
       tech: ["Python", "SQLite", "Poetry", "REST APIs", "Structured Logging"],
@@ -791,7 +791,7 @@ function Products() {
 
             {/* Right Side (Visual Mockup) */}
             <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-border shadow-card aspect-[4/3] bg-[#FAFAF8] group flex items-center justify-center w-full min-w-0">
-              {proj.slug === "quantix" ? (
+              {proj.slug === "filoos" ? (
                 <div className="w-full h-full p-0.5">
                   <ProductMockup slug={proj.slug} />
                 </div>
