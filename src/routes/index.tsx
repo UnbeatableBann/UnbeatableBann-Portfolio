@@ -758,7 +758,10 @@ function Products() {
               <span className="text-xs font-semibold uppercase tracking-[0.08em] text-accent">
                 {proj.domain}
               </span>
-              <h3 className="text-3xl font-bold text-heading">{proj.name}</h3>
+              <h3 className="text-3xl font-bold text-heading">
+                {proj.name}
+                <span className="text-[#6E9C53]">.</span>
+              </h3>
               <p className="text-body-custom text-body leading-[1.8]">{proj.description}</p>
 
               <div className="flex flex-wrap gap-2 pt-2">
