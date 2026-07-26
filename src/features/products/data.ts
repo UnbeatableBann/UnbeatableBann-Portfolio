@@ -437,6 +437,99 @@ export const PRODUCTS_DATA: Product[] = [
     ],
   },
   {
+    slug: "quantix",
+    name: "Quantix - Unified Python SDK",
+    domain: "TRADING SYSTEMS",
+    tagline: "Unified Python SDK for Programmatic Trading",
+    description:
+      "A unified, type-safe Python SDK for programmatic trading on Indian stock exchanges. It abstracts broker-specific APIs behind a clean, domain-driven interface.",
+    excerpt: "Unified, type-safe Python SDK for programmatic trading on Indian stock exchanges.",
+    techStack: ["Python", "SQLite", "Dataclasses", "Type Hints"],
+    status: "Production",
+    launchDate: "Jan 2026",
+    links: {},
+    overview: {
+      text: "Quantix is a standalone, PyPI-installable Python package that provides a single interface to trade across multiple Indian stockbrokers. It eliminates cryptic symbol strings and broker-specific idiosyncrasies by introducing strict Domain Objects and Type-Safe Enums.",
+      bullets: [
+        "Broker-agnostic interface across Zerodha and Angel One.",
+        "Type-safe Python Enums for transaction and order types.",
+        "Auto-provisioned SQLite master contract database for O(1) resolution.",
+        "Memory-efficient domain objects using dataclasses with slots.",
+      ],
+      capabilities: [
+        {
+          iconName: "cpu",
+          name: "Type Safety",
+          desc: "Python enums prevent cryptic string errors.",
+        },
+        {
+          iconName: "network",
+          name: "Broker Agnostic",
+          desc: "Switch brokers by changing a single line of code.",
+        },
+        {
+          iconName: "database",
+          name: "Local Resolver",
+          desc: "SQLite database for O(1) contract resolution.",
+        },
+        {
+          iconName: "shield",
+          name: "Shim Architecture",
+          desc: "Safely ports upstream code without dependencies.",
+        },
+      ],
+    },
+    problem:
+      "Programmatic trading in India requires wrestling with poorly documented, inconsistent APIs across different brokers. Developers waste time writing boilerplate authentication, tracking cryptic contract tokens, and managing broker-specific JSON responses.",
+    solution:
+      "A unified, type-safe interface that wraps broker APIs. Users trade using intuitive Domain Objects (Equity, Future, Option) while the library handles token resolution, request formatting, and canonical responses.",
+    architecture: {
+      text: "The SDK uses a 'Shim' pattern to port battle-tested execution logic from OpenAlgo, decoupling it from Flask dependencies. A local SQLite database acts as a master contract resolver, mapping domain objects to broker-specific tokens instantly.",
+      mermaidDiagram: `graph TD
+  A[User Code: Domain Objects] --> B[Broker Adapter Wrapper]
+  B --> C[SQLite Instrument Resolver]
+  C --> D[Shimmed Context Logic]
+  D --> E[Raw Broker API Execution]`,
+    },
+    challenges: [
+      "Porting complex broker execution logic without bringing over heavy web framework dependencies.",
+      "Resolving ambiguous options contracts safely across millions of available strikes.",
+      "Keeping broker logic automatically synced with upstream open-source releases.",
+    ],
+    lessons: [
+      "Using the __init_subclass__ pattern allows zero-boilerplate registration for new broker adapters.",
+      "Setting frozen=True and slots=True on Dataclasses reduces RAM consumption by ~40% for 100K+ instruments.",
+      "A flat SQLite table structure provides the absolute fastest O(1) token resolution for algorithmic latency.",
+    ],
+    roadmap: [
+      {
+        phase: "Phase 1",
+        title: "Core SDK & Zerodha",
+        desc: "Domain objects and type-safe enums.",
+        done: true,
+      },
+      {
+        phase: "Phase 2",
+        title: "Angel One Integration",
+        desc: "Extending adapter interface to new brokers.",
+        done: true,
+      },
+      {
+        phase: "Phase 3",
+        title: "WebSocket Streaming",
+        desc: "Real-time tick data via callbacks.",
+        done: false,
+      },
+    ],
+    related: ["mt5-infrastructure"],
+    metrics: [
+      { value: "40%", label: "RAM Saved via Slots" },
+      { value: "O(1)", label: "Token Lookup Latency" },
+      { value: "100K+", label: "Instruments Indexed" },
+      { value: "0", label: "Server Dependencies" },
+    ],
+  },
+  {
     slug: "healthcare-rag",
     name: "Healthcare RAG",
     domain: "HEALTHCARE AI",
@@ -620,95 +713,6 @@ export const PRODUCTS_DATA: Product[] = [
       { value: "0.01%", label: "Trade slippage rate" },
       { value: "99.99%", label: "System uptime" },
       { value: "10M+", label: "Market price logs recorded" },
-    ],
-  },
-  {
-    slug: "quantix",
-    name: "Quantix",
-    domain: "TRADING SYSTEMS",
-    tagline: "Statistical Arbitrage & Portfolio Optimizer",
-    description:
-      "An algorithmic trading module that scans multiple asset markets for statistical price discrepancies, optimizes weights using mean-variance analysis, and places trade signals.",
-    excerpt:
-      "Algorithmic statistical arbitrage scanner and automated mean-variance portfolio model.",
-    techStack: ["Python", "NumPy", "Pandas", "Scipy", "Redis"],
-    status: "Beta",
-    launchDate: "Dec 2025",
-    links: {
-      github: "https://github.com/UnbeatableBann/Quantix",
-    },
-    overview: {
-      text: "Quantix executes automated statistical trading. It calculates cointegration vectors across historical assets, calculates risk metrics, and uses numerical optimization to construct portfolios that maximize Sharpe ratios.",
-      bullets: [
-        "Real-time asset cointegration scanning.",
-        "Dynamic mean-variance portfolio sizing.",
-        "Automated stop-loss risk management.",
-        "Historical backtesting report runner.",
-      ],
-      capabilities: [
-        {
-          iconName: "brain",
-          name: "Cointegration",
-          desc: "Finding historical price-spread relationships.",
-        },
-        { iconName: "cpu", name: "Optimizer Engine", desc: "Sizing trades using Scipy solvers." },
-        {
-          iconName: "shield",
-          name: "Drawdown Guard",
-          desc: "Auto-reducing capital size on high volatility.",
-        },
-        { iconName: "database", name: "Metrics Logger", desc: "Saving daily performance vectors." },
-      ],
-    },
-    problem:
-      "Scoping statistical opportunities across thousands of asset pairs manually is impossible. Standard static portfolios suffer from large drawdowns during volatile structural market shifts.",
-    solution:
-      "A automated numerical optimizer that calculates correlation vectors, sizes positions dynamically based on volatility, and executes trades via the MT5 bridge.",
-    architecture: {
-      text: "Quantix executes on a scheduled loop. It pulls prices from Redis, runs correlation tests using NumPy, feeds metrics to Scipy optimization pipelines, and pushes signals into execution vectors.",
-      mermaidDiagram: `graph TD
-  A[Redis Price Data] --> B[Cointegration Engine]
-  B --> C[Portfolio Optimizer]
-  C --> D[Risk Check Module]
-  D --> E[Trade Signals Output]
-  E --> F[MT5 Infrastructure Bridge]`,
-    },
-    challenges: [
-      "Controlling transaction costs which can eat arbitrage profits.",
-      "Solving convergence failures in Scipy optimization routines.",
-      "Mitigating correlation decay during volatile structural shifts.",
-    ],
-    lessons: [
-      "Including transaction costs directly in the solver prevents it sizing micro-trades.",
-      "Dynamic rolling lookbacks track market changes better than static data frames.",
-      "Scaling risk exposure relative to correlation metrics preserves capital.",
-    ],
-    roadmap: [
-      {
-        phase: "Phase 1",
-        title: "Pair Scanner",
-        desc: "Numerical cointegration tests.",
-        done: true,
-      },
-      {
-        phase: "Phase 2",
-        title: "Sharpe Optimizer",
-        desc: "Scipy mean-variance execution.",
-        done: true,
-      },
-      {
-        phase: "Phase 3",
-        title: "Multi-Asset Engine",
-        desc: "Extending models to futures and crypto.",
-        done: false,
-      },
-    ],
-    related: ["mt5-infrastructure"],
-    metrics: [
-      { value: "120+", label: "Asset pairs tracked" },
-      { value: "2.4", label: "Backtested Sharpe Ratio" },
-      { value: "12%", label: "Maximum Peak Drawdown" },
-      { value: "100%", label: "Automated risk validation" },
     ],
   },
 ];
