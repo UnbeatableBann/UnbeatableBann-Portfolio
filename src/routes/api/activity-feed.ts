@@ -47,7 +47,6 @@ export const Route = createFileRoute("/api/activity-feed")({
             },
           });
         } catch (error: unknown) {
-          console.error("[API activity-feed] Unhandled error fetching activities:", error);
           const message = error instanceof Error ? error.message : "Internal server error.";
           return new Response(JSON.stringify({ error: message }), {
             status: 500,

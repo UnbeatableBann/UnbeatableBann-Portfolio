@@ -16,7 +16,6 @@ export class GitHubProvider implements ActivityProvider {
 
   async fetchActivities(): Promise<NormalizedActivity[]> {
     if (!this.username) {
-      console.warn("[GitHubProvider] GITHUB_USERNAME is not configured.");
       return [];
     }
 
@@ -47,7 +46,6 @@ export class GitHubProvider implements ActivityProvider {
 
       return this.aggregateGitHubEvents(events);
     } catch (error) {
-      console.error("[GitHubProvider] Error fetching activities:", error);
       return [];
     }
   }
