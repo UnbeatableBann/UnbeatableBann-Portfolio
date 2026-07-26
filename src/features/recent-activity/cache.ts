@@ -1,5 +1,6 @@
 import { CacheData, NormalizedActivity } from "./types";
 import { CONFIG } from "./config";
+import fallbackCacheRaw from "../../../activity-cache.json";
 
 const CACHE_FILE_NAME = "activity-cache.json";
 
@@ -43,15 +44,16 @@ export class ActivityCache {
         }
       }
 
-      if (!cachePath) {
-        return null;
+      let cache: CacheData | null = null;
+      if (cachePath) {
+        const rawData = fs.readFileSync(cachePath, "utf8");
+        cache = JSON.parse(rawData);
+      } else {
+        // Fallback to the bundled JSON in serverless/static environments
+        cache = fallbackCacheRaw as CacheData;
       }
 
-      const rawData = fs.readFileSync(cachePath, "utf8");
-      const cache: CacheData = JSON.parse(rawData);
-
-      if (!cache.lastFetched || !Array.isArray(cache.activities)) {
-        console.warn("[ActivityCache] Cache file structure is invalid.");
+      if (!cache || !cache.lastFetched || !Array.isArray(cache.activities)) {
         return null;
       }
 
@@ -65,19 +67,11 @@ export class ActivityCache {
       const cacheDuration = CONFIG.cacheDurationMs;
 
       if (ageMs < cacheDuration && ageMs >= 0) {
-        const hoursLeft = ((cacheDuration - ageMs) / (1000 * 60 * 60)).toFixed(1);
-        console.log(
-          `[ActivityCache] Serving fresh cache from ${cachePath}. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs. Fresh for next ${hoursLeft} hrs.`,
-        );
         return cache.activities;
       }
 
-      console.log(
-        `[ActivityCache] Cache in ${cachePath} is stale. Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs.`,
-      );
       return null;
     } catch (error) {
-      console.error("[ActivityCache] Error reading cache file:", error);
       return null;
     }
   }
@@ -102,7 +96,6 @@ export class ActivityCache {
       fs.writeFileSync(writePath, JSON.stringify(cacheData, null, 2), "utf8");
       return true;
     } catch (error) {
-      console.error("[ActivityCache] Error writing cache file:", error);
       return false;
     }
   }
@@ -123,7 +116,7 @@ export class ActivityCache {
         fs.unlinkSync(writePath);
       }
     } catch (error) {
-      console.error("[ActivityCache] Error clearing cache:", error);
+      // Ignored
     }
   }
 
@@ -147,12 +140,13 @@ export class ActivityCache {
         }
       }
 
-      if (!cachePath) {
-        return Infinity;
+      let cache: CacheData | null = null;
+      if (cachePath) {
+        const rawData = fs.readFileSync(cachePath, "utf8");
+        cache = JSON.parse(rawData);
+      } else {
+        cache = fallbackCacheRaw as CacheData;
       }
-
-      const rawData = fs.readFileSync(cachePath, "utf8");
-      const cache: CacheData = JSON.parse(rawData);
 
       if (!cache.lastFetched) {
         return Infinity;

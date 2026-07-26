@@ -31,51 +31,30 @@ export class ActivityAggregator {
       // Normal page visit: Homepage reads only from cache. No runtime processing.
       const cached = await this.cache.get(true); // ignoreExpiration = true
       if (cached) {
-        console.log(
-          `[ActivityAggregator] Normal page load: returning ${cached.length} cached activities.`,
-        );
-
         // Stale-While-Revalidate: Trigger background refresh if cache is expired (24 hours)
         this.cache.getCacheAgeMs().then((ageMs) => {
           if (ageMs > CONFIG.cacheDurationMs) {
-            console.log(
-              `[ActivityAggregator] Cache is expired (Age: ${(ageMs / (1000 * 60 * 60)).toFixed(1)} hrs). Triggering background rebuild...`,
-            );
-            this.refresh().catch((err) =>
-              console.error("[ActivityAggregator] Background refresh failed:", err),
-            );
+            this.refresh().catch(() => {
+              // Ignore background refresh errors
+            });
           }
         });
 
         return cached;
       }
-    } else {
-      // Visitor clicked refresh inside the block: Always fetch fresh data.
-      console.log(
-        "[ActivityAggregator] Manual refresh triggered by visitor. Bypassing cache age limits to fetch latest activities...",
-      );
     }
 
     // If we reach here, we need to fetch fresh data (cache is missing or expired and refreshed)
     const fetchPromises = this.providers.map(async (provider) => {
       try {
-        const activities = await provider.fetchActivities();
-        console.log(
-          `[ActivityAggregator] Provider ${provider.name} fetched ${activities.length} items.`,
-        );
-        return activities;
+        return await provider.fetchActivities();
       } catch (error) {
-        console.error(`[ActivityAggregator] Provider ${provider.name} failed during fetch:`, error);
         return [];
       }
     });
 
     const results = await Promise.all(fetchPromises);
     const rawActivities = results.flat();
-
-    console.log(
-      `[ActivityAggregator] Normalizing, scoring, and ranking ${rawActivities.length} total activities...`,
-    );
 
     // Rank feed using the Scoring & Ranking Engine (which applies diversity rules)
     const rankedActivities = ActivityRankingEngine.rank(rawActivities);

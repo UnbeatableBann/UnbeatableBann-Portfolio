@@ -11,7 +11,6 @@ export class MediumProvider implements ActivityProvider {
 
   async fetchActivities(): Promise<NormalizedActivity[]> {
     if (!this.username) {
-      console.warn("[MediumProvider] MEDIUM_USERNAME is not configured.");
       return [];
     }
 
@@ -33,7 +32,6 @@ export class MediumProvider implements ActivityProvider {
       const xmlText = await response.text();
       return this.parseRssFeed(xmlText);
     } catch (error) {
-      console.error("[MediumProvider] Error fetching Medium articles:", error);
       return [];
     }
   }
