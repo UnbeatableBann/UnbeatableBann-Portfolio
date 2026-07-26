@@ -1,0 +1,48 @@
+{
+  "lastFetched": "2026-07-26T12:48:57.163Z",
+  "activities": [
+    {
+      "id": "medium-post-teaching-with-ai-from-reactive-chatbots-to-proactive-co-teachers-c38f0ddab8a3",
+      "source": "medium",
+      "title": "Published: Teaching With AI: From Reactive Chatbots to Proactive Co-Teachers",
+      "description": "Imagine hiring the smartest teaching assistant in the world… and then forcing it to sit silently in the corner until someone asks a question. That’s essentially how most educati...",
+      "url": "https://medium.com/@shadabjamadar/teaching-with-ai-from-reactive-chatbots-to-proactive-co-teachers-c38f0ddab8a3?source=rss-3d707b84faa9------2",
+      "timestamp": "2026-07-25T15:51:01.000Z",
+      "type": "article",
+      "score": 125,
+      "metadata": {
+        "originalTitle": "Teaching With AI: From Reactive Chatbots to Proactive Co-Teachers"
+      }
+    },
+    {
+      "id": "github-repo-UnbeatableBann/AI-First-CRM-HCP-Module-15848038278",
+      "source": "github",
+      "title": "Updated AI-First-CRM-HCP-Module",
+      "description": "15 commits across 2 days",
+      "url": "https://github.com/UnbeatableBann/AI-First-CRM-HCP-Module",
+      "timestamp": "2026-07-26T11:54:47Z",
+      "type": "commit",
+      "score": 115,
+      "repository": "AI-First-CRM-HCP-Module",
+      "metadata": {
+        "repoName": "UnbeatableBann/AI-First-CRM-HCP-Module",
+        "commitCount": 15,
+        "aggregationDays": 2,
+        "originalEventCount": 15
+      }
+    },
+    {
+      "id": "medium-post-vector-databases-the-most-misunderstood-tool-in-ai-46b47da50b33",
+      "source": "medium",
+      "title": "Published: Vector Databases: The Most Misunderstood Tool in AI",
+      "description": "I'll be honest. The first time I heard the term \"Vector Database\" , I was intimidated. It sounded like one of those concepts that only PhD researchers understand while casually ...",
+      "url": "https://medium.com/@shadabjamadar/vector-databases-the-most-misunderstood-tool-in-ai-46b47da50b33?source=rss-3d707b84faa9------2",
+      "timestamp": "2026-07-11T15:01:02.000Z",
+      "type": "article",
+      "score": 105,
+      "metadata": {
+        "originalTitle": "Vector Databases: The Most Misunderstood Tool in AI"
+      }
+    }
+  ]
+}
