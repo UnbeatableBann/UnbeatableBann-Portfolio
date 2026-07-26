@@ -579,6 +579,7 @@ function ProductDetailPage() {
                 </span>
                 <h1 className="text-4xl font-bold text-heading tracking-tight leading-tight">
                   {matchedProduct.name}
+                  <span className="text-[#6E9C53]">.</span>
                 </h1>
                 <div className="text-base font-semibold text-[#6E9C53] italic">
                   {matchedProduct.tagline}
@@ -600,7 +601,7 @@ function ProductDetailPage() {
                           project_category: matchedProduct.domain,
                         })
                       }
-                      className="inline-flex items-center gap-2 rounded-full bg-[#6E9C53] hover:bg-[#5C8545] text-white px-6 py-3 text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#6E9C53] hover:bg-[#5C8545] text-white px-6 py-3 text-xs font-semibold shadow-[0_0_12px_rgba(110,156,83,0.5)] hover:shadow-[0_0_16px_rgba(110,156,83,0.7)] transition-all cursor-pointer"
                     >
                       Visit Product <ExternalLink className="w-3.5 h-3.5" />
                     </a>

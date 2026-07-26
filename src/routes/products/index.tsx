@@ -377,11 +377,9 @@ function ProductsPage() {
                         </span>
                         <span
                           className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                            prod.status === "Production"
+                            prod.status === "Production" || prod.status === "Live"
                               ? "bg-emerald-100 text-emerald-900 border border-emerald-400 shadow-[0_0_12px_3px_rgba(52,211,153,0.4)]"
-                              : prod.status === "Live"
-                                ? "bg-emerald-50 text-emerald-700 border border-emerald-100"
-                                : "bg-amber-50 text-amber-700 border border-amber-100"
+                              : "bg-amber-50 text-amber-700 border border-amber-100"
                           }`}
                         >
                           {prod.status}
@@ -389,6 +387,7 @@ function ProductsPage() {
                       </div>
                       <h3 className="text-2xl font-bold text-heading tracking-tight">
                         {prod.name}
+                        <span className="text-[#6E9C53]">.</span>
                       </h3>
                       <div className="text-sm font-semibold text-[#6E9C53] italic">
                         {prod.tagline}
@@ -435,7 +434,7 @@ function ProductsPage() {
                             href={prod.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-body hover:text-heading cursor-pointer"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-body hover:text-heading drop-shadow-[0_0_8px_rgba(64,255,199,0.7)] hover:drop-shadow-[0_0_12px_rgba(64,255,199,1)] transition-all cursor-pointer"
                           >
                             Live Demo <ExternalLink className="w-3 h-3" />
                           </a>
