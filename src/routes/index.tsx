@@ -41,6 +41,7 @@ import inProgress5 from "@/assets/in-progress-5.jpg";
 
 import { ThoughtOfDayCard } from "@/features/thought-of-day";
 import { ActivityFeed } from "@/features/recent-activity/components/ActivityFeed";
+import { ProductMockup } from "@/features/products/components/ProductMockup";
 
 import { lazy, Suspense } from "react";
 const SkillsGraph = lazy(() =>
@@ -789,14 +790,20 @@ function Products() {
             </div>
 
             {/* Right Side (Visual Mockup) */}
-            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-border shadow-card aspect-[4/3] bg-[#FAFAF8] group">
-              <img
-                src={proj.image}
-                alt={proj.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-border shadow-card aspect-[4/3] bg-[#FAFAF8] group flex items-center justify-center w-full min-w-0">
+              {proj.slug === "quantix" ? (
+                <div className="w-full h-full p-0.5">
+                  <ProductMockup slug={proj.slug} />
+                </div>
+              ) : (
+                <img
+                  src={proj.image}
+                  alt={proj.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
           </div>
         ))}

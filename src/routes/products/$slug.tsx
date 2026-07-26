@@ -372,43 +372,42 @@ function ArchitectureFlowchart({ slug }: { slug: string }) {
     return (
       <div className="bg-slate-50 border border-border rounded-2xl p-6 shadow-sm space-y-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
           <h4 className="text-xs font-bold text-heading uppercase tracking-wider">
-            Arbitrage Scanning & Optimization Pipeline
+            Shim & Execution Architecture
           </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
-            <span className="text-[10px] font-bold text-amber-600 mb-0.5">PRICING</span>
-            <span className="text-[11px] font-semibold text-heading">Redis Tick Store</span>
-            <span className="text-[9px] text-muted font-normal mt-0.5">Tick Price Logging</span>
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">USER CODE</span>
+            <span className="text-[11px] font-semibold text-heading">Domain Objects</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">Equity, Future, Option</span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
 
           <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
-            <span className="text-[10px] font-bold text-amber-600 mb-0.5">SCANNER</span>
-            <span className="text-[11px] font-semibold text-heading">Cointegration Scan</span>
-            <span className="text-[9px] text-muted font-normal mt-0.5">NumPy Matrix Tests</span>
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">ADAPTER</span>
+            <span className="text-[11px] font-semibold text-heading">Broker Wrapper</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">
+              Resolves Contract Tokens
+            </span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
 
           <div className="flex flex-col items-center p-3 bg-[#0F172A] border border-slate-800 rounded-xl w-full md:w-36 text-center text-slate-350 shadow-xs">
-            <span className="text-[10px] font-bold text-amber-500 mb-0.5">OPTIMIZER</span>
-            <span className="text-[11px] font-semibold text-white font-mono">Mean-Variance</span>
-            <span className="text-[9px] text-slate-400 mt-0.5">SciPy Optimization</span>
+            <span className="text-[10px] font-bold text-emerald-500 mb-0.5">CORE SHIM</span>
+            <span className="text-[11px] font-semibold text-white font-mono">Ported Logic</span>
+            <span className="text-[9px] text-slate-400 mt-0.5">Dependency Injection Context</span>
           </div>
           <ArrowRight className="w-4 h-4 text-muted hidden md:block flex-shrink-0" />
           <div className="w-[1px] h-4 bg-border md:hidden" />
 
-          <div className="flex flex-col gap-1.5 w-full md:w-40 flex-shrink-0">
-            <div className="p-2 bg-white border border-border rounded-lg text-center text-[10px] font-semibold text-heading shadow-xs">
-              Risk Check Module
-            </div>
-            <div className="p-2 bg-white border border-border rounded-lg text-center text-[10px] font-semibold text-[#6E9C53] shadow-xs">
-              Trade Signal Output
-            </div>
+          <div className="flex flex-col items-center p-3 bg-white border border-border rounded-xl w-full md:w-32 text-center shadow-xs">
+            <span className="text-[10px] font-bold text-emerald-600 mb-0.5">EXECUTION</span>
+            <span className="text-[11px] font-semibold text-heading">Broker API</span>
+            <span className="text-[9px] text-muted font-normal mt-0.5">Raw Network Calls</span>
           </div>
         </div>
       </div>

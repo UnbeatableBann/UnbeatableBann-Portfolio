@@ -385,80 +385,96 @@ export function ProductMockup({ slug }: { slug: string }) {
 
   if (slug === "quantix") {
     return (
-      <div className="w-full h-full bg-[#0F172A] text-slate-300 p-4 flex flex-col font-sans text-[10px] leading-relaxed relative overflow-hidden select-none border border-slate-800">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-          <div className="flex items-center gap-1.5">
-            <BarChart4 className="w-4 h-4 text-amber-500" />
-            <span className="font-bold text-slate-200 text-[11px]">
-              Quantix Portfolio Optimizer
-            </span>
-          </div>
-          <span className="bg-amber-500/10 text-amber-500 border border-amber-500/25 px-1.5 py-0.5 rounded text-[8px] font-semibold">
-            Mean-Variance Active
+      <div className="w-full h-full bg-[#1e1e1e] text-[#d4d4d4] p-4 flex flex-col font-mono text-[10px] leading-relaxed relative overflow-hidden select-none border border-[#333333]">
+        {/* IDE Header */}
+        <div className="flex items-center gap-2 border-b border-[#333333] pb-2 mb-3">
+          <Terminal className="w-4 h-4 text-emerald-500" />
+          <span className="font-semibold text-slate-300 text-[11px]">main.py - quantix</span>
+          <span className="ml-auto flex gap-1">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-600" />
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 flex-1 min-h-0">
-          {/* Table Cointegration */}
-          <div className="col-span-1 sm:col-span-3 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col">
-            <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
-              Cointegration Scanner
-            </h5>
-            <div className="space-y-1.5 flex-1 overflow-y-auto">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-1">
-                <span className="text-white font-medium">EURUSD / GBPUSD</span>
-                <span className="text-emerald-400 font-mono font-semibold">p = 0.02</span>
-              </div>
-              <div className="flex items-center justify-between border-b border-slate-800 pb-1">
-                <span className="text-white font-medium">AUDUSD / NZDUSD</span>
-                <span className="text-emerald-400 font-mono font-semibold">p = 0.04</span>
-              </div>
-              <div className="flex items-center justify-between border-b border-slate-800 pb-1">
-                <span className="text-slate-400">USDCAD / USDCHF</span>
-                <span className="text-slate-500 font-mono">p = 0.18</span>
-              </div>
-            </div>
+        {/* Code Editor View */}
+        <div className="flex-1 overflow-y-auto space-y-0.5">
+          <div>
+            <span className="text-[#c586c0]">from</span>{" "}
+            <span className="text-[#9cdcfe]">quantix.brokers</span>{" "}
+            <span className="text-[#c586c0]">import</span>{" "}
+            <span className="text-[#4ec9b0]">Zerodha</span>
           </div>
+          <div>
+            <span className="text-[#c586c0]">from</span>{" "}
+            <span className="text-[#9cdcfe]">quantix.instruments</span>{" "}
+            <span className="text-[#c586c0]">import</span>{" "}
+            <span className="text-[#4ec9b0]">Equity</span>
+          </div>
+          <div>
+            <span className="text-[#c586c0]">from</span>{" "}
+            <span className="text-[#9cdcfe]">quantix.constants</span>{" "}
+            <span className="text-[#c586c0]">import</span>{" "}
+            <span className="text-[#4ec9b0]">TransactionType</span>
+          </div>
+          <br />
+          <div className="text-[#6a9955]">
+            # Initialize broker safely without leaking API strings
+          </div>
+          <div>
+            <span className="text-[#9cdcfe]">broker</span> <span className="text-[#d4d4d4]">=</span>{" "}
+            <span className="text-[#4ec9b0]">Zerodha</span>(
+            <span className="text-[#9cdcfe]">api_key</span>,{" "}
+            <span className="text-[#9cdcfe]">access_token</span>)
+          </div>
+          <br />
+          <div className="text-[#6a9955]"># Place order using strict Domain Objects</div>
+          <div>
+            <span className="text-[#9cdcfe]">order_res</span>{" "}
+            <span className="text-[#d4d4d4]">=</span> <span className="text-[#9cdcfe]">broker</span>
+            .<span className="text-[#dcdcaa]">place_order</span>(
+          </div>
+          <div className="pl-4">
+            <span className="text-[#4ec9b0]">Equity</span>(
+            <span className="text-[#ce9178]">"RELIANCE"</span>),
+          </div>
+          <div className="pl-4">
+            <span className="text-[#4ec9b0]">TransactionType</span>.
+            <span className="text-[#4fc1ff]">BUY</span>,
+          </div>
+          <div className="pl-4">
+            <span className="text-[#9cdcfe]">quantity</span>
+            <span className="text-[#d4d4d4]">=</span>
+            <span className="text-[#b5cea8]">10</span>
+          </div>
+          <div>)</div>
+          <br />
+          <div>
+            <span className="text-[#dcdcaa]">print</span>(
+            <span className="text-[#ce9178]">f"Order placed: </span>
+            <span className="text-[#569cd6]">&#123;</span>
+            <span className="text-[#9cdcfe]">order_res</span>.
+            <span className="text-[#9cdcfe]">order_id</span>
+            <span className="text-[#569cd6]">&#125;</span>
+            <span className="text-[#ce9178]">"</span>)
+          </div>
+        </div>
 
-          {/* Allocation Weights */}
-          <div className="col-span-1 sm:col-span-2 bg-slate-900 border border-slate-800/80 rounded-lg p-2.5 flex flex-col justify-between hidden sm:flex">
-            <div>
-              <h5 className="font-bold text-slate-400 text-[9px] mb-1.5 uppercase tracking-wider">
-                Weights Allocation
-              </h5>
-              <div className="space-y-2">
-                <div>
-                  <div className="flex justify-between text-[8px] mb-0.5 text-slate-400">
-                    <span>EURUSD (+45%)</span>
-                  </div>
-                  <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="bg-amber-500 h-full rounded-full" style={{ width: "45%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-[8px] mb-0.5 text-slate-400">
-                    <span>GBPUSD (-35%)</span>
-                  </div>
-                  <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="bg-amber-500 h-full rounded-full" style={{ width: "35%" }} />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-[8px] mb-0.5 text-slate-400">
-                    <span>NZDUSD (+20%)</span>
-                  </div>
-                  <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="bg-amber-500 h-full rounded-full" style={{ width: "20%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t border-slate-800 pt-1 text-center font-mono">
-              <span className="text-[7px] text-slate-500 block uppercase">Sharpe Ratio</span>
-              <span className="text-emerald-400 font-bold text-[11px]">2.4 Sharpe</span>
-            </div>
+        {/* Output Terminal View */}
+        <div className="h-20 bg-black/40 border-t border-[#333333] mt-2 p-2 rounded text-[9px] overflow-y-auto">
+          <div className="text-slate-500 mb-1">TERMINAL</div>
+          <div className="text-slate-300">
+            $ python main.py
+            <br />
+            <span className="text-emerald-400">
+              [INFO] SQLite Resolver: Loaded 112,450 instruments
+            </span>
+            <br />
+            <span className="text-emerald-400">
+              [INFO] Resolving token for Equity(symbol='RELIANCE') -&gt; 738561
+            </span>
+            <br />
+            <span className="text-emerald-400">Order placed: 24012500194833</span>
           </div>
         </div>
       </div>
