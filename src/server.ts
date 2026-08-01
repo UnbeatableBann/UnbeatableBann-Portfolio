@@ -125,6 +125,8 @@ ${urls.join("\n")}
       if (url.pathname === "/robots.txt") {
         const robots = `User-agent: *
 Allow: /
+Disallow: /*$slug*
+Disallow: /*%24slug*
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
