@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { SITE_URL } from "@/lib/config";
 import {
@@ -29,6 +29,16 @@ import { ProductMockup } from "@/features/products/components/ProductMockup";
 import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/products/$slug")({
+  loader: ({ params }) => {
+    const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === params.slug);
+    if (!matchedProduct) {
+      throw redirect({
+        to: "/products",
+        replace: true,
+      });
+    }
+    return { matchedProduct };
+  },
   component: ProductDetailPage,
   head: ({ params }) => {
     const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === params.slug);
@@ -77,7 +87,7 @@ export const Route = createFileRoute("/products/$slug")({
       links: [
         {
           rel: "canonical",
-          href: `${SITE_URL}/products/${params.slug}`,
+          href: matchedProduct ? `${SITE_URL}/products/${params.slug}` : `${SITE_URL}/products`,
         },
       ],
       scripts: matchedProduct
@@ -432,15 +442,8 @@ const PRODUCT_TABS = [
 function ProductDetailPage() {
   const { slug } = Route.useParams();
   const navigate = useNavigate();
-  const matchedProduct = PRODUCTS_DATA.find((p) => p.slug === slug);
+  const { matchedProduct } = Route.useLoaderData();
   const [activeTab, setActiveTab] = useState("Overview");
-
-  // If the product doesn't exist, redirect safely to products directory
-  useEffect(() => {
-    if (!matchedProduct) {
-      navigate({ to: "/products" });
-    }
-  }, [matchedProduct, navigate]);
 
   const tabs = PRODUCT_TABS;
 
@@ -471,19 +474,6 @@ function ProductDetailPage() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeTab, tabs]);
-
-  if (!matchedProduct) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FAFAF8] text-body">
-        <div className="text-center space-y-4">
-          <span className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-heading">
-            <Layers className="w-6 h-6 animate-pulse" />
-          </span>
-          <h2 className="text-lg font-bold text-heading">Loading Product details...</h2>
-        </div>
-      </div>
-    );
-  }
 
   // Get related products objects
   const relatedProducts = PRODUCTS_DATA.filter((p) => matchedProduct.related.includes(p.slug));
